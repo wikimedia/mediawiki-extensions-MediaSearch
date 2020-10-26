@@ -1,0 +1,200 @@
+{
+	"name": "MediaSearch",
+	"author": [
+		"Anne Tomasevich",
+		"Cormac Parle",
+		"Eric Gardner",
+		"Mark Holmquist",
+		"Matthias Mullie"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:MediaSearch",
+	"descriptionmsg": "mediasearch-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "wikibase",
+	"requires": {
+		"MediaWiki": ">= 1.35.0",
+		"extensions": {
+			"CirrusSearch": "*",
+			"Elastica": "*"
+		}
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\MediaSearch\\": "src/"
+	},
+	"TestAutoloadNamespaces": {
+		"MediaWiki\\Extension\\MediaSearch\\Tests\\MediaWiki\\": "tests/phpunit/mediawiki/"
+	},
+	"ConfigRegistry": {
+		"MediaSearch": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"MediaSearchExternalEntitySearchBaseUri": {
+			"value": ""
+		},
+		"MediaSearchLocalDev": {
+			"value": null
+		},
+		"MediaSearchSupportedFilterParams": {
+			"description": "List of valid URL query parameters for search filters",
+			"value": [
+				"mimeType",
+				"imageSize",
+				"sort",
+				"license"
+			]
+		}
+	},
+	"MessagesDirs": {
+		"MediaSearch": [
+			"i18n"
+		]
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "MediaSearch"
+	},
+	"ResourceModules": {
+		"mediasearch.styles": {
+			"styles": [
+				"resources/components/base/AutocompleteSearchInput.less",
+				"resources/components/base/Button.less",
+				"resources/components/base/CopyTextLayout.less",
+				"resources/components/base/Dialog.less",
+				"resources/components/base/Icon.less",
+				"resources/components/base/Message.less",
+				"resources/components/base/Player.less",
+				"resources/components/base/Select.less",
+				"resources/components/base/SelectMenu.less",
+				"resources/components/base/Tab.less",
+				"resources/components/base/Tabs.less",
+				"resources/components/base/Image.less",
+				"resources/components/results/ImageResult.less",
+				"resources/components/results/VideoResult.less",
+				"resources/components/results/AudioResult.less",
+				"resources/components/results/PageResult.less",
+				"resources/components/results/OtherResult.less",
+				"resources/components/App.less",
+				"resources/components/SearchResults.less",
+				"resources/components/QuickView.less",
+				"resources/components/Spinner.less",
+				"resources/components/EmptyState.less",
+				"resources/components/NoResults.less",
+				"resources/components/EndOfResults.less",
+				"resources/components/SearchFilters.less",
+				"resources/components/ConceptChips.less"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"mediasearch": {
+			"packageFiles": [
+				"resources/init.js",
+				"lib/icons.js",
+				"resources/components/base/AutocompleteSearchInput.vue",
+				"resources/components/base/Button.vue",
+				"resources/components/base/CopyTextLayout.vue",
+				"resources/components/base/Dialog.vue",
+				"resources/components/base/Icon.vue",
+				"resources/components/base/Message.vue",
+				"resources/components/base/Select.vue",
+				"resources/components/base/SelectMenu.vue",
+				"resources/components/base/Tab.vue",
+				"resources/components/base/Tabs.vue",
+				"resources/components/base/Observer.vue",
+				"resources/components/base/Image.vue",
+				"resources/components/base/Player.vue",
+				"resources/components/results/ImageResult.vue",
+				"resources/components/results/VideoResult.vue",
+				"resources/components/results/AudioResult.vue",
+				"resources/components/results/PageResult.vue",
+				"resources/components/results/OtherResult.vue",
+				"resources/components/App.vue",
+				"resources/components/SearchResults.vue",
+				"resources/components/QuickView.vue",
+				"resources/components/Spinner.vue",
+				"resources/components/EmptyState.vue",
+				"resources/components/NoResults.vue",
+				"resources/components/EndOfResults.vue",
+				"resources/components/SearchFilters.vue",
+				"resources/components/ConceptChips.vue",
+				"resources/data/filterItems.json",
+				"resources/data/sortFilterItems.json",
+				"resources/models/SearchFilter.js",
+				"resources/store/index.js",
+				"resources/store/state.js",
+				"resources/store/mutations.js",
+				"resources/store/getters.js",
+				"resources/store/actions.js",
+				"resources/mixins/autocompleteLookupHandler.js",
+				"resources/mixins/searchResult.js",
+				"resources/mixins/searchResultTimeBased.js",
+				"resources/plugins/eventLogger.js",
+				"resources/polyfills/Array.prototype.find.js",
+				"resources/polyfills/Array.prototype.findIndex.js"
+			],
+			"messages": [
+				"mediasearch-filter-size",
+				"mediasearch-filter-size-any",
+				"mediasearch-filter-size-small",
+				"mediasearch-filter-size-medium",
+				"mediasearch-filter-size-large",
+				"mediasearch-filter-file-type-any",
+				"mediasearch-filter-sort-label",
+				"mediasearch-filter-sort-default",
+				"mediasearch-filter-sort-recency",
+				"mediasearch-filter-sort-popularity",
+				"mediasearch-filter-license-any",
+				"mediasearch-filter-license-cc-by",
+				"mediasearch-filter-license-cc-by-sa",
+				"mediasearch-filter-license-unrestricted",
+				"mediasearch-filter-license-other",
+				"mediasearch-no-results",
+				"mediasearch-no-results-tips",
+				"mediasearch-end-of-results",
+				"mediasearch-end-of-results-tips",
+				"mediasearch-tab-bitmap",
+				"mediasearch-tab-audio",
+				"mediasearch-tab-video",
+				"mediasearch-tab-page",
+				"mediasearch-tab-other",
+				"mediasearch-empty-state",
+				"mediasearch-clear-title",
+				"mediasearch-input-label",
+				"mediasearch-input-placeholder",
+				"searchbutton",
+				"mediasearch-load-more-results",
+				"mediasearch-quickview-button-text",
+				"mediasearch-quickview-close-button-text",
+				"mediasearch-quickview-previous-button-text",
+				"mediasearch-quickview-next-button-text",
+				"mediasearch-category-info",
+				"mediasearch-copytextlayout-copy",
+				"mediasearch-copytextlayout-copy-fail",
+				"mediasearch-copytextlayout-copy-success",
+				"mediasearch-clear-filters"
+			],
+			"dependencies": [
+				"mediasearch.styles",
+				"vue",
+				"vuex",
+				"wikibase.api.RepoApi"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+	"SpecialPages": {
+		"NewMediaSearch": {
+			"class": "MediaWiki\\Extension\\MediaSearch\\Special\\SpecialMediaSearch",
+			"services": ["NamespaceInfo"]
+		}
+	},
+	"ExtensionMessagesFiles": {
+		"MediaSearchAlias": "MediaSearch.i18n.alias.php"
+	},
+	"manifest_version": 2
+}

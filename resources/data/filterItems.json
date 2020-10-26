@@ -1,0 +1,213 @@
+{
+	"bitmap": {
+		"license": [
+			{
+				"labelMessage": "mediasearch-filter-license-any",
+				"value": ""
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by",
+				"value": "cc-by"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by-sa",
+				"value": "cc-by-sa"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-unrestricted",
+				"value": "unrestricted"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-other",
+				"value": "other"
+			}
+		],
+		"mimeType": [
+			{
+				"labelMessage": "mediasearch-filter-file-type-any",
+				"value": ""
+			},
+			{
+				"label": "tiff",
+				"value": "tiff"
+			},
+			{
+				"label": "png",
+				"value": "png"
+			},
+			{
+				"label": "gif",
+				"value": "gif"
+			},
+			{
+				"label": "jpg",
+				"value": "jpeg"
+			},
+			{
+				"label": "webp",
+				"value": "webp"
+			},
+			{
+				"label": "xcf",
+				"value": "xcf"
+			},
+			{
+				"label": "svg",
+				"value": "svg"
+			}
+		],
+		"imageSize": [
+			{
+				"labelMessage": "mediasearch-filter-size-any",
+				"value": ""
+			},
+			{
+				"labelMessage":"mediasearch-filter-size-small",
+				"value": "<500"
+			},
+			{
+				"labelMessage": "mediasearch-filter-size-medium",
+				"value": "500,1000"
+			},
+			{
+				"labelMessage": "mediasearch-filter-size-large",
+				"value": ">1000"
+			}
+		]
+	},
+	"audio": {
+		"license": [
+			{
+				"labelMessage": "mediasearch-filter-license-any",
+				"value": ""
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by",
+				"value": "cc-by"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by-sa",
+				"value": "cc-by-sa"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-unrestricted",
+				"value": "unrestricted"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-other",
+				"value": "other"
+			}
+		],
+		"mimeType": [
+			{
+				"labelMessage": "mediasearch-filter-file-type-any",
+				"value": ""
+			},
+			{
+				"label": "mid",
+				"value": "midi"
+			},
+			{
+				"label": "flac",
+				"value": "flac"
+			},
+			{
+				"label": "wav",
+				"value": "wav"
+			},
+			{
+				"label": "mp3",
+				"value": "mpeg"
+			},
+			{
+				"label": "ogg",
+				"value": "ogg"
+			}
+		]
+	},
+	"video": {
+		"license": [
+			{
+				"labelMessage": "mediasearch-filter-license-any",
+				"value": ""
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by",
+				"value": "cc-by"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by-sa",
+				"value": "cc-by-sa"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-unrestricted",
+				"value": "unrestricted"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-other",
+				"value": "other"
+			}
+		],
+		"mimeType": [
+			{
+				"labelMessage": "mediasearch-filter-file-type-any",
+				"value": ""
+			},
+			{
+				"label": "webm",
+				"value": "webm"
+			},
+			{
+				"label": "mpg",
+				"value": "mpeg"
+			},
+			{
+				"label": "ogg",
+				"value": "ogg"
+			}
+		]
+	},
+	"page": {},
+	"other": {
+		"license": [
+			{
+				"labelMessage": "mediasearch-filter-license-any",
+				"value": ""
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by",
+				"value": "cc-by"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-cc-by-sa",
+				"value": "cc-by-sa"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-unrestricted",
+				"value": "unrestricted"
+			},
+			{
+				"labelMessage": "mediasearch-filter-license-other",
+				"value": "other"
+			}
+		],
+		"mimeType": [
+			{
+				"labelMessage": "mediasearch-filter-file-type-any",
+				"value": ""
+			},
+			{
+				"label": "pdf",
+				"value": "pdf"
+			},
+			{
+				"label": "djvu",
+				"value": "djvu"
+			},
+			{
+				"label": "stl",
+				"value": "sla"
+			}
+		]
+	}
+}

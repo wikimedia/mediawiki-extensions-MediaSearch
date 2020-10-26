@@ -1,0 +1,10 @@
+.*.swp
+*~
+/.project
+/.vscode
+/.idea
+/composer.lock
+/vendor
+/node_modules
+.eslintcache
+/coverage

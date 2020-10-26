@@ -1,0 +1,137 @@
+<template>
+	<div class="sdms-other-result">
+		<a
+			v-if="thumbnail"
+			class="sdms-other-result__thumbnail-wrapper"
+			:href="canonicalurl"
+			:title="title"
+			:style="style"
+			target="_blank"
+			@click="$emit('click')"
+		>
+			<sdms-image :source="thumbnail" :alt="displayName"></sdms-image>
+		</a>
+		<div class="sdms-other-result__text">
+			<h3>
+				<a :href="canonicalurl"
+					target="_blank"
+					:title="title"
+					@click="$emit('click')"
+				>
+					{{ displayName }}
+				</a>
+			</h3>
+			<p class="sdms-other-result__meta">
+				<span class="sdms-other-result__extension">
+					{{ extension }}
+				</span>
+				{{ resolution }}
+			</p>
+		</div>
+	</div>
+</template>
+
+<script>
+var SdImage = require( './../base/Image.vue' );
+
+/**
+ * @file OtherResult.vue
+ *
+ * Represents mediatypes other than bitmap, audio, and video.
+ */
+// @vue/component
+module.exports = {
+	name: 'OtherResult',
+
+	components: {
+		'sdms-image': SdImage
+	},
+
+	inheritAttrs: false,
+
+	props: {
+		title: {
+			type: String,
+			required: true
+		},
+
+		canonicalurl: {
+			type: String,
+			required: true
+		},
+
+		imageinfo: {
+			type: Array,
+			required: false,
+			default: function () {
+				return [ {} ];
+			}
+		}
+	},
+
+	computed: {
+		/**
+		 * Use mw.Title to get a normalized title without File, Category, etc. prepending
+		 *
+		 * @return {string}
+		 */
+		displayName: function () {
+			return new mw.Title( this.title ).getMainText();
+		},
+
+		/**
+		 * Get file extension.
+		 *
+		 * @return {string}
+		 */
+		extension: function () {
+			return new mw.Title( this.title ).getExtension().toUpperCase();
+		},
+
+		/**
+		 * @return {string|null}
+		 */
+		resolution: function () {
+			var width = this.imageinfo[ 0 ].width,
+				height = this.imageinfo[ 0 ].height;
+
+			if ( this.imageinfo && width && height ) {
+				return width + ' × ' + height;
+			} else {
+				return null;
+			}
+		},
+
+		/**
+		 * @return {string|undefined}
+		 */
+		thumbnail: function () {
+			return this.imageinfo[ 0 ].thumburl;
+		},
+
+		/**
+		 * @return {number}
+		 */
+		thumbheight: function () {
+			return this.imageinfo[ 0 ].thumbheight;
+		},
+
+		/**
+		 * @return {number}
+		 */
+		thumbwidth: function () {
+			return this.imageinfo[ 0 ].thumbwidth;
+		},
+
+		/**
+		 * @return {Object} style object with width and height properties
+		 */
+		style: function () {
+			return {
+				width: this.thumbwidth + 'px',
+				height: this.thumbheight + 'px'
+			};
+		}
+	}
+};
+</script>

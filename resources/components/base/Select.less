@@ -1,0 +1,104 @@
+@import 'mediawiki.mixins';
+@import './../../sd-base-variables.less';
+
+.sd-select {
+	max-width: @sd-max-width-input-base;
+	position: relative;
+
+	// Expand indicator.
+	&__handle {
+		.transition( color 100ms );
+		color: @color-base;
+		// Icon size is based on font size, so we'll set it here to make the
+		// indicator smaller than the default font size.
+		// Equal to 12px in ems.
+		font-size: unit( @min-size-indicator / @sd-font-size-browser / @sd-font-size-base, em );
+		position: absolute;
+		right: @sd-padding-horizontal-base;
+		top: 50%;
+		transform: translateY( -50% );
+	}
+
+	&__content {
+		.transition( ~'background-color 100ms, border-color 100ms, box-shadow 100ms' );
+		background-color: @background-color-framed;
+		border: @border-base;
+		border-radius: @border-radius-base;
+		box-sizing: border-box;
+		color: @color-base;
+		cursor: pointer;
+		min-height: @size-base;
+		padding: @sd-padding-vertical-mobile @sd-padding-end-dropdown
+			@sd-padding-vertical-mobile @sd-padding-horizontal-base;
+		position: relative;
+		width: 100%;
+
+		@media screen and ( min-width: @width-breakpoint-tablet ) {
+			padding: @sd-padding-vertical-base @sd-padding-end-dropdown
+				@sd-padding-vertical-base @sd-padding-horizontal-base;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:hover {
+			background-color: @background-color-framed--hover;
+			color: @color-base--hover;
+			border-color: @border-color-base--hover;
+
+			.sd-select__handle {
+				color: @color-base--hover;
+			}
+		}
+
+		&:focus {
+			.box-shadow( inset 0 0 0 1px @color-primary );
+			border-color: @sd-border-color-base--focus;
+			outline: 0;
+		}
+
+		&:active {
+			color: @color-base--active;
+			border-color: @border-color-base--active;
+		}
+	}
+
+	&--open {
+		.sd-select__content {
+			background-color: @background-color-framed--hover;
+		}
+
+		// stylelint-disable-next-line no-descending-specificity
+		.sd-select__handle {
+			color: @color-base;
+		}
+	}
+
+	&--disabled {
+		.sd-select__content {
+			background-color: @background-color-base--disabled;
+			border-color: @border-color-base--disabled;
+			color: @color-base--disabled;
+			cursor: auto;
+			text-shadow: @text-shadow-base--disabled;
+
+			&:hover {
+				.sd-select__handle {
+					color: @color-base--disabled;
+				}
+			}
+
+			&:focus {
+				.box-shadow( none );
+				border-color: @border-color-base--disabled;
+				outline: 0;
+			}
+		}
+
+		// stylelint-disable-next-line no-descending-specificity
+		.sd-select__handle {
+			color: @color-base--disabled;
+		}
+	}
+}

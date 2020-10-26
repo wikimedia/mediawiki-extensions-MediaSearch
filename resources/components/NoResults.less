@@ -1,0 +1,23 @@
+@import 'mediawiki.mixins';
+@import '../mediasearch-variables.less';
+
+.sdms-no-results {
+	font-size: 1.2em; // match h3 font size
+	font-weight: bold;
+	margin: 0 auto;
+	max-width: 30rem;
+	padding: @sdms-spacing-base;
+	text-align: center;
+
+	&__icon {
+		background: center / contain no-repeat url( ../icons/no_results.svg );
+		height: 115px;
+		margin: 0 auto;
+		width: 150px;
+	}
+
+	&__tips {
+		display: block;
+		font-weight: normal;
+	}
+}

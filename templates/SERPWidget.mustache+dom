@@ -1,0 +1,295 @@
+<form method="get" action="{{page}}">
+	{{#querystring}}
+		{{^isQ}}
+			<input type="hidden" name="{{key}}" value="{{value}}" />
+		{{/isQ}}
+	{{/querystring}}
+
+	<div class="sd-input sdms-search-input sd-input--button">
+		<div class="sd-input__wrapper">
+			<label
+				id="sdms-search-input__label"
+				for="sdms-search-input__input"
+				class="sd-input__label"
+			>
+				{{searchLabel}}
+			</label>
+
+			<input
+				value="{{term}}"
+				name="q"
+				id="sdms-search-input__input"
+				dir="auto"
+				class="sd-input__input"
+				type="text"
+				placeholder="{{searchPlaceholder}}"
+			>
+
+			{{!
+				JS version will have 'search' indicator & 'clear' action, both of which are an icon...
+				the way these are implemented in JS is quite annoying to replicate here, and since
+				they're just a visual gimmick rather than an essential feature, we'll skip them
+			}}
+		</div>
+
+		<button type="submit" class="sd-button sd-input__button sd-button--framed sd-button--progressive sd-button--primary">
+			<span class="sd-button__content">{{searchButton}}</span>
+		</button>
+	</div>
+</form>
+
+<div class="sd-tabs">
+	<div class="sd-tabs__header">
+		<div role="tablist" tabindex="0" class="sd-tabs__tabs-list" aria-activedescendant="sd-tab-{{activeType}}-label">
+			{{#tabs}}
+				<div
+					id="sd-tab-{{type}}-label"
+					{{#isActive}}aria-selected="true"{{/isActive}}
+					aria-controls="sd-tab-{{type}}"
+					role="tab"
+					class="sd-tabs__tabs-list__item {{#isActive}}sd-tabs__tabs-list__item--current{{/isActive}}"
+				>
+					{{! below form is a bit of a hack to mimick tabs without JS, where tab label is submit button }}
+					<form method="get" action="{{page}}">
+						{{#querystring}}
+							{{^isType}}
+								{{^isContinue}}
+									<input type="hidden" name="{{key}}" value="{{value}}" />
+								{{/isContinue}}
+							{{/isType}}
+						{{/querystring}}
+						<input type="hidden" name="q" value="{{term}}" />
+
+						<label>
+							<input
+								type="submit"
+								name="type"
+								value="{{type}}"
+								{{#isActive}}checked="checked"{{/isActive}}
+								style="display: none"
+							/>
+							{{label}}
+						</label>
+					</form>
+				</div>
+			{{/tabs}}
+		</div>
+	</div>
+
+	<div class="sd-tabs__content">
+		{{#tabs}}
+			{{#isActive}}
+				<div
+					id="sd-tab-{{activeType}}"
+					aria-labeledby="sd-tab-{{activeType}}-label"
+					role="tabpanel"
+					class="sd-tab"
+				>
+					{{^isPage}}
+						<div class="sdms-search-filters">
+							{{#filtersForDisplay}}
+							<div class="sd-select sd-select--disabled">
+								<div class="sd-select__content">
+									<span class="sd-select__current-selection">{{ . }}</span>
+									<span class="sd-icon sd-select__handle">
+										<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" aria-hidden="true">
+											<g fill="currentColor">
+												<path d="M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"></path>
+											</g>
+										</svg>
+									</span>
+								</div>
+							</div>
+							{{/filtersForDisplay}}
+
+							{{#hasFilters}}
+							<div class="sdms-search-filters__spacer"></div>
+							<div class="sdms-search-filters__clear--no-js">
+								<a href="{{ clearFiltersUrl }}">{{ clearFiltersText }}</a>
+							</div>
+							{{/hasFilters}}
+						</div>
+					{{/isPage}}
+
+					<div class="sdms-search-results">
+						<div class="sdms-search-results__list sdms-search-results__list--{{type}}">
+							{{#isBitmap}}
+								{{#results}}
+									<a
+										ref="link"
+										class="{{imageResultClass}}"
+										href="{{canonicalurl}}"
+										title="{{title}}"
+										style="{{wrapperStyle}}"
+										target="_blank"
+									>
+										<img
+											src="{{imageinfo.0.thumburl}}"
+											data-src="{{imageinfo.0.thumburl}}"
+											alt="{{name}}"
+											loading="lazy"
+											class="sd-image"
+											style="{{imageStyle}}"
+										>
+									</a>
+								{{/results}}
+							{{/isBitmap}}
+
+							{{#isAudio}}
+								{{#results}}
+									<div class="sdms-audio-result">
+										<h3 class="sdms-audio-result__title">
+											<a ref="link"
+												href="{{canonicalurl}}"
+												title="{{title}}"
+												target="_blank"
+											>
+												{{name}}
+											</a>
+										</h3>
+
+										{{#imageinfo.0.mime}}
+											<h4 class="sdms-audio-result__meta">
+												{{! note: duration formatting is implemented in JS - not worth reimplementing here }}
+												<span class="sdms-audio-result__mime">{{.}}</span>
+											</h4>
+										{{/imageinfo.0.mime}}
+
+										{{#entityterms.label}}
+											<p>{{.}}</p>
+										{{/entityterms.label}}
+									</div>
+								{{/results}}
+							{{/isAudio}}
+
+							{{#isVideo}}
+								{{#results}}
+									<a ref="link"
+										class="sdms-video-result"
+										href="{{canonicalurl}}"
+										title="{{title}}"
+										target="_blank"
+									>
+										<img
+											src="{{imageinfo.0.thumburl}}"
+											alt="{{name}}"
+											class="sdms-video-result__thumbnail"
+											loading="lazy"
+										>
+
+										<div class="sdms-video-result__body">
+											<h3 class="sdms-video-result__title">
+												{{name}}
+											</h3>
+
+											{{#imageinfo.0.mime}}
+												<h4 class="sdms-video-result__meta">
+													{{! note: duration formatting is implemented in JS - not worth reimplementing here }}
+													<span class="sdms-video-result__mime">{{.}}</span>
+												</h4>
+											{{/imageinfo.0.mime}}
+										</div>
+									</a>
+								{{/results}}
+							{{/isVideo}}
+
+							{{#isPage}}
+								{{#results}}
+									<div class="sdms-page-result">
+										<h3>
+											<a href="{{canonicalurl}}"
+												title="{{title}}"
+												target="_blank"
+											>
+												{{name}}
+											</a>
+										</h3>
+										{{#categoryInfoText}}
+											<p>{{.}}</p>
+										{{/categoryInfoText}}
+									</div>
+								{{/results}}
+							{{/isPage}}
+
+							{{#isOther}}
+								{{#results}}
+									<div class="sdms-other-result">
+										<a class="sdms-other-result__thumbnail-wrapper"
+											href="{{canonicalurl}}"
+											title="{{title}}"
+											style="width: {{imageinfo.0.thumbwidth}}px; height: {{imageinfo.0.thumbheight}}px;"
+											target="_blank"
+										>
+											<img
+												src="{{imageinfo.0.thumburl}}"
+												alt="{{name}}"
+												loading="lazy"
+											>
+										</a>
+										<div class="sdms-other-result__text">
+											<h3>
+												<a href="{{canonicalurl}}"
+													target="_blank"
+													title="{{title}}"
+												>
+													{{ name }}
+												</a>
+											</h3>
+										</div>
+									</div>
+								{{/results}}
+							{{/isOther}}
+						</div>
+					</div>
+
+					{{#hasMore}}
+						<form method="get" action="{{page}}">
+							{{#querystring}}
+								{{^isContinue}}
+									<input type="hidden" name="{{key}}" value="{{value}}" />
+								{{/isContinue}}
+							{{/querystring}}
+							<input type="hidden" name="continue" value="{{continue}}" />
+							<button type="submit" class="sd-button sdms-load-more sd-button--framed sd-button--progressive">
+								<span class="sd-button__content">{{continueMessage}}</span>
+							</button>
+						</form>
+					{{/hasMore}}
+
+					{{#endOfResults}}
+						<div class="sdms-end-of-results">
+							<p>
+								{{endOfResultsMessage}}
+								<span class="sdms-no-results__tips">
+									{{{endOfResultsMessageExtra}}}
+								</span>
+							</p>
+						</div>
+					{{/endOfResults}}
+
+					{{^results}}
+						{{#hasTerm}}
+							<div class="sdms-no-results">
+								<div class="sdms-no-results__icon"></div>
+								<p>
+									{{{noResultsMessage}}}
+									<span class="sdms-no-results__tips">
+										{{{noResultsMessageExtra}}}
+									</span>
+								</p>
+							</div>
+						{{/hasTerm}}
+						{{^hasTerm}}
+							<div class="sdms-empty-state">
+								<div class="sdms-empty-state__icon"></div>
+								<p>
+									{{{emptyMessage}}}
+								</p>
+							</div>
+						{{/hasTerm}}
+					{{/results}}
+				</div>
+			{{/isActive}}
+		{{/tabs}}
+	</div>
+</div>

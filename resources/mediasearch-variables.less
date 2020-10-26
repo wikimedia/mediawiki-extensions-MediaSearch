@@ -1,0 +1,45 @@
+@import '../lib/wikimedia-ui-base.less';
+
+// Global MediaSearch variables
+// ---------------------------------------------------------
+// Use semantic variable names from wikimedia-ui-base in the code when it makes
+// sense to do so. Otherwise, create a new extension-specific semantic
+// variable here, with prefix sdms- (Structured Data Media Search).
+
+// Colors
+// ---------------------------------------------------------
+// https://design.wikimedia.org/style-guide/visual-style_colors.html
+@sdms-icon-color--subtle: @wmui-color-base50;
+
+// Border
+// ---------------------------------------------------------
+@sdms-border-color-result: @background-color-tabs;
+
+// Spacing
+// ---------------------------------------------------------
+@sdms-spacing-base: 16px;
+@sdms-spacing-sm: @sdms-spacing-base / 2;
+@sdms-spacing-xs: @sdms-spacing-base / 4;
+
+@sdms-padding-vertical-base: 6px;
+
+@sdms-margin-horizontal-mobile: 8px;
+
+// Mixins
+// ---------------------------------------------------------
+.sdms-result-box-shadow() {
+	.box-shadow( 4px 4px 5px -2px @border-color-base );
+};
+
+// Taken from OOUI.
+.sdms-visually-hidden() {
+	display: block;
+	position: absolute;
+	clip: rect( 1px, 1px, 1px, 1px );
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
