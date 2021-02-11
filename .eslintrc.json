@@ -2,7 +2,8 @@
 	"root": true,
 	"extends": [
 		"wikimedia/client",
-		".eslintshared.json"
+		".eslintshared.json",
+		"wikimedia/mediawiki"
 	],
 	"env": {
 		"commonjs": true
@@ -10,23 +11,36 @@
 	"rules": {
 		"max-len": "off",
 		"no-jquery/variable-pattern": "off",
-		"no-jquery/no-event-shorthand": "off"
+		"no-jquery/no-event-shorthand": "off",
+		"compat/compat": "warn"
 	},
 	"overrides": [
 		{
 			"files": "**/*.vue",
 			"extends": "wikimedia/vue-es5",
 			"rules": {
-				"vue/html-self-closing": [ "error", {
-					"html": {
-						"void": "never",
-						"normal": "never",
-						"component": "never"
+				"vue/html-self-closing": [
+					"error",
+					{
+						"html": {
+							"void": "never",
+							"normal": "never",
+							"component": "never"
+						}
 					}
-				} ],
-				"vue/v-bind-style": [ "warn", "shorthand" ],
-				"vue/v-on-style": [ "warn", "shorthand" ],
-				"vue/v-slot-style": [ "warn", "shorthand" ]
+				],
+				"vue/v-bind-style": [
+					"warn",
+					"shorthand"
+				],
+				"vue/v-on-style": [
+					"warn",
+					"shorthand"
+				],
+				"vue/v-slot-style": [
+					"warn",
+					"shorthand"
+				]
 			}
 		}
 	]

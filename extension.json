@@ -190,7 +190,7 @@
 	"SpecialPages": {
 		"NewMediaSearch": {
 			"class": "MediaWiki\\Extension\\MediaSearch\\Special\\SpecialMediaSearch",
-			"services": ["NamespaceInfo"]
+			"services": [ "NamespaceInfo" ]
 		}
 	},
 	"ExtensionMessagesFiles": {
