@@ -10,7 +10,7 @@
 	"mediasearch-tab-audio": "Audio",
 	"mediasearch-tab-video": "Video",
 	"mediasearch-tab-page": "Categories and Pages",
-	"mediasearch-tab-other": "Other",
+	"mediasearch-tab-other": "Other Media",
 	"mediasearch-filter-size": "Image size",
 	"mediasearch-filter-size-any": "All image sizes",
 	"mediasearch-filter-size-small": "Small",
@@ -43,5 +43,9 @@
 	"mediasearch-copytextlayout-copy": "Copy",
 	"mediasearch-copytextlayout-copy-fail": "Failed to copy to clipboard.",
 	"mediasearch-copytextlayout-copy-success": "Copied to clipboard.",
-	"mediasearch-clear-filters": "Clear filters"
+	"mediasearch-clear-filters": "Clear filters",
+	"mediasearch-results-count": "$1 {{PLURAL:$1|result|results}}",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|word|words}})",
+	"mediasearch-image-size": "($1)",
+	"mediasearch-did-you-mean": "Did you mean: <a href=\"$2\">$1</a>"
 }

@@ -49,5 +49,9 @@
 	"mediasearch-copytextlayout-copy": "Text for button to copy text to the clipboard\n{{identical|Copy}}",
 	"mediasearch-copytextlayout-copy-fail": "Message shown when copying to the clipboard fails",
 	"mediasearch-copytextlayout-copy-success": "Message shown when copying to the clipboard succeeds",
-	"mediasearch-clear-filters": "Label text for the control to clear existing search filters"
+	"mediasearch-clear-filters": "Label text for the control to clear existing search filters",
+	"mediasearch-results-count": "Total number of results for a search. Parameters:\n* $1 - Number of results (totalhits)",
+	"mediasearch-wordcount": "Wordcount of a page, wrapped in parentheses. Parameters:\n* $1 - Number of words (wordcount)",
+	"mediasearch-image-size": "Size of an image, wrapped in parentheses. Parameters:\n* $1 - Image size",
+	"mediasearch-did-you-mean": "Text prompting the user to search for an alternate search term if they entered a likely typo. Parameters:\n* $1 - Suggested term\n* $2 - Link to search results for suggested term"
 }

@@ -27,7 +27,7 @@
 			don't load more results until user explicitly clicks on a
 			"load more" button; this resets the autoload count -->
 			<sd-button
-				v-else-if="hasMore[ mediaType ]"
+				v-else-if="hasMoreResults"
 				class="sdms-load-more"
 				:progressive="true"
 				@click="$emit( 'load-more' )"
@@ -102,7 +102,6 @@
  * result, including some additional data fetched from the API.
  */
 var mapState = require( 'vuex' ).mapState,
-	mapGetters = require( 'vuex' ).mapGetters,
 	ImageResult = require( './results/ImageResult.vue' ),
 	AudioResult = require( './results/AudioResult.vue' ),
 	VideoResult = require( './results/VideoResult.vue' ),
@@ -158,8 +157,6 @@ module.exports = {
 		'pending',
 		'continue',
 		'initialized'
-	] ), mapGetters( [
-		'hasMore'
 	] ), {
 		/**
 		 * Which component should be used to display individual search results
@@ -208,22 +205,25 @@ module.exports = {
 
 		/**
 		 * @return {boolean}
-		 *
+		 */
+		hasMoreResults: function () {
+			return !!this.continue[ this.mediaType ]; // we have a value for continue
+		},
+
+		/**
+		 * @return {boolean}
 		 */
 		hasNoResults: function () {
 			return this.term.length > 0 && // user has entered a search term
-				this.pending[ this.mediaType ] === false && // tab is not pending
 				this.results[ this.mediaType ].length === 0 && // tab has no results
 				this.continue[ this.mediaType ] === null; // query cannot be continued
 		},
 
 		/**
 		 * @return {boolean}
-		 *
 		 */
 		endOfResults: function () {
 			return this.term.length > 0 && // user has entered a search term
-				this.pending[ this.mediaType ] === false && // tab is not pending
 				this.results[ this.mediaType ].length > 0 && // tab has some results
 				this.continue[ this.mediaType ] === null; // query cannot be continued
 		},
@@ -413,7 +413,11 @@ module.exports = {
 		 */
 		getResultClass: function ( pageid ) {
 			return {
-				'sdms-search-result--highlighted': this.details && this.details.pageid === pageid
+				// Visual indication that result is currently displayed in QuickView
+				'sdms-search-result--highlighted': this.details && this.details.pageid === pageid,
+				// If there are 3 or fewer image results, we'll limit their
+				// growth to avoid having one overly-stretched image in the grid.
+				'sdms-image-result--limit-size': this.mediaType === 'bitmap' && this.results[ this.mediaType ].length <= 3
 			};
 		},
 
@@ -460,6 +464,17 @@ module.exports = {
 		},
 
 		/**
+		 * Debounced version of getResultStyle for use in a resize listener
+		 */
+		getDebouncedResultStyle: function () {
+			clearTimeout( this.debounceTimeoutId );
+			this.debounceTimeoutId = setTimeout(
+				this.getResultStyle.bind( this ),
+				250
+			);
+		},
+
+		/**
 		 * Clicks on results that do not display a quickview should still be
 		 * logged for analytics purposes.
 		 *
@@ -495,11 +510,11 @@ module.exports = {
 	},
 
 	created: function () {
-		window.addEventListener( 'resize', this.getResultStyle );
+		window.addEventListener( 'resize', this.getDebouncedResultStyle );
 	},
 
 	destroyed: function () {
-		window.removeEventListener( 'resize', this.getResultStyle );
+		window.removeEventListener( 'resize', this.getDebouncedResultStyle );
 	}
 };
 </script>

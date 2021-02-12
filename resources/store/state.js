@@ -2,6 +2,7 @@
 
 var initialResults = mw.config.get( 'sdmsInitialSearchResults' ),
 	initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) ),
+	didYouMean = mw.config.get( 'sdmsDidYouMean' ),
 	// TODO: Remove this, it's just a workaround for now
 	// while we use data from Production commons to test features locally
 	ensureArray = function ( obj ) {
@@ -30,6 +31,11 @@ module.exports = {
 	relatedConcepts: [],
 
 	/**
+	 * Suggested alternate search term, if any
+	 */
+	didYouMean: didYouMean,
+
+	/**
 	 * Arrays of objects broken down by type
 	 */
 	results: {
@@ -40,13 +46,19 @@ module.exports = {
 		other: initialResults.activeType === 'other' ? sortedResults : []
 	},
 
+	/**
+	 * Per-tab value for continue will be one of 3 things:
+	 * 1. Offset value where the next batch of results should start (string)
+	 * 2. undefined (representing that we don't know if there are more
+	 *    results because we haven't done a search API call yet)
+	 * 3. null (representing that there are no more results)
+	 */
 	continue: {
-		bitmap:
-			initialResults.activeType === 'bitmap' ? initialResults.continue : 0,
-		audio: initialResults.activeType === 'audio' ? initialResults.continue : 0,
-		video: initialResults.activeType === 'video' ? initialResults.continue : 0,
-		page: initialResults.activeType === 'page' ? initialResults.continue : 0,
-		other: initialResults.activeType === 'other' ? initialResults.continue : 0
+		bitmap: initialResults.activeType === 'bitmap' ? initialResults.continue : undefined,
+		audio: initialResults.activeType === 'audio' ? initialResults.continue : undefined,
+		video: initialResults.activeType === 'video' ? initialResults.continue : undefined,
+		page: initialResults.activeType === 'page' ? initialResults.continue : undefined,
+		other: initialResults.activeType === 'other' ? initialResults.continue : undefined
 	},
 
 	pending: {
@@ -55,6 +67,17 @@ module.exports = {
 		video: false,
 		page: false,
 		other: false
+	},
+
+	/**
+	 * Total number of search results.
+	 */
+	totalHits: {
+		bitmap: initialResults.activeType === 'bitmap' ? initialResults.totalHits : 0,
+		audio: initialResults.activeType === 'audio' ? initialResults.totalHits : 0,
+		video: initialResults.activeType === 'video' ? initialResults.totalHits : 0,
+		page: initialResults.activeType === 'page' ? initialResults.totalHits : 0,
+		other: initialResults.activeType === 'other' ? initialResults.totalHits : 0
 	},
 
 	filterValues: {

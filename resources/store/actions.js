@@ -47,6 +47,19 @@ function getMediaFilters( mediaType, filterValues ) {
 	return raw;
 }
 
+/**
+ * @param {string} suggestion
+ * @param {string} filters
+ * @return {string}
+ */
+function extractSuggestedTerm( suggestion, filters ) {
+	if ( filters ) {
+		return suggestion.substring( filters.length ).trim();
+	} else {
+		return suggestion;
+	}
+}
+
 module.exports = {
 	/**
 	 * Perform a search via API request. Should return a promise.
@@ -79,6 +92,8 @@ module.exports = {
 				gsrsearch: options.term,
 				gsrlimit: LIMIT,
 				gsroffset: context.state.continue[ options.type ] || 0,
+				gsrinfo: 'totalhits|suggestion',
+				gsrprop: 'size|wordcount',
 				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
 				inprop: 'url'
 			},
@@ -102,7 +117,8 @@ module.exports = {
 						// exclude duplicates (namespace ids known under multiple aliases)
 						ids.indexOf( id ) === i
 					);
-				} );
+				} )
+				.join( '|' );
 		} else {
 			// Params used in all non-page/category searches.
 			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
@@ -125,7 +141,6 @@ module.exports = {
 			params.iiurlheight = options.type === 'bitmap' ? 180 : undefined;
 			params.iiurlwidth = urlWidth;
 			params.wbetterms = 'label';
-			params.mediasearch = true; // @todo this is temporary to force the use of the mediasearch profile
 		}
 
 		// Add sort filter.
@@ -178,6 +193,19 @@ module.exports = {
 						item: result
 					} );
 				} );
+
+				if ( response.query.searchinfo && response.query.searchinfo.totalhits ) {
+					context.commit( 'setTotalHits', {
+						mediaType: options.type,
+						totalHits: response.query.searchinfo.totalhits
+					} );
+				}
+			}
+
+			if ( response.query.searchinfo && response.query.searchinfo.suggestion ) {
+				context.commit( 'setDidYouMean',
+					extractSuggestedTerm( response.query.searchinfo.suggestion, filters )
+				);
 			}
 
 			// Set whether or not the query can be continued
@@ -262,6 +290,7 @@ module.exports = {
 		context.commit( 'clearRelatedConcepts' );
 		context.commit( 'resetFilters' );
 		context.commit( 'resetResults' );
+		context.commit( 'clearDidYouMean' );
 	},
 
 	/**

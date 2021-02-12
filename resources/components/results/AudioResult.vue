@@ -12,12 +12,12 @@
 			</a>
 		</h3>
 
-		<h4 v-if="formattedDuration && mime" class="sdms-audio-result__meta">
+		<h4 class="sdms-audio-result__meta">
 			<span class="sdms-audio-result__duration">
 				<sd-icon :icon="icon"></sd-icon>
-				<span class="sdms-audio-result__duration__text">{{ formattedDuration }}</span>
+				<span v-if="formattedDuration" class="sdms-audio-result__duration__text">{{ formattedDuration }}</span>
 			</span>
-			<span class="sdms-audio-result__mime">{{ mime }}</span>
+			<span v-if="mime" class="sdms-audio-result__mime">{{ mime }}</span>
 		</h4>
 
 		<p v-if="label">

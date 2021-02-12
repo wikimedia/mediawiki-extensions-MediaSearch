@@ -37,12 +37,14 @@ module.exports = {
 			// Reset results for only a single result type if the second arg is
 			// provided
 			state.results[ mediaType ] = [];
-			state.continue[ mediaType ] = null;
+			state.continue[ mediaType ] = undefined;
+			state.totalHits[ mediaType ] = 0;
 		} else {
 			// Reset results for all types if second arg is not provided
 			types.forEach( function ( type ) {
 				state.results[ type ] = [];
-				state.continue[ type ] = null;
+				state.continue[ type ] = undefined;
+				state.totalHits[ mediaType ] = 0;
 			} );
 		}
 	},
@@ -69,6 +71,16 @@ module.exports = {
 	 */
 	setPending: function ( state, payload ) {
 		state.pending[ payload.type ] = payload.pending;
+	},
+
+	/**
+	 * @param {Object} state
+	 * @param {Object} payload
+	 * @param {string} payload.mediaType
+	 * @param {string} payload.totalHits
+	 */
+	setTotalHits: function ( state, payload ) {
+		state.totalHits[ payload.mediaType ] = payload.totalHits;
 	},
 
 	/**
@@ -130,6 +142,21 @@ module.exports = {
 	 */
 	clearRelatedConcepts: function ( state ) {
 		state.relatedConcepts = [];
+	},
+
+	/**
+	 * @param {Object} state
+	 * @param {string} suggestion
+	 */
+	setDidYouMean: function ( state, suggestion ) {
+		state.didYouMean = suggestion;
+	},
+
+	/**
+	 * @param {Object} state
+	 */
+	clearDidYouMean: function ( state ) {
+		state.didYouMean = null;
 	},
 
 	/**

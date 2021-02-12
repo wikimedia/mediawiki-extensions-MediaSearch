@@ -67,6 +67,8 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	public function execute( $subPage ) {
 		OutputPage::setupOOUI();
 
+		$userLanguage = $this->getContext()->getLanguage();
+
 		// url & querystring params of this page
 		$url = $this->getContext()->getRequest()->getRequestURL();
 		parse_str( parse_url( $url, PHP_URL_QUERY ), $querystring );
@@ -80,7 +82,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$termWithFilters = $this->getTermWithFilters( $term, $activeFilters );
 		$clearFiltersUrl = $this->getPageTitle()->getLinkURL( array_diff( $querystring, $activeFilters ) );
 
-		list( $results, $continue ) = $this->search(
+		list( $results, $searchinfo, $continue ) = $this->search(
 			$termWithFilters,
 			$type,
 			$limit,
@@ -88,8 +90,18 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			$this->getSort( $activeFilters )
 		);
 
-		$totalSiteImages = $this->getContext()->getLanguage()->formatNum( SiteStats::images() );
+		$totalSiteImages = $userLanguage->formatNum( SiteStats::images() );
 		$thumbLimits = $this->getThumbLimits();
+
+		// Handle optional searchinfo that may be present in the API response:
+		$totalHits = $searchinfo['totalhits'] ?? 0;
+		$didYouMean = null;
+		$didYouMeanLink = null;
+
+		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
+			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ] );
+			$didYouMeanLink = $this->generateDidYouMeanLink( $querystring, $didYouMean );
+		}
 
 		$data = [
 			'querystring' => array_map( function ( $key, $value ) {
@@ -125,28 +137,28 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 					'isVideo' => true,
 				],
 				[
-					'type' => 'page',
-					'label' => $this->msg( 'mediasearch-tab-page' )->text(),
-					'isActive' => $type === 'page',
-					'isPage' => true,
-				],
-				[
 					'type' => 'other',
 					'label' => $this->msg( 'mediasearch-tab-other' )->text(),
 					'isActive' => $type === 'other',
 					'isOther' => true,
 				],
+				[
+					'type' => 'page',
+					'label' => $this->msg( 'mediasearch-tab-page' )->text(),
+					'isActive' => $type === 'page',
+					'isPage' => true,
+				],
 			],
-			'results' => array_map( function ( $result ) use ( $thumbLimits ) {
+			'results' => array_map( function ( $result ) use ( $thumbLimits, $userLanguage, $type, $results ) {
 				$title = Title::newFromDBkey( $result['title'] );
 				$filename = $title ? $title->getText() : $result['title'];
 				$result += [ 'name' => $filename ];
 
-				if ( array_key_exists( 'categoryinfo', $result ) ) {
+				if ( isset( $result['categoryinfo'] ) ) {
 					$categoryInfoParams = [
-						$result['categoryinfo']['size'],
-						$result['categoryinfo']['subcats'],
-						$result['categoryinfo']['files']
+						$userLanguage->formatNum( $result['categoryinfo']['size'] ),
+						$userLanguage->formatNum( $result['categoryinfo']['subcats'] ),
+						$userLanguage->formatNum( $result['categoryinfo']['files'] )
 					];
 					$result += [
 						'categoryInfoText' => $this->msg(
@@ -156,7 +168,38 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 					];
 				}
 
-				if ( isset( $result['imageinfo'][0]['thumburl'] ) ) {
+				// Formatted page size.
+				if ( isset( $result['size'] ) ) {
+					$result['formattedPageSize'] = $userLanguage->formatSize( $result['size'] );
+				}
+
+				// Word count.
+				if ( isset( $result['wordcount'] ) ) {
+					$result['wordcountMessage'] = $this->msg(
+						'mediasearch-wordcount',
+						$userLanguage->formatNum( $result['wordcount'] )
+					)->text();
+				}
+
+				// Formatted image size.
+				if ( isset( $result['imageinfo'] ) && isset( $result['imageinfo'][0]['size'] ) ) {
+					$result['imageSizeMessage'] = $this->msg(
+						'mediasearch-image-size',
+						$userLanguage->formatSize( $result['imageinfo'][0]['size'] )
+					)->text();
+				}
+
+				if (
+					$type === 'other' &&
+					isset( $result['imageinfo'] ) &&
+					isset( $result['imageinfo'][0]['width'] ) &&
+					isset( $result['imageinfo'][0]['height'] )
+				) {
+					$result['resolution'] = $userLanguage->formatNum( $result['imageinfo'][0]['width'] ) .
+						' × ' . $userLanguage->formatNum( $result['imageinfo'][0]['height'] );
+				}
+
+				if ( isset( $result['imageinfo'] ) && isset( $result['imageinfo'][0]['thumburl'] ) ) {
 					$imageInfo = $result['imageinfo'][0];
 					$oldWidth = $imageInfo['thumbwidth'];
 					$newWidth = $oldWidth;
@@ -177,6 +220,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 					);
 
 					$result['imageResultClass'] = 'sdms-image-result';
+
 					if (
 						$imageInfo['thumbwidth'] && $imageInfo['thumbheight'] &&
 						is_numeric( $imageInfo['thumbwidth'] ) && is_numeric( $imageInfo['thumbheight'] ) &&
@@ -196,6 +240,10 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 						}
 						// Set max initial width of 350px.
 						$result['wrapperStyle'] = 'width: ' . min( [ $imageInfo['thumbwidth'], 350 ] ) . 'px;';
+					}
+
+					if ( count( $results ) <= 3 ) {
+						$result['imageResultClass'] .= ' sdms-image-result--limit-size';
 					}
 
 					// Generate style attribute for the image itself.
@@ -231,6 +279,15 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 				->text(),
 			'noResultsMessage' => $this->msg( 'mediasearch-no-results' )->text(),
 			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->text(),
+			'didYouMean' => $didYouMean,
+			// phpcs:ignore Generic.Files.LineLength.TooLong
+			'didYouMeanMessage' => $this->msg( 'mediasearch-did-you-mean', $didYouMean, $didYouMeanLink )->text(),
+			'totalHits' => $totalHits,
+			'showResultsCount' => $totalHits > 0,
+			'resultsCount' => $this->msg(
+				'mediasearch-results-count',
+				$userLanguage->formatNum( $totalHits )
+			)->text()
 		];
 
 		$this->getOutput()->addHTML( $this->templateParser->processTemplate( 'SERPWidget', $data ) );
@@ -243,6 +300,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'sdmsThumbLimits' => $thumbLimits,
 			'sdmsLocalDev' => $this->getConfig()->get( 'MediaSearchLocalDev' ),
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),
+			'sdmsDidYouMean' => $didYouMean,
 			'sdmsEnableLicenseFilter' => ExtensionRegistry::getInstance()->isLoaded( 'WikibaseCirrusSearch' )
 		] );
 
@@ -257,7 +315,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 * @param int|null $limit
 	 * @param string|null $continue
 	 * @param string|null $sort
-	 * @return array [ search results, continuation value ]
+	 * @return array [ search results, searchinfo data, continuation value ]
 	 * @throws \MWException
 	 */
 	protected function search(
@@ -273,7 +331,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		Assert::parameterType( 'string|null', $sort, '$sort' );
 
 		if ( $term === '' ) {
-			return [ [], null ];
+			return [ [], [], null ];
 		}
 
 		$langCode = $this->getContext()->getLanguage()->getCode();
@@ -290,6 +348,8 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 				'gsrlimit' => $limit,
 				'gsroffset' => $continue ?: 0,
 				'gsrsort' => $sort,
+				'gsrinfo' => 'totalhits|suggestion',
+				'gsrprop' => 'size|wordcount',
 				'prop' => 'info|categoryinfo',
 				'inprop' => 'url',
 			] );
@@ -325,6 +385,8 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 				'gsrlimit' => $limit,
 				'gsroffset' => $continue ?: 0,
 				'gsrsort' => $sort,
+				'gsrinfo' => 'totalhits|suggestion',
+				'gsrprop' => 'size|wordcount',
 				'prop' => 'info|imageinfo|entityterms',
 				'inprop' => 'url',
 				'iiprop' => 'url|size|mime',
@@ -352,13 +414,14 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		}
 
 		$results = array_values( $response['query']['pages'] ?? [] );
+		$searchinfo = $response['query']['searchinfo'] ?? [];
 		$continue = $response['continue']['gsroffset'] ?? null;
 
 		uasort( $results, function ( $a, $b ) {
 			return $a['index'] <=> $b['index'];
 		} );
 
-		return [ $results, $continue ];
+		return [ $results, $searchinfo, $continue ];
 	}
 
 	/**
@@ -486,5 +549,33 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$thumbLimits = array_unique( $thumbLimits );
 		sort( $thumbLimits );
 		return $thumbLimits;
+	}
+
+	/**
+	 * @param string $suggestion
+	 * @return string
+	 */
+	protected function extractSuggestedTerm( $suggestion ) {
+		$filters = [ 'filetype', 'fileres', 'filemime', 'haslicense' ];
+		$suggestion = preg_replace(
+			'/(?<=^|\s)(' . implode( '|', $filters ) . '):.+?(?=$|\s)/',
+			' ',
+			$suggestion
+		);
+		return trim( $suggestion );
+	}
+
+	/**
+	 * If the search API returns a suggested search, generate a clickable link
+	 * that allows the user to run the suggested query immediately.
+	 *
+	 * @param array $queryParams
+	 * @param string $suggestion
+	 * @return string
+	 */
+	protected function generateDidYouMeanLink( $queryParams, $suggestion ) {
+		unset( $queryParams[ 'title' ] );
+		$queryParams[ 'q' ] = $suggestion;
+		return $this->getPageTitle()->getLinkURL( $queryParams );
 	}
 }

@@ -115,6 +115,7 @@
 				<sd-copy-text-layout
 					:copy-text="displayName"
 					:inline="true"
+					@copy="handleFilenameCopy"
 				></sd-copy-text-layout>
 			</p>
 
@@ -124,6 +125,7 @@
 					:copy-text="'[[' + title + '|' + displayNameWithoutExtension + ']]'"
 					:inline="true"
 					:hide-overflow="true"
+					@copy="handleWikitextCopy"
 				></sd-copy-text-layout>
 			</p>
 
@@ -164,6 +166,7 @@ var SdIcon = require( './base/Icon.vue' ),
 	SdCopyTextLayout = require( './base/CopyTextLayout.vue' ),
 	Spinner = require( './Spinner.vue' ),
 	icons = require( '../../lib/icons.js' ),
+	userLangCode = mw.config.get( 'wgUserLanguage' ),
 	PREVIEW_SIZES = [ 640, 800, 1200, 1600 ], // Pre-defined set of thumbnail image width values
 	MAX_SIZE = 2000;
 
@@ -479,7 +482,7 @@ module.exports = {
 				height = this.imageinfo[ 0 ].height;
 
 			if ( this.imageinfo && width && height ) {
-				return width + ' × ' + height;
+				return width.toLocaleString( userLangCode ) + ' × ' + height.toLocaleString( userLangCode );
 			} else {
 				return null;
 			}
@@ -622,6 +625,22 @@ module.exports = {
 				search_result_page_id: this.pageid
 			} );
 			/* eslint-enable camelcase */
+		},
+
+		/**
+		 * Log when the user copies the name of the active file using the
+		 * built-in tool
+		 */
+		handleFilenameCopy: function () {
+			this.$log( { action: 'quickview_filename_copy' } );
+		},
+
+		/**
+		 * Log when the user copies the wikitext link of the active file using
+		 * the built-in tool
+		 */
+		handleWikitextCopy: function () {
+			this.$log( { action: 'quickview_wikitext_link_copy' } );
 		}
 	},
 

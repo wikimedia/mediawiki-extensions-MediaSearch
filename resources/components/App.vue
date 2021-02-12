@@ -30,6 +30,8 @@
 				<search-filters :media-type="tab" @filter-change="onFilterChange">
 				</search-filters>
 
+				<did-you-mean></did-you-mean>
+
 				<transition-group
 					name="sdms-concept-chips-transition"
 					class="sdms-concept-chips-transition"
@@ -98,6 +100,7 @@ var AUTOLOAD_COUNT = 2,
 	SearchResults = require( './SearchResults.vue' ),
 	SearchFilters = require( './SearchFilters.vue' ),
 	ConceptChips = require( './ConceptChips.vue' ),
+	DidYouMean = require( './DidYouMean.vue' ),
 	Observer = require( './base/Observer.vue' ),
 	autocompleteLookupHandler = require( './../mixins/autocompleteLookupHandler.js' ),
 	url = new mw.Uri();
@@ -113,6 +116,7 @@ module.exports = {
 		'search-results': SearchResults,
 		'search-filters': SearchFilters,
 		'concept-chips': ConceptChips,
+		'did-you-mean': DidYouMean,
 		observer: Observer
 	},
 
@@ -139,14 +143,24 @@ module.exports = {
 		'relatedConcepts',
 		'filterValues'
 	] ), mapGetters( [
-		'hasMore',
+		'checkForMore',
 		'allActiveFilters'
 	] ), {
 		/**
+		 * The names here need to match the keys found in this.results,
+		 * (which originate in Vuex store), but the order here matters
+		 * for visual presentation so they have been manually sorted.
+		 *
 		 * @return {string[  ]} [  'bitmap', 'video', 'audio', 'page', 'other'  ]
 		 */
 		tabs: function () {
-			return Object.keys( this.results );
+			return [
+				'bitmap',
+				'audio',
+				'video',
+				'other',
+				'page'
+			];
 		},
 
 		/**
@@ -180,6 +194,7 @@ module.exports = {
 		'resetFilters',
 		'resetResults',
 		'clearRelatedConcepts',
+		'clearDidYouMean',
 		'setTerm',
 		'setPending',
 		'resetFilters',
@@ -228,7 +243,6 @@ module.exports = {
 		 * @param {string} [data.value]
 		 */
 		onFilterChange: function ( data ) {
-			this.resetResults( data.mediaType );
 			this.resetCountAndLoadMore( data.mediaType );
 			this.$refs[ data.mediaType ][ 0 ].hideDetails();
 
@@ -322,7 +336,7 @@ module.exports = {
 				return;
 			}
 
-			if ( this.hasMore[ tab ] && !this.pending[ tab ] ) {
+			if ( this.checkForMore[ tab ] && !this.pending[ tab ] ) {
 				// Decrement the autoload count of the appropriate tab
 				this.autoloadCounter[ tab ]--;
 
@@ -342,7 +356,7 @@ module.exports = {
 					/* eslint-enable camelcase */
 				}.bind( this ) );
 
-			} else if ( this.hasMore[ tab ] && this.pending[ tab ] ) {
+			} else if ( this.checkForMore[ tab ] && this.pending[ tab ] ) {
 				// If more results are available but another request is
 				// currently in-flight, attempt to make the request again
 				// after some time has passed
@@ -382,10 +396,13 @@ module.exports = {
 		 * Dispatch Vuex actions to clear existing results and fetch new ones.
 		 * Also resets the autoload counter for all tabs for semi-infinite
 		 * scroll behavior.
+		 *
+		 * @param {string} mediaType If provided, only reset results for this type
 		 */
-		performNewSearch: function () {
-			this.resetResults();
+		performNewSearch: function ( mediaType ) {
+			this.resetResults( mediaType );
 			this.clearRelatedConcepts();
+			this.clearDidYouMean();
 			this.autoloadCounter = this.setInitialAutoloadCountForTabs();
 
 			// Abort in-flight lookup promises to ensure the results provided
@@ -484,7 +501,7 @@ module.exports = {
 
 		allActiveFilters: function ( newVal, oldVal ) {
 			if ( newVal && newVal !== oldVal ) {
-				this.performNewSearch();
+				this.performNewSearch( this.currentTab );
 			}
 		}
 	},

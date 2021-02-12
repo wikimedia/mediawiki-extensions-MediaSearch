@@ -20,6 +20,9 @@
 					@hide="addGradientClass"
 				></sd-observer>
 			</template>
+			<span v-if="showResultsCount" class="sdms-search-results-count">
+				{{ resultsCount }}
+			</span>
 		</div>
 	</div>
 </template>
@@ -63,7 +66,10 @@ module.exports = {
 		};
 	},
 
-	computed: $.extend( {}, mapState( [ 'filterValues' ] ), {
+	computed: $.extend( {}, mapState( [
+		'totalHits',
+		'filterValues'
+	] ), {
 		/**
 		 * @return {Object}
 		 */
@@ -118,6 +124,27 @@ module.exports = {
 				'IntersectionObserver' in window &&
 				'IntersectionObserverEntry' in window &&
 				'intersectionRatio' in window.IntersectionObserverEntry.prototype
+			);
+		},
+
+		/**
+		 * Number of results should only display if results exist.
+		 *
+		 * @return {boolean} Whether to display the results count
+		 */
+		showResultsCount: function () {
+			return this.totalHits[ this.mediaType ] > 0;
+		},
+
+		/**
+		 * String representing the number of search results.
+		 *
+		 * @return {Object} Message object
+		 */
+		resultsCount: function () {
+			return this.$i18n(
+				'mediasearch-results-count',
+				this.totalHits[ this.mediaType ].toLocaleString( mw.config.get( 'wgUserLanguage' ) )
 			);
 		}
 	} ),
