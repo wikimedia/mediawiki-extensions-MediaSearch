@@ -226,6 +226,8 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 						is_numeric( $imageInfo['thumbwidth'] ) && is_numeric( $imageInfo['thumbheight'] ) &&
 						$imageInfo['thumbheight'] > 0
 					) {
+						// @phan-suppress-next-next-line PhanTypeInvalidLeftOperandOfNumericOp
+						// @phan-suppress-next-line PhanTypeInvalidRightOperandOfNumericOp
 						if ( $imageInfo['thumbwidth'] / $imageInfo['thumbheight'] < 1 ) {
 							$result['imageResultClass'] .= ' sdms-image-result--portrait';
 						}
