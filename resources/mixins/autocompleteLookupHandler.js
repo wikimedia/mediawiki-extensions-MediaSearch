@@ -152,7 +152,7 @@ module.exports = {
 		getLookupRequestForTerm: function ( term ) {
 			var api = isLocalDev ?
 				new mw.Api( { ajax: { url: 'https://www.wikidata.org/w/api.php' } } ) :
-				wikibase.api.getLocationAgnosticMwApi( apiUri );
+				wikibase.api.getLocationAgnosticMwApi( apiUri, { anonymous: true } );
 
 			if ( this.lookupDisabled ) {
 				return $.Deferred().resolve( { search: [] } ).promise( { abort: function () {} } );

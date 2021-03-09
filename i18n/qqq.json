@@ -29,13 +29,14 @@
 	"mediasearch-filter-sort-popularity": "Label for popularity sort option",
 	"mediasearch-filter-license-any": "Label text for option to filter media search results by any license",
 	"mediasearch-filter-license-cc-by": "Label text for option to filter media search results by CC-BY licenses",
+	"mediasearch-filter-license-attribution": "Label text for option to filter media search results by CC-BY licenses",
 	"mediasearch-filter-license-cc-by-sa": "Label text for option to filter media search results by CC-SA licenses",
+	"mediasearch-filter-license-attribution-same-license": "Label text for option to filter media search results by CC-SA licenses",
 	"mediasearch-filter-license-unrestricted": "Label text for option to filter media search results by CC-0 license or public domain media",
 	"mediasearch-filter-license-other": "Label text for option to filter media search results by other licenses",
 	"mediasearch-no-results": "Message informing the user that no results were found",
 	"mediasearch-no-results-tips": "Tips on how the user could improve their search query",
 	"mediasearch-end-of-results": "Message informing the user that no additional results were found",
-	"mediasearch-end-of-results-tips": "Tips on how the user could improve their search query",
 	"mediasearch-empty-state": "Text prompting the user to search for media files. Parameters:\n* $1 - Total number of media files",
 	"mediasearch-clear-title": "Accessible title for search input clear button",
 	"mediasearch-input-label": "Visually-hidden label for the Media Search search input",
@@ -52,6 +53,8 @@
 	"mediasearch-clear-filters": "Label text for the control to clear existing search filters",
 	"mediasearch-results-count": "Total number of results for a search. Parameters:\n* $1 - Number of results (totalhits)",
 	"mediasearch-wordcount": "Wordcount of a page, wrapped in parentheses. Parameters:\n* $1 - Number of words (wordcount)",
-	"mediasearch-image-size": "Size of an image, wrapped in parentheses. Parameters:\n* $1 - Image size",
-	"mediasearch-did-you-mean": "Text prompting the user to search for an alternate search term if they entered a likely typo. Parameters:\n* $1 - Suggested term\n* $2 - Link to search results for suggested term"
+	"mediasearch-image-size": "{{optional}}\nSize of an image, wrapped in parentheses. Parameters:\n* $1 - Image size",
+	"mediasearch-did-you-mean": "Text prompting the user to search for an alternate search term if they entered a likely typo. Parameters:\n* $1 - Suggested term\n* $2 - Link to search results for suggested term",
+	"mediasearch-error-message": "Error message informing the user of an invalid search",
+	"mediasearch-retry-link": "Text prompting the user to retry their search query. Parameters:\n* $1 - Link to Special:MediaSearch without any additional parameters"
 }

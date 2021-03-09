@@ -37,10 +37,10 @@
 		"MediaSearchSupportedFilterParams": {
 			"description": "List of valid URL query parameters for search filters",
 			"value": [
-				"mimeType",
-				"imageSize",
-				"sort",
-				"license"
+				"filemime",
+				"fileres",
+				"haslicense",
+				"sort"
 			]
 		}
 	},
@@ -82,7 +82,8 @@
 				"resources/components/EndOfResults.less",
 				"resources/components/SearchFilters.less",
 				"resources/components/ConceptChips.less",
-				"resources/components/DidYouMean.less"
+				"resources/components/DidYouMean.less",
+				"resources/widgets/SearchErrorWidget.less"
 			],
 			"targets": [
 				"desktop",
@@ -121,8 +122,6 @@
 				"resources/components/DidYouMean.vue",
 				"resources/components/SearchFilters.vue",
 				"resources/components/ConceptChips.vue",
-				"resources/data/filterItems.json",
-				"resources/data/sortFilterItems.json",
 				"resources/models/SearchFilter.js",
 				"resources/store/index.js",
 				"resources/store/state.js",
@@ -134,28 +133,17 @@
 				"resources/mixins/searchResultTimeBased.js",
 				"resources/plugins/eventLogger.js",
 				"resources/polyfills/Array.prototype.find.js",
-				"resources/polyfills/Array.prototype.findIndex.js"
+				"resources/polyfills/Array.prototype.findIndex.js",
+				{
+					"name": "resources/data/searchOptions.json",
+					"callback": "MediaWiki\\Extension\\MediaSearch\\SearchOptions::getSearchOptions"
+				}
 			],
 			"messages": [
-				"mediasearch-filter-size",
-				"mediasearch-filter-size-any",
-				"mediasearch-filter-size-small",
-				"mediasearch-filter-size-medium",
-				"mediasearch-filter-size-large",
-				"mediasearch-filter-file-type-any",
 				"mediasearch-filter-sort-label",
-				"mediasearch-filter-sort-default",
-				"mediasearch-filter-sort-recency",
-				"mediasearch-filter-sort-popularity",
-				"mediasearch-filter-license-any",
-				"mediasearch-filter-license-cc-by",
-				"mediasearch-filter-license-cc-by-sa",
-				"mediasearch-filter-license-unrestricted",
-				"mediasearch-filter-license-other",
 				"mediasearch-no-results",
 				"mediasearch-no-results-tips",
 				"mediasearch-end-of-results",
-				"mediasearch-end-of-results-tips",
 				"mediasearch-tab-bitmap",
 				"mediasearch-tab-audio",
 				"mediasearch-tab-video",

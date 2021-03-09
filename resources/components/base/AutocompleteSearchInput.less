@@ -29,6 +29,7 @@
 
 	&__icon {
 		padding-left: @sd-padding-horizontal-input-text;
+		opacity: 0.67;
 	}
 
 	&__indicator {
@@ -73,10 +74,18 @@
 			display: none;
 		}
 
+		&:hover {
+			border-color: @sd-border-color-input--hover;
+		}
+
 		&:focus {
 			.box-shadow( @box-shadow-base--focus );
 			border-color: @wmui-color-accent50;
 			outline: 0;
+
+			+ .sd-input__icon {
+				opacity: 1;
+			}
 		}
 
 		&[ type='search' ] {
@@ -111,12 +120,6 @@
 			height: @sd-size-base;
 			line-height: @sd-line-height-base;
 			margin: 0; // Undo Safari style.
-		}
-	}
-
-	&:hover {
-		&__input {
-			border-color: @sd-border-color-input--hover;
 		}
 	}
 }

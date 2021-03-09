@@ -1,0 +1,9 @@
+<div class="sdms-media-search">
+	<div class="sdms-error">
+		<div class="sdms-error__icon">
+		</div>
+
+		<h3>{{ errorMessage }}</h3>
+		<p>{{{ retryLinkMessage }}}</p>
+	</div>
+</div>

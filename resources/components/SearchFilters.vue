@@ -41,8 +41,7 @@ var mapState = require( 'vuex' ).mapState,
 	SdSelect = require( './base/Select.vue' ),
 	SdObserver = require( './base/Observer.vue' ),
 	SearchFilter = require( '../models/SearchFilter.js' ),
-	filterItems = require( './../data/filterItems.json' ),
-	sortFilterItems = require( './../data/sortFilterItems.json' );
+	searchOptions = require( './../data/searchOptions.json' );
 
 // @vue/component
 module.exports = {
@@ -83,29 +82,15 @@ module.exports = {
 		 * @return {Array} SearchFilter objects for this media type.
 		 */
 		searchFilters: function () {
-			var filtersArray = [ ],
-				filterKey,
-				newFilter,
-				sortFilter = new SearchFilter( 'sort', sortFilterItems );
+			var optionsForType = searchOptions[ this.mediaType ],
+				filters = [];
 
-			for ( filterKey in filterItems[ this.mediaType ] ) {
-				newFilter = new SearchFilter(
-					filterKey,
-					filterItems[ this.mediaType ][ filterKey ]
-				);
-				filtersArray.push( newFilter );
-			}
+			Object.keys( optionsForType ).forEach( function ( option ) {
+				var filter = new SearchFilter( option, optionsForType[ option ] );
+				filters.push( filter );
+			} );
 
-			// If the WikibaseCirrusSearch module isn't loaded, remove license
-			// filter (the page media type already doesn't have one).
-			if ( !mw.config.get( 'sdmsEnableLicenseFilter' ) && this.mediaType !== 'page' ) {
-				filtersArray.shift();
-			}
-
-			// All media types use the sort filter.
-			filtersArray.push( sortFilter );
-
-			return filtersArray;
+			return filters;
 		},
 
 		/**
@@ -113,7 +98,7 @@ module.exports = {
 		 * Having a shorthand computed property for this makes it easier to
 		 * watch for changes.
 		 *
-		 * @return {Array} Empty array or [  "imageSize", "mimeType"  ], etc
+		 * @return {Array} Empty array or [  "imageres", "filemime"  ], etc
 		 */
 		currentActiveFilters: function () {
 			return Object.keys( this.filterValues[ this.mediaType ] );

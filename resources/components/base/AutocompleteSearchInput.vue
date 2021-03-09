@@ -300,6 +300,7 @@ module.exports = {
 			}
 			this.$emit( 'submit', this.value );
 			this.clearLookupResults();
+			this.$refs.input.blur();
 		},
 
 		/**

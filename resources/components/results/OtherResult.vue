@@ -127,9 +127,11 @@ module.exports = {
 		 * @return {Object} style object with width and height properties
 		 */
 		style: function () {
+			var desiredWidth = 120;
+
 			return {
-				width: this.thumbwidth + 'px',
-				height: this.thumbheight + 'px'
+				width: desiredWidth + 'px',
+				height: Math.round( this.thumbheight / this.thumbwidth * desiredWidth ) + 'px'
 			};
 		}
 	}

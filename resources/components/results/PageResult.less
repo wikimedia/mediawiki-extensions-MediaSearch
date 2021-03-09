@@ -1,8 +1,10 @@
+@import 'mediawiki.mixins';
 @import '../../mediasearch-variables.less';
 
 .sdms-page-result {
 	border-bottom: @border-width-base @border-style-base
 		@sdms-border-color-result;
+	max-width: @sdms-max-width-base;
 	padding: @sdms-spacing-base * 0.75 0;
 
 	&:last-child {
@@ -18,5 +20,16 @@
 		color: @color-base--subtle;
 		display: inline-block;
 		margin: 0;
+	}
+
+	&__title {
+		.flex-display();
+		align-items: center;
+	}
+
+	&__namespace {
+		background-color: @sdms-background-color-namespace-label;
+		margin-right: 0.5em;
+		padding: 0 0.5em;
 	}
 }

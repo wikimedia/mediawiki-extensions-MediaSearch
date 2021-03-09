@@ -2,9 +2,6 @@
 	<div class="sdms-end-of-results">
 		<p>
 			{{ $i18n( 'mediasearch-end-of-results' ) }}
-			<span class="sdms-no-results__tips">
-				{{ $i18n( 'mediasearch-end-of-results-tips' ) }}
-			</span>
 		</p>
 	</div>
 </template>

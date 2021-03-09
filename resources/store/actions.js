@@ -30,19 +30,18 @@ function getMediaFilters( mediaType, filterValues ) {
 			break;
 	}
 
-	function addFilter( filterType, paramKey ) {
-		var value = filterType in filterValues ?
-			filterValues[ filterType ] : null;
+	function addFilter( filter ) {
+		var value = filter in filterValues ? filterValues[ filter ] : null;
 		if ( value ) {
-			return ' ' + paramKey + ':' + value;
+			return ' ' + filter + ':' + value;
 		}
 
 		return '';
 	}
 
-	raw += addFilter( 'mimeType', 'filemime' );
-	raw += addFilter( 'imageSize', 'fileres' );
-	raw += addFilter( 'license', 'haslicense' );
+	raw += addFilter( 'filemime' );
+	raw += addFilter( 'fileres' );
+	raw += addFilter( 'haslicense' );
 
 	return raw;
 }
@@ -93,7 +92,7 @@ module.exports = {
 				gsrlimit: LIMIT,
 				gsroffset: context.state.continue[ options.type ] || 0,
 				gsrinfo: 'totalhits|suggestion',
-				gsrprop: 'size|wordcount',
+				gsrprop: 'size|wordcount|timestamp|snippet',
 				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
 				inprop: 'url'
 			},
@@ -101,6 +100,18 @@ module.exports = {
 			filters,
 			urlWidth,
 			request;
+
+		// If a search request is already in-flight, abort it
+		if ( activeSearchRequest ) {
+			activeSearchRequest.abort();
+		}
+
+		if ( context.state.continue[ options.type ] === null ) {
+			// prevent API requests when they're already known not to have results
+			// (because there was no continuation offset)
+			activeSearchRequest = $.Deferred().resolve().promise( { abort: function () {} } );
+			return activeSearchRequest;
+		}
 
 		if ( options.type === 'page' ) {
 			// Page/category-specific params.
@@ -132,7 +143,11 @@ module.exports = {
 					break;
 
 				case 'other':
-					urlWidth = 120;
+					// generating thumbnails from many of these file types is very
+					// expensive and slow, enough so that we're better off using a
+					// larger (takes longer to transfer) pre-generated (but readily
+					// available) size
+					urlWidth = Math.min.apply( Math, mw.config.get( 'sdmsThumbRenderMap' ) );
 					break;
 			}
 
@@ -147,11 +162,6 @@ module.exports = {
 		if ( 'sort' in context.state.filterValues[ options.type ] &&
 			context.state.filterValues[ options.type ].sort === 'recency' ) {
 			params.gsrsort = 'create_timestamp_desc';
-		}
-
-		// If a search request is already in-flight, abort it
-		if ( activeSearchRequest ) {
-			activeSearchRequest.abort();
 		}
 
 		// Set the pending state for the given queue
@@ -173,19 +183,30 @@ module.exports = {
 		activeSearchRequest = request;
 
 		return request.then( function ( response ) {
-			var results, pageIDs, sortedResults;
+			var existingPageIds = context.state.results[ options.type ].map( function ( result ) {
+					return result.pageid;
+				} ),
+				results, pageIDs, sortedResults;
 
 			if ( response.query && response.query.pages ) {
 				results = response.query.pages;
 				pageIDs = Object.keys( results );
 
 				// Sort the results within each batch prior to committing them
-				// to the store
-				sortedResults = pageIDs.map( function ( id ) {
-					return results[ id ];
-				} ).sort( function ( a, b ) {
-					return a.index - b.index;
-				} );
+				// to the store. Also, ensure that there is no duplication of
+				// results between batches (see https://phabricator.wikimedia.org/T272923);
+				// if a new result's pageId already exists in the set of
+				// previously-loaded results, filter it out.
+				sortedResults = pageIDs
+					.map( function ( id ) {
+						return results[ id ];
+					} )
+					.filter( function ( result ) {
+						return existingPageIds.indexOf( result.pageid ) < 0;
+					} )
+					.sort( function ( a, b ) {
+						return a.index - b.index;
+					} );
 
 				sortedResults.forEach( function ( result ) {
 					context.commit( 'addResult', {
@@ -209,7 +230,7 @@ module.exports = {
 			}
 
 			// Set whether or not the query can be continued
-			if ( response.continue ) {
+			if ( response.continue && response.continue.gsroffset ) {
 				// Store the "continue" property of the request so we can pick up where we left off
 				context.commit( 'setContinue', {
 					type: options.type,

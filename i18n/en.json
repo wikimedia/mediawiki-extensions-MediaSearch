@@ -23,13 +23,14 @@
 	"mediasearch-filter-sort-popularity": "Popularity",
 	"mediasearch-filter-license-any": "All licenses",
 	"mediasearch-filter-license-cc-by": "Use with attribution",
+	"mediasearch-filter-license-attribution": "Use with attribution",
 	"mediasearch-filter-license-cc-by-sa": "Use with attribution and same license",
+	"mediasearch-filter-license-attribution-same-license": "Use with attribution and same license",
 	"mediasearch-filter-license-unrestricted": "No restrictions",
 	"mediasearch-filter-license-other": "Other",
 	"mediasearch-no-results": "We didn't find any results",
 	"mediasearch-no-results-tips": "Try more general terms or check your spelling",
 	"mediasearch-end-of-results": "No more results found",
-	"mediasearch-end-of-results-tips": "Try adjusting your search term or filter settings",
 	"mediasearch-empty-state": "Search more than $1 free to re-use media {{PLURAL:$1|file|files}}",
 	"mediasearch-clear-title": "Remove",
 	"mediasearch-input-label": "Search media",
@@ -39,7 +40,7 @@
 	"mediasearch-quickview-close-button-text": "Close file details",
 	"mediasearch-quickview-previous-button-text": "View previous result",
 	"mediasearch-quickview-next-button-text": "View next result",
-	"mediasearch-category-info": "$1 {{PLURAL:$1|member|members}} – $2 {{PLURAL:$2|subcategory|subcategories}}, $3 {{PLURAL:$3|file|files}}",
+	"mediasearch-category-info": "$1 {{PLURAL:$1|member|members}} ($2 {{PLURAL:$2|subcategory|subcategories}}, $3 {{PLURAL:$3|file|files}})",
 	"mediasearch-copytextlayout-copy": "Copy",
 	"mediasearch-copytextlayout-copy-fail": "Failed to copy to clipboard.",
 	"mediasearch-copytextlayout-copy-success": "Copied to clipboard.",
@@ -47,5 +48,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|result|results}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|word|words}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Did you mean: <a href=\"$2\">$1</a>"
+	"mediasearch-did-you-mean": "Did you mean: <a href=\"$2\">$1</a>",
+	"mediasearch-error-message": "Invalid search",
+	"mediasearch-retry-link": "<a href=\"$1\">Enter a new search</a> and try again"
 }

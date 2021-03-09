@@ -89,7 +89,6 @@
  * AutocompleteSearchInput for display.
  */
 var AUTOLOAD_COUNT = 2,
-	FILTER_DATA = require( '../data/filterItems.json' ),
 	mapState = require( 'vuex' ).mapState,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapMutations = require( 'vuex' ).mapMutations,
@@ -103,6 +102,7 @@ var AUTOLOAD_COUNT = 2,
 	DidYouMean = require( './DidYouMean.vue' ),
 	Observer = require( './base/Observer.vue' ),
 	autocompleteLookupHandler = require( './../mixins/autocompleteLookupHandler.js' ),
+	searchOptions = require( '../data/searchOptions.json' ),
 	url = new mw.Uri();
 
 // @vue/component
@@ -243,7 +243,9 @@ module.exports = {
 		 * @param {string} [data.value]
 		 */
 		onFilterChange: function ( data ) {
-			this.resetCountAndLoadMore( data.mediaType );
+			// the new search (with updated filter params) is handled
+			// by the allActiveFilters watcher
+
 			this.$refs[ data.mediaType ][ 0 ].hideDetails();
 
 			if ( data.value ) {
@@ -315,7 +317,7 @@ module.exports = {
 				url.query.type = this.currentTab;
 
 				Object.keys( e.state ).forEach( function ( key ) {
-					if ( key in FILTER_DATA[ this.currentTab ] || key === 'sort' ) {
+					if ( key in searchOptions[ this.currentTab ] ) {
 						url.query[ key ] = e.state[ key ];
 						this.addFilterValue( {
 							mediaType: this.currentTab,
@@ -449,8 +451,8 @@ module.exports = {
 		 * other filters such as debug mode, feature flags, etc. intact.
 		 */
 		clearFilterQueryParams: function () {
-			Object.keys( FILTER_DATA ).forEach( function ( type ) {
-				Object.keys( FILTER_DATA[ type ] ).forEach( function ( filter ) {
+			Object.keys( searchOptions ).forEach( function ( type ) {
+				Object.keys( searchOptions[ type ] ).forEach( function ( filter ) {
 					delete url.query[ filter ];
 				} );
 			} );
