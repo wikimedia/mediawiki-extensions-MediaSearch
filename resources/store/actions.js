@@ -17,7 +17,7 @@ function getMediaFilters( mediaType, filterValues ) {
 
 	// Start with a filter based on media type(s).
 	switch ( mediaType ) {
-		case 'bitmap':
+		case 'image':
 			raw = 'filetype:bitmap|drawing';
 			break;
 
@@ -77,7 +77,7 @@ module.exports = {
 	 *
 	 * @param {Object} context
 	 * @param {Object} options
-	 * @param {string} options.type bitmap / page / audio / video / other
+	 * @param {string} options.type image / page / audio / video / other
 	 * @param {string} options.term search term
 	 * @return {jQuery.Deferred}
 	 */
@@ -96,7 +96,9 @@ module.exports = {
 				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
 				inprop: 'url'
 			},
-			namespaces = mw.config.get( 'wgNamespaceIds' ),
+			namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
+			namespaceFilter,
+			namespaceGroup,
 			filters,
 			urlWidth,
 			request;
@@ -115,21 +117,16 @@ module.exports = {
 
 		if ( options.type === 'page' ) {
 			// Page/category-specific params.
-			params.gsrnamespace = Object.keys( namespaces )
-				.map( function ( key ) {
-					return namespaces[ key ];
-				} )
-				.filter( function ( id, i, ids ) {
-					return (
-						// exclude virtual namespaces
-						id >= 0 &&
-						// exclude file namespace
-						( !( 'file' in namespaces ) || id !== namespaces.file ) &&
-						// exclude duplicates (namespace ids known under multiple aliases)
-						ids.indexOf( id ) === i
-					);
-				} )
-				.join( '|' );
+			// Namespace: if there is a value for the namespace filter, use
+			// that namespace group, or respect the custom value provided by
+			// the user. Otherwise, search all non-file namespaces.
+			namespaceFilter = context.state.filterValues[ options.type ].namespace;
+			namespaceGroup = namespaceFilter ?
+				context.state.filterValues[ options.type ].namespace.value :
+				'all';
+			params.gsrnamespace = namespaceFilter && namespaceGroup === 'custom' ?
+				context.state.filterValues[ options.type ].namespace.custom.join( '|' ) :
+				Object.keys( namespaceGroups[ namespaceGroup ] ).join( '|' );
 		} else {
 			// Params used in all non-page/category searches.
 			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
@@ -153,7 +150,7 @@ module.exports = {
 
 			params.gsrnamespace = 6; // NS_FILE
 			params.iiprop = 'url|size|mime';
-			params.iiurlheight = options.type === 'bitmap' ? 180 : undefined;
+			params.iiurlheight = options.type === 'image' ? 180 : undefined;
 			params.iiurlwidth = urlWidth;
 			params.wbetterms = 'label';
 		}
@@ -163,6 +160,9 @@ module.exports = {
 			context.state.filterValues[ options.type ].sort === 'recency' ) {
 			params.gsrsort = 'create_timestamp_desc';
 		}
+
+		// Reset current error state
+		context.commit( 'setHasError', false );
 
 		// Set the pending state for the given queue
 		context.commit( 'setPending', {
@@ -198,21 +198,12 @@ module.exports = {
 				// if a new result's pageId already exists in the set of
 				// previously-loaded results, filter it out.
 				sortedResults = pageIDs
-					.map( function ( id ) {
-						return results[ id ];
-					} )
-					.filter( function ( result ) {
-						return existingPageIds.indexOf( result.pageid ) < 0;
-					} )
-					.sort( function ( a, b ) {
-						return a.index - b.index;
-					} );
+					.map( function ( id ) { return results[ id ]; } )
+					.filter( function ( result ) { return existingPageIds.indexOf( result.pageid ) < 0; } )
+					.sort( function ( a, b ) { return a.index - b.index; } );
 
 				sortedResults.forEach( function ( result ) {
-					context.commit( 'addResult', {
-						type: options.type,
-						item: result
-					} );
+					context.commit( 'addResult', { type: options.type, item: result } );
 				} );
 
 				if ( response.query.searchinfo && response.query.searchinfo.totalhits ) {
@@ -232,23 +223,29 @@ module.exports = {
 			// Set whether or not the query can be continued
 			if ( response.continue && response.continue.gsroffset ) {
 				// Store the "continue" property of the request so we can pick up where we left off
-				context.commit( 'setContinue', {
-					type: options.type,
-					continue: response.continue.gsroffset
-				} );
+				context.commit( 'setContinue', { type: options.type, continue: response.continue.gsroffset } );
 			} else {
-				context.commit( 'setContinue', {
-					type: options.type,
-					continue: null
-				} );
+				context.commit( 'setContinue', { type: options.type, continue: null } );
 			}
 		} ).done( function () {
-			activeSearchRequest = null;
 			// Set pending back to false when request is complete
-			context.commit( 'setPending', {
-				type: options.type,
-				pending: false
-			} );
+			activeSearchRequest = null;
+			context.commit( 'setPending', { type: options.type, pending: false } );
+		} ).catch( function ( e ) {
+			// Set pending to false and clear the stashed request
+			activeSearchRequest = null;
+			context.commit( 'setPending', { type: options.type, pending: false } );
+
+			// No other error handling is required if the request has been
+			// aborted by the client
+			if ( e.statusText && e.statusText === 'abort' ) {
+				return;
+			}
+
+			// In the case of a real failure, throw the error back to the App
+			// component to display a suitable message to the user
+			context.commit( 'setHasError', true );
+			throw e;
 		} );
 	},
 

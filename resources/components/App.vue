@@ -30,7 +30,8 @@
 				<search-filters :media-type="tab" @filter-change="onFilterChange">
 				</search-filters>
 
-				<did-you-mean></did-you-mean>
+				<did-you-mean>
+				</did-you-mean>
 
 				<transition-group
 					name="sdms-concept-chips-transition"
@@ -38,7 +39,7 @@
 					tag="div"
 				>
 					<concept-chips
-						v-if="enableConceptChips && tab === 'bitmap' && relatedConcepts.length > 0"
+						v-if="enableConceptChips && tab === 'image' && relatedConcepts.length > 0"
 						:key="'concept-chips-' + tab"
 						:media-type="tab"
 						:concepts="relatedConcepts"
@@ -51,8 +52,8 @@
 						<search-results
 							:ref="tab"
 							:media-type="tab"
-							@load-more="resetCountAndLoadMore( tab )"
-						></search-results>
+							@load-more="resetCountAndLoadMore( tab )">
+						</search-results>
 					</div>
 				</transition-group>
 
@@ -138,6 +139,7 @@ module.exports = {
 
 	computed: $.extend( {}, mapState( [
 		'term',
+		'hasError',
 		'results',
 		'pending',
 		'relatedConcepts',
@@ -151,11 +153,11 @@ module.exports = {
 		 * (which originate in Vuex store), but the order here matters
 		 * for visual presentation so they have been manually sorted.
 		 *
-		 * @return {string[  ]} [  'bitmap', 'video', 'audio', 'page', 'other'  ]
+		 * @return {string[  ]} [  'image', 'video', 'audio', 'page', 'other'  ]
 		 */
 		tabs: function () {
 			return [
-				'bitmap',
+				'image',
 				'audio',
 				'video',
 				'other',
@@ -164,7 +166,7 @@ module.exports = {
 		},
 
 		/**
-		 * @return {Object} { bitmap: 'Images', video: 'Video', page: 'Categories and Pages'... }
+		 * @return {Object} { image: 'Images', video: 'Video', page: 'Categories and Pages'... }
 		 */
 		tabNames: function () {
 			var names = {},
@@ -196,6 +198,7 @@ module.exports = {
 		'clearRelatedConcepts',
 		'clearDidYouMean',
 		'setTerm',
+		'setHasError',
 		'setPending',
 		'resetFilters',
 		'addFilterValue'
@@ -248,7 +251,8 @@ module.exports = {
 
 			this.$refs[ data.mediaType ][ 0 ].hideDetails();
 
-			if ( data.value ) {
+			// Namespace filter to be implemented as part of T276262.
+			if ( data.value && data.filterType !== 'namespace' ) {
 				url.query[ data.filterType ] = data.value;
 			} else {
 				delete url.query[ data.filterType ];
@@ -265,7 +269,7 @@ module.exports = {
 		 */
 		onUpdateTerm: function ( newTerm ) {
 			this.setTerm( newTerm );
-			url.query.q = newTerm;
+			url.query.search = newTerm;
 			window.history.pushState( url.query, null, '?' + url.getQueryString() );
 		},
 
@@ -279,8 +283,9 @@ module.exports = {
 			this.clear( this.currentTab );
 			this.clearLookupResults();
 			this.setPending( { type: this.currentTab, pending: false } );
+			this.setHasError( false );
 
-			url.query.q = '';
+			url.query.search = '';
 			this.clearFilterQueryParams();
 			window.history.pushState( url.query, null, '?' + url.getQueryString() );
 			this.autoloadCounter = this.setInitialAutoloadCountForTabs();
@@ -296,7 +301,7 @@ module.exports = {
 			// If the newly-active history entry includes a state object, use it
 			// to reset the URL query params and the UI state
 			if ( e.state ) {
-				this.setTerm( e.state.q || '' );
+				this.setTerm( e.state.search || '' );
 				this.currentTab = e.state.type;
 
 				// if the newly-active history entry includes a "null" query
@@ -313,7 +318,7 @@ module.exports = {
 				// the URL object to match the previously-stored values
 				this.resetFilters();
 				this.clearFilterQueryParams();
-				url.query.q = this.term;
+				url.query.search = this.term;
 				url.query.type = this.currentTab;
 
 				Object.keys( e.state ).forEach( function ( key ) {
@@ -330,11 +335,12 @@ module.exports = {
 		},
 
 		/**
-		 * @param {string} tab bitmap, audio, etc.
+		 * @param {string} tab image, audio, etc.
 		 */
 		getMoreResultsForTabIfAvailable: function ( tab ) {
-			// Don't make API requests if the search term is empty
-			if ( this.term === '' ) {
+			// Don't make API requests if the search term is empty, or
+			// the search is in an error state
+			if ( this.term === '' || this.hasError ) {
 				return;
 			}
 
@@ -467,8 +473,8 @@ module.exports = {
 		 * When the currentTab changes, fetch more results for the new tab if
 		 * available
 		 *
-		 * @param {string} newTab bitmap, audio, etc.
-		 * @param {string} oldTab bitmap, audio, etc.
+		 * @param {string} newTab image, audio, etc.
+		 * @param {string} oldTab image, audio, etc.
 		 */
 		currentTab: function ( newTab, oldTab ) {
 			if ( newTab && newTab !== oldTab ) {
@@ -476,7 +482,7 @@ module.exports = {
 
 				if (
 					this.enableConceptChips &&
-					newTab === 'bitmap' &&
+					newTab === 'image' &&
 					this.relatedConcepts.length < 1
 				) {
 					this.getRelatedConcepts( this.term );
@@ -495,7 +501,7 @@ module.exports = {
 			if ( newTerm && newTerm !== oldTerm ) {
 				this.performNewSearch();
 
-				if ( this.enableConceptChips && this.currentTab === 'bitmap' ) {
+				if ( this.enableConceptChips && this.currentTab === 'image' ) {
 					this.getRelatedConcepts( newTerm );
 				}
 			}
@@ -509,13 +515,15 @@ module.exports = {
 	},
 
 	created: function () {
+		var activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
+
 		// If user arrives on the page without URL params to specify initial search
-		// type / active tab, default to bitmap. This is done in created hook
+		// type / active tab, set to default. This is done in created hook
 		// because some computed properties assume that a currentTab will always be
 		// specified; the created hook runs before computed properties are evaluated.
 		if ( this.currentTab === '' ) {
-			this.currentTab = 'bitmap';
-			url.query.type = 'bitmap';
+			this.currentTab = activeType;
+			url.query.type = activeType;
 		}
 
 		// Record whatever the initial query params are that the user arrived on
@@ -541,7 +549,7 @@ module.exports = {
 
 		// If a search term exists on page load, fetch related concepts for
 		// concept chips.
-		if ( this.enableConceptChips && this.term && this.currentTab === 'bitmap' ) {
+		if ( this.enableConceptChips && this.term && this.currentTab === 'image' ) {
 			this.getRelatedConcepts( this.term );
 		}
 

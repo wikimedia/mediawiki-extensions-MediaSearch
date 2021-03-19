@@ -11,6 +11,16 @@ module.exports = {
 	},
 
 	/**
+	 * Set a boolean flag to indicate whether the search has errored.
+	 *
+	 * @param {Object} state
+	 * @param {boolean} hasError
+	 */
+	setHasError: function ( state, hasError ) {
+		state.hasError = hasError;
+	},
+
+	/**
 	 * Add a search result to the given queue
 	 *
 	 * @param {Object} state
@@ -28,7 +38,7 @@ module.exports = {
 	 * results.
 	 *
 	 * @param {Object} state
-	 * @param {string} mediaType bitmap, audio, etc
+	 * @param {string} mediaType image, audio, etc
 	 */
 	resetResults: function ( state, mediaType ) {
 		var types = Object.keys( state.results );

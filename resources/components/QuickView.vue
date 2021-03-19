@@ -9,7 +9,7 @@
 	>
 		<header ref="header" class="sdms-quick-view__header">
 			<div
-				v-if="isBitmap"
+				v-if="isImage"
 				class="sdms-quick-view__thumbnail-wrapper"
 				:style="thumbnailWrapperStyle"
 			>
@@ -32,6 +32,7 @@
 				v-else-if="isVideo || isAudio"
 				:options="playerOptions"
 				:fallback-url="videoinfo[ 0 ].url"
+				@play.once="onPlay"
 			></sd-player>
 
 			<button
@@ -223,7 +224,7 @@ module.exports = {
 		mediaType: {
 			type: String,
 			required: false,
-			default: 'bitmap'
+			default: 'image'
 		},
 
 		isDialog: {
@@ -246,7 +247,7 @@ module.exports = {
 	computed: {
 		rootClasses: function () {
 			return {
-				'sdms-quick-view--bitmap': this.isBitmap,
+				'sdms-quick-view--image': this.isImage,
 				'sdms-quick-view--audio': this.isAudio,
 				'sdms-quick-view--video': this.isVideo,
 				'sdms-quick-view--dialog': this.isDialog
@@ -260,8 +261,8 @@ module.exports = {
 			};
 		},
 
-		isBitmap: function () {
-			return this.mediaType === 'bitmap';
+		isImage: function () {
+			return this.mediaType === 'image';
 		},
 
 		isVideo: function () {
@@ -412,6 +413,8 @@ module.exports = {
 		licenseText: function () {
 			if ( this.metadata && this.metadata.UsageTerms ) {
 				return this.metadata.UsageTerms.value;
+			} else if ( this.metadata && this.metadata.LicenseShortName ) {
+				return this.metadata.LicenseShortName.value;
 			} else {
 				return null;
 			}
@@ -420,6 +423,8 @@ module.exports = {
 		licenseIcon: function () {
 			if ( this.metadata && this.metadata.License ) {
 				return this.getLicenseIcon( this.metadata.License.value );
+			} else if ( this.metadata && this.metadata.LicenseShortName ) {
+				return this.getLicenseIcon( this.metadata.LicenseShortName.value );
 			} else {
 				return null;
 			}
@@ -536,9 +541,9 @@ module.exports = {
 		},
 
 		getLicenseIcon: function ( valueString ) {
-			if ( /^cc/i.test( valueString ) ) {
+			if ( /^cc|attribution/i.test( valueString ) ) {
 				return icons.sdIconLogoCC;
-			} else if ( /^pd/i.test( valueString ) ) {
+			} else if ( /^pd|no restrictions/i.test( valueString ) ) {
 				return icons.sdIconUnLock;
 			} else {
 				return null;
@@ -623,6 +628,15 @@ module.exports = {
 			this.$log( {
 				action: 'quickview_more_details_click',
 				search_result_page_id: this.pageid
+			} );
+			/* eslint-enable camelcase */
+		},
+
+		onPlay: function () {
+			/* eslint-disable camelcase */
+			this.$log( {
+				action: 'quickview_media_play',
+				search_media_type: this.mediaType
 			} );
 			/* eslint-enable camelcase */
 		},

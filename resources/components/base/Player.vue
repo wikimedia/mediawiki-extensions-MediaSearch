@@ -33,6 +33,12 @@ module.exports = {
 		};
 	},
 
+	methods: {
+		onPlay: function () {
+			this.$emit( 'play' );
+		}
+	},
+
 	mounted: function () {
 		// Videojs is provided by the ext.tmh.video-js resource module
 		// from the TimedMediaHandler Extension. See:
@@ -45,6 +51,8 @@ module.exports = {
 					this.options,
 					function onPlayerReady() {}
 				);
+
+				this.player.on( 'play', this.onPlay );
 			}.bind( this )
 		);
 	},

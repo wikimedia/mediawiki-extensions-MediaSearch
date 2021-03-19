@@ -28,6 +28,9 @@
 		"MediaSearch": "GlobalVarConfig::newInstance"
 	},
 	"config": {
+		"MediaSearchDefaultForAnon": {
+			"value": false
+		},
 		"MediaSearchExternalEntitySearchBaseUri": {
 			"value": ""
 		},
@@ -40,7 +43,8 @@
 				"filemime",
 				"fileres",
 				"haslicense",
-				"sort"
+				"sort",
+				"namespace"
 			]
 		}
 	},
@@ -58,16 +62,19 @@
 			"styles": [
 				"resources/components/base/AutocompleteSearchInput.less",
 				"resources/components/base/Button.less",
+				"resources/components/base/Checkbox.less",
 				"resources/components/base/CopyTextLayout.less",
 				"resources/components/base/Dialog.less",
 				"resources/components/base/Icon.less",
 				"resources/components/base/Message.less",
 				"resources/components/base/Player.less",
+				"resources/components/base/Radio.less",
 				"resources/components/base/Select.less",
 				"resources/components/base/SelectMenu.less",
 				"resources/components/base/Tab.less",
 				"resources/components/base/Tabs.less",
 				"resources/components/base/Image.less",
+				"resources/components/base/mixins/BinaryInput.less",
 				"resources/components/results/ImageResult.less",
 				"resources/components/results/VideoResult.less",
 				"resources/components/results/AudioResult.less",
@@ -83,7 +90,8 @@
 				"resources/components/SearchFilters.less",
 				"resources/components/ConceptChips.less",
 				"resources/components/DidYouMean.less",
-				"resources/widgets/SearchErrorWidget.less"
+				"resources/components/NamespaceFilterDialog.less",
+				"resources/components/SearchError.less"
 			],
 			"targets": [
 				"desktop",
@@ -96,10 +104,12 @@
 				"lib/icons.js",
 				"resources/components/base/AutocompleteSearchInput.vue",
 				"resources/components/base/Button.vue",
+				"resources/components/base/Checkbox.vue",
 				"resources/components/base/CopyTextLayout.vue",
 				"resources/components/base/Dialog.vue",
 				"resources/components/base/Icon.vue",
 				"resources/components/base/Message.vue",
+				"resources/components/base/Radio.vue",
 				"resources/components/base/Select.vue",
 				"resources/components/base/SelectMenu.vue",
 				"resources/components/base/Tab.vue",
@@ -107,6 +117,7 @@
 				"resources/components/base/Observer.vue",
 				"resources/components/base/Image.vue",
 				"resources/components/base/Player.vue",
+				"resources/components/base/mixins/binaryInput.js",
 				"resources/components/results/ImageResult.vue",
 				"resources/components/results/VideoResult.vue",
 				"resources/components/results/AudioResult.vue",
@@ -120,8 +131,10 @@
 				"resources/components/NoResults.vue",
 				"resources/components/EndOfResults.vue",
 				"resources/components/DidYouMean.vue",
+				"resources/components/SearchError.vue",
 				"resources/components/SearchFilters.vue",
 				"resources/components/ConceptChips.vue",
+				"resources/components/NamespaceFilterDialog.vue",
 				"resources/models/SearchFilter.js",
 				"resources/store/index.js",
 				"resources/store/state.js",
@@ -144,7 +157,7 @@
 				"mediasearch-no-results",
 				"mediasearch-no-results-tips",
 				"mediasearch-end-of-results",
-				"mediasearch-tab-bitmap",
+				"mediasearch-tab-image",
 				"mediasearch-tab-audio",
 				"mediasearch-tab-video",
 				"mediasearch-tab-page",
@@ -168,6 +181,15 @@
 				"mediasearch-wordcount",
 				"mediasearch-image-size",
 				"mediasearch-did-you-mean",
+				"mediasearch-error-message",
+				"mediasearch-error-text",
+				"mediasearch-filter-namespace-label",
+				"mediasearch-filter-namespace-dialog-title",
+				"mediasearch-filter-namespace-dialog-progressive-action",
+				"mediasearch-filter-namespace-all",
+				"mediasearch-filter-namespace-discussion",
+				"mediasearch-filter-namespace-help",
+				"mediasearch-filter-namespace-custom",
 				"size-bytes",
 				"size-kilobytes",
 				"size-megabytes",
@@ -188,7 +210,7 @@
 	"SpecialPages": {
 		"NewMediaSearch": {
 			"class": "MediaWiki\\Extension\\MediaSearch\\Special\\SpecialMediaSearch",
-			"services": [ "NamespaceInfo" ]
+			"services": [ "SearchEngineFactory", "NamespaceInfo", "UserOptionsManager" ]
 		}
 	},
 	"ExtensionMessagesFiles": {

@@ -6,6 +6,7 @@ use Config;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MessageLocalizer;
+use RequestContext;
 use Wikibase\Search\Elastic\Query\HasLicenseFeature;
 
 /**
@@ -14,14 +15,14 @@ use Wikibase\Search\Elastic\Query\HasLicenseFeature;
  */
 class SearchOptions {
 
-	public const TYPE_BITMAP = 'bitmap';
+	public const TYPE_IMAGE = 'image';
 	public const TYPE_AUDIO = 'audio';
 	public const TYPE_VIDEO = 'video';
 	public const TYPE_PAGE = 'page';
 	public const TYPE_OTHER = 'other';
 
 	public const ALL_TYPES = [
-		self::TYPE_BITMAP,
+		self::TYPE_IMAGE,
 		self::TYPE_AUDIO,
 		self::TYPE_VIDEO,
 		self::TYPE_PAGE,
@@ -32,27 +33,50 @@ class SearchOptions {
 	public const FILTER_SIZE = 'fileres';
 	public const FILTER_LICENSE = 'haslicense';
 	public const FILTER_SORT = 'sort';
+	public const FILTER_NAMESPACE = 'namespace';
 
 	public const ALL_FILTERS = [
 		self::FILTER_MIME,
 		self::FILTER_SIZE,
 		self::FILTER_LICENSE,
 		self::FILTER_SORT,
+		self::FILTER_NAMESPACE,
+	];
+
+	public const NAMESPACES_ALL = 'all';
+	public const NAMESPACES_DISCUSSION = 'discussion';
+	public const NAMESPACES_HELP = 'help';
+	public const NAMESPACES_CUSTOM = 'custom';
+
+	public const NAMESPACE_GROUPS = [
+		self::NAMESPACES_ALL,
+		self::NAMESPACES_DISCUSSION,
+		self::NAMESPACES_HELP,
+		self::NAMESPACES_CUSTOM
 	];
 
 	/** @var MessageLocalizer */
 	private $context;
 
+	/** @var string[] */
+	private $enabledFilters;
+
 	/** @var Config */
-	private $config;
+	private $searchConfig;
 
 	/**
 	 * @param MessageLocalizer $context
-	 * @param Config $config
+	 * @param string[] $enabledFilters
+	 * @param Config $searchConfig
 	 */
-	public function __construct( MessageLocalizer $context, Config $config ) {
+	public function __construct(
+		MessageLocalizer $context,
+		array $enabledFilters,
+		Config $searchConfig
+	) {
 		$this->context = $context;
-		$this->config = $config;
+		$this->enabledFilters = $enabledFilters;
+		$this->searchConfig = $searchConfig;
 	}
 
 	/**
@@ -66,6 +90,9 @@ class SearchOptions {
 	public static function getSearchOptions( MessageLocalizer $context ) : array {
 		$instance = new static(
 			$context,
+			RequestContext::getMain()
+				->getConfig()
+				->get( 'MediaSearchSupportedFilterParams' ),
 			MediaWikiServices::getInstance()
 				->getConfigFactory()
 				->makeConfig( 'WikibaseCirrusSearch' )
@@ -87,7 +114,8 @@ class SearchOptions {
 				static::FILTER_LICENSE => $instance->getLicenseGroups( $type ),
 				static::FILTER_MIME => $instance->getMimeTypes( $type ),
 				static::FILTER_SIZE => $instance->getImageSizes( $type ),
-				static::FILTER_SORT => $instance->getSorts( $type )
+				static::FILTER_SORT => $instance->getSorts( $type ),
+				static::FILTER_NAMESPACE => $instance->getNamespaces( $type )
 			] );
 		}
 
@@ -95,7 +123,7 @@ class SearchOptions {
 	}
 
 	/**
-	 * Get the size options. Only supported by "bitmap" type.
+	 * Get the size options. Only supported by "image" type.
 	 *
 	 * @param string $type
 	 * @return array
@@ -106,8 +134,12 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
-		if ( $type === static::TYPE_BITMAP ) {
-			return [
+		if ( !in_array( static::FILTER_SIZE, $this->enabledFilters ) ) {
+			return [];
+		}
+
+		if ( $type === static::TYPE_IMAGE ) {
+			return [ 'items' => [
 				[
 					'label' => $this->context->msg( 'mediasearch-filter-size-any' )->text(),
 					'value' => ''
@@ -125,7 +157,7 @@ class SearchOptions {
 					'label' => $this->context->msg( 'mediasearch-filter-size-large' )->text(),
 					'value' => '>1000'
 				],
-			];
+			] ];
 		} else {
 			return [];
 		}
@@ -143,9 +175,13 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
+		if ( !in_array( static::FILTER_MIME, $this->enabledFilters ) ) {
+			return [];
+		}
+
 		switch ( $type ) {
-			case static::TYPE_BITMAP:
-				return [
+			case static::TYPE_IMAGE:
+				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
@@ -179,9 +215,9 @@ class SearchOptions {
 						'label' => 'svg',
 						'value' => 'svg'
 					]
-				];
+				] ];
 			case static::TYPE_AUDIO:
-				return [
+				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
@@ -207,9 +243,9 @@ class SearchOptions {
 						'label' => 'ogg',
 						'value' => 'ogg'
 					]
-				];
+				] ];
 			case static::TYPE_VIDEO :
-				return [
+				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
@@ -227,9 +263,9 @@ class SearchOptions {
 						'label' => 'ogg',
 						'value' => 'ogg'
 					]
-				];
+				] ];
 			case static::TYPE_OTHER:
-				return [
+				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
@@ -247,7 +283,7 @@ class SearchOptions {
 						'label' => 'stl',
 						'value' => 'sla'
 					]
-				];
+				] ];
 			case static::TYPE_PAGE:
 			default:
 				return [];
@@ -265,7 +301,11 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
-		return [
+		if ( !in_array( static::FILTER_SORT, $this->enabledFilters ) ) {
+			return [];
+		}
+
+		return [ 'items' => [
 			[
 				'label' => $this->context->msg( 'mediasearch-filter-sort-default' )->text(),
 				'value' => ''
@@ -274,7 +314,7 @@ class SearchOptions {
 				'label' => $this->context->msg( 'mediasearch-filter-sort-recency' )->text(),
 				'value' => 'recency'
 			]
-		];
+		] ];
 	}
 
 	/**
@@ -298,12 +338,16 @@ class SearchOptions {
 			return [];
 		}
 
+		if ( !in_array( static::FILTER_LICENSE, $this->enabledFilters ) ) {
+			return [];
+		}
+
 		// Category & page searches do not have license filters
 		if ( $type === static::TYPE_PAGE ) {
 			return [];
 		}
 
-		$licenseMappings = HasLicenseFeature::getConfiguredLicenseMap( $this->config );
+		$licenseMappings = HasLicenseFeature::getConfiguredLicenseMap( $this->searchConfig );
 		if ( !$licenseMappings ) {
 			return [];
 		}
@@ -331,6 +375,84 @@ class SearchOptions {
 			'value' => 'other'
 		];
 
-		return $licenseGroups;
+		return [ 'items' => $licenseGroups ];
+	}
+
+	/**
+	 * Get the namespace options. Only supported by "page" type.
+	 *
+	 * @param string $type
+	 * @return array
+	 */
+	public function getNamespaces( string $type ) : array {
+		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
+			throw new InvalidArgumentException( "$type is not a valid type" );
+		}
+
+		if ( !in_array( static::FILTER_NAMESPACE, $this->enabledFilters ) ) {
+			return [];
+		}
+
+		if ( $type === static::TYPE_PAGE ) {
+			$filterItems = [
+				[
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-all' )->text(),
+					'value' => static::NAMESPACES_ALL
+				],
+				[
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-discussion' )->text(),
+					'value' => static::NAMESPACES_DISCUSSION
+				],
+				[
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-help' )->text(),
+					'value' => static::NAMESPACES_HELP
+				],
+				[
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-custom' )->text(),
+					'value' => static::NAMESPACES_CUSTOM
+				],
+			];
+
+			return [
+				'items' => $filterItems,
+				'data' => [
+					'namespaceGroups' => $this->getNamespaceGroups()
+				],
+			];
+		} else {
+			return [];
+		}
+	}
+
+	/**
+	 * Get namespace data for the different namespace filter groups.
+	 *
+	 * @return array
+	 */
+	private function getNamespaceGroups() : array {
+		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+		$allNamespaces = $namespaceInfo->getCanonicalNamespaces();
+		$nonFileNamespaces = array_filter( $allNamespaces, function ( $namespaceId ) use ( $allNamespaces ) {
+			return (
+				// Exclude virtual namespaces.
+				$namespaceId >= 0 &&
+
+				// Exclude file namespace.
+				$allNamespaces[ $namespaceId ] !== 'File'
+			);
+		}, ARRAY_FILTER_USE_KEY );
+
+		return [
+			static::NAMESPACES_ALL => $nonFileNamespaces,
+			static::NAMESPACES_DISCUSSION => $namespaceInfo->getTalkNamespaces(),
+			static::NAMESPACES_HELP => [
+				'4' => 'Commons',
+				'12' => 'Help',
+			]
+		];
 	}
 }

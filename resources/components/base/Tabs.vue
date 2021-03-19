@@ -190,12 +190,12 @@ module.exports = {
 		},
 
 		/**
-		 * @param {string} mediaType bitmap, audio, video, etc.
+		 * @param {string} tabName
 		 * @return {boolean}
 		 */
-		isLastTab: function ( mediaType ) {
+		isLastTab: function ( tabName ) {
 			var tabKeys = Object.keys( this.tabs );
-			return mediaType === tabKeys[ tabKeys.length - 1 ];
+			return tabName === tabKeys[ tabKeys.length - 1 ];
 		},
 
 		/**

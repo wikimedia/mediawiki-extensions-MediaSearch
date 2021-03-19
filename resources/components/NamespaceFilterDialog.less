@@ -1,0 +1,15 @@
+@import '../mediasearch-variables.less';
+@import '../sd-base-variables.less';
+
+.sdms-namespace-dialog {
+	// This is a hacky way of getting the dialog to look a natural height.
+	// Ideally, a future dialog base component would handle sizing the dialog
+	// for you.
+	:not( .sd-dialog--fullscreen ) .sd-dialog__shell {
+		min-height: 400px;
+	}
+
+	&__custom {
+		padding-left: ~'calc( @{sd-size-input-binary} + @{sd-padding-horizontal-input-text} )';
+	}
+}

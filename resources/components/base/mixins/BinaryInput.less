@@ -1,0 +1,48 @@
+@import 'mediawiki.mixins';
+@import './../../../sd-base-variables.less';
+
+// Common styles for checkboxes and radios.
+.sd-mixin-binary-input() {
+	.flex-display();
+	line-height: @sd-size-input-binary;
+	margin-top: @sd-margin-top-fieldlayout--labelled;
+	position: relative;
+	// Create a stacking context.
+	z-index: 0;
+
+	// Custom-styled input that's visible to the user.
+	&__icon {
+		.transition( ~'background-color 100ms, border-color 100ms, box-shadow 100ms' );
+		background-color: @background-color-base;
+		background-size: 0 0;
+		border: @border-width-base @border-style-base @sd-border-color-input-binary;
+		border-radius: 2px;
+		box-sizing: border-box;
+		cursor: pointer;
+		height: @sd-size-input-binary;
+		left: 0;
+		position: absolute;
+		width: @sd-size-input-binary;
+	}
+
+	// If we place a left margin or padding on the label, it will collapse if
+	// the width of the container is less than the width of the input + label.
+	// This spacer will always be the same size.
+	&__spacer {
+		.flex( 0, 0, @sd-padding-horizontal-input-text, 0 );
+	}
+
+	// HTML input element.
+	&__input {
+		cursor: pointer;
+		font-size: inherit;
+		height: @sd-size-input-binary;
+		// Support: Firefox mobile to override user-agent stylesheet, see T73750.
+		max-width: none;
+		// The actual input will be visually hidden.
+		opacity: 0;
+		width: @sd-size-input-binary;
+		// Render "on top of" the span, so that it's still clickable.
+		z-index: 1;
+	}
+}

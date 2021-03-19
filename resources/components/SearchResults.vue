@@ -35,6 +35,10 @@
 				{{ $i18n( 'mediasearch-load-more-results' ) }}
 			</sd-button>
 
+			<!-- If an invalid search has been detected, don't display
+			anything else until it has been cleared -->
+			<search-error v-if="hasError"></search-error>
+
 			<!-- No results message if search has completed and come back empty -->
 			<no-results v-else-if="hasNoResults"></no-results>
 
@@ -48,14 +52,14 @@
 		<!-- QuickView dialog for mobile skin. -->
 		<template v-if="isMobileSkin">
 			<sd-dialog
-				v-if="details"
 				class="sdms-search-results__details-dialog"
-				:no-header="true"
-				:fullscreen="true"
+				:active="!!details"
+				:headless="true"
 				@close="hideDetails"
 				@key="onDialogKeyup"
 			>
 				<quick-view
+					v-if="details"
 					ref="quickview"
 					:key="details.pageid"
 					v-bind="details"
@@ -114,6 +118,7 @@ var mapState = require( 'vuex' ).mapState,
 	NoResults = require( './NoResults.vue' ),
 	EndOfResults = require( './EndOfResults.vue' ),
 	EmptyState = require( './EmptyState.vue' ),
+	SearchError = require( './SearchError.vue' ),
 	api = new mw.Api();
 
 // @vue/component
@@ -132,7 +137,8 @@ module.exports = {
 		spinner: Spinner,
 		'empty-state': EmptyState,
 		'no-results': NoResults,
-		'end-of-results': EndOfResults
+		'end-of-results': EndOfResults,
+		'search-error': SearchError
 	},
 
 	props: {
@@ -153,6 +159,7 @@ module.exports = {
 
 	computed: $.extend( {}, mapState( [
 		'term',
+		'hasError',
 		'results',
 		'pending',
 		'continue',
@@ -164,7 +171,7 @@ module.exports = {
 		 * @return {string} image-result|video-result|page-result
 		 */
 		resultComponent: function () {
-			if ( this.mediaType === 'bitmap' ) {
+			if ( this.mediaType === 'image' ) {
 				return 'image-result';
 			} else {
 				return this.mediaType + '-result';
@@ -399,7 +406,7 @@ module.exports = {
 			} else {
 				params.prop = 'info|imageinfo|entityterms';
 				params.iiprop = 'url|size|mime|extmetadata';
-				params.iiurlheight = this.mediaType === 'bitmap' ? 180 : undefined;
+				params.iiurlheight = this.mediaType === 'image' ? 180 : undefined;
 			}
 
 			return mw.config.get( 'sdmsLocalDev' ) ?
@@ -417,7 +424,7 @@ module.exports = {
 				'sdms-search-result--highlighted': this.details && this.details.pageid === pageid,
 				// If there are 3 or fewer image results, we'll limit their
 				// growth to avoid having one overly-stretched image in the grid.
-				'sdms-image-result--limit-size': this.mediaType === 'bitmap' && this.results[ this.mediaType ].length <= 3
+				'sdms-image-result--limit-size': this.mediaType === 'image' && this.results[ this.mediaType ].length <= 3
 			};
 		},
 

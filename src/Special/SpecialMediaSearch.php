@@ -7,14 +7,19 @@ use ApiMain;
 use CirrusSearch\Parser\FullTextKeywordRegistry;
 use CirrusSearch\SearchConfig;
 use DerivativeContext;
+use Exception;
 use FauxRequest;
 use InvalidArgumentException;
 use MediaWiki\Extension\MediaSearch\MustacheDomTemplateParser;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserOptionsManager;
+use MWException;
 use NamespaceInfo;
 use OutputPage;
 use RequestContext;
+use SearchEngine;
+use SearchEngineFactory;
 use SiteStats;
 use TemplateParser;
 use Title;
@@ -51,10 +56,22 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	private $searchOptions;
 
 	/**
+	 * @var UserOptionsManager
+	 */
+	private $userOptionsManager;
+
+	/**
+	 * @var SearchEngine
+	 */
+	private $searchEngine;
+
+	/**
 	 * @inheritDoc
 	 */
 	public function __construct(
+		SearchEngineFactory $searchEngineFactory,
 		NamespaceInfo $namespaceInfo,
+		UserOptionsManager $userOptionsManager,
 		$name = 'NewMediaSearch',
 		ApiBase $api = null,
 		TemplateParser $templateParser = null,
@@ -70,6 +87,10 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
 			->getConfigFactory()
 			->makeConfig( 'CirrusSearch' );
+
+		$this->userOptionsManager = $userOptionsManager;
+
+		$this->searchEngine = $searchEngineFactory->create();
 
 		$this->searchOptions = SearchOptions::getSearchOptions( $this->getContext() );
 	}
@@ -93,38 +114,48 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$url = $this->getRequest()->getRequestURL();
 		parse_str( parse_url( $url, PHP_URL_QUERY ), $querystring );
 
-		$term = str_replace( "\n", ' ', $this->getRequest()->getText( 'q' ) );
-		$type = $querystring['type'] ?? SearchOptions::TYPE_BITMAP;
-
-		// Attempt to validate filters; return early and display an error
-		// message if invalid filter settings are detected
-		try {
-			$activeFilters = $this->getActiveFilters( $querystring, $type );
-		} catch ( InvalidArgumentException $e ) {
-			$retryLink = $this->getPageTitle()->getLinkURL();
-
-			$this->getOutput()->addModuleStyles( [ 'mediasearch.styles' ] );
-			$this->getOutput()->addHTML( $this->templateParser->processTemplate( 'SearchErrorWidget', [
-				'errorMessage' => $this->msg( 'mediasearch-error-message' ),
-				// phpcs:ignore Generic.Files.LineLength.TooLong
-				'retryLinkMessage' => $this->msg( 'mediasearch-retry-link', $retryLink )->text(),
-			] ) );
-			$this->addHelpLink( 'Help:MediaSearch' );
-			return parent::execute( $subPage );
+		$term = str_replace( "\n", ' ', $this->getRequest()->getText( 'search' ) );
+		$redirectUrl = $this->findExactMatchRedirectUrl( $term );
+		if ( $redirectUrl !== null ) {
+			$this->getOutput()->redirect( $redirectUrl );
+			return;
 		}
 
-		$filtersForDisplay = $this->getFiltersForDisplay( $activeFilters, $type );
-		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
-		$termWithFilters = $this->getTermWithFilters( $term, $activeFilters );
-		$clearFiltersUrl = $this->getPageTitle()->getLinkURL( array_diff( $querystring, $activeFilters ) );
+		$type = $this->getType( $term, $querystring );
 
-		list( $results, $searchinfo, $continue ) = $this->search(
-			$termWithFilters,
-			$type,
-			$limit,
-			$this->getRequest()->getText( 'continue' ),
-			$this->getSort( $activeFilters )
-		);
+		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
+
+		$error = [];
+		$results = [];
+		$searchinfo = [];
+		$continue = null;
+		$activeFilters = [];
+		$filtersForDisplay = [];
+		try {
+			// Attempt to validate filters
+			$activeFilters = $this->getActiveFilters( $querystring, $type );
+			$filtersForDisplay = $this->getFiltersForDisplay( $activeFilters, $type );
+			$termWithFilters = $this->getTermWithFilters( $term, $activeFilters );
+
+			// Actually perform the search. This method will throw an error if the
+			// user enters a bad query (illegal characters, etc)
+			list( $results, $searchinfo, $continue ) = $this->search(
+				$termWithFilters,
+				$type,
+				$limit,
+				$this->getRequest()->getText( 'continue' ),
+				$this->getSort( $activeFilters )
+			);
+		} catch ( Exception $e ) {
+			// Display an error message if invalid filter settings are detected
+			// (InvalidArgumentException) or search failed for any other reason,
+			// like a bad query with illegal characters, an elastic failure, ...
+			// (MWException)
+			$error = [
+				'title' => $this->msg( 'mediasearch-error-message' )->text(),
+				'text' => $this->msg( 'mediasearch-error-text' )->text(),
+			];
+		}
 
 		$totalSiteImages = $userLanguage->formatNum( SiteStats::images() );
 		$thumbLimits = $this->getThumbLimits();
@@ -155,10 +186,10 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'activeType' => $type,
 			'tabs' => [
 				[
-					'type' => SearchOptions::TYPE_BITMAP,
-					'label' => $this->msg( 'mediasearch-tab-bitmap' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_BITMAP,
-					'isBitmap' => true,
+					'type' => SearchOptions::TYPE_IMAGE,
+					'label' => $this->msg( 'mediasearch-tab-image' )->text(),
+					'isActive' => $type === SearchOptions::TYPE_IMAGE,
+					'isImage' => true,
 				],
 				[
 					'type' => SearchOptions::TYPE_AUDIO,
@@ -185,6 +216,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 					'isPage' => true,
 				],
 			],
+			'error' => $error,
 			'results' => array_map(
 				function ( $result ) use ( $results, $type ) {
 					return $this->getResultData( $result, $results, $type );
@@ -195,7 +227,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'hasFilters' => count( $activeFilters ) > 0,
 			'activeFilters' => array_values( $activeFilters ),
 			'filtersForDisplay' => array_values( $filtersForDisplay ),
-			'clearFiltersUrl' => $clearFiltersUrl,
+			'clearFiltersUrl' => $this->getPageTitle()->getLinkURL( array_diff( $querystring, $activeFilters ) ),
 			'clearFiltersText' => $this->msg( 'mediasearch-clear-filters' )->text(),
 			'hasMore' => $continue !== null,
 			'endOfResults' => count( $results ) > 0 && $continue === null,
@@ -216,7 +248,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'resultsCount' => $this->msg(
 				'mediasearch-results-count',
 				$userLanguage->formatNum( $totalHits )
-			)->text()
+			)->text(),
 		];
 
 		$this->getOutput()->addHTML( $this->templateParser->processTemplate( 'SERPWidget', $data ) );
@@ -230,12 +262,88 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'sdmsThumbRenderMap' => $this->getConfig()->get( 'UploadThumbnailRenderMap' ),
 			'sdmsLocalDev' => $this->getConfig()->get( 'MediaSearchLocalDev' ),
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),
-			'sdmsDidYouMean' => $didYouMean
+			'sdmsDidYouMean' => $didYouMean,
+			'sdmsHasError' => (bool)$error,
+			'sdmsNamespaceGroups' => $this->searchOptions['page']['namespace']['data']['namespaceGroups'],
 		] );
 
 		$this->addHelpLink( 'Help:MediaSearch' );
 
 		return parent::execute( $subPage );
+	}
+
+	/**
+	 * Find an exact title match if there is one, and if we ought to redirect to it then
+	 * return its url
+	 *
+	 * @see SpecialSearch.php
+	 * @param string $term
+	 * @return string|null The url to redirect to, or null if no redirect.
+	 */
+	private function findExactMatchRedirectUrl( $term ) {
+		$request = $this->getRequest();
+		if ( $request->getCheck( 'type' ) ) {
+			// If type is set, then the user is searching directly on Special:MediaSearch,
+			// so do not redirect (the redirect should only happen when the user searches
+			// from the site-wide searchbox)
+			return null;
+		}
+		// If the term cannot be used to create a title then there is no match
+		if ( Title::newFromText( $term ) === null ) {
+			return null;
+		}
+		// Find an exact (or very near) match
+		$title = $this->searchEngine
+			->getNearMatcher( $this->getConfig() )->getNearMatch( $term );
+		if ( $title === null ) {
+			return null;
+		}
+		$url = null;
+		if ( !$this->getHookRunner()->onSpecialSearchGoResult( $term, $title, $url ) ) {
+			return null;
+		}
+
+		if (
+			// If there is a preference set to NOT redirect on exact page match
+			// then return null (which prevents direction)
+			!$this->redirectOnExactMatch()
+			// BUT ...
+			// ... ignore no-redirect preference if the exact page match is an interwiki link
+			&& !$title->isExternal()
+			// ... ignore no-redirect preference if the exact page match is NOT in the main
+			// namespace AND there's a namespace in the search string
+			&& !( $title->getNamespace() !== NS_MAIN && strpos( $term, ':' ) > 0 )
+		) {
+			return null;
+		}
+
+		return $url ?? $title->getFullUrlForRedirect();
+	}
+
+	private function redirectOnExactMatch() {
+		if ( !$this->getConfig()->get( 'wgSearchMatchRedirectPreference' ) ) {
+			// If the preference for whether to redirect is disabled, use the default setting
+			$defaultOptions = $this->userOptionsManager->getDefaultOptions();
+			return $defaultOptions['search-match-redirect'];
+		} else {
+			// Otherwise use the user's preference
+			return $this->userOptionsManager->getOption( $this->getUser(), 'search-match-redirect' );
+		}
+	}
+
+	/**
+	 * Get media type.
+	 *
+	 * @param string $term
+	 * @param array $querystring
+	 * @return string
+	 */
+	private function getType( string $term, array $querystring ) : string {
+		$title = Title::newFromText( $term );
+		if ( $title !== null && !in_array( $title->getNamespace(), [ NS_FILE, NS_MAIN ] ) ) {
+			return SearchOptions::TYPE_PAGE;
+		}
+		return $querystring['type'] ?? SearchOptions::TYPE_IMAGE;
 	}
 
 	/**
@@ -245,7 +353,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 * @param string|null $continue
 	 * @param string|null $sort
 	 * @return array [ search results, searchinfo data, continuation value ]
-	 * @throws \MWException
+	 * @throws MWException
 	 */
 	protected function search(
 		$term,
@@ -285,8 +393,8 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			] );
 		} else {
 			$filetype = $type;
-			if ( $type === SearchOptions::TYPE_BITMAP ) {
-				$filetype .= '|drawing';
+			if ( $type === SearchOptions::TYPE_IMAGE ) {
+				$filetype = 'bitmap|drawing';
 			}
 			if ( $type === SearchOptions::TYPE_OTHER ) {
 				$filetype = 'multimedia|office|archive|3d';
@@ -324,7 +432,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 				'prop' => 'info|imageinfo|entityterms',
 				'inprop' => 'url',
 				'iiprop' => 'url|size|mime',
-				'iiurlheight' => $type === SearchOptions::TYPE_BITMAP ? 180 : null,
+				'iiurlheight' => $type === SearchOptions::TYPE_IMAGE ? 180 : null,
 				'iiurlwidth' => $width,
 				'wbetterms' => 'label',
 			] );
@@ -333,7 +441,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		if ( $this->getConfig()->get( 'MediaSearchLocalDev' ) ) {
 			// Pull data from Commons: for use in testing
 			$url = 'https://commons.wikimedia.org/w/api.php?' . http_build_query( $request->getQueryValues() );
-			$request = \MediaWiki\MediaWikiServices::getInstance()->getHttpRequestFactory()
+			$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
 				->create( $url, [], __METHOD__ );
 			$request->execute();
 			$data = $request->getContent();
@@ -343,7 +451,9 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			$context = new DerivativeContext( RequestContext::getMain() );
 			$context->setRequest( $request );
 			$this->api->setContext( $context );
+
 			$this->api->execute();
+
 			$response = $this->api->getResult()->getResultData( [], [ 'Strip' => 'all' ] );
 		}
 
@@ -371,11 +481,11 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		// If values are present in the URL parameters for any supported
 		// search filters, run them through the validation method.
 		// If validation is not successful, throw an exception
-		if ( $this->validateFilters( $activeFilters, $type ) ) {
-			return $activeFilters;
-		} else {
+		if ( !$this->validateFilters( $activeFilters, $type ) ) {
 			throw new InvalidArgumentException( 'Invalid filter value specified', 1 );
 		}
+
+		return $activeFilters;
 	}
 
 	/**
@@ -425,7 +535,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			function ( $data ) {
 				return array_column( $data, 'label', 'value' );
 			},
-			$this->searchOptions[$type]
+			$this->searchOptions[$type] ?? []
 		);
 
 		$display = [];
@@ -535,7 +645,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 */
 	protected function generateDidYouMeanLink( $queryParams, $suggestion ) {
 		unset( $queryParams[ 'title' ] );
-		$queryParams[ 'q' ] = $suggestion;
+		$queryParams[ 'search' ] = $suggestion;
 		return $this->getPageTitle()->getLinkURL( $queryParams );
 	}
 

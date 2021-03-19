@@ -1,18 +1,31 @@
 <template>
 	<div class="sdms-search-filters-wrapper" :class="rootClasses">
 		<div class="sdms-search-filters">
-			<template v-for="(filter, index) in searchFilters">
+			<template v-for="( filter, index ) in searchFilters">
 				<sd-select
+					v-if="filter.type !== 'namespace'"
 					:ref="filter.type"
 					:key="'filter-' + index"
-					:class="getFilterClasses(filter.type)"
+					:class="getFilterClasses( filter.type )"
 					:name="filter.type"
 					:items="filter.items"
 					:initial-selected-item-index="0"
-					:prefix="getFilterPrefix(filter.type)"
-					@select="onSelect($event, filter.type)"
+					:prefix="getFilterPrefix( filter.type )"
+					@select="onSelect( $event, filter.type )"
 				>
 				</sd-select>
+
+				<sd-button
+					v-else
+					:key="'filter-namespace-' + index"
+					class="sdms-search-filters__namespace"
+					:class="namespaceFilterClasses"
+					:frameless="true"
+					@click="namespaceFilterDialogActive = true"
+				>
+					{{ namespaceFilterLabel }}
+				</sd-button>
+
 				<sd-observer
 					v-if="index === searchFilters.length - 1 && supportsObserver"
 					:key="'filter-observer-' + index"
@@ -24,6 +37,17 @@
 				{{ resultsCount }}
 			</span>
 		</div>
+
+		<namespace-filter-dialog
+			v-if="namespaceFilter"
+			ref="namespace"
+			:items="namespaceFilter.items"
+			:namespaces="namespaceFilter.data.namespaceGroups.all"
+			:active="namespaceFilterDialogActive"
+			@submit="onSelect( $event, 'namespace' )"
+			@close="namespaceFilterDialogActive = false"
+		>
+		</namespace-filter-dialog>
 	</div>
 </template>
 
@@ -40,6 +64,8 @@ var mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
 	SdSelect = require( './base/Select.vue' ),
 	SdObserver = require( './base/Observer.vue' ),
+	SdButton = require( './base/Button.vue' ),
+	NamespaceFilterDialog = require( './NamespaceFilterDialog.vue' ),
 	SearchFilter = require( '../models/SearchFilter.js' ),
 	searchOptions = require( './../data/searchOptions.json' );
 
@@ -49,7 +75,9 @@ module.exports = {
 
 	components: {
 		'sd-select': SdSelect,
-		'sd-observer': SdObserver
+		'sd-observer': SdObserver,
+		'sd-button': SdButton,
+		'namespace-filter-dialog': NamespaceFilterDialog
 	},
 
 	props: {
@@ -61,7 +89,8 @@ module.exports = {
 
 	data: function () {
 		return {
-			hasGradient: false
+			hasGradient: false,
+			namespaceFilterDialogActive: false
 		};
 	},
 
@@ -79,17 +108,31 @@ module.exports = {
 		},
 
 		/**
+		 * @return {Object}
+		 */
+		namespaceFilterClasses: function () {
+			var selected = ( 'namespace' in this.filterValues[ this.mediaType ] );
+			return {
+				'sdms-search-filters__namespace--selected': selected
+			};
+		},
+
+		/**
 		 * @return {Array} SearchFilter objects for this media type.
 		 */
 		searchFilters: function () {
 			var optionsForType = searchOptions[ this.mediaType ],
 				filters = [];
 
-			Object.keys( optionsForType ).forEach( function ( option ) {
-				var filter = new SearchFilter( option, optionsForType[ option ] );
+			Object.keys( optionsForType ).forEach( function ( filterName ) {
+				var filterData = optionsForType[ filterName ],
+					filter = new SearchFilter(
+						filterName,
+						filterData.items,
+						filterData.data
+					);
 				filters.push( filter );
 			} );
-
 			return filters;
 		},
 
@@ -98,18 +141,16 @@ module.exports = {
 		 * Having a shorthand computed property for this makes it easier to
 		 * watch for changes.
 		 *
-		 * @return {Array} Empty array or [  "imageres", "filemime"  ], etc
+		 * @return {Array} Empty array or [ "imageres", "filemime" ], etc
 		 */
 		currentActiveFilters: function () {
 			return Object.keys( this.filterValues[ this.mediaType ] );
 		},
 
 		supportsObserver: function () {
-			return (
-				'IntersectionObserver' in window &&
+			return 'IntersectionObserver' in window &&
 				'IntersectionObserverEntry' in window &&
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype
-			);
+				'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 		},
 
 		/**
@@ -131,19 +172,64 @@ module.exports = {
 				'mediasearch-results-count',
 				this.totalHits[ this.mediaType ].toLocaleString( mw.config.get( 'wgUserLanguage' ) )
 			);
+		},
+
+		/**
+		 * Get a human-readable label for the namespace filter button.
+		 *
+		 * @return {Object}
+		 */
+		namespaceFilterLabel: function () {
+			// If there's a value for the namespace filter, use it. Otherwise,
+			// use 'all'.
+			var filterValue = 'namespace' in this.filterValues[ this.mediaType ] ?
+					this.filterValues[ this.mediaType ].namespace.value : 'all',
+				// Get the message key of the human-readable name of the filter value.
+				messageKey = 'mediasearch-filter-namespace-' + filterValue;
+
+			// Return the label message, which takes the filter value as a
+			// param and will return something like "Namespace: Discussion".
+			// The following messages are used here:
+			// * mediasearch-filter-namespace-all
+			// * mediasearch-filter-namespace-discussion
+			// * mediasearch-filter-namespace-help
+			// * mediasearch-filter-namespace-custom
+			return this.$i18n(
+				'mediasearch-filter-namespace-label',
+				this.$i18n( messageKey )
+			);
+		},
+
+		/**
+		 * Get the namespace search filter, if it exists.
+		 *
+		 * @return {Object|undefined}
+		 */
+		namespaceFilter: function () {
+			// Array.prototype.find is polyfilled so we can use this
+			// ES6 array method here
+
+			// eslint-disable-next-line no-restricted-syntax
+			return this.searchFilters.find( function ( filter ) {
+				return filter.type === 'namespace';
+			} );
 		}
 	} ),
 
-	methods: $.extend( {}, mapMutations( [ 'addFilterValue', 'removeFilterValue' ] ), {
+	methods: $.extend( {}, mapMutations( [
+		'addFilterValue',
+		'removeFilterValue'
+	] ), {
 		/**
 		 * Handle filter change.
 		 *
-		 * @param {string} value The new filter value
+		 * @param {string|Object} value The new filter value; namespace filter values are objects
 		 * @param {string} filterType
 		 * @fires filter-change
 		 */
 		onSelect: function ( value, filterType ) {
-			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '';
+			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
+				normalizedLoggerValue = value.value ? value.value : value;
 
 			if ( value ) {
 				this.addFilterValue( {
@@ -156,7 +242,8 @@ module.exports = {
 					action: 'filter_change',
 					search_media_type: this.mediaType,
 					search_filter_type: filterType,
-					search_filter_value: value,
+					// for logging purposes, we only want a simple string value
+					search_filter_value: normalizedLoggerValue,
 					prior_search_filter_type: filterType,
 					prior_search_filter_value: oldValue
 				} );
@@ -166,6 +253,7 @@ module.exports = {
 					mediaType: this.mediaType,
 					filterType: filterType
 				} );
+
 				/* eslint-disable camelcase */
 				this.$log( {
 					action: 'filter_change',
@@ -195,8 +283,7 @@ module.exports = {
 		 */
 		getFilterClasses: function ( filterType ) {
 			return {
-				'sdms-search-filter--selected':
-					this.currentActiveFilters.indexOf( filterType ) !== -1
+				'sdms-search-filter--selected': this.currentActiveFilters.indexOf( filterType ) !== -1
 			};
 		},
 
@@ -229,9 +316,25 @@ module.exports = {
 			this.hasGradient = false;
 		},
 
+		/**
+		 * Get the ref for a filter.
+		 *
+		 * Because the namespace filter is handled outside the v-for loop that
+		 * creates the other filter elements, we need to access its ref a little
+		 * differently.
+		 *
+		 * @param {Object} filter A search filter object
+		 * @return {Object}
+		 */
+		getRef: function ( filter ) {
+			return filter.type === 'namespace' ?
+				this.$refs[ filter.type ] :
+				this.$refs[ filter.type ][ 0 ];
+		},
+
 		resetAllFilters: function () {
 			this.searchFilters.forEach( function ( filter ) {
-				this.$refs[ filter.type ][ 0 ].reset();
+				this.getRef( filter ).reset();
 			}.bind( this ) );
 		},
 
@@ -241,12 +344,13 @@ module.exports = {
 		 */
 		synchronizeFilters: function () {
 			this.searchFilters.forEach( function ( filter ) {
-				var currentValue = this.filterValues[ this.mediaType ][ filter.type ];
+				var currentValue = this.filterValues[ this.mediaType ][ filter.type ],
+					ref = this.getRef( filter );
 
 				if ( currentValue ) {
-					this.$refs[ filter.type ][ 0 ].select( currentValue );
+					ref.select( currentValue );
 				} else {
-					this.$refs[ filter.type ][ 0 ].reset();
+					ref.reset();
 				}
 			}.bind( this ) );
 		}

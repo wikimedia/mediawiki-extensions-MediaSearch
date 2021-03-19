@@ -15,16 +15,29 @@
 
 @sd-color-taboption: @color-base--hover;
 
+@sd-background-color-input-binary--checked: @color-primary;
+@sd-background-color-input-binary--active: @color-primary--active;
+
 // Border
 // ---------------------------------------------------------
 @sd-border-color-base--focus: @color-primary--focus;
 @sd-border-color-input--hover: @border-color-base--active;
+
+@sd-border-color-dialog: @background-color-tabs;
+
+@sd-border-color-framed-progressive--hover: @color-primary--hover;
+@sd-border-color-input-binary: @border-color-base--active;
+@sd-border-color-input-binary--active: @color-primary--active;
+@sd-border-color-input-binary--checked: @color-primary;
+@sd-border-width-radio--checked: 6px;
 
 // Sizes
 // ---------------------------------------------------------
 @sd-size-base: 32 / @sd-font-size-browser / @sd-font-size-base;
 
 @sd-size-icon-inner: unit( 20 / 16 / 0.8, em );
+@sd-size-icon-small: 14 / @sd-font-size-browser / @sd-font-size-base;
+@sd-size-input-binary: 20 / @sd-font-size-browser / @sd-font-size-base;
 
 @sd-max-width-input-base: @max-width-base;
 
@@ -46,12 +59,24 @@
 
 @sd-padding-end-dropdown: @size-indicator + ( 2 * @sd-padding-horizontal-base );
 
+@sd-padding-dialog: 16px;
+// Header/footer content height + top/bottom padding + 1px border
+@sd-spacing-dialog-body: 51px;
+
+@sd-margin-top-fieldlayout--labelled: 12px;
+
 // Typography
 // ---------------------------------------------------------
 @sd-font-size-browser: 16; // assumed browser default of `16px`
 @sd-font-size-base: 0.875 / 1em; // equals `14px` at browser default of `16px`
 
 @sd-line-height-base: unit( 18 / @sd-font-size-browser / @sd-font-size-base, em);
+
+// Box shadow
+// ---------------------------------------------------------
+@sd-box-shadow-input--focus: inset 0 0 0 1px @color-primary;
+@sd-box-shadow-input-binary--active: inset 0 0 0 1px @color-primary--active;
+@sd-box-shadow-progressive--focus: inset 0 0 0 1px @color-primary, inset 0 0 0 2px @color-base--inverted;
 
 // Mixins
 // ---------------------------------------------------------
