@@ -37,6 +37,10 @@
 			"value": ""
 		}
 	},
+	"Hooks": {
+		"BeforePageDisplay": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks::onBeforePageDisplay",
+		"GetPreferences": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks::onGetPreferences"
+	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "MediaSearch"
@@ -200,6 +204,10 @@
 				"mobile"
 			]
 		}
+	},
+	"DefaultUserOptions": {
+		"sdms-specialsearch-default": 1,
+		"sdms-search-user-notice-dismissed": 0
 	},
 	"SpecialPages": {
 		"NewMediaSearch": {
