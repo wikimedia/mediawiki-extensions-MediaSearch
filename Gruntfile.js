@@ -15,7 +15,9 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json,vue}',
-				'!{vendor,node_modules}/**'
+				'!{vendor,node_modules,coverage,tests/jest/fixtures}/**',
+				'!jest.config.js',
+				'!jest.setup.js'
 			]
 		},
 		stylelint: {
