@@ -44,8 +44,10 @@ extension:
 // External entity search base URI (for autocomplete suggestions, optional)
 $wgMediaSearchExternalEntitySearchBaseUri = 'https://www.wikidata.org/w/api.php';
 
-// For local development with production results (from Commons and Wikidata)
-$wgMediaSearchLocalDev = true;
+// URI for getting search results from production during local development.
+// If this is set, search API calls will be made to this URI, and external
+// entity calls will be made to the external entity search base URI set above.
+$wgMediaSearchExternalSearchUri = 'https://commons.wikimedia.org/w/api.php';
 ```
 
 ## Coding conventions

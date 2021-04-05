@@ -268,9 +268,9 @@ class SpecialMediaSearch extends SpecialPage {
 			'sdmsInitialSearchResults' => $data,
 			'sdmsTotalSiteImages' => $totalSiteImages,
 			'sdmsExternalEntitySearchBaseUri' => $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' ),
+			'sdmsExternalSearchUri' => $this->getConfig()->get( 'MediaSearchExternalSearchUri' ),
 			'sdmsThumbLimits' => $thumbLimits,
 			'sdmsThumbRenderMap' => $this->getConfig()->get( 'UploadThumbnailRenderMap' ),
-			'sdmsLocalDev' => $this->getConfig()->get( 'MediaSearchLocalDev' ),
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),
 			'sdmsDidYouMean' => $didYouMean,
 			'sdmsHasError' => (bool)$error,
@@ -462,9 +462,10 @@ class SpecialMediaSearch extends SpecialPage {
 			] );
 		}
 
-		if ( $this->getConfig()->get( 'MediaSearchLocalDev' ) ) {
+		$externalSearchUri = $this->getConfig()->get( 'MediaSearchExternalSearchUri' );
+		if ( $externalSearchUri ) {
 			// Pull data from Commons: for use in testing
-			$url = 'https://commons.wikimedia.org/w/api.php?' . http_build_query( $request->getQueryValues() );
+			$url = $externalSearchUri . '?' . http_build_query( $request->getQueryValues() );
 			$request = MediaWikiServices::getInstance()->getHttpRequestFactory()
 				->create( $url, [], __METHOD__ );
 			$request->execute();

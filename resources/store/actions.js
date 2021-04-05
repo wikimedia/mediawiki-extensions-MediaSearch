@@ -96,6 +96,8 @@ module.exports = {
 				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
 				inprop: 'url'
 			},
+			externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
+			isLocalDev = !!externalSearchUri,
 			namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
 			namespaceFilter,
 			namespaces,
@@ -176,8 +178,8 @@ module.exports = {
 			pending: true
 		} );
 
-		request = mw.config.get( 'sdmsLocalDev' ) ?
-			$.get( 'https://commons.wikimedia.org/w/api.php', params ) : // local testing
+		request = isLocalDev ?
+			$.get( externalSearchUri, params ) : // local testing
 			api.get( params ); // real
 
 		request.promise( {
