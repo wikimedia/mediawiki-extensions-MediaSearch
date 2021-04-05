@@ -59,5 +59,9 @@
 	"mediasearch-error-message": "Invalid search",
 	"mediasearch-error-text": "Enter a new search above and try again",
 	"mediasearch-specialsearch-default": "Show search results in the Special:Search interface",
-	"mediasearch-specialsearch-default-help": "Select to show search results from the main search bar in the older Special:Search interface instead of Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Select to show search results from the main search bar in the older Special:Search interface instead of Special:MediaSearch",
+	"mediasearch-user-notice-title": "Looking for [[Special:Search]]?",
+	"mediasearch-user-notice-body": "You can now adjust your [[Special:Preferences#mw-prefsection-searchoptions|preferences]] to select your preferred search experience.",
+	"mediasearch-user-notice-dismiss": "Dismiss this notification",
+	"mediasearch-switch-special-search": "Switch to Special:Search"
 }

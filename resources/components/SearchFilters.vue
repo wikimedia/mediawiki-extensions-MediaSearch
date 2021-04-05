@@ -2,36 +2,37 @@
 	<div class="sdms-search-filters-wrapper" :class="rootClasses">
 		<div class="sdms-search-filters">
 			<template v-for="( filter, index ) in searchFilters">
-				<sd-select
-					v-if="filter.type !== 'namespace'"
-					:ref="filter.type"
-					:key="'filter-' + index"
-					:class="getFilterClasses( filter.type )"
-					:name="filter.type"
-					:items="filter.items"
-					:initial-selected-item-index="0"
-					:prefix="getFilterPrefix( filter.type )"
-					@select="onSelect( $event, filter.type )"
-				>
-				</sd-select>
+				<div :key="'filter-' + index">
+					<sd-select
+						v-if="filter.type !== 'namespace'"
+						:ref="filter.type"
+						:class="getFilterClasses( filter.type )"
+						:name="filter.type"
+						:items="filter.items"
+						:initial-selected-item-index="0"
+						:prefix="getFilterPrefix( filter.type )"
+						@select="onSelect( $event, filter.type )"
+					>
+					</sd-select>
 
-				<sd-button
-					v-else
-					:key="'filter-namespace-' + index"
-					class="sdms-search-filters__namespace"
-					:class="namespaceFilterClasses"
-					:frameless="true"
-					@click="namespaceFilterDialogActive = true"
-				>
-					{{ namespaceFilterLabel }}
-				</sd-button>
+					<sd-button
+						v-else
+						:key="'filter-namespace-' + index"
+						class="sdms-search-filters__namespace"
+						:class="namespaceFilterClasses"
+						:frameless="true"
+						@click="namespaceFilterDialogActive = true"
+					>
+						{{ namespaceFilterLabel }}
+					</sd-button>
 
-				<sd-observer
-					v-if="index === searchFilters.length - 1 && supportsObserver"
-					:key="'filter-observer-' + index"
-					@intersect="removeGradientClass"
-					@hide="addGradientClass"
-				></sd-observer>
+					<sd-observer
+						v-if="index === searchFilters.length - 1 && supportsObserver"
+						:key="'filter-observer-' + index"
+						@intersect="removeGradientClass"
+						@hide="addGradientClass"
+					></sd-observer>
+				</div>
 			</template>
 			<span v-if="showResultsCount" class="sdms-search-results-count">
 				{{ resultsCount }}
@@ -43,7 +44,9 @@
 			ref="namespace"
 			:items="namespaceFilter.items"
 			:namespaces="namespaceFilter.data.namespaceGroups.all"
+			:namespace-groups="namespaceFilter.data.namespaceGroups"
 			:active="namespaceFilterDialogActive"
+			:initial-value="namespaceFilterValue"
 			@submit="onSelect( $event, 'namespace' )"
 			@close="namespaceFilterDialogActive = false"
 		>
@@ -180,12 +183,20 @@ module.exports = {
 		 * @return {Object}
 		 */
 		namespaceFilterLabel: function () {
-			// If there's a value for the namespace filter, use it. Otherwise,
-			// use 'all'.
-			var filterValue = 'namespace' in this.filterValues[ this.mediaType ] ?
-					this.filterValues[ this.mediaType ].namespace.value : 'all',
-				// Get the message key of the human-readable name of the filter value.
-				messageKey = 'mediasearch-filter-namespace-' + filterValue;
+			var namespaceGroups = this.namespaceFilter.data.namespaceGroups,
+				messageKey,
+				filterValue = 'all';
+
+			// If there is a namespace filter value...
+			if ( 'namespace' in this.filterValues[ this.mediaType ] ) {
+				// If the filter value is one of the namespace groups, use that.
+				// Otherwise, it's a string of custom namespaces, so use the
+				// 'custom' label.
+				filterValue = namespaceGroups[ this.filterValues[ this.mediaType ].namespace ] ?
+					this.filterValues[ this.mediaType ].namespace : 'custom';
+			}
+
+			messageKey = 'mediasearch-filter-namespace-' + filterValue;
 
 			// Return the label message, which takes the filter value as a
 			// param and will return something like "Namespace: Discussion".
@@ -198,6 +209,16 @@ module.exports = {
 				'mediasearch-filter-namespace-label',
 				this.$i18n( messageKey )
 			);
+		},
+
+		/**
+		 * Current value of the namespace filter (defaults to 'all').
+		 *
+		 * @return {string}
+		 */
+		namespaceFilterValue: function () {
+			return 'namespace' in this.filterValues[ this.mediaType ] ?
+				this.filterValues[ this.mediaType ].namespace : 'all';
 		},
 
 		/**
@@ -228,8 +249,12 @@ module.exports = {
 		 * @fires filter-change
 		 */
 		onSelect: function ( value, filterType ) {
-			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
-				normalizedLoggerValue = value.value ? value.value : value;
+			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '';
+
+			// for logging purposes, we only want a simple string value
+			function normalizedValue( v ) {
+				return v.value ? v.value : v;
+			}
 
 			if ( value ) {
 				this.addFilterValue( {
@@ -242,10 +267,9 @@ module.exports = {
 					action: 'filter_change',
 					search_media_type: this.mediaType,
 					search_filter_type: filterType,
-					// for logging purposes, we only want a simple string value
-					search_filter_value: normalizedLoggerValue,
+					search_filter_value: normalizedValue( value ),
 					prior_search_filter_type: filterType,
-					prior_search_filter_value: oldValue
+					prior_search_filter_value: normalizedValue( oldValue )
 				} );
 				/* eslint-enable camelcase */
 			} else {
@@ -261,7 +285,7 @@ module.exports = {
 					search_filter_type: filterType,
 					search_filter_value: '',
 					prior_search_filter_type: filterType,
-					prior_search_filter_value: oldValue
+					prior_search_filter_value: normalizedValue( oldValue )
 				} );
 				/* eslint-enable camelcase */
 			}

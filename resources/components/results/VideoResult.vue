@@ -15,14 +15,19 @@
 		>
 
 		<div class="sdms-video-result__body">
-			<h3 class="sdms-video-result__title">
+			<h3 v-if="displayName" class="sdms-video-result__title">
 				{{ displayName }}
 			</h3>
 
 			<h4 class="sdms-video-result__meta">
 				<span class="sdms-video-result__duration">
 					<sd-icon :icon="icon"></sd-icon>
-					<span v-if="formattedDuration" class="sdms-video-result__duration__text">{{ formattedDuration }}</span>
+					<span
+						v-if="formattedDuration"
+						class="sdms-video-result__duration__text"
+					>
+						{{ formattedDuration }}
+					</span>
 				</span>
 				<span v-if="mime" class="sdms-video-result__mime">
 					{{ mime }}

@@ -16,20 +16,21 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use MWException;
 use NamespaceInfo;
+use OOUI\Tag;
 use OutputPage;
 use RequestContext;
 use SearchEngine;
 use SearchEngineFactory;
 use SiteStats;
+use SpecialPage;
 use TemplateParser;
 use Title;
-use UnlistedSpecialPage;
 use Wikimedia\Assert\Assert;
 
 /**
  * Special page specifically for searching multimedia pages.
  */
-class SpecialMediaSearch extends UnlistedSpecialPage {
+class SpecialMediaSearch extends SpecialPage {
 	/**
 	 * @var NamespaceInfo
 	 */
@@ -51,7 +52,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	protected $searchConfig;
 
 	/**
-	 * @var array
+	 * @var SearchOptions
 	 */
 	private $searchOptions;
 
@@ -92,7 +93,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 
 		$this->searchEngine = $searchEngineFactory->create();
 
-		$this->searchOptions = SearchOptions::getSearchOptions( $this->getContext() );
+		$this->searchOptions = SearchOptions::getInstanceFromContext( $this->getContext() );
 	}
 
 	/**
@@ -100,6 +101,13 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 */
 	public function getDescription() {
 		return $this->msg( 'mediasearch-title' )->parse();
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getGroupName() {
+		return 'pages';
 	}
 
 	/**
@@ -129,11 +137,12 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$results = [];
 		$searchinfo = [];
 		$continue = null;
-		$activeFilters = [];
 		$filtersForDisplay = [];
+		$activeFilters = $this->getActiveFilters( $querystring );
+
 		try {
-			// Attempt to validate filters
-			$activeFilters = $this->getActiveFilters( $querystring, $type );
+			// Validate filters
+			$this->assertValidFilters( $activeFilters, $type );
 			$filtersForDisplay = $this->getFiltersForDisplay( $activeFilters, $type );
 			$termWithFilters = $this->getTermWithFilters( $term, $activeFilters );
 
@@ -142,6 +151,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			list( $results, $searchinfo, $continue ) = $this->search(
 				$termWithFilters,
 				$type,
+				$this->getSearchNamespaces( $activeFilters, $type ),
 				$limit,
 				$this->getRequest()->getText( 'continue' ),
 				$this->getSort( $activeFilters )
@@ -264,10 +274,23 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),
 			'sdmsDidYouMean' => $didYouMean,
 			'sdmsHasError' => (bool)$error,
-			'sdmsNamespaceGroups' => $this->searchOptions['page']['namespace']['data']['namespaceGroups'],
+			'sdmsNamespaceGroups' => $this->searchOptions->getNamespaceGroups(),
 		] );
 
-		$this->addHelpLink( 'Help:MediaSearch' );
+		$specialSearchUrl = SpecialPage::getTitleFor( 'Search' )->getLocalURL( [ 'search' => $term ] );
+		$helpUrl = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:MediaSearch';
+		$this->getOutput()->setIndicators( [
+			$this->getLanguage()->pipeList( [
+				( new Tag( 'a' ) )
+					->setAttributes( [ 'href' => $specialSearchUrl ] )
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
+				( new Tag( 'a' ) )
+					->addClasses( [ 'mw-helplink' ] )
+					->setAttributes( [ 'href' => $helpUrl, 'target' => '_blank' ] )
+					->appendContent( $this->msg( 'helppage-top-gethelp' )->escaped() ),
+			] )
+		] );
 
 		return parent::execute( $subPage );
 	}
@@ -349,6 +372,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	/**
 	 * @param string $term
 	 * @param string $type
+	 * @param int[] $namespaces
 	 * @param int|null $limit
 	 * @param string|null $continue
 	 * @param string|null $sort
@@ -358,6 +382,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	protected function search(
 		$term,
 		$type,
+		$namespaces,
 		$limit = null,
 		$continue = null,
 		$sort = 'relevance'
@@ -375,7 +400,6 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$langCode = $this->getLanguage()->getCode();
 
 		if ( $type === SearchOptions::TYPE_PAGE ) {
-			$namespaces = array_diff( $this->namespaceInfo->getValidNamespaces(), [ NS_FILE ] );
 			$request = new FauxRequest( [
 				'format' => 'json',
 				'uselang' => $langCode,
@@ -423,7 +447,7 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 				'action' => 'query',
 				'generator' => 'search',
 				'gsrsearch' => ( $filetype ? "filetype:$filetype " : '' ) . $term,
-				'gsrnamespace' => NS_FILE,
+				'gsrnamespace' => implode( '|', $namespaces ),
 				'gsrlimit' => $limit,
 				'gsroffset' => $continue ?: 0,
 				'gsrsort' => $sort,
@@ -470,22 +494,11 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 
 	/**
 	 * @param array $queryParams
-	 * @param string $type
 	 * @return array
-	 * @throws InvalidArgumentException
 	 */
-	protected function getActiveFilters( array $queryParams, string $type ) : array {
+	protected function getActiveFilters( array $queryParams ) : array {
 		$enabledParams = $this->getConfig()->get( 'MediaSearchSupportedFilterParams' ) ?? [];
-		$activeFilters = array_intersect_key( $queryParams, array_flip( $enabledParams ) );
-
-		// If values are present in the URL parameters for any supported
-		// search filters, run them through the validation method.
-		// If validation is not successful, throw an exception
-		if ( !$this->validateFilters( $activeFilters, $type ) ) {
-			throw new InvalidArgumentException( 'Invalid filter value specified', 1 );
-		}
-
-		return $activeFilters;
+		return array_intersect_key( $queryParams, array_flip( $enabledParams ) );
 	}
 
 	/**
@@ -496,14 +509,15 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 *
 	 * @param array $activeFilters
 	 * @param string $type
-	 * @return bool
+	 * @throws InvalidArgumentException
 	 */
-	protected function validateFilters( array $activeFilters, string $type ) : bool {
+	protected function assertValidFilters( array $activeFilters, string $type ) {
 		// Gather a [ key => allowed values ] map of all allowed values for the
 		// given filter and media type
+		$searchOptions = $this->searchOptions->getOptions();
 		$allowedFilterValues = array_map( function ( $options ) {
-			return array_column( $options, 'value' );
-		}, $this->searchOptions[ $type ] ?? [] );
+			return array_column( $options['items'], 'value' );
+		}, $searchOptions[ $type ] ?? [] );
 
 		// Filter the list of active filters, throwing out all invalid ones
 		$validFilters = array_filter(
@@ -513,8 +527,27 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			},
 			ARRAY_FILTER_USE_BOTH
 		);
+		$invalidFilters = array_diff( $activeFilters, $validFilters );
 
-		return count( $activeFilters ) === count( $validFilters );
+		// Custom namespace values (e.g. 1|2|3) will not be recognized as
+		// valid input so they'll need special treatment here; if we fail
+		// to derive a list of namespace ids from the input, then it's
+		// invalid; otherwise, we can treat the namespace filter as valid
+		if (
+			isset( $invalidFilters[SearchOptions::FILTER_NAMESPACE] ) &&
+			isset( $allowedFilterValues[SearchOptions::FILTER_NAMESPACE] )
+		) {
+			// below will throw an exception if the input is invalid, which
+			// is exactly what we'd want to happen
+			$this->searchOptions->getNamespaceIdsFromInput( $activeFilters[SearchOptions::FILTER_NAMESPACE] );
+			unset( $invalidFilters[SearchOptions::FILTER_NAMESPACE] );
+		}
+
+		if ( count( $invalidFilters ) > 0 ) {
+			throw new InvalidArgumentException(
+				'Invalid filters ' . implode( ', ', array_keys( $invalidFilters )
+			) );
+		}
 	}
 
 	/**
@@ -528,14 +561,16 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 	 * @return array
 	 */
 	protected function getFiltersForDisplay( $activeFilters, $type ) : array {
+		$searchOptions = $this->searchOptions->getOptions();
+
 		// reshape data array into a multi-dimensional [ value => label ] format
 		// per type, so that we can more easily grab the relevant data without
 		// having to loop it every time, for each filter
 		$labels = array_map(
 			function ( $data ) {
-				return array_column( $data, 'label', 'value' );
+				return array_column( $data['items'], 'label', 'value' );
 			},
-			$this->searchOptions[$type] ?? []
+			$searchOptions[$type] ?? []
 		);
 
 		$display = [];
@@ -543,6 +578,19 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 			// use label (if found) or fall back to the given value
 			$display[$filter] = $labels[$filter][$value] ?? $value;
 		}
+
+		// Custom namespace filter selection should be displayed as "custom"
+		if (
+			isset( $activeFilters[SearchOptions::FILTER_NAMESPACE] ) &&
+			!in_array(
+				$activeFilters[SearchOptions::FILTER_NAMESPACE],
+				SearchOptions::NAMESPACE_GROUPS
+			)
+		) {
+			// phpcs:ignore Generic.Files.LineLength.TooLong
+			$display[SearchOptions::FILTER_NAMESPACE] = $labels[SearchOptions::FILTER_NAMESPACE][SearchOptions::NAMESPACES_CUSTOM];
+		}
+
 		return $display;
 	}
 
@@ -619,6 +667,29 @@ class SpecialMediaSearch extends UnlistedSpecialPage {
 		$thumbLimits = array_unique( $thumbLimits );
 		sort( $thumbLimits );
 		return $thumbLimits;
+	}
+
+	/**
+	 * Determine what namespaces should be included in the search
+	 *
+	 * @param array $activeFilters
+	 * @param string $type
+	 * @return array
+	 */
+	protected function getSearchNamespaces( array $activeFilters, string $type ) {
+		if ( $type !== SearchOptions::TYPE_PAGE ) {
+			// searches on any tab other than "pages" are specific to NS_FILE
+			return [ NS_FILE ];
+		}
+
+		if ( !isset( $activeFilters[ SearchOptions::FILTER_NAMESPACE ] ) ) {
+			// no custom namespace = defaults to all
+			return array_keys( $this->searchOptions->getNamespaceGroups()[ SearchOptions::NAMESPACES_ALL ] );
+		}
+
+		return $this->searchOptions->getNamespaceIdsFromInput(
+			$activeFilters[ SearchOptions::FILTER_NAMESPACE ]
+		);
 	}
 
 	/**
