@@ -559,7 +559,7 @@ module.exports = {
 		// If a search term was already present when the user arrives on the page,
 		// log the results of the initial server-rendered search query regardless
 		// of whether any results were found
-		if ( this.term && this.term !== '' ) {
+		if ( this.term ) {
 			/* eslint-disable camelcase */
 			this.$log( {
 				action: 'search_new',

@@ -138,9 +138,7 @@ module.exports = {
 		} else {
 			// Params used in all non-page/category searches.
 			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
-			if ( filters ) {
-				params.gsrsearch = filters + ' ' + params.gsrsearch;
-			}
+			params.gsrsearch = filters + ' ' + params.gsrsearch;
 
 			switch ( options.type ) {
 				case 'video':
@@ -222,7 +220,7 @@ module.exports = {
 				}
 			}
 
-			if ( response.query.searchinfo && response.query.searchinfo.suggestion ) {
+			if ( response.query && response.query.searchinfo && response.query.searchinfo.suggestion ) {
 				context.commit( 'setDidYouMean',
 					extractSuggestedTerm( response.query.searchinfo.suggestion, filters )
 				);

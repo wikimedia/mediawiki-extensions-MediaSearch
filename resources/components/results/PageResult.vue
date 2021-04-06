@@ -48,6 +48,8 @@
  * @file PageResult.vue
  *
  * Represents page and category results.
+ *
+ * v-html use: snippet comes from trusted API/parser content.
  */
 var searchResult = require( '../../mixins/searchResult.js' ),
 	userLanguage = mw.config.get( 'wgUserLanguage' );

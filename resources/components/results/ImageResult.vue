@@ -1,5 +1,6 @@
 <template>
 	<a
+		v-if="imageinfo"
 		ref="link"
 		class="sdms-image-result"
 		:class="rootClasses"
