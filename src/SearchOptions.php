@@ -155,20 +155,20 @@ class SearchOptions {
 		if ( $type === static::TYPE_IMAGE ) {
 			return [ 'items' => [
 				[
-					'label' => $this->context->msg( 'mediasearch-filter-size-any' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-size-any' )->parse(),
 					'value' => ''
 				],
 				[
-					'label' => $this->context->msg( 'mediasearch-filter-size-small' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-size-small' )->parse(),
 					'value' => '<500'
 				],
 				[
 					// phpcs:ignore Generic.Files.LineLength.TooLong
-					'label' => $this->context->msg( 'mediasearch-filter-size-medium' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-size-medium' )->parse(),
 					'value' => '500,1000'
 				],
 				[
-					'label' => $this->context->msg( 'mediasearch-filter-size-large' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-size-large' )->parse(),
 					'value' => '>1000'
 				],
 			] ];
@@ -198,7 +198,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
 						'value' => ''
 					],
 					[
@@ -234,7 +234,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
 						'value' => ''
 					],
 					[
@@ -262,7 +262,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
 						'value' => ''
 					],
 					[
@@ -282,7 +282,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->text(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
 						'value' => ''
 					],
 					[
@@ -321,11 +321,11 @@ class SearchOptions {
 
 		return [ 'items' => [
 			[
-				'label' => $this->context->msg( 'mediasearch-filter-sort-default' )->text(),
+				'label' => $this->context->msg( 'mediasearch-filter-sort-default' )->parse(),
 				'value' => ''
 			],
 			[
-				'label' => $this->context->msg( 'mediasearch-filter-sort-recency' )->text(),
+				'label' => $this->context->msg( 'mediasearch-filter-sort-recency' )->parse(),
 				'value' => 'recency'
 			]
 		] ];
@@ -370,7 +370,7 @@ class SearchOptions {
 
 		// Add the default label
 		$licenseGroups[] = [
-			'label' => $this->context->msg( 'mediasearch-filter-license-any' )->text(),
+			'label' => $this->context->msg( 'mediasearch-filter-license-any' )->parse(),
 			'value' => ''
 		];
 
@@ -378,14 +378,14 @@ class SearchOptions {
 			$msgKey = 'mediasearch-filter-license-' . $group;
 
 			$licenseGroups[] = [
-				'label' => $this->context->msg( $msgKey )->text(),
+				'label' => $this->context->msg( $msgKey )->parse(),
 				'value' => $group
 			];
 		}
 
 		// Add the "other" label
 		$licenseGroups[] = [
-			'label' => $this->context->msg( 'mediasearch-filter-license-other' )->text(),
+			'label' => $this->context->msg( 'mediasearch-filter-license-other' )->parse(),
 			'value' => 'other'
 		];
 
@@ -411,22 +411,22 @@ class SearchOptions {
 			$filterItems = [
 				[
 					// phpcs:ignore Generic.Files.LineLength.TooLong
-					'label' => $this->context->msg( 'mediasearch-filter-namespace-all' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-all' )->parse(),
 					'value' => static::NAMESPACES_ALL
 				],
 				[
 					// phpcs:ignore Generic.Files.LineLength.TooLong
-					'label' => $this->context->msg( 'mediasearch-filter-namespace-discussion' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-discussion' )->parse(),
 					'value' => static::NAMESPACES_DISCUSSION
 				],
 				[
 					// phpcs:ignore Generic.Files.LineLength.TooLong
-					'label' => $this->context->msg( 'mediasearch-filter-namespace-help' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-help' )->parse(),
 					'value' => static::NAMESPACES_HELP
 				],
 				[
 					// phpcs:ignore Generic.Files.LineLength.TooLong
-					'label' => $this->context->msg( 'mediasearch-filter-namespace-custom' )->text(),
+					'label' => $this->context->msg( 'mediasearch-filter-namespace-custom' )->parse(),
 					'value' => static::NAMESPACES_CUSTOM
 				],
 			];
