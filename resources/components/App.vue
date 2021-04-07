@@ -1,5 +1,8 @@
 <template>
 	<div>
+		<search-user-notice>
+		</search-user-notice>
+
 		<sd-autocomplete-search-input
 			class="sdms-search-input"
 			name="sdms-search-input"
@@ -102,6 +105,7 @@ var AUTOLOAD_COUNT = 2,
 	ConceptChips = require( './ConceptChips.vue' ),
 	DidYouMean = require( './DidYouMean.vue' ),
 	Observer = require( './base/Observer.vue' ),
+	UserNotice = require( './UserNotice.vue' ),
 	autocompleteLookupHandler = require( './../mixins/autocompleteLookupHandler.js' ),
 	searchOptions = require( '../data/searchOptions.json' ),
 	url = new mw.Uri();
@@ -118,6 +122,7 @@ module.exports = {
 		'search-filters': SearchFilters,
 		'concept-chips': ConceptChips,
 		'did-you-mean': DidYouMean,
+		'search-user-notice': UserNotice,
 		observer: Observer
 	},
 
@@ -248,11 +253,9 @@ module.exports = {
 		onFilterChange: function ( data ) {
 			// the new search (with updated filter params) is handled
 			// by the allActiveFilters watcher
-
 			this.$refs[ data.mediaType ][ 0 ].hideDetails();
 
-			// Namespace filter to be implemented as part of T276262.
-			if ( data.value && data.filterType !== 'namespace' ) {
+			if ( data.value ) {
 				url.query[ data.filterType ] = data.value;
 			} else {
 				delete url.query[ data.filterType ];

@@ -69,5 +69,9 @@ class MediaSearchHooks {
 			'label-message' => 'mediasearch-specialsearch-default',
 			'help-message' => 'mediasearch-specialsearch-default-help',
 		];
+
+		$preferences['sdms-search-user-notice-dismissed'] = [
+			'type' => 'api',
+		];
 	}
 }

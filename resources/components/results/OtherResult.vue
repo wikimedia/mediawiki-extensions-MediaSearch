@@ -12,7 +12,7 @@
 			<sdms-image :source="thumbnail" :alt="displayName"></sdms-image>
 		</a>
 		<div class="sdms-other-result__text">
-			<h3>
+			<h3 v-if="displayName">
 				<a :href="canonicalurl"
 					target="_blank"
 					:title="title"
@@ -22,7 +22,7 @@
 				</a>
 			</h3>
 			<p class="sdms-other-result__meta">
-				<span class="sdms-other-result__extension">
+				<span v-if="extension" class="sdms-other-result__extension">
 					{{ extension }}
 				</span>
 
@@ -62,21 +62,13 @@ module.exports = {
 
 	computed: {
 		/**
-		 * Use mw.Title to get a normalized title without File, Category, etc. prepending
-		 *
-		 * @return {string}
-		 */
-		displayName: function () {
-			return new mw.Title( this.title ).getMainText();
-		},
-
-		/**
 		 * Get file extension.
 		 *
-		 * @return {string}
+		 * @return {string|null}
 		 */
 		extension: function () {
-			return new mw.Title( this.title ).getExtension().toUpperCase();
+			var title = mw.Title.newFromText( this.title );
+			return title ? title.getExtension().toUpperCase() : null;
 		},
 
 		/**

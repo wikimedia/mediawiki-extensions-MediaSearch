@@ -65,5 +65,9 @@
 	"mediasearch-error-message": "Error message informing the user of an invalid search",
 	"mediasearch-error-text": "Text prompting the user to retry their search query",
 	"mediasearch-specialsearch-default": "Title of preference to use Special:Search as the default search (instead of Special:MediaSearch)",
-	"mediasearch-specialsearch-default-help": "Help text for preference to use Special:Search as the default search (instead of Special:MediaSearch)"
+	"mediasearch-specialsearch-default-help": "Help text for preference to use Special:Search as the default search (instead of Special:MediaSearch)",
+	"mediasearch-user-notice-title": "Title text for notification notifying users they can change their default search option",
+	"mediasearch-user-notice-body": "Body text for notification notifying users they can change their default search option",
+	"mediasearch-user-notice-dismiss": "Label for button that closes notification",
+	"mediasearch-switch-special-search": "A link so that the user can go to Special:Search"
 }

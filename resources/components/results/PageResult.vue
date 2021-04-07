@@ -1,10 +1,10 @@
 <template>
 	<div class="sdms-page-result">
 		<div class="sdms-page-result__title">
-			<span class="sdms-page-result__namespace">
+			<span v-if="namespacePrefix" class="sdms-page-result__namespace">
 				{{ namespacePrefix }}
 			</span>
-			<h3>
+			<h3 v-if="displayName">
 				<a :href="canonicalurl"
 					target="_blank"
 					:title="title"
@@ -98,10 +98,14 @@ module.exports = {
 		},
 
 		/**
-		 * @return {string}
+		 * @return {string|null}
 		 */
 		namespacePrefix: function () {
 			var title = new mw.Title( this.title );
+
+			if ( !title ) {
+				return null;
+			}
 
 			// If this is the default namespace (gallery), getNamespacePrefix()
 			// won't return anything, so we need to use this system message

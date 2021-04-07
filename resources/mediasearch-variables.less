@@ -13,9 +13,20 @@
 
 @sdms-background-color-namespace-label: @background-color-tabs;
 
+@sdms-color-tool: @color-base--emphasized;
+@sdms-background-color-tool--hover: @background-color-framed;
+@sdms-background-color-tool--focus: @background-color-base--hover;
+@sdms-background-color-tool--active: @background-color-base--hover;
+@sdms-background-color-tool--selected: @background-color-primary;
+
 // Border
 // ---------------------------------------------------------
+@sdms-border-color-base--focus: @color-primary--focus;
+
 @sdms-border-color-result: @background-color-tabs;
+
+@sdms-border-color-tool: transparent;
+@sdms-border-color-tool--hover: @border-color-base--active;
 
 // Sizes
 // ---------------------------------------------------------
@@ -28,9 +39,13 @@
 @sdms-spacing-xs: @sdms-spacing-base / 4;
 
 @sdms-padding-vertical-base: 6px;
+@sdms-padding-vertical-tool: 5px;
+@sdms-padding-horizontal-base: 12px;
 
 @sdms-margin-horizontal-base: 6px;
 @sdms-margin-horizontal-mobile: 8px;
+
+@sdms-padding-end-dropdown: @size-indicator + ( 1.5 * @sdms-padding-horizontal-base );
 
 // Mixins
 // ---------------------------------------------------------

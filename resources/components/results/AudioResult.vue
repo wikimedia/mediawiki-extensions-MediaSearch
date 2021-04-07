@@ -1,6 +1,6 @@
 <template>
 	<div class="sdms-audio-result">
-		<h3 class="sdms-audio-result__title">
+		<h3 v-if="displayName" class="sdms-audio-result__title">
 			<a
 				ref="link"
 				:href="canonicalurl"
@@ -15,7 +15,12 @@
 		<h4 class="sdms-audio-result__meta">
 			<span class="sdms-audio-result__duration">
 				<sd-icon :icon="icon"></sd-icon>
-				<span v-if="formattedDuration" class="sdms-audio-result__duration__text">{{ formattedDuration }}</span>
+				<span
+					v-if="formattedDuration"
+					class="sdms-audio-result__duration__text"
+				>
+					{{ formattedDuration }}
+				</span>
 			</span>
 			<span v-if="mime" class="sdms-audio-result__mime">{{ mime }}</span>
 		</h4>

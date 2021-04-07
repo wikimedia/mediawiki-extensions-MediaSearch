@@ -91,6 +91,7 @@
 				"resources/components/ConceptChips.less",
 				"resources/components/DidYouMean.less",
 				"resources/components/NamespaceFilterDialog.less",
+				"resources/components/UserNotice.less",
 				"resources/components/SearchError.less"
 			],
 			"targets": [
@@ -135,6 +136,7 @@
 				"resources/components/SearchFilters.vue",
 				"resources/components/ConceptChips.vue",
 				"resources/components/NamespaceFilterDialog.vue",
+				"resources/components/UserNotice.vue",
 				"resources/models/SearchFilter.js",
 				"resources/store/index.js",
 				"resources/store/state.js",
@@ -190,10 +192,15 @@
 				"mediasearch-filter-namespace-discussion",
 				"mediasearch-filter-namespace-help",
 				"mediasearch-filter-namespace-custom",
+				"mediasearch-user-notice-title",
+				"mediasearch-user-notice-body",
+				"mediasearch-user-notice-dismiss",
+				"mediasearch-switch-special-search",
 				"size-bytes",
 				"size-kilobytes",
 				"size-megabytes",
-				"size-gigabytes"
+				"size-gigabytes",
+				"blanknamespace"
 			],
 			"dependencies": [
 				"mediasearch.styles",
