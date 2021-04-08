@@ -34,8 +34,8 @@
 		"MediaSearchExternalEntitySearchBaseUri": {
 			"value": ""
 		},
-		"MediaSearchLocalDev": {
-			"value": null
+		"MediaSearchExternalSearchUri": {
+			"value": ""
 		},
 		"MediaSearchSupportedFilterParams": {
 			"description": "List of valid URL query parameters for search filters",

@@ -1,5 +1,5 @@
 var apiUri = mw.config.get( 'sdmsExternalEntitySearchBaseUri' ),
-	isLocalDev = mw.config.get( 'sdmsLocalDev' );
+	isLocalDev = !!apiUri;
 
 /**
  * @file searchAutocomplete.js
@@ -170,7 +170,7 @@ module.exports = {
 		 */
 		getLookupRequestForTerm: function ( term ) {
 			var api = isLocalDev ?
-				new mw.Api( { ajax: { url: 'https://www.wikidata.org/w/api.php' } } ) :
+				new mw.Api( { ajax: { url: apiUri } } ) :
 				wikibase.api.getLocationAgnosticMwApi( apiUri, { anonymous: true } );
 
 			if ( this.lookupDisabled ) {

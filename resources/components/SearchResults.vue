@@ -396,7 +396,9 @@ module.exports = {
 					inprop: 'url',
 					pageids: pageid,
 					iiextmetadatalanguage: userLanguage
-				};
+				},
+				externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
+				isLocalDev = !!externalSearchUri;
 
 			// Set special params for audio/video files
 			if ( this.mediaType === 'video' || this.mediaType === 'audio' ) {
@@ -409,8 +411,8 @@ module.exports = {
 				params.iiurlheight = this.mediaType === 'image' ? 180 : undefined;
 			}
 
-			return mw.config.get( 'sdmsLocalDev' ) ?
-				$.get( 'https://commons.wikimedia.org/w/api.php', params ) : // local testing
+			return isLocalDev ?
+				$.get( externalSearchUri, params ) : // local testing
 				api.get( params ); // real
 		},
 
