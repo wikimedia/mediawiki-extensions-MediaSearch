@@ -10,6 +10,12 @@
 <script>
 var mapState = require( 'vuex' ).mapState;
 
+/**
+ * Search suggestion.
+ *
+ * v-html use: didYouMeanMessage is a message whose params come from trusted
+ * API content.
+ */
 // @vue/component
 module.exports = {
 	name: 'DidYouMean',

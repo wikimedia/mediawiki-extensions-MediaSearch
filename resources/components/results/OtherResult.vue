@@ -1,5 +1,5 @@
 <template>
-	<div class="sdms-other-result">
+	<div v-if="imageinfo" class="sdms-other-result">
 		<a
 			v-if="thumbnail"
 			class="sdms-other-result__thumbnail-wrapper"
@@ -78,7 +78,7 @@ module.exports = {
 			var width = this.imageinfo[ 0 ].width,
 				height = this.imageinfo[ 0 ].height;
 
-			if ( this.imageinfo && width && height ) {
+			if ( width && height ) {
 				return this.formatNumber( width ) + ' × ' + this.formatNumber( height );
 			} else {
 				return null;

@@ -175,6 +175,8 @@ var SdIcon = require( './base/Icon.vue' ),
  * @file QuickView.vue
  *
  * Component to display expanded details about a given search result
+ *
+ * v-html use: all instances of v-html output trusted API/parser content.
  */
 // @vue/component
 module.exports = {
@@ -491,10 +493,10 @@ module.exports = {
 		 * @return {string|null}
 		 */
 		resolution: function () {
-			var width = this.imageinfo[ 0 ].width,
-				height = this.imageinfo[ 0 ].height;
+			var width = this.imageinfo ? this.imageinfo[ 0 ].width : null,
+				height = this.imageinfo ? this.imageinfo[ 0 ].height : null;
 
-			if ( this.imageinfo && width && height ) {
+			if ( width && height ) {
 				return width.toLocaleString( userLangCode ) + ' × ' + height.toLocaleString( userLangCode );
 			} else {
 				return null;
