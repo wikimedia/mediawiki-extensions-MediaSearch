@@ -223,5 +223,8 @@
 	"ExtensionMessagesFiles": {
 		"MediaSearchAlias": "MediaSearch.i18n.alias.php"
 	},
+	"RawHtmlMessages": [
+		"mediasearch-did-you-mean"
+	],
 	"manifest_version": 2
 }
