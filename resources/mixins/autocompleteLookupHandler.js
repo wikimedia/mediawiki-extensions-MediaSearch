@@ -1,5 +1,5 @@
-var apiUri = mw.config.get( 'sdmsExternalEntitySearchBaseUri' ),
-	isLocalDev = !!apiUri;
+var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
+	apiUri = mw.config.get( 'sdmsExternalEntitySearchBaseUri' );
 
 /**
  * @file searchAutocomplete.js
@@ -19,7 +19,7 @@ module.exports = {
 			lookupPromises: null,
 			lookupResults: [],
 			lookupResultsLimit: 7,
-			lookupDisabled: apiUri === '' && !isLocalDev
+			lookupDisabled: !apiUri
 		};
 	},
 
@@ -169,9 +169,7 @@ module.exports = {
 		 * @return {jQuery.promise}
 		 */
 		getLookupRequestForTerm: function ( term ) {
-			var api = isLocalDev ?
-				new mw.Api( { ajax: { url: apiUri } } ) :
-				wikibase.api.getLocationAgnosticMwApi( apiUri, { anonymous: true } );
+			var api = getLocationAgnosticMwApi( apiUri, { anonymous: true } );
 
 			if ( this.lookupDisabled ) {
 				return $.Deferred().resolve( { search: [] } ).promise( { abort: function () {} } );

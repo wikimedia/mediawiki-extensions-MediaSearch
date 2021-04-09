@@ -261,14 +261,21 @@ class SpecialMediaSearch extends SpecialPage {
 			)->parse(),
 		];
 
+		$externalEntitySearchBaseUri = $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' );
+		if ( $externalEntitySearchBaseUri === '' ) {
+			// fall back to local uri if blank
+			// (but not in other `false` cases, which deactivate autocomplete)
+			$externalEntitySearchBaseUri = wfScript( 'api' );
+		}
+
 		$this->getOutput()->addHTML( $this->templateParser->processTemplate( 'SERPWidget', $data ) );
 		$this->getOutput()->addModuleStyles( [ 'mediasearch.styles' ] );
 		$this->getOutput()->addModules( [ 'mediasearch' ] );
 		$this->getOutput()->addJsConfigVars( [
 			'sdmsInitialSearchResults' => $data,
 			'sdmsTotalSiteImages' => $totalSiteImages,
-			'sdmsExternalEntitySearchBaseUri' => $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' ),
-			'sdmsExternalSearchUri' => $this->getConfig()->get( 'MediaSearchExternalSearchUri' ),
+			'sdmsExternalEntitySearchBaseUri' => $externalEntitySearchBaseUri,
+			'sdmsExternalSearchUri' => $this->getConfig()->get( 'MediaSearchExternalSearchUri' ) ?: wfScript( 'api' ),
 			'sdmsThumbLimits' => $thumbLimits,
 			'sdmsThumbRenderMap' => $this->getConfig()->get( 'UploadThumbnailRenderMap' ),
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),

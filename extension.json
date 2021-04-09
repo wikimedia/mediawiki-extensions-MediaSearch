@@ -32,9 +32,11 @@
 			"value": false
 		},
 		"MediaSearchExternalEntitySearchBaseUri": {
+			"description": "Url to API of Wikibase repository to use for autocomplete results, or leave empty to use local API. Set to `null` to disable autocomplete.",
 			"value": ""
 		},
 		"MediaSearchExternalSearchUri": {
+			"description": "Url to API of MediaWiki instance to use for search results, or leave empty to use local API.",
 			"value": ""
 		},
 		"MediaSearchSupportedFilterParams": {
@@ -102,6 +104,7 @@
 		"mediasearch": {
 			"packageFiles": [
 				"resources/init.js",
+				"resources/getLocationAgnosticMwApi.js",
 				"lib/icons.js",
 				"resources/components/base/AutocompleteSearchInput.vue",
 				"resources/components/base/Button.vue",
@@ -204,9 +207,11 @@
 			],
 			"dependencies": [
 				"mediasearch.styles",
+				"mediawiki.Uri",
+				"mediawiki.api",
+				"mediawiki.ForeignApi",
 				"vue",
-				"vuex",
-				"wikibase.api.RepoApi"
+				"vuex"
 			],
 			"targets": [
 				"desktop",

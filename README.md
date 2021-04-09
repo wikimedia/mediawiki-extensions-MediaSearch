@@ -42,11 +42,13 @@ extension:
 
 ```php
 // External entity search base URI (for autocomplete suggestions, optional)
+// Leave blank/default (empty string) to use local API.
+// To disable autocomplete suggestions completely, set to null.
 $wgMediaSearchExternalEntitySearchBaseUri = 'https://www.wikidata.org/w/api.php';
 
 // URI for getting search results from production during local development.
-// If this is set, search API calls will be made to this URI, and external
-// entity calls will be made to the external entity search base URI set above.
+// If this is set, search API calls will be made to this URI. Left blank,
+// search results will be retrieved from the local API by default.
 $wgMediaSearchExternalSearchUri = 'https://commons.wikimedia.org/w/api.php';
 ```
 

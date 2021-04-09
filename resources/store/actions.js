@@ -1,7 +1,8 @@
 'use strict';
 
-var LIMIT = 40,
-	api = new mw.Api(),
+var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
+	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
+	LIMIT = 40,
 	activeSearchRequest = null,
 	activeConceptsRequest = null;
 
@@ -96,8 +97,6 @@ module.exports = {
 				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
 				inprop: 'url'
 			},
-			externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
-			isLocalDev = !!externalSearchUri,
 			namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
 			namespaceFilter,
 			namespaces,
@@ -176,9 +175,7 @@ module.exports = {
 			pending: true
 		} );
 
-		request = isLocalDev ?
-			$.get( externalSearchUri, params ) : // local testing
-			api.get( params ); // real
+		request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
 
 		request.promise( {
 			abort: function () {
@@ -277,7 +274,7 @@ module.exports = {
 			activeConceptsRequest.abort();
 		}
 
-		request = api.get( params );
+		request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
 		request.promise( {
 			abort: function () {
 				request.abort();

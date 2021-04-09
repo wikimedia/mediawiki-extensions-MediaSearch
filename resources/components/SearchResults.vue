@@ -106,6 +106,7 @@
  * result, including some additional data fetched from the API.
  */
 var mapState = require( 'vuex' ).mapState,
+	getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
 	ImageResult = require( './results/ImageResult.vue' ),
 	AudioResult = require( './results/AudioResult.vue' ),
 	VideoResult = require( './results/VideoResult.vue' ),
@@ -118,8 +119,7 @@ var mapState = require( 'vuex' ).mapState,
 	NoResults = require( './NoResults.vue' ),
 	EndOfResults = require( './EndOfResults.vue' ),
 	EmptyState = require( './EmptyState.vue' ),
-	SearchError = require( './SearchError.vue' ),
-	api = new mw.Api();
+	SearchError = require( './SearchError.vue' );
 
 // @vue/component
 module.exports = {
@@ -397,8 +397,7 @@ module.exports = {
 					pageids: pageid,
 					iiextmetadatalanguage: userLanguage
 				},
-				externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
-				isLocalDev = !!externalSearchUri;
+				externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' );
 
 			// Set special params for audio/video files
 			if ( this.mediaType === 'video' || this.mediaType === 'audio' ) {
@@ -411,9 +410,7 @@ module.exports = {
 				params.iiurlheight = this.mediaType === 'image' ? 180 : undefined;
 			}
 
-			return isLocalDev ?
-				$.get( externalSearchUri, params ) : // local testing
-				api.get( params ); // real
+			return getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
 		},
 
 		/**
