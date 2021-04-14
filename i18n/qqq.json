@@ -11,6 +11,7 @@
 			"Umherirrender"
 		]
 	},
+	"mediasearch-desc": "{{desc|name=MediaSearch|url=https://www.mediawiki.org/wiki/Extension:MediaSearch}}",
 	"mediasearch-title": "Title text for the media search special page",
 	"mediasearch-continue": "Text for button to see next page of results\n{{identical|Next}}",
 	"mediasearch-tab-image": "Label text for tab with images search results",

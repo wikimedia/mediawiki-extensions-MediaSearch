@@ -4,6 +4,7 @@
 			"Bene*"
 		]
 	},
+	"mediasearch-desc": "Media-focused way to display search results through the [[Special:MediaSearch|media search]] page.",
 	"mediasearch-title": "Search media",
 	"mediasearch-continue": "Next",
 	"mediasearch-tab-image": "Images",
