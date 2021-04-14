@@ -61,18 +61,18 @@ class SearchOptions {
 	/** @var string[] */
 	private $enabledFilters;
 
-	/** @var Config */
+	/** @var Config|null */
 	private $searchConfig;
 
 	/**
 	 * @param MessageLocalizer $context
 	 * @param string[] $enabledFilters
-	 * @param Config $searchConfig
+	 * @param Config|null $searchConfig
 	 */
 	public function __construct(
 		MessageLocalizer $context,
 		array $enabledFilters,
-		Config $searchConfig
+		Config $searchConfig = null
 	) {
 		$this->context = $context;
 		$this->enabledFilters = $enabledFilters;
@@ -84,14 +84,19 @@ class SearchOptions {
 	 * @return SearchOptions
 	 */
 	public static function getInstanceFromContext( MessageLocalizer $context ) {
+		try {
+			$configFactory = MediaWikiServices::getInstance()->getConfigFactory();
+			$searchConfig = $configFactory->makeConfig( 'WikibaseCirrusSearch' );
+		} catch ( \ConfigException $e ) {
+			$searchConfig = null;
+		}
+
 		return new static(
 			$context,
 			RequestContext::getMain()
 				->getConfig()
 				->get( 'MediaSearchSupportedFilterParams' ),
-			MediaWikiServices::getInstance()
-				->getConfigFactory()
-				->makeConfig( 'WikibaseCirrusSearch' )
+			$searchConfig
 		);
 	}
 
@@ -347,7 +352,10 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
-		if ( !method_exists( HasLicenseFeature::class, 'getConfiguredLicenseMap' ) ) {
+		if (
+			$this->searchConfig === null ||
+			!method_exists( HasLicenseFeature::class, 'getConfiguredLicenseMap' )
+		) {
 			// This feature requires a dependency: not installed = feature not supported
 			return [];
 		}
