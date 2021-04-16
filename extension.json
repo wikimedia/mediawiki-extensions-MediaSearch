@@ -38,16 +38,6 @@
 		"MediaSearchExternalSearchUri": {
 			"description": "Url to API of MediaWiki instance to use for search results, or leave empty to use local API.",
 			"value": ""
-		},
-		"MediaSearchSupportedFilterParams": {
-			"description": "List of valid URL query parameters for search filters",
-			"value": [
-				"filemime",
-				"fileres",
-				"haslicense",
-				"sort",
-				"namespace"
-			]
 		}
 	},
 	"MessagesDirs": {
