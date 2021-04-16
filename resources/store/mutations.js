@@ -54,7 +54,7 @@ module.exports = {
 			types.forEach( function ( type ) {
 				state.results[ type ] = [];
 				state.continue[ type ] = undefined;
-				state.totalHits[ mediaType ] = 0;
+				state.totalHits[ type ] = 0;
 			} );
 		}
 	},

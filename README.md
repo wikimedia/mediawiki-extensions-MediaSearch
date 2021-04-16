@@ -78,6 +78,36 @@ The CSS class name prefix `sdms` should be used for extension-level components.
 `sd` should be used for base components to keep them extension-agnostic, in case
 we decide to pull them out into a separate library.
 
+## Testing
+
+### Front-end test suite
+
+This extension includes a front-end test suite powered by the [Jest](https://jestjs.io/)
+framework. The tests also make extensive use of the official
+[Vue.js testing library](https://vue-test-utils.vuejs.org/).
+
+For more information about testing Vue code in MediaWiki, please consult the
+[guide](https://www.mediawiki.org/wiki/Vue.js/Testing) here.
+
+At runtime, our JS code relies on a number of objects in the global MediaWiki
+JS environment. Some of these features need to be mocked during testing. The
+`jest.setup.js` file is the best place for mocks that are needed in lots of
+places. Individual test files can provide additional mocks or override what
+already exists if more specific mocks are needed.
+
+To run unit tests locally, use the following commands:
+
+```
+# install all required dependencies
+npm install
+
+# run all linters and front-end tests
+npm run test
+
+# run only the front-end unit tests by themselves
+npm run test:unit
+```
+
 ## See also
 
 * [MediaSearch extension page on mediawiki.org](https://www.mediawiki.org/wiki/Extension:MediaSearch)

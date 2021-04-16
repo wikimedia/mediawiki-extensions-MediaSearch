@@ -105,7 +105,7 @@ module.exports = {
 			request;
 
 		// If a search request is already in-flight, abort it
-		if ( activeSearchRequest ) {
+		if ( activeSearchRequest && activeSearchRequest.abort ) {
 			activeSearchRequest.abort();
 		}
 
