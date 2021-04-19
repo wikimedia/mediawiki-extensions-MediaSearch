@@ -505,8 +505,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @return array
 	 */
 	protected function getActiveFilters( array $queryParams ) : array {
-		$enabledParams = $this->getConfig()->get( 'MediaSearchSupportedFilterParams' ) ?? [];
-		return array_intersect_key( $queryParams, array_flip( $enabledParams ) );
+		return array_intersect_key( $queryParams, array_flip( SearchOptions::ALL_FILTERS ) );
 	}
 
 	/**

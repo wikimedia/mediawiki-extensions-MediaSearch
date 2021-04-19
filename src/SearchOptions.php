@@ -6,7 +6,6 @@ use Config;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MessageLocalizer;
-use RequestContext;
 use Wikibase\Search\Elastic\Query\HasLicenseFeature;
 
 /**
@@ -58,24 +57,18 @@ class SearchOptions {
 	/** @var MessageLocalizer */
 	private $context;
 
-	/** @var string[] */
-	private $enabledFilters;
-
 	/** @var Config|null */
 	private $searchConfig;
 
 	/**
 	 * @param MessageLocalizer $context
-	 * @param string[] $enabledFilters
 	 * @param Config|null $searchConfig
 	 */
 	public function __construct(
 		MessageLocalizer $context,
-		array $enabledFilters,
 		Config $searchConfig = null
 	) {
 		$this->context = $context;
-		$this->enabledFilters = $enabledFilters;
 		$this->searchConfig = $searchConfig;
 	}
 
@@ -91,13 +84,7 @@ class SearchOptions {
 			$searchConfig = null;
 		}
 
-		return new static(
-			$context,
-			RequestContext::getMain()
-				->getConfig()
-				->get( 'MediaSearchSupportedFilterParams' ),
-			$searchConfig
-		);
+		return new static( $context, $searchConfig );
 	}
 
 	/**
@@ -153,10 +140,6 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
-		if ( !in_array( static::FILTER_SIZE, $this->enabledFilters ) ) {
-			return [];
-		}
-
 		if ( $type === static::TYPE_IMAGE ) {
 			return [ 'items' => [
 				[
@@ -192,10 +175,6 @@ class SearchOptions {
 	public function getMimeTypes( string $type ) : array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
-		}
-
-		if ( !in_array( static::FILTER_MIME, $this->enabledFilters ) ) {
-			return [];
 		}
 
 		switch ( $type ) {
@@ -320,10 +299,6 @@ class SearchOptions {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
 
-		if ( !in_array( static::FILTER_SORT, $this->enabledFilters ) ) {
-			return [];
-		}
-
 		return [ 'items' => [
 			[
 				'label' => $this->context->msg( 'mediasearch-filter-sort-default' )->parse(),
@@ -357,10 +332,6 @@ class SearchOptions {
 			!method_exists( HasLicenseFeature::class, 'getConfiguredLicenseMap' )
 		) {
 			// This feature requires a dependency: not installed = feature not supported
-			return [];
-		}
-
-		if ( !in_array( static::FILTER_LICENSE, $this->enabledFilters ) ) {
 			return [];
 		}
 
@@ -409,10 +380,6 @@ class SearchOptions {
 	public function getNamespaces( string $type ) : array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
-		}
-
-		if ( !in_array( static::FILTER_NAMESPACE, $this->enabledFilters ) ) {
-			return [];
 		}
 
 		if ( $type === static::TYPE_PAGE ) {
