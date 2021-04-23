@@ -331,25 +331,38 @@
 							{{/endOfResults}}
 
 							{{^results}}
-								{{#hasTerm}}
-									<div class="sdms-no-results">
-										<div class="sdms-no-results__icon"></div>
-										<p>
-											{{{noResultsMessage}}}
-											<span class="sdms-no-results__tips">
-												{{{noResultsMessageExtra}}}
-											</span>
-										</p>
-									</div>
-								{{/hasTerm}}
-								{{^hasTerm}}
-									<div class="sdms-empty-state">
-										<div class="sdms-empty-state__icon"></div>
-										<p>
-											{{{emptyMessage}}}
-										</p>
-									</div>
-								{{/hasTerm}}
+								{{#error}}
+								<div class="sdms-error">
+									<div class="sdms-error__icon"></div>
+									<p>
+										{{{errorTitle}}}
+										<span class="sdms-error__message">
+											{{{errorText}}}
+										</span>
+									</p>
+								</div>
+								{{/error}}
+								{{^error}}
+									{{#hasTerm}}
+										<div class="sdms-no-results">
+											<div class="sdms-no-results__icon"></div>
+											<p>
+												{{{noResultsMessage}}}
+												<span class="sdms-no-results__tips">
+													{{{noResultsMessageExtra}}}
+												</span>
+											</p>
+										</div>
+									{{/hasTerm}}
+									{{^hasTerm}}
+										<div class="sdms-empty-state">
+											<div class="sdms-empty-state__icon"></div>
+											<p>
+												{{{emptyMessage}}}
+											</p>
+										</div>
+									{{/hasTerm}}
+								{{/error}}
 							{{/results}}
 						</div>
 					</div>

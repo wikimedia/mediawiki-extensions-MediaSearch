@@ -130,7 +130,6 @@ class SpecialMediaSearch extends SpecialPage {
 		}
 
 		$type = $this->getType( $term, $querystring );
-
 		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
 
 		$error = [];
@@ -242,6 +241,8 @@ class SpecialMediaSearch extends SpecialPage {
 			'hasMore' => $continue !== null,
 			'endOfResults' => count( $results ) > 0 && $continue === null,
 			'endOfResultsMessage' => $this->msg( 'mediasearch-end-of-results' )->parse(),
+			'errorTitle' => $this->msg( 'mediasearch-error-message' )->parse(),
+			'errorText' => $this->msg( 'mediasearch-error-text' )->parse(),
 			'searchLabel' => $this->msg( 'mediasearch-input-label' )->parse(),
 			'searchButton' => $this->msg( 'searchbutton' )->parse(),
 			'searchPlaceholder' => $this->msg( 'mediasearch-input-placeholder' )->parse(),
@@ -373,7 +374,14 @@ class SpecialMediaSearch extends SpecialPage {
 		if ( $title !== null && !in_array( $title->getNamespace(), [ NS_FILE, NS_MAIN ] ) ) {
 			return SearchOptions::TYPE_PAGE;
 		}
-		return $querystring['type'] ?? SearchOptions::TYPE_IMAGE;
+
+		if ( isset( $querystring['type'] ) && in_array( $querystring['type'], SearchOptions::ALL_TYPES ) ) {
+			// If type is specified AND matches one of the supported types, use it
+			return $querystring['type'];
+		} else {
+			// Otherwise, default to the Image tab
+			return SearchOptions::TYPE_IMAGE;
+		}
 	}
 
 	/**
@@ -487,6 +495,11 @@ class SpecialMediaSearch extends SpecialPage {
 			$this->api->execute();
 
 			$response = $this->api->getResult()->getResultData( [], [ 'Strip' => 'all' ] );
+		}
+
+		// If the API response contains an error, throw a MWException
+		if ( isset( $response[ 'error' ] ) ) {
+			throw new MWException();
 		}
 
 		$results = array_values( $response['query']['pages'] ?? [] );

@@ -93,6 +93,7 @@
  * AutocompleteSearchInput for display.
  */
 var AUTOLOAD_COUNT = 2,
+	MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	mapState = require( 'vuex' ).mapState,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapMutations = require( 'vuex' ).mapMutations,
@@ -130,7 +131,7 @@ module.exports = {
 
 	data: function () {
 		return {
-			currentTab: url.query.type || '',
+			currentTab: url.query.type,
 
 			// Object with keys corresponding to each tab;
 			// values are integers; set in the created() hook
@@ -154,20 +155,12 @@ module.exports = {
 		'allActiveFilters'
 	] ), {
 		/**
-		 * The names here need to match the keys found in this.results,
-		 * (which originate in Vuex store), but the order here matters
-		 * for visual presentation so they have been manually sorted.
-		 *
 		 * @return {string[  ]} [  'image', 'video', 'audio', 'page', 'other'  ]
 		 */
 		tabs: function () {
-			return [
-				'image',
-				'audio',
-				'video',
-				'other',
-				'page'
-			];
+			return MEDIASEARCH_TABS.map( function ( tab ) {
+				return tab.type;
+			} );
 		},
 
 		/**
@@ -192,6 +185,7 @@ module.exports = {
 			return (
 				'IntersectionObserver' in window &&
 				'IntersectionObserverEntry' in window &&
+				// eslint-disable-next-line compat/compat
 				'intersectionRatio' in window.IntersectionObserverEntry.prototype
 			);
 		}
@@ -525,15 +519,15 @@ module.exports = {
 		}
 	},
 
-	created: function () {
+	beforeCreate: function () {
+		// activeType is set in PHP and will *always* be present and valid;
+		// However, in the case of bad "type" URL params from the user,
+		// activeType and url.query.type may be out of sync. This is our
+		// opportunity to ensure that gets fixed, before the URL is interpreted
+		// to determine the state of the UI
 		var activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
 
-		// If user arrives on the page without URL params to specify initial search
-		// type / active tab, set to default. This is done in created hook
-		// because some computed properties assume that a currentTab will always be
-		// specified; the created hook runs before computed properties are evaluated.
-		if ( this.currentTab === '' ) {
-			this.currentTab = activeType;
+		if ( url.query.type !== activeType ) {
 			url.query.type = activeType;
 		}
 
@@ -542,7 +536,9 @@ module.exports = {
 		// this will enable us to access it later if the user starts navigating
 		// through history states
 		window.history.replaceState( url.query, null, '?' + url.getQueryString() );
+	},
 
+	created: function () {
 		// Set up a listener for popState events in case the user navigates
 		// through their history stack. Previous search queries should be
 		// re-created when this happens, and URL params and UI state should
