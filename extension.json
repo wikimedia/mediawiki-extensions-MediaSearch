@@ -12,7 +12,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "wikibase",
 	"requires": {
-		"MediaWiki": ">= 1.35.0",
+		"MediaWiki": ">= 1.37.0",
 		"extensions": {
 			"CirrusSearch": "*",
 			"Elastica": "*"
@@ -135,8 +135,6 @@
 				"resources/mixins/searchResult.js",
 				"resources/mixins/searchResultTimeBased.js",
 				"resources/plugins/eventLogger.js",
-				"resources/polyfills/Array.prototype.find.js",
-				"resources/polyfills/Array.prototype.findIndex.js",
 				{
 					"name": "resources/data/searchOptions.json",
 					"callback": "MediaWiki\\Extension\\MediaSearch\\SearchOptions::getSearchOptions"
@@ -197,7 +195,8 @@
 				"mediawiki.ForeignApi",
 				"mediawiki.user",
 				"vue",
-				"vuex"
+				"vuex",
+				"es6-polyfills"
 			],
 			"targets": [
 				"desktop",
