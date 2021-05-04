@@ -4,7 +4,8 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
 	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
 	LIMIT = 40,
 	activeSearchRequest = null,
-	activeConceptsRequest = null;
+	activeConceptsRequest = null,
+	searchOptions = require( '../data/searchOptions.json' );
 
 /**
  * Generate additional (non-term) search keywords for filters.
@@ -33,7 +34,7 @@ function getMediaFilters( mediaType, filterValues ) {
 
 	function addFilter( filter ) {
 		var value = filter in filterValues ? filterValues[ filter ] : null;
-		if ( value ) {
+		if ( value && filter !== 'assessment' ) {
 			return ' ' + filter + ':' + value;
 		}
 
@@ -42,6 +43,7 @@ function getMediaFilters( mediaType, filterValues ) {
 
 	raw += addFilter( 'filemime' );
 	raw += addFilter( 'fileres' );
+	raw += addFilter( 'assessment' );
 	raw += addFilter( 'haslicense' );
 
 	return raw;
@@ -132,13 +134,27 @@ module.exports = {
 					Object.keys( namespaceGroups[ namespaceFilter ] ).join( '|' ) :
 					namespaceFilter;
 			}
-
 			params.gsrnamespace = namespaces;
 		} else {
 			// Params used in all non-page/category searches.
-			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
-			params.gsrsearch = filters + ' ' + params.gsrsearch;
+			// 1. Special handling for assessment filter
+			if ( context.state.filterValues[ options.type ].assessment ) {
+				var assessmentValue = context.state.filterValues[ options.type ].assessment;
+				var assessmentStatements = searchOptions[ options.type ].assessment.data.statementData;
 
+				// eslint-disable-next-line no-restricted-syntax
+				var assessment = assessmentStatements.find( function ( i ) {
+					return i.value === assessmentValue;
+				} );
+
+				var statement = assessment.statement;
+				params.gsrsearch = statement + ' ' + params.gsrsearch;
+			}
+			// 2. Handle remaining filters
+			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
+			if ( filters ) {
+				params.gsrsearch = filters + ' ' + params.gsrsearch;
+			}
 			switch ( options.type ) {
 				case 'video':
 					urlWidth = 200;

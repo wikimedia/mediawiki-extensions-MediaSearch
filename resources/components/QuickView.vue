@@ -111,6 +111,11 @@
 				<span v-else v-html="licenseText"></span>
 			</p>
 
+			<p v-if="assessmentList" class="sdms-quick-view__list-item">
+				<sd-icon :icon="filenameIcon"></sd-icon>
+				<span>{{ assessmentList }}</span>
+			</p>
+
 			<p v-if="displayName" class="sdms-quick-view__list-item">
 				<sd-icon :icon="filenameIcon"></sd-icon>
 				<sd-copy-text-layout
@@ -169,7 +174,8 @@ var SdIcon = require( './base/Icon.vue' ),
 	icons = require( '../../lib/icons.js' ),
 	userLangCode = mw.config.get( 'wgUserLanguage' ),
 	PREVIEW_SIZES = [ 640, 800, 1200, 1600 ], // Pre-defined set of thumbnail image width values
-	MAX_SIZE = 2000;
+	MAX_SIZE = 2000,
+	assessmentLabels = mw.config.get( 'sdmsAssessmentQuickviewLabels' );
 
 /**
  * @file QuickView.vue
@@ -443,6 +449,35 @@ module.exports = {
 		licenseUrl: function () {
 			if ( this.metadata && this.metadata.LicenseUrl ) {
 				return this.metadata.LicenseUrl.value;
+			} else {
+				return null;
+			}
+		},
+
+		/**
+		 * If the image contains Assessment metadata, and if user-facing labels
+		 * for those assesment values has been configured, show a human-readible
+		 * label for each assessment associated wiht the file.
+		 *
+		 * @return {string|null}
+		 */
+		assessmentList: function () {
+			var assessmentList = [],
+				assessmentValues;
+
+			// If assessemnt labels have been enabled and if the image contains
+			// assessment metadata
+			if (
+				assessmentLabels && // this data comes from  a JS config var
+				this.metadata &&
+				this.metadata.Assessments &&
+				this.metadata.Assessments.value
+			) {
+				assessmentValues = this.metadata.Assessments.value.split( '|' );
+				assessmentValues.forEach( function ( assessment ) {
+					assessmentList.push( this.$i18n( assessmentLabels[ assessment ] ) );
+				}.bind( this ) );
+				return assessmentList.join( this.$i18n( 'comma-separator' ) );
 			} else {
 				return null;
 			}

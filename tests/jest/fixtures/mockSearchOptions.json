@@ -1,0 +1,444 @@
+{
+	"image": {
+		"haslicense": {
+			"items": [
+				{
+					"label": "All licenses",
+					"value": ""
+				},
+				{
+					"label": "Use with attribution and same license",
+					"value": "attribution-same-license"
+				},
+				{
+					"label": "Use with attribution",
+					"value": "attribution"
+				},
+				{
+					"label": "No restrictions",
+					"value": "unrestricted"
+				},
+				{
+					"label": "Other",
+					"value": "other"
+				}
+			]
+		},
+		"filemime": {
+			"items": [
+				{
+					"label": "All file types",
+					"value": ""
+				},
+				{
+					"label": "tiff",
+					"value": "tiff"
+				},
+				{
+					"label": "png",
+					"value": "png"
+				},
+				{
+					"label": "gif",
+					"value": "gif"
+				},
+				{
+					"label": "jpg",
+					"value": "jpeg"
+				},
+				{
+					"label": "webp",
+					"value": "webp"
+				},
+				{
+					"label": "xcf",
+					"value": "xcf"
+				},
+				{
+					"label": "svg",
+					"value": "svg"
+				}
+			]
+		},
+		"fileres": {
+			"items": [
+				{
+					"label": "All image sizes",
+					"value": ""
+				},
+				{
+					"label": "Small",
+					"value": "<500"
+				},
+				{
+					"label": "Medium",
+					"value": "500,1000"
+				},
+				{
+					"label": "Large",
+					"value": ">1000"
+				}
+			]
+		},
+		"assessment": {
+			"items": [
+				{
+					"label": "Community assessments",
+					"value": ""
+				},
+				{
+					"label": "Featured picture",
+					"value": "featured-image"
+				},
+				{
+					"label": "Quality image",
+					"value": "quality-image"
+				},
+				{
+					"label": "Valued image",
+					"value": "valued-image"
+				},
+				{
+					"label": "Picture of the day",
+					"value": "picture-of-the-day"
+				}
+			],
+			"data": {
+				"statementData": [
+					{
+						"value": "featured-image",
+						"statement": "haswbstatement:P6731=Q63348049"
+					},
+					{
+						"value": "quality-image",
+						"statement": "haswbstatement:P6731=Q63348069"
+					},
+					{
+						"value": "valued-image",
+						"statement": "haswbstatement:P6731=Q63348040"
+					},
+					{
+						"value": "picture-of-the-day",
+						"statement": "haswbstatement:P6731=Q6998859"
+					}
+				]
+			}
+		},
+		"sort": {
+			"items": [
+				{
+					"label": "Relevance",
+					"value": ""
+				},
+				{
+					"label": "Recency",
+					"value": "recency"
+				}
+			]
+		}
+	},
+	"audio": {
+		"haslicense": {
+			"items": [
+				{
+					"label": "All licenses",
+					"value": ""
+				},
+				{
+					"label": "Use with attribution and same license",
+					"value": "attribution-same-license"
+				},
+				{
+					"label": "Use with attribution",
+					"value": "attribution"
+				},
+				{
+					"label": "No restrictions",
+					"value": "unrestricted"
+				},
+				{
+					"label": "Other",
+					"value": "other"
+				}
+			]
+		},
+		"filemime": {
+			"items": [
+				{
+					"label": "All file types",
+					"value": ""
+				},
+				{
+					"label": "mid",
+					"value": "midi"
+				},
+				{
+					"label": "flac",
+					"value": "flac"
+				},
+				{
+					"label": "wav",
+					"value": "wav"
+				},
+				{
+					"label": "mp3",
+					"value": "mpeg"
+				},
+				{
+					"label": "ogg",
+					"value": "ogg"
+				}
+			]
+		},
+		"sort": {
+			"items": [
+				{
+					"label": "Relevance",
+					"value": ""
+				},
+				{
+					"label": "Recency",
+					"value": "recency"
+				}
+			]
+		}
+	},
+	"video": {
+		"haslicense": {
+			"items": [
+				{
+					"label": "All licenses",
+					"value": ""
+				},
+				{
+					"label": "Use with attribution and same license",
+					"value": "attribution-same-license"
+				},
+				{
+					"label": "Use with attribution",
+					"value": "attribution"
+				},
+				{
+					"label": "No restrictions",
+					"value": "unrestricted"
+				},
+				{
+					"label": "Other",
+					"value": "other"
+				}
+			]
+		},
+		"filemime": {
+			"items": [
+				{
+					"label": "All file types",
+					"value": ""
+				},
+				{
+					"label": "webm",
+					"value": "webm"
+				},
+				{
+					"label": "mpg",
+					"value": "mpeg"
+				},
+				{
+					"label": "ogg",
+					"value": "ogg"
+				}
+			]
+		},
+		"assessment": {
+			"items": [
+				{
+					"label": "Community assessments",
+					"value": ""
+				},
+				{
+					"label": "Featured picture",
+					"value": "featured-image"
+				},
+				{
+					"label": "Quality image",
+					"value": "quality-image"
+				},
+				{
+					"label": "Valued image",
+					"value": "valued-image"
+				},
+				{
+					"label": "Picture of the day",
+					"value": "picture-of-the-day"
+				}
+			],
+			"data": {
+				"statementData": [
+					{
+						"value": "featured-image",
+						"statement": "haswbstatement:P6731=Q63348049"
+					},
+					{
+						"value": "quality-image",
+						"statement": "haswbstatement:P6731=Q63348069"
+					},
+					{
+						"value": "valued-image",
+						"statement": "haswbstatement:P6731=Q63348040"
+					},
+					{
+						"value": "picture-of-the-day",
+						"statement": "haswbstatement:P6731=Q6998859"
+					}
+				]
+			}
+		},
+		"sort": {
+			"items": [
+				{
+					"label": "Relevance",
+					"value": ""
+				},
+				{
+					"label": "Recency",
+					"value": "recency"
+				}
+			]
+		}
+	},
+	"page": {
+		"sort": {
+			"items": [
+				{
+					"label": "Relevance",
+					"value": ""
+				},
+				{
+					"label": "Recency",
+					"value": "recency"
+				}
+			]
+		},
+		"namespace": {
+			"items": [
+				{
+					"label": "All",
+					"value": "all"
+				},
+				{
+					"label": "Discussion",
+					"value": "discussion"
+				},
+				{
+					"label": "General Help",
+					"value": "help"
+				},
+				{
+					"label": "Custom",
+					"value": "custom"
+				}
+			],
+			"data": {
+				"namespaceGroups": {
+					"all": {
+						"0": "",
+						"1": "Talk",
+						"2": "User",
+						"3": "User_talk",
+						"4": "Project",
+						"5": "Project_talk",
+						"7": "File_talk",
+						"8": "MediaWiki",
+						"9": "MediaWiki_talk",
+						"10": "Template",
+						"11": "Template_talk",
+						"12": "Help",
+						"13": "Help_talk",
+						"14": "Category",
+						"15": "Category_talk",
+						"828": "Module",
+						"829": "Module_talk",
+						"460": "Campaign",
+						"461": "Campaign_talk",
+						"710": "TimedText",
+						"711": "TimedText_talk"
+					},
+					"discussion": {
+						"1": "Talk",
+						"3": "User_talk",
+						"5": "Project_talk",
+						"7": "File_talk",
+						"9": "MediaWiki_talk",
+						"11": "Template_talk",
+						"13": "Help_talk",
+						"15": "Category_talk",
+						"461": "Campaign_talk",
+						"711": "TimedText_talk",
+						"829": "Module_talk"
+					},
+					"help": {
+						"4": "Project",
+						"12": "Help"
+					}
+				}
+			}
+		}
+	},
+	"other": {
+		"haslicense": {
+			"items": [
+				{
+					"label": "All licenses",
+					"value": ""
+				},
+				{
+					"label": "Use with attribution and same license",
+					"value": "attribution-same-license"
+				},
+				{
+					"label": "Use with attribution",
+					"value": "attribution"
+				},
+				{
+					"label": "No restrictions",
+					"value": "unrestricted"
+				},
+				{
+					"label": "Other",
+					"value": "other"
+				}
+			]
+		},
+		"filemime": {
+			"items": [
+				{
+					"label": "All file types",
+					"value": ""
+				},
+				{
+					"label": "pdf",
+					"value": "pdf"
+				},
+				{
+					"label": "djvu",
+					"value": "djvu"
+				},
+				{
+					"label": "stl",
+					"value": "sla"
+				}
+			]
+		},
+		"sort": {
+			"items": [
+				{
+					"label": "Relevance",
+					"value": ""
+				},
+				{
+					"label": "Recency",
+					"value": "recency"
+				}
+			]
+		}
+	}
+}

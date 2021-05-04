@@ -35,6 +35,20 @@
 		"MediaSearchExternalSearchUri": {
 			"description": "Url to API of MediaWiki instance to use for search results, or leave empty to use local API.",
 			"value": ""
+		},
+		"MediaSearchAssessmentFilters": {
+			"description": "Optional Key/value pairs representing values for community assessment filter; values should be Wikidata statements in the format 'PXXX=Qxxx'.",
+			"value": ""
+		},
+		"MediaSearchAssessmentQuickviewLabels": {
+			"description": "Optional Key/value pairs representing possible Assessment values in file metadata and their corresponding labels",
+			"value": {
+				"valued": "mediasearch-filter-assessment-valued-image",
+				"quality": "mediasearch-filter-assessment-quality-image",
+				"featured": "mediasearch-filter-assessment-featured-image",
+				"potd": "mediasearch-filter-assessment-picture-of-the-day",
+				"poty": "mediasearch-filter-assessment-picture-of-the-year"
+			}
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -179,11 +193,18 @@
 				"mediasearch-user-notice-body",
 				"mediasearch-user-notice-dismiss",
 				"mediasearch-switch-special-search",
+				"mediasearch-filter-assessment-picture-of-the-day",
+				"mediasearch-filter-assessment-picture-of-the-year",
+				"mediasearch-filter-assessment-featured-image",
+				"mediasearch-filter-assessment-valued-image",
+				"mediasearch-filter-assessment-quality-image",
+				"mediasearch-filter-assessment-menu-label",
 				"size-bytes",
 				"size-kilobytes",
 				"size-megabytes",
 				"size-gigabytes",
-				"blanknamespace"
+				"blanknamespace",
+				"comma-separator"
 			],
 			"dependencies": [
 				"mediasearch.styles",

@@ -2,5 +2,12 @@
 	"@metadata": {
 		"authors": [
 		]
-	}
+	},
+	"mediasearch-filter-assessment-picture-of-the-day": "Refers to the commons image assessment - Picture of the day",
+	"mediasearch-filter-assessment-picture-of-the-year": "Refers to the commons image assessment - Picture of the year",
+	"mediasearch-filter-assessment-featured-image": "Refers to the commons image assessment - Featured image",
+	"mediasearch-filter-assessment-valued-image": "Refers to the commons image assessment - Valued image",
+	"mediasearch-filter-assessment-quality-image": "Refers to the commons image assessment - Quality image",
+	"mediasearch-filter-assessment-menu-label": "Label for search filter for commons image community assessments"
+
 }
