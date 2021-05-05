@@ -92,22 +92,42 @@
 		font-weight: normal;
 		margin-left: @sdms-margin-horizontal-mobile;
 		padding: 0;
+		background-color: transparent;
+		border: @border-width-base @border-style-base @sdms-border-color-tool;
+		border-radius: @border-radius-base;
+		box-shadow: none;
+		min-height: @size-base;
 
 		@media screen and ( min-width: @width-breakpoint-tablet ) {
 			font-size: 0.9em;
+			padding: @sdms-padding-vertical-tool
+				@sdms-padding-horizontal-base
+				@sdms-padding-vertical-tool
+				@sdms-padding-horizontal-base;
 		}
 
 		&--selected {
 			color: @color-primary;
 			font-weight: bold;
+
+			&:hover {
+				color: @color-primary;
+			}
 		}
 
-		&:hover,
-		&:focus {
-			background-color: transparent;
-			border-color: transparent;
+		&:hover {
+			background: @sdms-background-color-tool--hover;
+		}
+
+		&:active {
+			background-color: @sdms-background-color-tool--active;
+			border-color: @sdms-border-color-base--focus;
 			box-shadow: none;
-			color: @color-primary--hover;
+		}
+
+		&:focus {
+			.box-shadow( inset 0 0 0 1px @color-primary );
+			border-color: @sdms-border-color-base--focus;
 			outline: 0;
 		}
 	}

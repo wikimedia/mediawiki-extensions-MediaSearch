@@ -20,7 +20,6 @@
 						:key="'filter-namespace-' + index"
 						class="sdms-search-filters__namespace"
 						:class="namespaceFilterClasses"
-						:frameless="true"
 						@click="namespaceFilterDialogActive = true"
 					>
 						{{ namespaceFilterLabel }}
