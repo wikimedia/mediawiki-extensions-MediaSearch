@@ -95,7 +95,7 @@ class I18nUtils {
 	 * @return array
 	 */
 	private static function filterByPrefix( array $messages, string $prefix ): array {
-		return array_filter( $messages, function ( $key ) use ( $prefix ) {
+		return array_filter( $messages, static function ( $key ) use ( $prefix ) {
 			return (bool)preg_match( '/^' . preg_quote( $prefix, '/' ) . '/', $key );
 		}, ARRAY_FILTER_USE_KEY );
 	}
@@ -110,7 +110,7 @@ class I18nUtils {
 	 */
 	private static function changePrefixes( array $messages, string $oldPrefix, string $newPrefix ): array {
 		return array_combine(
-			array_map( function ( $key ) use ( $oldPrefix, $newPrefix ) {
+			array_map( static function ( $key ) use ( $oldPrefix, $newPrefix ) {
 				return preg_replace(
 					'/^' . preg_quote( $oldPrefix, '/' ) . '/',
 					$newPrefix,
