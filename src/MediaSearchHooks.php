@@ -31,13 +31,8 @@ class MediaSearchHooks {
 	 * @return \Title
 	 */
 	private function getDefaultSearchPage( \User $user ) {
-		global $wgMediaSearchDefaultForAnon;
 		$userOptionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-		if (
-			( $wgMediaSearchDefaultForAnon && ( $user->isAnon() ) )
-			||
-			!$userOptionsManager->getOption( $user, 'sdms-specialsearch-default' )
-		) {
+		if ( !$userOptionsManager->getOption( $user, 'sdms-specialsearch-default' ) ) {
 			return \SpecialPage::getTitleFor( 'NewMediaSearch' );
 		}
 		return \SpecialPage::getTitleFor( 'Search' );
