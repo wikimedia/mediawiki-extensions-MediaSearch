@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/src/I18nUtils.php';
+
 use MediaWiki\Extension\MediaSearch\I18nUtils;
 
 // 1. use messages from mediainfo if they exist - they will continue to
