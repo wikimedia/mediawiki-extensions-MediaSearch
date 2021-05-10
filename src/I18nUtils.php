@@ -38,10 +38,9 @@ class I18nUtils {
 	public static function otherJsonFilesToPHPArray( string $jsonDir, string $oldPrefix, string $newPrefix ): array {
 		$messages = static::jsonFilesToPHPArray( $jsonDir );
 
-		return array_map( function ( array $messages ) use ( $oldPrefix, $newPrefix ): array {
+		return array_map( static function ( array $messages ) use ( $oldPrefix, $newPrefix ): array {
 			$messages = static::filterByPrefix( $messages, $oldPrefix );
-			$messages = static::changePrefixes( $messages, $oldPrefix, $newPrefix );
-			return $messages;
+			return static::changePrefixes( $messages, $oldPrefix, $newPrefix );
 		}, $messages );
 	}
 
