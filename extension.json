@@ -28,9 +28,6 @@
 		"MediaSearch": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"MediaSearchDefaultForAnon": {
-			"value": false
-		},
 		"MediaSearchExternalEntitySearchBaseUri": {
 			"description": "Url to API of Wikibase repository to use for autocomplete results, or leave empty to use local API. Set to `null` to disable autocomplete.",
 			"value": ""
