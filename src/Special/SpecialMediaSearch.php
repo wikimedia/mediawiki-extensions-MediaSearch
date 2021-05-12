@@ -632,12 +632,12 @@ class SpecialMediaSearch extends SpecialPage {
 		// those will need to be handled elsewhere, differently
 		$validFilters = array_intersect_key( $filters, array_flip( $this->getSearchKeywords() ) );
 
-		$withFilters = $term;
+		$withFilters = '';
 		foreach ( $validFilters as $key => $value ) {
-			$withFilters .= " $key:$value";
+			$withFilters .= "$key:$value ";
 		}
 
-		return $withFilters;
+		return $withFilters . $term;
 	}
 
 	/**
