@@ -283,6 +283,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'sdmsDidYouMean' => $didYouMean,
 			'sdmsHasError' => (bool)$error,
 			'sdmsNamespaceGroups' => $this->searchOptions->getNamespaceGroups(),
+			'sdmsAssessmentQuickviewLabels' => $this->getConfig()->get( 'MediaSearchAssessmentQuickviewLabels' )
 		] );
 
 		$specialSearchUrl = SpecialPage::getTitleFor( 'Search' )->getLocalURL( [ 'search' => $term ] );
@@ -617,7 +618,8 @@ class SpecialMediaSearch extends SpecialPage {
 	/**
 	 * Prepare a string of original search term plus additional filter or sort
 	 * parameters, suitable to be passed to the API. If no valid filters are
-	 * provided, the original term is returned.
+	 * provided, the original term is returned. Note: Filters are pre-pended
+	 * to the search term.
 	 *
 	 * @param string $term
 	 * @param array $filters [ "mimeType" => "tiff", "imageSize" => ">500" ]
@@ -632,12 +634,40 @@ class SpecialMediaSearch extends SpecialPage {
 		// those will need to be handled elsewhere, differently
 		$validFilters = array_intersect_key( $filters, array_flip( $this->getSearchKeywords() ) );
 
-		$withFilters = '';
+		$allFilters = '';
 		foreach ( $validFilters as $key => $value ) {
-			$withFilters .= "$key:$value ";
+			$allFilters .= "$key:$value ";
 		}
 
-		return $withFilters . $term;
+		// Special handling for "Assessment" filters;
+		// These are transformed into instances of the "haswbstatement:" keyword
+		// using pre-configured wikidata statements
+		$enabledAssessments = $this->getConfig()->get( 'MediaSearchAssessmentFilters' );
+
+		// If assessment filters have been enabled...
+		if ( $enabledAssessments ) {
+			// phpcs:ignore Generic.Files.LineLength.TooLong
+			$assessmentData = $this->searchOptions->getAssessments( SearchOptions::TYPE_IMAGE )[ 'data' ][ 'statementData' ];
+			$validAssessments = array_keys( $enabledAssessments );
+
+			// and if the assessment param matches one of the specified
+			// assessment values
+			if (
+				array_key_exists( SearchOptions::FILTER_ASSESSMENT, $filters ) &&
+				in_array( $filters[ SearchOptions::FILTER_ASSESSMENT ], $validAssessments )
+			) {
+				$currentAssessment = array_search(
+					$filters[ SearchOptions::FILTER_ASSESSMENT ],
+					array_column( $assessmentData, 'value' )
+				);
+
+				$assessmentStatement = $assessmentData[ $currentAssessment ][ 'statement' ];
+				$allFilters .= "$assessmentStatement ";
+			}
+
+		}
+
+		return $allFilters . $term;
 	}
 
 	/**

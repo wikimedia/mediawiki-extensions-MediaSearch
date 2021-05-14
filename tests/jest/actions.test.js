@@ -1,8 +1,8 @@
 const actions = require( '../../resources/store/actions.js' ),
 	initialState = require( './fixtures/initialVuexState.js' ),
 	namespaceGroups = require( './fixtures/namespaceGroups.js' ),
-	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	mockSearchApiResponse = require( './fixtures/mockSearchApiResponse.json' ),
+	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	when = require( 'jest-when' ).when;
 
 describe( 'search', () => {
@@ -33,6 +33,7 @@ describe( 'search', () => {
 		global.mw.Api.prototype.get.mockReturnValue(
 			$.Deferred().resolve( mockSearchApiResponse ).promise()
 		);
+
 	} );
 
 	it( 'is a function', () => {

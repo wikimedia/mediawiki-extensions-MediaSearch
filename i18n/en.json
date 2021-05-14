@@ -2,5 +2,11 @@
 	"@metadata": {
 		"authors": [
 		]
-	}
+	},
+	"mediasearch-filter-assessment-picture-of-the-day": "Picture of the day",
+	"mediasearch-filter-assessment-picture-of-the-year": "Picture of the year",
+	"mediasearch-filter-assessment-featured-image": "Featured picture",
+	"mediasearch-filter-assessment-valued-image": "Valued image",
+	"mediasearch-filter-assessment-quality-image": "Quality image",
+	"mediasearch-filter-assessment-menu-label": "Community assessments"
 }

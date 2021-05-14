@@ -10,7 +10,6 @@ use Wikibase\Search\Elastic\Query\HasLicenseFeature;
 
 /**
  * @license GPL-2.0-or-later
- * @author Eric Gardner
  */
 class SearchOptions {
 
@@ -30,6 +29,7 @@ class SearchOptions {
 
 	public const FILTER_MIME = 'filemime';
 	public const FILTER_SIZE = 'fileres';
+	public const FILTER_ASSESSMENT = 'assessment';
 	public const FILTER_LICENSE = 'haslicense';
 	public const FILTER_SORT = 'sort';
 	public const FILTER_NAMESPACE = 'namespace';
@@ -37,6 +37,7 @@ class SearchOptions {
 	public const ALL_FILTERS = [
 		self::FILTER_MIME,
 		self::FILTER_SIZE,
+		self::FILTER_ASSESSMENT,
 		self::FILTER_LICENSE,
 		self::FILTER_SORT,
 		self::FILTER_NAMESPACE,
@@ -58,17 +59,23 @@ class SearchOptions {
 	private $context;
 
 	/** @var Config|null */
+	private $mainConfig;
+
+	/** @var Config|null */
 	private $searchConfig;
 
 	/**
 	 * @param MessageLocalizer $context
+	 * @param Config|null $mainConfig
 	 * @param Config|null $searchConfig
 	 */
 	public function __construct(
 		MessageLocalizer $context,
+		Config $mainConfig = null,
 		Config $searchConfig = null
 	) {
 		$this->context = $context;
+		$this->mainConfig = $mainConfig;
 		$this->searchConfig = $searchConfig;
 	}
 
@@ -77,14 +84,21 @@ class SearchOptions {
 	 * @return SearchOptions
 	 */
 	public static function getInstanceFromContext( MessageLocalizer $context ) {
+		$configFactory = MediaWikiServices::getInstance()->getConfigFactory();
+
 		try {
-			$configFactory = MediaWikiServices::getInstance()->getConfigFactory();
+			$mainConfig = $configFactory->makeConfig( 'main' );
+		} catch ( \ConfigException $e ) {
+			$mainConfig = null;
+		}
+
+		try {
 			$searchConfig = $configFactory->makeConfig( 'WikibaseCirrusSearch' );
 		} catch ( \ConfigException $e ) {
 			$searchConfig = null;
 		}
 
-		return new static( $context, $searchConfig );
+		return new static( $context, $mainConfig, $searchConfig );
 	}
 
 	/**
@@ -105,7 +119,6 @@ class SearchOptions {
 	 */
 	public function getOptions() : array {
 		$searchOptions = [];
-
 		// Some options are only present for certain media types.
 		// The methods which generate type-specific options take a mediatype
 		// argument and will return false if the given type does not support the
@@ -120,6 +133,7 @@ class SearchOptions {
 				static::FILTER_LICENSE => $this->getLicenseGroups( $type ),
 				static::FILTER_MIME => $this->getMimeTypes( $type ),
 				static::FILTER_SIZE => $this->getImageSizes( $type ),
+				static::FILTER_ASSESSMENT => $this->getAssessments( $type ),
 				static::FILTER_SORT => $this->getSorts( $type ),
 				static::FILTER_NAMESPACE => $this->getNamespaces( $type )
 			] );
@@ -285,6 +299,66 @@ class SearchOptions {
 			case static::TYPE_PAGE:
 			default:
 				return [];
+		}
+	}
+
+	/**
+	 * Get the assessment options (only applicable for image and video types) based on configuration
+	 *
+	 * @param string $type
+	 * @return array [ 'items' => [], 'data' => [] ]
+	 */
+	public function getAssessments( string $type ) : array {
+		$assessmentOptions = [];
+		$assessmentData = [];
+
+		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
+			throw new InvalidArgumentException( "$type is not a valid type" );
+		}
+
+		// Bail early and return empty if we can't access config vars for some reason;
+		// Feature will simply not be enabled in this case
+		if ( $this->mainConfig ) {
+			$assessmentConfig = $this->mainConfig->get( 'MediaSearchAssessmentFilters' );
+		} else {
+			return [];
+		}
+
+		// If we have the appropriate config data and we are on an image or video tab,
+		// build a data structure for the pre-definied assessment types and
+		// labels, along with their corresponding wikidata statements
+		if ( $assessmentConfig && ( $type === static::TYPE_IMAGE || $type === self::TYPE_VIDEO ) ) {
+			// Start with the default label
+			$assessmentOptions[] = [
+				'label' => $this->context->msg( 'mediasearch-filter-assessment-menu-label' )->parse(),
+				'value' => ''
+			];
+
+			// Options/labels
+			foreach ( $assessmentConfig as $key => $statement ) {
+				$assessmentOptions[] = [
+					// All i18n labels are assumed to be prefixed with mediasearch-filter-assessment-
+					'label' => $this->context->msg( 'mediasearch-filter-assessment-' . $key )->parse(),
+					'value' => $key
+				];
+			}
+
+			// WB statements
+			foreach ( $assessmentConfig as $key => $statement ) {
+				$assessmentData[] = [
+					'value' => $key,
+					'statement' => 'haswbstatement:' . $statement
+				];
+			}
+
+			return [
+				'items' => $assessmentOptions,
+				'data' => [
+					'statementData' => $assessmentData
+				]
+			];
+		} else {
+			return [];
 		}
 	}
 

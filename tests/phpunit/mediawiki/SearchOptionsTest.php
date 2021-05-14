@@ -26,6 +26,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetImageSizesForValidTypes() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -39,6 +40,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetImageSizesForImage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -50,6 +52,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetImageSizesForPage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -61,6 +64,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetImageSizesForInvalidTypesThrows() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -72,6 +76,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetMimeTypesForValidTypes() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -85,6 +90,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetMimeTypesForImage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -96,6 +102,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetMimeTypesForPage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -107,6 +114,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetMimeTypesForInvalidTypesThrows() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -118,6 +126,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetSortsForValidTypes() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -131,6 +140,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetSortsForInvalidTypesThrows() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -148,6 +158,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig( [ 'LicenseMapping' => $licenseMapping ] )
 		);
 
@@ -180,6 +191,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig( [ 'LicenseMapping' => $licenseMapping ] )
 		);
 
@@ -197,6 +209,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig( [ 'LicenseMapping' => $licenseMapping ] )
 		);
 
@@ -208,6 +221,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetLicenseGroupsForInvalidTypesThrows() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -219,6 +233,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForValidTypes() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -232,6 +247,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForImage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -243,6 +259,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForPage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
@@ -258,11 +275,65 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForInvalidTypesThrows() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
+			new HashConfig(),
 			new HashConfig()
 		);
 
 		// verify that invalid types throw an exception
 		$this->expectException( InvalidArgumentException::class );
 		$options->getNamespaces( 'i-am-an-invalid-type' );
+	}
+
+	public function testGetAssessmentsForImage() {
+		$assessmentFilters = [
+			'featured-image' => 'P6731=Q63348049',
+			'quality-image' => 'P6731=Q63348069',
+			'valued-image' => 'P6731=Q63348040',
+			'picture-of-the-day' => 'P6731=Q6998859',
+		];
+
+		$options = new SearchOptions(
+			new MockMessageLocalizer(),
+			new HashConfig( [
+				'MediaSearchAssessmentFilters' => $assessmentFilters,
+				'MediaSearchAssessmentQuickviewLabels' => null
+			] ),
+			new HashConfig()
+		);
+
+		// Verify that there are assessment filter options for image
+		$assessmentOptions = $options->getAssessments( SearchOptions::TYPE_IMAGE )[ 'items' ];
+		$this->assertNotEmpty( $assessmentOptions );
+
+		// Verify that the correct number of options are created
+		$expectedValues = array_merge( array_keys( $assessmentFilters ), [ '' ] );
+		$this->assertCount( count( $assessmentOptions ), $expectedValues );
+
+		// Verify that the option values correspond to the config keys
+		foreach ( $assessmentOptions as $option ) {
+			$this->assertContains( $option['value'], $expectedValues );
+		}
+	}
+
+	public function testGetAssessmentsForPage() {
+		$assessmentFilters = [
+			'featured-image' => 'P6731=Q63348049',
+			'quality-image' => 'P6731=Q63348069',
+			'valued-image' => 'P6731=Q63348040',
+			'picture-of-the-day' => 'P6731=Q6998859',
+		];
+
+		$options = new SearchOptions(
+			new MockMessageLocalizer(),
+			new HashConfig( [
+				'MediaSearchAssessmentFilters' => $assessmentFilters,
+				'MediaSearchAssessmentQuickviewLabels' => null
+			] ),
+			new HashConfig()
+		);
+
+		// Verify that there are not assessment filter options for page
+		$assessmentOptions = $options->getAssessments( SearchOptions::TYPE_PAGE );
+		$this->assertEmpty( $assessmentOptions );
 	}
 }
