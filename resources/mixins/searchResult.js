@@ -56,12 +56,20 @@ module.exports = {
 		 */
 		thumbnail: function () {
 			var commonWidths = mw.config.get( 'sdmsThumbLimits' ),
-				oldWidth = this.imageinfo[ 0 ].thumbwidth,
-				newWidth = oldWidth,
-				i;
+				oldWidth, newWidth, i;
+
+			// Do nothing if we have no imageinfo or thumbnail data.
+			if (
+				Object.keys( this.imageinfo ).length === 0 ||
+				!( 'thumburl' in this.imageinfo[ 0 ] )
+			) {
+				return;
+			}
 
 			// find the closest (larger) width that is more common, it is (much) more
 			// likely to have a thumbnail cached
+			oldWidth = this.imageinfo[ 0 ].thumbwidth;
+			newWidth = oldWidth;
 			for ( i = 0; i < commonWidths.length; i++ ) {
 				if ( commonWidths[ i ] >= oldWidth ) {
 					newWidth = commonWidths[ i ];
@@ -70,13 +78,6 @@ module.exports = {
 			}
 
 			return this.imageinfo[ 0 ].thumburl.replace( '/' + oldWidth + 'px-', '/' + newWidth + 'px-' );
-		},
-
-		/**
-		 * @return {string|undefined}
-		 */
-		src: function () {
-			return this.imageinfo[ 0 ].url;
 		},
 
 		label: function () {
