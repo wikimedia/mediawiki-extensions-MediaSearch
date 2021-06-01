@@ -20,7 +20,7 @@
 
 	// Unset scroll on larger screens. We should not need to bother resetting
 	// all the scrollbar rules.
-	@media screen and ( min-width: @width-breakpoint-tablet ) {
+	@media screen and ( min-width: @width-breakpoint-desktop ) {
 		overflow-x: visible;
 	}
 
@@ -113,6 +113,7 @@
 	}
 
 	.sdms-search-results-count {
+		.flex-display();
 		flex-shrink: 0;
 		// Send this element all the way to the right in the flex container.
 		margin-left: auto;

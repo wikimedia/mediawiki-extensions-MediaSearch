@@ -25,18 +25,19 @@
 					>
 						{{ namespaceFilterLabel }}
 					</sd-button>
-
-					<sd-observer
-						v-if="index === searchFilters.length - 1 && supportsObserver"
-						:key="'filter-observer-' + index"
-						@intersect="removeGradientClass"
-						@hide="addGradientClass"
-					></sd-observer>
 				</div>
 			</template>
-			<span v-if="showResultsCount" class="sdms-search-results-count">
-				{{ resultsCount }}
-			</span>
+			<div class="sdms-search-results-count">
+				<span v-if="showResultsCount">
+					{{ resultsCount }}
+				</span>
+				<sd-observer
+					v-if="supportsObserver"
+					:options="{ threshold: 1 }"
+					@intersect="removeGradientClass"
+					@hide="addGradientClass"
+				></sd-observer>
+			</div>
 		</div>
 
 		<namespace-filter-dialog
