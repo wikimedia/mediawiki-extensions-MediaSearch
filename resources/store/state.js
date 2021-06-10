@@ -3,17 +3,7 @@
 var initialResults = mw.config.get( 'sdmsInitialSearchResults' ),
 	initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) ),
 	didYouMean = mw.config.get( 'sdmsDidYouMean' ),
-	// TODO: Remove this, it's just a workaround for now
-	// while we use data from Production commons to test features locally
-	ensureArray = function ( obj ) {
-		if ( Array.isArray( obj ) ) {
-			return obj;
-		} else {
-			return Object.keys( obj ).map( function ( key ) {
-				return obj[ key ];
-			} );
-		}
-	},
+	ensureArray = require( './../ensureArray.js' ),
 	sortedResults = ensureArray( initialResults.results || [] ).sort( function ( a, b ) {
 		return a.index - b.index;
 	} ),
