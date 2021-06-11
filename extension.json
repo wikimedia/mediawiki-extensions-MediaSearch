@@ -227,7 +227,7 @@
 		}
 	},
 	"DefaultUserOptions": {
-		"sdms-specialsearch-default": 1,
+		"sdms-specialsearch-default": 0,
 		"sdms-search-user-notice-dismissed": 0
 	},
 	"SpecialPages": {
