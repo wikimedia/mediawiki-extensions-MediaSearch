@@ -10,7 +10,6 @@ use DerivativeContext;
 use Exception;
 use FauxRequest;
 use InvalidArgumentException;
-use MediaWiki\Extension\MediaSearch\MustacheDomTemplateParser;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
@@ -82,7 +81,7 @@ class SpecialMediaSearch extends SpecialPage {
 
 		$this->namespaceInfo = $namespaceInfo;
 		$this->api = $api ?: new ApiMain( new FauxRequest() );
-		$this->templateParser = $templateParser ?: new MustacheDomTemplateParser(
+		$this->templateParser = $templateParser ?: new TemplateParser(
 			__DIR__ . '/../../templates'
 		);
 		$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
