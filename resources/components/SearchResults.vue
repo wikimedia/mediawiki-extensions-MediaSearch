@@ -75,9 +75,10 @@
 		<!-- QuickView panel for desktop skin. -->
 		<aside
 			v-else
+			ref="aside"
 			class="sdms-search-results__details"
-			:class="{ 'sdms-search-results__details--expanded': !!details }"
-			:hidden="!details"
+			:class="{ 'sdms-search-results__details--expanded': !!showQuickView }"
+			:hidden="!showQuickView"
 		>
 			<quick-view
 				v-if="details"
@@ -90,6 +91,10 @@
 				@next="changeQuickViewResult($event, 1)"
 			>
 			</quick-view>
+
+			<div v-else class="sdms-search-results__quickview-placeholder">
+				<spinner></spinner>
+			</div>
 		</aside>
 	</div>
 </template>
@@ -150,9 +155,13 @@ module.exports = {
 
 	data: function () {
 		return {
+			// Whether to show the QuickView panel.
+			showQuickView: false,
+			// Data for the item open in QuickView.
 			details: null,
 			// Which quickview control to focus on when the panel opens.
 			focusOn: 'close',
+			// Computed style attribute for results.
 			resultStyle: false
 		};
 	},
@@ -183,7 +192,7 @@ module.exports = {
 		 */
 		listWrapperClasses: function () {
 			return {
-				'sdms-search-results__list-wrapper--collapsed': !!this.details && !this.isMobileSkin
+				'sdms-search-results__list-wrapper--collapsed': !!this.showQuickView && !this.isMobileSkin
 			};
 		},
 
@@ -193,7 +202,7 @@ module.exports = {
 		listClasses: function () {
 			var listTypeModifier = 'sdms-search-results__list--' + this.mediaType,
 				classObject = {
-					'sdms-search-results__list--collapsed': !!this.details && !this.isMobileSkin
+					'sdms-search-results__list--collapsed': !!this.showQuickView && !this.isMobileSkin
 				};
 
 			// Without ES6 string interpolation generating a dynamic classname
@@ -253,14 +262,44 @@ module.exports = {
 		 * Store the results of the fetchDetails API request as `this.details`
 		 * so that it can be passed to the QuickView component.
 		 *
+		 * This method also handles some UX nuances of opening the QuickView
+		 * panel and showing a placeholder UI while data is loading.
+		 *
 		 * @param {number} pageid
 		 * @param {number} index
 		 */
 		showDetails: function ( pageid, index ) {
-			// @TODO show a placeholder Quickview UI immediately, and then
-			// replace with the real data as soon as the request has completed
+			var detailsTimeout;
+
+			// Immediately open the QuickView aside. If the details haven't been
+			// retrieved yet, a placeholder UI will display.
+			this.showQuickView = true;
+
+			this.$nextTick(
+				function () {
+					// Scroll the window to the top of the QuickView aside.
+					this.$refs.aside.scrollIntoView();
+
+					// Scroll search results to the selected result, if needed
+					// (e.g. if the user is scrolling through results via
+					// keyboard nav or the QuickView nav buttons).
+					this.scrollIntoViewIfNeeded( pageid );
+				}.bind( this )
+			);
+
+			// In cases where the details panel is already open and the user
+			// opens a new result, we want to show the spinner while data is
+			// loading, but only if it takes longer than half a second. That
+			// way, for fast connections, the loading state will be less
+			// noticeable.
+			detailsTimeout = setTimeout( function () {
+				this.details = null;
+			}.bind( this ), 500 );
+
+			// Get data for the item opened in QuickView.
 			this.fetchDetails( pageid ).then(
 				function ( response ) {
+					clearTimeout( detailsTimeout );
 					this.details = response.query.pages[ pageid ];
 
 					// Let the QuickView component programatically manage focus
@@ -268,11 +307,8 @@ module.exports = {
 					this.$nextTick(
 						function () {
 							this.$refs.quickview.focus( this.focusOn );
-							this.$refs.quickview.$el.scrollIntoView();
 						}.bind( this )
 					);
-
-					this.scrollIntoViewIfNeeded( pageid );
 
 					/* eslint-disable camelcase */
 					this.$log( {
@@ -301,6 +337,7 @@ module.exports = {
 				this.$refs[ originatingResultId ][ 0 ].focus();
 			}
 
+			this.showQuickView = false;
 			this.details = null;
 			this.focusOn = 'close';
 
@@ -503,6 +540,7 @@ module.exports = {
 	watch: {
 		// if search term changes, immediately discard any expanded detail view
 		term: function ( /* newTerm */ ) {
+			this.showQuickView = false;
 			this.details = null;
 		},
 

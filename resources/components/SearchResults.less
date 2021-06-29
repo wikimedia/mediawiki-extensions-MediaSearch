@@ -110,6 +110,16 @@
 		background-color: @background-color-base;
 	}
 
+	&__quickview-placeholder {
+		.sdms-spinner {
+			// QuickView will be full-height and window is scrolled to the top
+			// of the panel when it's opened. This margin-top of 50vh will
+			// effectively vertically center the spinner.
+			margin-top: 50vh;
+			padding: 0;
+		}
+	}
+
 	// Visually highlight current QuickView result.
 	.sdms-search-result--highlighted {
 		&.sdms-image-result,
