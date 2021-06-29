@@ -105,6 +105,7 @@
 			"packageFiles": [
 				"resources/init.js",
 				"resources/getLocationAgnosticMwApi.js",
+				"resources/ensureArray.js",
 				"lib/icons.js",
 				"resources/components/base/AutocompleteSearchInput.vue",
 				"resources/components/base/Button.vue",
