@@ -332,9 +332,11 @@ module.exports = {
 		 * different possible forms that the "items" property can take.
 		 *
 		 * @param {string} selection value of the item to be selected
+		 * @throws error if specified value does not exist
 		 */
 		select: function ( selection ) {
 			var selectionIndex;
+
 			if ( Array.isArray( this.items ) && typeof this.items[ 0 ] === 'string' ) {
 				// Handle array of strings
 				// eslint-disable-next-line no-restricted-properties
@@ -354,8 +356,13 @@ module.exports = {
 					return this.items[ key ] === selection;
 				} );
 			}
-			this.selectedItemIndex = selectionIndex;
-			this.activeItemIndex = selectionIndex;
+
+			if ( selectionIndex && selectionIndex >= 0 ) {
+				this.selectedItemIndex = selectionIndex;
+				this.activeItemIndex = selectionIndex;
+			} else {
+				throw new Error( 'specified value does not exist' );
+			}
 		},
 
 		/**

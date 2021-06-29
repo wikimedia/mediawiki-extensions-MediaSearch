@@ -372,7 +372,22 @@ module.exports = {
 					ref = this.getRef( filter );
 
 				if ( currentValue ) {
-					ref.select( currentValue );
+					// Attempt to set each filter to the specified value in
+					// Vuex.  If the value doesn't exist, remove the value from
+					// the Vuex store and emit a filter-change event so that the
+					// page and URL get updated.
+					try {
+						ref.select( currentValue );
+					} catch ( e ) {
+						this.removeFilterValue( {
+							mediaType: this.mediaType,
+							filterType: filter.type
+						} );
+						this.$emit( 'filter-change', {
+							mediaType: this.mediaType,
+							filterType: filter.type
+						} );
+					}
 				} else {
 					ref.reset();
 				}
