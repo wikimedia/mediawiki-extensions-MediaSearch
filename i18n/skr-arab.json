@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saraiki"
+		]
+	},
+	"wikibasemediainfo-diffview-label": "عنوان",
+	"wikibasemediainfo-entitytermsforlanguagelistview-caption": "عنوان",
+	"wikibasemediainfo-filepage-captions-title": "عنوان",
+	"wikibasemediainfo-filepage-add-caption": "عنوان شامل کرو",
+	"wikibasemediainfo-filepage-edit-captions": "عنوان وچ تبدیلی کرو",
+	"wikibasemediainfo-filepage-cancel": "منسوخ",
+	"wikibasemediainfo-filepage-cancel-confirm-accept": "مُکاؤ",
+	"wikibasemediainfo-filepage-publish": "تبدیلیاں شائع کرو",
+	"wikibasemediainfo-statements-learn-more": "ٻیا سِکھو",
+	"wikibasemediainfo-statements-remove": "سب ہٹاؤ",
+	"wikibasemediainfo-statements-link-notice-dismiss": "مکاؤ",
+	"wikibasemediainfo-remove-all-statements-confirm-title": "سب ہٹاؤں؟",
+	"wikibasemediainfo-remove-all-statements-confirm-accept": "ہٹاؤ",
+	"wikibasemediainfo-coordinate-input-label": "کوآرڈینیٹ",
+	"wikibasemediainfo-monolingualtext-input-button-text": "شامل کرو",
+	"wikibasemediainfo-monolingualtext-language-label": "زبان چݨو",
+	"wikibasemediainfo-time-input-button-text": "شامل کرو",
+	"wikibasemediainfo-time-precision-year100": "صدی",
+	"wikibasemediainfo-time-precision-year10": "ݙاہاکا",
+	"wikibasemediainfo-time-precision-year": "سال",
+	"wikibasemediainfo-time-precision-month": "مہیناں",
+	"wikibasemediainfo-time-precision-day": "ݙینہ",
+	"wikibasemediainfo-time-precision-hour": "گھنٹہ",
+	"wikibasemediainfo-time-precision-minute": "منٹ",
+	"wikibasemediainfo-time-precision-second": "سیکنڈ",
+	"wikibasemediainfo-time-calendar-label": "کیلنڈر",
+	"wikibasemediainfo-time-calendar-julian": "جولیئن",
+	"wikibasemediainfo-quantity-unit-label": "یِکائی",
+	"wikibasemediainfo-special-mediasearch-title": "میڈیا کیتے ڳول",
+	"wikibasemediainfo-special-mediasearch-continue": "اڳلا",
+	"wikibasemediainfo-special-mediasearch-filter-license-any": "سارے لائیسنس",
+	"wikibasemediainfo-special-mediasearch-filter-license-other": "ٻیا",
+	"wikibasemediainfo-special-mediasearch-clear-title": "ہٹاؤ"
+}
