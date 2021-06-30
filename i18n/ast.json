@@ -5,7 +5,7 @@
 			"Xuacu"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-filter-size": "Tamañu d'imaxe",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "Tolos tamaños d'imaxe",
-	"wikibasemediainfo-special-mediasearch-filter-file-type-any": "Toles tribes de ficheru"
+	"mediasearch-filter-size": "Tamañu d'imaxe",
+	"mediasearch-filter-size-any": "Tolos tamaños d'imaxe",
+	"mediasearch-filter-file-type-any": "Toles tribes de ficheru"
 }

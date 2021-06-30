@@ -4,8 +4,8 @@
 			"Akamycoco"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-filter-namespace-all": "pipenuljatan",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-discussion": "maljavar",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-label": "vavecikan ta sinipapungadan: $1",
-	"wikibasemediainfo-special-mediasearch-clear-title": "semualap"
+	"mediasearch-filter-namespace-all": "pipenuljatan",
+	"mediasearch-filter-namespace-discussion": "maljavar",
+	"mediasearch-filter-namespace-label": "vavecikan ta sinipapungadan: $1",
+	"mediasearch-clear-title": "semualap"
 }

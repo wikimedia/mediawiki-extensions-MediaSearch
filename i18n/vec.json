@@ -4,6 +4,6 @@
 			"Fierodelveneto"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "Ceo",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "Grando"
+	"mediasearch-filter-size-small": "Ceo",
+	"mediasearch-filter-size-large": "Grando"
 }

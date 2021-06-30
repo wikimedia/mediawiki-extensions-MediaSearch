@@ -6,8 +6,8 @@
 			"Patsagorn Y."
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-filter-namespace-help": "วิธีใช้ทั่วไป",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-custom": "ปรับแต่ง",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-label": "เนมสเปซ: $1",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-dialog-progressive-action": "บันทึก"
+	"mediasearch-filter-namespace-help": "วิธีใช้ทั่วไป",
+	"mediasearch-filter-namespace-custom": "ปรับแต่ง",
+	"mediasearch-filter-namespace-label": "เนมสเปซ: $1",
+	"mediasearch-filter-namespace-dialog-progressive-action": "บันทึก"
 }

@@ -6,18 +6,18 @@
 			"Weblars"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "Billeder",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Lyd",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Video",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Billedestørrelse",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "Alle billedestørrelser",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "Lille",
-	"wikibasemediainfo-special-mediasearch-filter-size-medium": "Mellem",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "Stor",
-	"wikibasemediainfo-special-mediasearch-filter-file-type-any": "Alle filtyper",
-	"wikibasemediainfo-special-mediasearch-filter-license-any": "Alle licenser",
-	"wikibasemediainfo-special-mediasearch-clear-title": "Fjern",
-	"wikibasemediainfo-special-mediasearch-load-more-results": "Indlæs mere",
-	"wikibasemediainfo-special-mediasearch-quickview-button-text": "Flere detaljer",
-	"wikibasemediainfo-special-mediasearch-quickview-next-button-text": "Vis næste resultat"
+	"mediasearch-tab-image": "Billeder",
+	"mediasearch-tab-audio": "Lyd",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-filter-size": "Billedestørrelse",
+	"mediasearch-filter-size-any": "Alle billedestørrelser",
+	"mediasearch-filter-size-small": "Lille",
+	"mediasearch-filter-size-medium": "Mellem",
+	"mediasearch-filter-size-large": "Stor",
+	"mediasearch-filter-file-type-any": "Alle filtyper",
+	"mediasearch-filter-license-any": "Alle licenser",
+	"mediasearch-clear-title": "Fjern",
+	"mediasearch-load-more-results": "Indlæs mere",
+	"mediasearch-quickview-button-text": "Flere detaljer",
+	"mediasearch-quickview-next-button-text": "Vis næste resultat"
 }

@@ -10,7 +10,7 @@
 			"Vitorvicentevalente"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "Imagens",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Áudio",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Vídeo"
+	"mediasearch-tab-image": "Imagens",
+	"mediasearch-tab-audio": "Áudio",
+	"mediasearch-tab-video": "Vídeo"
 }

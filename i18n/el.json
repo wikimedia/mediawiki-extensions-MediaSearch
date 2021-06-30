@@ -8,9 +8,9 @@
 			"Protnet"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "Εικόνες",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Ήχος",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Βίντεο",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Μέγεθος εικόνας",
-	"wikibasemediainfo-special-mediasearch-load-more-results": "Φόρτωση περισσότερων"
+	"mediasearch-tab-image": "Εικόνες",
+	"mediasearch-tab-audio": "Ήχος",
+	"mediasearch-tab-video": "Βίντεο",
+	"mediasearch-filter-size": "Μέγεθος εικόνας",
+	"mediasearch-load-more-results": "Φόρτωση περισσότερων"
 }

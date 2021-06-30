@@ -4,13 +4,13 @@
 			"Yupik"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "Koveh",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Audio",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Video",
-	"wikibasemediainfo-special-mediasearch-tab-page": "Luokah já Siijđoh",
-	"wikibasemediainfo-special-mediasearch-tab-other": "Eres media",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Kove stuárudâh",
-	"wikibasemediainfo-special-mediasearch-filter-license-other": "Eres",
-	"wikibasemediainfo-special-mediasearch-clear-title": "Siho",
-	"wikibasemediainfo-special-mediasearch-copytextlayout-copy": "Kopijist"
+	"mediasearch-tab-image": "Koveh",
+	"mediasearch-tab-audio": "Audio",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-tab-page": "Luokah já Siijđoh",
+	"mediasearch-tab-other": "Eres media",
+	"mediasearch-filter-size": "Kove stuárudâh",
+	"mediasearch-filter-license-other": "Eres",
+	"mediasearch-clear-title": "Siho",
+	"mediasearch-copytextlayout-copy": "Kopijist"
 }

@@ -11,18 +11,18 @@
 			"محمد أحمد عبد الفتاح"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-title": "بحث في الملفات",
-	"wikibasemediainfo-special-mediasearch-continue": "التالية",
-	"wikibasemediainfo-special-mediasearch-tab-image": "صور",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "صوت",
-	"wikibasemediainfo-special-mediasearch-tab-page": "التصنيفات والصفحات",
-	"wikibasemediainfo-special-mediasearch-filter-size": "حجم وسائل الإعلام",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "أي حجم",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "صغير",
-	"wikibasemediainfo-special-mediasearch-filter-size-medium": "متوسط",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "كبير",
-	"wikibasemediainfo-special-mediasearch-filter-license-any": "كل التراخيص",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-discussion": "نقاش",
-	"wikibasemediainfo-special-mediasearch-no-results": "لا توجد نتائج",
-	"wikibasemediainfo-special-mediasearch-load-more-results": "حمل المزيد"
+	"mediasearch-title": "بحث في الملفات",
+	"mediasearch-continue": "التالية",
+	"mediasearch-tab-image": "صور",
+	"mediasearch-tab-audio": "صوت",
+	"mediasearch-tab-page": "التصنيفات والصفحات",
+	"mediasearch-filter-size": "حجم وسائل الإعلام",
+	"mediasearch-filter-size-any": "أي حجم",
+	"mediasearch-filter-size-small": "صغير",
+	"mediasearch-filter-size-medium": "متوسط",
+	"mediasearch-filter-size-large": "كبير",
+	"mediasearch-filter-license-any": "كل التراخيص",
+	"mediasearch-filter-namespace-discussion": "نقاش",
+	"mediasearch-no-results": "لا توجد نتائج",
+	"mediasearch-load-more-results": "حمل المزيد"
 }

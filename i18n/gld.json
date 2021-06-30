@@ -4,7 +4,7 @@
 			"RFScott"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-filter-namespace-all": "Хэм",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-discussion": "Гисурэн",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-help": "Мэдэсиури"
+	"mediasearch-filter-namespace-all": "Хэм",
+	"mediasearch-filter-namespace-discussion": "Гисурэн",
+	"mediasearch-filter-namespace-help": "Мэдэсиури"
 }

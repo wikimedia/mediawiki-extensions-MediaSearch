@@ -4,14 +4,14 @@
 			"Joao Xavier"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-title": "Serchar 'media'",
-	"wikibasemediainfo-special-mediasearch-continue": "Sequanta",
-	"wikibasemediainfo-special-mediasearch-tab-image": "Imaji",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "*Audio",
-	"wikibasemediainfo-special-mediasearch-tab-video": "*Video",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Grandeso dil arkivo",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "Mikra",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "Larja",
-	"wikibasemediainfo-special-mediasearch-filter-license-unrestricted": "Sen restrikti",
-	"wikibasemediainfo-special-mediasearch-no-results": "Nula rezulti trovita"
+	"mediasearch-title": "Serchar 'media'",
+	"mediasearch-continue": "Sequanta",
+	"mediasearch-tab-image": "Imaji",
+	"mediasearch-tab-audio": "*Audio",
+	"mediasearch-tab-video": "*Video",
+	"mediasearch-filter-size": "Grandeso dil arkivo",
+	"mediasearch-filter-size-small": "Mikra",
+	"mediasearch-filter-size-large": "Larja",
+	"mediasearch-filter-license-unrestricted": "Sen restrikti",
+	"mediasearch-no-results": "Nula rezulti trovita"
 }

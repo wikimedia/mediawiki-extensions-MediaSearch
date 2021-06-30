@@ -4,14 +4,14 @@
 			"Fulup"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-title": "Klask ur media",
-	"wikibasemediainfo-special-mediasearch-continue": "War-lerc'h",
-	"wikibasemediainfo-special-mediasearch-tab-image": "Skeudennoù",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Son",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Video",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Ment ar media",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "Ne vern ar vent",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "Bihan",
-	"wikibasemediainfo-special-mediasearch-filter-size-medium": "Etre",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "Bras"
+	"mediasearch-title": "Klask ur media",
+	"mediasearch-continue": "War-lerc'h",
+	"mediasearch-tab-image": "Skeudennoù",
+	"mediasearch-tab-audio": "Son",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-filter-size": "Ment ar media",
+	"mediasearch-filter-size-any": "Ne vern ar vent",
+	"mediasearch-filter-size-small": "Bihan",
+	"mediasearch-filter-size-medium": "Etre",
+	"mediasearch-filter-size-large": "Bras"
 }

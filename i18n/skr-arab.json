@@ -4,9 +4,9 @@
 			"Saraiki"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-title": "میڈیا کیتے ڳول",
-	"wikibasemediainfo-special-mediasearch-continue": "اڳلا",
-	"wikibasemediainfo-special-mediasearch-filter-license-any": "سارے لائیسنس",
-	"wikibasemediainfo-special-mediasearch-filter-license-other": "ٻیا",
-	"wikibasemediainfo-special-mediasearch-clear-title": "ہٹاؤ"
+	"mediasearch-title": "میڈیا کیتے ڳول",
+	"mediasearch-continue": "اڳلا",
+	"mediasearch-filter-license-any": "سارے لائیسنس",
+	"mediasearch-filter-license-other": "ٻیا",
+	"mediasearch-clear-title": "ہٹاؤ"
 }

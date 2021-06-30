@@ -4,13 +4,13 @@
 			"Joanmp17"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "ምስልታት",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "ድምጺ",
-	"wikibasemediainfo-special-mediasearch-tab-video": "ቪድዮ",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-discussion": "ምይይጥ",
-	"wikibasemediainfo-special-mediasearch-filter-namespace-dialog-progressive-action": "ኣረክብ",
-	"wikibasemediainfo-special-mediasearch-clear-title": "ኣልግስ",
-	"wikibasemediainfo-special-mediasearch-load-more-results": "ተወሳኺ ጸዓን",
-	"wikibasemediainfo-special-mediasearch-quickview-button-text": "ተወሳኺ ዝርዝራት",
-	"wikibasemediainfo-special-mediasearch-copytextlayout-copy": "ቅዳሕ"
+	"mediasearch-tab-image": "ምስልታት",
+	"mediasearch-tab-audio": "ድምጺ",
+	"mediasearch-tab-video": "ቪድዮ",
+	"mediasearch-filter-namespace-discussion": "ምይይጥ",
+	"mediasearch-filter-namespace-dialog-progressive-action": "ኣረክብ",
+	"mediasearch-clear-title": "ኣልግስ",
+	"mediasearch-load-more-results": "ተወሳኺ ጸዓን",
+	"mediasearch-quickview-button-text": "ተወሳኺ ዝርዝራት",
+	"mediasearch-copytextlayout-copy": "ቅዳሕ"
 }

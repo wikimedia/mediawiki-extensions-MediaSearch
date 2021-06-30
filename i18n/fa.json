@@ -10,17 +10,17 @@
 			"درفش کاویانی"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-title": "جستجوی رسانه‌ها",
-	"wikibasemediainfo-special-mediasearch-continue": "بعدی",
-	"wikibasemediainfo-special-mediasearch-tab-image": "تصویرها",
-	"wikibasemediainfo-special-mediasearch-tab-video": "ویدئو",
-	"wikibasemediainfo-special-mediasearch-filter-size": "اندازهٔ رسانه",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "هر اندازه‌ای",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "کوچک",
-	"wikibasemediainfo-special-mediasearch-filter-size-medium": "متوسط",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "بزرگ",
-	"wikibasemediainfo-special-mediasearch-no-results": "هیچ نتیجه‌ای یافته نشد",
-	"wikibasemediainfo-special-mediasearch-copytextlayout-copy": "رونوشت",
-	"wikibasemediainfo-special-mediasearch-copytextlayout-copy-fail": "رونویسی در کلیپ‌برد انجام نشد.",
-	"wikibasemediainfo-special-mediasearch-copytextlayout-copy-success": "در کلیپ‌برد رونویسی شد."
+	"mediasearch-title": "جستجوی رسانه‌ها",
+	"mediasearch-continue": "بعدی",
+	"mediasearch-tab-image": "تصویرها",
+	"mediasearch-tab-video": "ویدئو",
+	"mediasearch-filter-size": "اندازهٔ رسانه",
+	"mediasearch-filter-size-any": "هر اندازه‌ای",
+	"mediasearch-filter-size-small": "کوچک",
+	"mediasearch-filter-size-medium": "متوسط",
+	"mediasearch-filter-size-large": "بزرگ",
+	"mediasearch-no-results": "هیچ نتیجه‌ای یافته نشد",
+	"mediasearch-copytextlayout-copy": "رونوشت",
+	"mediasearch-copytextlayout-copy-fail": "رونویسی در کلیپ‌برد انجام نشد.",
+	"mediasearch-copytextlayout-copy-success": "در کلیپ‌برد رونویسی شد."
 }

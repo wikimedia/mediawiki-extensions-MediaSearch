@@ -4,15 +4,15 @@
 			"Joetaras"
 		]
 	},
-	"wikibasemediainfo-special-mediasearch-tab-image": "Immaggine",
-	"wikibasemediainfo-special-mediasearch-tab-audio": "Audio",
-	"wikibasemediainfo-special-mediasearch-tab-video": "Video",
-	"wikibasemediainfo-special-mediasearch-filter-size": "Dimenzione d'u medie",
-	"wikibasemediainfo-special-mediasearch-filter-size-any": "Tutte le dimenziune",
-	"wikibasemediainfo-special-mediasearch-filter-size-small": "Piccenne",
-	"wikibasemediainfo-special-mediasearch-filter-size-medium": "Medie",
-	"wikibasemediainfo-special-mediasearch-filter-size-large": "Granne",
-	"wikibasemediainfo-special-mediasearch-filter-file-type-any": "Tutte le tipe de file",
-	"wikibasemediainfo-special-mediasearch-filter-sort-label": "Ordine pe:",
-	"wikibasemediainfo-special-mediasearch-filter-sort-default": "Rilevanze"
+	"mediasearch-tab-image": "Immaggine",
+	"mediasearch-tab-audio": "Audio",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-filter-size": "Dimenzione d'u medie",
+	"mediasearch-filter-size-any": "Tutte le dimenziune",
+	"mediasearch-filter-size-small": "Piccenne",
+	"mediasearch-filter-size-medium": "Medie",
+	"mediasearch-filter-size-large": "Granne",
+	"mediasearch-filter-file-type-any": "Tutte le tipe de file",
+	"mediasearch-filter-sort-label": "Ordine pe:",
+	"mediasearch-filter-sort-default": "Rilevanze"
 }
