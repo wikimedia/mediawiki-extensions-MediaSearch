@@ -27,7 +27,9 @@
 	"mediasearch-filter-sort-popularity": "Popularitet",
 	"mediasearch-filter-license-any": "Alla licenser",
 	"mediasearch-filter-license-cc-by": "Använd med attribution",
+	"mediasearch-filter-license-attribution": "Använd med tillskrivning",
 	"mediasearch-filter-license-cc-by-sa": "Använd med attribution med samma licens",
+	"mediasearch-filter-license-attribution-same-license": "Använd med tillskrivning och samma licens",
 	"mediasearch-filter-license-unrestricted": "Inga begränsningar",
 	"mediasearch-filter-license-other": "Övrigt",
 	"mediasearch-filter-namespace-all": "Alla",
@@ -62,5 +64,13 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|ord}})",
 	"mediasearch-did-you-mean": "Menade du: <a href=\"$2\">$1</a>",
 	"mediasearch-error-message": "Ogiltig sökning",
-	"mediasearch-error-text": "Skriv en ny sökning och försök igen"
+	"mediasearch-error-text": "Skriv en ny sökning och försök igen",
+	"mediasearch-specialsearch-default": "Visa sökresultat i gränssnittet Special:Search",
+	"mediasearch-specialsearch-default-help": "Välj för att visa sökresultat från huvudsökfältet i det äldre gränssnittet Special:Search istället för Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bild",
+	"mediasearch-filter-assessment-picture-of-the-year": "Årets bild",
+	"mediasearch-filter-assessment-featured-image": "Utvald bild",
+	"mediasearch-filter-assessment-valued-image": "Värderad bild",
+	"mediasearch-filter-assessment-quality-image": "Kvalitetsbild",
+	"mediasearch-filter-assessment-menu-label": "Gemenskapsbedömningar"
 }

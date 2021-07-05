@@ -67,5 +67,11 @@
 	"mediasearch-error-message": "Ungültige Suche",
 	"mediasearch-error-text": "Gib oben eine neue Suche ein und versuche es erneut",
 	"mediasearch-specialsearch-default": "Suchergebnisse in der Special:Search-Oberfläche anzeigen",
-	"mediasearch-specialsearch-default-help": "Wähle diese Option, um Suchergebnisse aus der Hauptsuchleiste in der älteren Special:Search-Oberfläche anstelle von Special:MediaSearch anzuzeigen"
+	"mediasearch-specialsearch-default-help": "Wähle diese Option, um Suchergebnisse aus der Hauptsuchleiste in der älteren Special:Search-Oberfläche anstelle von Special:MediaSearch anzuzeigen",
+	"mediasearch-filter-assessment-picture-of-the-day": "Bild des Tages",
+	"mediasearch-filter-assessment-picture-of-the-year": "Bild des Jahres",
+	"mediasearch-filter-assessment-featured-image": "Ausgewähltes Bild",
+	"mediasearch-filter-assessment-valued-image": "Wertvolles Bild",
+	"mediasearch-filter-assessment-quality-image": "Qualitätsbild",
+	"mediasearch-filter-assessment-menu-label": "Community-Bewertungen"
 }
