@@ -45,5 +45,7 @@
 	"mediasearch-clear-filters": "Cancella filtri",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|risultato|risultati}}",
 	"mediasearch-did-you-mean": "Forse cercavi: <a href=\"$2\">$1</a>",
-	"mediasearch-error-message": "Ricerca non valida"
+	"mediasearch-error-message": "Ricerca non valida",
+	"mediasearch-filter-assessment-picture-of-the-day": "Immagine del giorno",
+	"mediasearch-filter-assessment-picture-of-the-year": "Immagine dell'anno"
 }

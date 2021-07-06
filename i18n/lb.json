@@ -30,5 +30,11 @@
 	"mediasearch-quickview-button-text": "Méi Detailer",
 	"mediasearch-copytextlayout-copy": "Kopéieren",
 	"mediasearch-clear-filters": "Filteren eidel maachen",
-	"mediasearch-results-count": "$1 {{PLURAL:$1|Resultat|Resultater}}"
+	"mediasearch-results-count": "$1 {{PLURAL:$1|Resultat|Resultater}}",
+	"mediasearch-filter-assessment-picture-of-the-day": "Bild vum Dag",
+	"mediasearch-filter-assessment-picture-of-the-year": "Bild vum Joer",
+	"mediasearch-filter-assessment-featured-image": "Ausgewielt Bild",
+	"mediasearch-filter-assessment-valued-image": "Wäertvollt Bild",
+	"mediasearch-filter-assessment-quality-image": "Qualitéitsbild",
+	"mediasearch-filter-assessment-menu-label": "Bewäertungen vun der Communautéit"
 }

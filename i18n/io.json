@@ -13,5 +13,11 @@
 	"mediasearch-filter-size-small": "Mikra",
 	"mediasearch-filter-size-large": "Larja",
 	"mediasearch-filter-license-unrestricted": "Sen restrikti",
-	"mediasearch-no-results": "Nula rezulti trovita"
+	"mediasearch-no-results": "Nula rezulti trovita",
+	"mediasearch-filter-assessment-picture-of-the-day": "Diala imajo",
+	"mediasearch-filter-assessment-picture-of-the-year": "Imajo dil Yaro",
+	"mediasearch-filter-assessment-featured-image": "Imajo por observar",
+	"mediasearch-filter-assessment-valued-image": "Imajo prizita",
+	"mediasearch-filter-assessment-quality-image": "Ecelanta imajo",
+	"mediasearch-filter-assessment-menu-label": "Evalui de la komunitato"
 }

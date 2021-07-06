@@ -66,5 +66,11 @@
 	"mediasearch-did-you-mean": "Você quis dizer: <a href=\"$2\">$1</a>",
 	"mediasearch-error-message": "Pesquisa inválida",
 	"mediasearch-error-text": "Insira uma nova pesquisa acima e tente novamente",
-	"mediasearch-specialsearch-default": "Mostre os resultados da pesquisa na interface Especial:Pesquisa"
+	"mediasearch-specialsearch-default": "Mostre os resultados da pesquisa na interface Especial:Pesquisa",
+	"mediasearch-filter-assessment-picture-of-the-day": "Imagem do dia",
+	"mediasearch-filter-assessment-picture-of-the-year": "Imagem do ano",
+	"mediasearch-filter-assessment-featured-image": "Foto em destaque",
+	"mediasearch-filter-assessment-valued-image": "Imagem de valor",
+	"mediasearch-filter-assessment-quality-image": "Imagem de qualidade",
+	"mediasearch-filter-assessment-menu-label": "Avaliações da comunidade"
 }

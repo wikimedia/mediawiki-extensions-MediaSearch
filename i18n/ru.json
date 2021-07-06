@@ -77,5 +77,8 @@
 	"mediasearch-error-message": "Неверный поисковый запрос",
 	"mediasearch-error-text": "Введите новый запрос выше и повторите попытку",
 	"mediasearch-specialsearch-default": "Показать результаты поиска в обычном интерфейсе (Special:Search)",
-	"mediasearch-specialsearch-default-help": "Выберите, чтобы результаты поиска в главной строке поиска показывались в более старом интерфейсе Special:Search вместо Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Выберите, чтобы результаты поиска в главной строке поиска показывались в более старом интерфейсе Special:Search вместо Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Изображение дня",
+	"mediasearch-filter-assessment-picture-of-the-year": "Изображение года",
+	"mediasearch-filter-assessment-menu-label": "Оценки сообщества"
 }

@@ -5,6 +5,7 @@
 			"Dgstranz",
 			"Fitoschido",
 			"Ihojose",
+			"Jackiezelaya",
 			"Joanmp17",
 			"La Mantis",
 			"Macofe",
@@ -73,5 +74,11 @@
 	"mediasearch-error-message": "Búsqueda inválida",
 	"mediasearch-error-text": "Ingresa arriba una nueva búsqueda e intenta de nuevo",
 	"mediasearch-specialsearch-default": "Mostrar resultados de búsqueda en la interfaz de Special:Search",
-	"mediasearch-specialsearch-default-help": "Seleccionar para mostrar resultados de búsqueda de la barra de búsqueda principal en la interfaz anterior de Special:Search en vez de Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Seleccionar para mostrar resultados de búsqueda de la barra de búsqueda principal en la interfaz anterior de Special:Search en vez de Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Imagen del día",
+	"mediasearch-filter-assessment-picture-of-the-year": "Imagen del día",
+	"mediasearch-filter-assessment-featured-image": "Imagen destacada",
+	"mediasearch-filter-assessment-valued-image": "Imagen valorada",
+	"mediasearch-filter-assessment-quality-image": "Imagen de calidad",
+	"mediasearch-filter-assessment-menu-label": "Evaluaciones de la comunidad"
 }

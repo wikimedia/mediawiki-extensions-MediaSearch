@@ -64,5 +64,11 @@
 	"mediasearch-error-message": "Неважечко пребарување",
 	"mediasearch-error-text": "Погоре внесете ново пребарување и обидете се пак",
 	"mediasearch-specialsearch-default": "Прикажувај исход од пребарување во посредникот Special:Search interface",
-	"mediasearch-specialsearch-default-help": "Изберете зад а се прикажува исходот од пребарувањата во главната пребарувачка лента во постариот посредник Special:Search наместо во Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Изберете зад а се прикажува исходот од пребарувањата во главната пребарувачка лента во постариот посредник Special:Search наместо во Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Слика на денот",
+	"mediasearch-filter-assessment-picture-of-the-year": "Слика на годината",
+	"mediasearch-filter-assessment-featured-image": "Избрана слика",
+	"mediasearch-filter-assessment-valued-image": "Ценета слика",
+	"mediasearch-filter-assessment-quality-image": "Квалитетна слика",
+	"mediasearch-filter-assessment-menu-label": "Оценки на заедницата"
 }
