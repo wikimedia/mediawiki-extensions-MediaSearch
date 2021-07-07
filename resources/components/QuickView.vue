@@ -508,20 +508,36 @@ module.exports = {
 				return dateString;
 			}
 
-			// Format the date in the user's language. Passing undefined as the
-			// first arg to toLocaleDateString() will cause it to default to the
-			// browser language, but we should keep this consistent with the UI
-			// language.
-			return dateObject.toLocaleDateString(
-				mw.config.get( 'wgUserLanguage' ),
-				{
-					timeZone: 'UTC',
-					year: 'numeric',
-					// only display month & day if they were found to be present in date
-					month: dateRegexResult[ 2 ] !== undefined ? 'long' : undefined,
-					day: dateRegexResult[ 3 ] !== undefined ? 'numeric' : undefined
+			try {
+				// Format the date in the user's language. Passing undefined as the
+				// first arg to toLocaleDateString() will cause it to default to the
+				// browser language, but we should keep this consistent with the UI
+				// language.
+				return dateObject.toLocaleDateString(
+					mw.config.get( 'wgUserLanguage' ),
+					{
+						timeZone: 'UTC',
+						year: 'numeric',
+						// only display month & day if they were found to be present in date
+						month: dateRegexResult[ 2 ] !== undefined ? 'long' : undefined,
+						day: dateRegexResult[ 3 ] !== undefined ? 'numeric' : undefined
+					}
+				);
+			} catch ( e ) {
+				if ( e.message === 'Unsupported time zone specified UTC' ) {
+					// Special-case a very specific kind of error where,
+					// I suspect, some highly specific browser build is
+					// unable to parse UTC timezones
+					// I've not been able to reproduce this with any input,
+					// errors are sparse, and always of the same browser:
+					// (Samsung Browser 2.0 on Tizen Linux), probably also
+					// of the same user
+					// @see https://phabricator.wikimedia.org/T283870
+					return null;
 				}
-			);
+
+				throw e;
+			}
 		},
 
 		/**
