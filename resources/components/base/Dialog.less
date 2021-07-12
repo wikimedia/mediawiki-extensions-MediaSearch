@@ -90,12 +90,23 @@
 	&--fullscreen {
 		.sd-dialog__shell {
 			left: 0;
-			max-height: 100vh;
 			max-width: 100vw;
-			min-height: calc( ~'100vh - 2px' );
 			min-width: calc( ~'100vw - 2px' );
 			position: absolute;
 			top: 0;
+
+			// See T285234
+			// The 100vh measurement is inconsistent in mobile safari
+			// due to the UI elements that show or hide based on user scroll
+			// interaction. To get the desired behavior, use min-height 100%
+			// which will be respected by all browsers); for Safari (and other
+			// iOS browers) the second height rule is necessary to ensure that
+			// the element height *always* matches the available space on the
+			// screen, whether or not the extra toolbars are visible.
+			// Scroll rules on the body child element ensure that content there
+			// can always be reached by the user even if it overflows.
+			min-height: 100%;
+			height: -webkit-fill-available;
 		}
 
 		.sd-dialog__header {
