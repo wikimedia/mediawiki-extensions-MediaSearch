@@ -6,7 +6,6 @@
 			:href="canonicalurl"
 			:title="title"
 			:style="style"
-			target="_blank"
 			@click="$emit('click')"
 		>
 			<sdms-image :source="thumbnail" :alt="displayName"></sdms-image>
@@ -14,7 +13,6 @@
 		<div class="sdms-other-result__text">
 			<h3 v-if="displayName">
 				<a :href="canonicalurl"
-					target="_blank"
 					:title="title"
 					@click="$emit('click')"
 				>

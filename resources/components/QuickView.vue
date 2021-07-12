@@ -84,8 +84,7 @@
 			<h3 v-if="displayName" class="sdms-quick-view__title">
 				<a ref="title"
 					:href="canonicalurl"
-					:title="title"
-					target="blank">
+					:title="title">
 					{{ displayName }}
 				</a>
 			</h3>
@@ -156,7 +155,6 @@
 			<a
 				:href="canonicalurl"
 				:title="title"
-				target="_blank"
 				class="sdms-quick-view__cta"
 				@click="onMoreDetailsClick"
 			>

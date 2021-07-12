@@ -7,7 +7,6 @@
 		:href="canonicalurl"
 		:title="title"
 		:style="style"
-		target="_blank"
 		@click="showDetails"
 	>
 		<sdms-image
