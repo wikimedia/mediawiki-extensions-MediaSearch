@@ -72,5 +72,11 @@
 	"mediasearch-error-message": "Geçersiz arama",
 	"mediasearch-error-text": "Yukarıya yeni bir arama girin ve tekrar deneyin",
 	"mediasearch-specialsearch-default": "Arama sonuçlarını Special:Search arayüzünde göster",
-	"mediasearch-specialsearch-default-help": "Ana arama çubuğundaki arama sonuçlarını Special:MediaSearch yerine eski Special:Search arayüzünde göstermek için seçin"
+	"mediasearch-specialsearch-default-help": "Ana arama çubuğundaki arama sonuçlarını Special:MediaSearch yerine eski Special:Search arayüzünde göstermek için seçin",
+	"mediasearch-filter-assessment-picture-of-the-day": "Günün resmi",
+	"mediasearch-filter-assessment-picture-of-the-year": "Yılın resmi",
+	"mediasearch-filter-assessment-featured-image": "Seçkin resim",
+	"mediasearch-filter-assessment-valued-image": "Değerli resim",
+	"mediasearch-filter-assessment-quality-image": "Kaliteli resim",
+	"mediasearch-filter-assessment-menu-label": "Topluluk değerlendirmeleri"
 }

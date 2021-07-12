@@ -4,7 +4,8 @@
 			"Fitoschido",
 			"Jmarchn",
 			"Mguix",
-			"Toniher"
+			"Toniher",
+			"Vfc"
 		]
 	},
 	"mediasearch-title": "Cerca de fitxers multimèdia",
@@ -66,5 +67,7 @@
 	"mediasearch-error-message": "Recerca no vàlida",
 	"mediasearch-error-text": "Entreu a dalt una nova cerca i provar de nou",
 	"mediasearch-specialsearch-default": "Mostra els resultats de la cerca a la interfície de Special:Search",
-	"mediasearch-specialsearch-default-help": "Seleccioneu per mostrar els resultats de la cerca a la barra de cerca principal de la antiga interfície Special:Search en lloc de Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Seleccioneu per mostrar els resultats de la cerca a la barra de cerca principal de la antiga interfície Special:Search en lloc de Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Imatge del dia",
+	"mediasearch-filter-assessment-picture-of-the-year": "Imatge de l'any"
 }
