@@ -112,7 +112,7 @@
 			</p>
 
 			<p v-if="assessmentList" class="sdms-quick-view__list-item">
-				<sd-icon :icon="filenameIcon"></sd-icon>
+				<sd-icon :icon="icons.sdIconUnstar"></sd-icon>
 				<span>{{ assessmentList }}</span>
 			</p>
 
