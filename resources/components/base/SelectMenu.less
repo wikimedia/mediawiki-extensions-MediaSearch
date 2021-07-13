@@ -20,6 +20,12 @@
 		max-width: @max-width-base;
 	}
 
+	// Unfortunately, we need the element selector to override a Mediawiki style.
+	ul.sd-select-menu__list {
+		margin: 0;
+		padding: 0;
+	}
+
 	&__list-item {
 		.transition( ~'background-color 100ms, color 100ms' );
 		color: @color-base;
@@ -48,10 +54,4 @@
 			color: @color-primary;
 		}
 	}
-}
-
-// Unfortunately, we need the element selector to override a Mediawiki style.
-ul.sd-select-menu__list {
-	margin: 0;
-	padding: 0;
 }
