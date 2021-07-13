@@ -134,8 +134,8 @@ class SearchOptions {
 				static::FILTER_MIME => $this->getMimeTypes( $type ),
 				static::FILTER_SIZE => $this->getImageSizes( $type ),
 				static::FILTER_ASSESSMENT => $this->getAssessments( $type ),
-				static::FILTER_SORT => $this->getSorts( $type ),
-				static::FILTER_NAMESPACE => $this->getNamespaces( $type )
+				static::FILTER_NAMESPACE => $this->getNamespaces( $type ),
+				static::FILTER_SORT => $this->getSorts( $type )
 			] );
 		}
 
