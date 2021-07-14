@@ -1,12 +1,11 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const ImageResult = require( '../../resources/components/results/ImageResult.vue' );
-const ImageComponent = require( '../../resources/components/base/Image.vue' );
+const VideoResult = require( '../../../resources/components/results/VideoResult.vue' );
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on pageid, not a straight array
-const sampleResults = require( './fixtures/mockSearchApiResponse.json' ).query.pages;
+const sampleResults = require( '../fixtures/mockVideoSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
@@ -19,7 +18,7 @@ const thumbLimits = [
 	500, 600, 800
 ];
 
-describe( 'ImageResult', () => {
+describe( 'VideoResult', () => {
 	beforeEach( () => {
 		// Mock some pre-defined thumbnail values or else this component doesn't work
 		when( global.mw.config.get )
@@ -28,7 +27,7 @@ describe( 'ImageResult', () => {
 	} );
 
 	it( 'Renders successfully', () => {
-		const wrapper = VueTestUtils.mount( ImageResult, {
+		const wrapper = VueTestUtils.mount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -40,11 +39,12 @@ describe( 'ImageResult', () => {
 			}
 		} );
 
-		expect( wrapper.html().length ).toBeGreaterThan( 0 );
+		const element = wrapper.find( '.sdms-video-result' );
+		expect( element.exists() ).toBe( true );
 	} );
 
-	it( 'contains an Image component', () => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+	it( 'contains an element displaying a formattedDuration', () => {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -55,13 +55,12 @@ describe( 'ImageResult', () => {
 				entityterms: sampleResult.entityterms
 			}
 		} );
-
-		const Image = wrapper.findComponent( ImageComponent );
-		expect( Image.exists() ).toBe( true );
+		const durationElement = wrapper.find( '.sdms-video-result__duration__text' );
+		expect( durationElement.exists() ).toBe( true );
 	} );
 
-	it( 'calculates its own "width" style rule based on result thumbnail dimensions', () => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+	it( 'contains an image element', () => {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -72,13 +71,12 @@ describe( 'ImageResult', () => {
 				entityterms: sampleResult.entityterms
 			}
 		} );
-		expect( wrapper.vm.style ).toHaveProperty( 'width' );
-		expect( parseInt( wrapper.vm.style.width ) ).toBeGreaterThanOrEqual( 60 );
-		expect( parseInt( wrapper.vm.style.width ) ).not.toBeGreaterThan( 350 );
+		const imageElement = wrapper.find( '.sdms-video-result__thumbnail' );
+		expect( imageElement.exists() ).toBe( true );
 	} );
 
-	it( 'applies a portrait class if the aspect ratio is greater than one', () => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+	it( 'contains an element containing a mime type', () => {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -89,16 +87,12 @@ describe( 'ImageResult', () => {
 				entityterms: sampleResult.entityterms
 			}
 		} );
-
-		if ( wrapper.vm.aspectRatio < 1 ) {
-			expect( wrapper.classes() ).toContain( 'sdms-image-result--portrait' );
-		} else {
-			expect( wrapper.classes() ).not.toContain( 'sdms-image-result--portrait' );
-		}
+		const mimeElement = wrapper.find( '.sdms-video-result__mime' );
+		expect( mimeElement.exists() ).toBe( true );
 	} );
 
 	it( 'contains a link element', () => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -114,7 +108,7 @@ describe( 'ImageResult', () => {
 	} );
 
 	it( 'clicking the link element causes a "show-details" event to be fired', done => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -134,7 +128,7 @@ describe( 'ImageResult', () => {
 	} );
 
 	it( 'the "show-details" event includes the result pageId in its payload', done => {
-		const wrapper = VueTestUtils.shallowMount( ImageResult, {
+		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,

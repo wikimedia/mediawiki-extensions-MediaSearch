@@ -26,9 +26,11 @@
 					{{ extension }}
 				</span>
 
-				<span dir="ltr">{{ resolution }}</span>
+				<span class="sdms-other-result__resolution" dir="ltr">{{ resolution }}</span>
 
-				<span v-if="imageSize"
+				<span
+					v-if="imageSize"
+					class="sdms-other-result__imageSize"
 					v-i18n-html:mediasearch-image-size="[
 						formatSize( imageSize )
 					]">

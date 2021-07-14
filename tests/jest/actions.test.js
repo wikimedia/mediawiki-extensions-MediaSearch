@@ -1,7 +1,7 @@
 const actions = require( '../../resources/store/actions.js' ),
 	initialState = require( './fixtures/initialVuexState.js' ),
 	namespaceGroups = require( './fixtures/namespaceGroups.js' ),
-	mockSearchApiResponse = require( './fixtures/mockSearchApiResponse.json' ),
+	mockImageSearchApiResponse = require( './fixtures/mockImageSearchApiResponse.json' ),
 	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	when = require( 'jest-when' ).when;
 
@@ -31,7 +31,7 @@ describe( 'search', () => {
 
 		// Fake an API response
 		global.mw.Api.prototype.get.mockReturnValue(
-			$.Deferred().resolve( mockSearchApiResponse ).promise()
+			$.Deferred().resolve( mockImageSearchApiResponse ).promise()
 		);
 
 	} );
@@ -171,7 +171,7 @@ describe( 'search', () => {
 			expect(
 				addResultCalls.length
 			).toEqual(
-				Object.keys( mockSearchApiResponse.query.pages ).length
+				Object.keys( mockImageSearchApiResponse.query.pages ).length
 			);
 			done();
 		} );

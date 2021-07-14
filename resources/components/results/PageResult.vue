@@ -14,10 +14,14 @@
 			</h3>
 		</div>
 
-		<div v-if="snippet" v-html="snippet"></div>
+		<div
+			v-if="snippet"
+			v-html="snippet">
+		</div>
 
 		<p
 			v-if="hasCategoryText"
+			class="sdms-page-result__category-info"
 			v-i18n-html:mediasearch-category-info="[
 				formatNumber( categoryinfo.size ),
 				formatNumber( categoryinfo.subcats ),
@@ -26,11 +30,14 @@
 		></p>
 
 		<template v-else>
-			<p v-if="size">
+			<p
+				v-if="size"
+				class="sdms-page-result__size">
 				{{ formatSize( size ) }}
 			</p>
 
 			<p v-if="wordcount"
+				class="sdms-page-result__wordcount"
 				v-i18n-html:mediasearch-wordcount="[
 					formatNumber( wordcount )
 				]">

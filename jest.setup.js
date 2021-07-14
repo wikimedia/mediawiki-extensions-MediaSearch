@@ -12,7 +12,16 @@ Api.prototype.postWithToken = jest.fn().mockResolvedValue( {} );
 function Title() {}
 Title.prototype.getMainText = jest.fn().mockReturnValue( '' );
 Title.prototype.getName = jest.fn().mockReturnValue( '' );
-Title.newFromText = jest.fn().mockReturnValue( '' );
+Title.prototype.getNamespaceId = jest.fn().mockReturnValue( 0 );
+Title.prototype.getNamespacePrefix = jest.fn().mockReturnValue( '' );
+Title.newFromText = jest.fn().mockReturnValue( {
+	fragment: null,
+	namespace: 0,
+	title: '',
+	getMainText: jest.fn().mockReturnValue( 'mock' ),
+	getName: jest.fn().mockReturnValue( 'mock' ),
+	getExtension: jest.fn().mockReturnValue( 'mock' )
+} );
 
 mw = {
 	Api: Api,
@@ -21,8 +30,10 @@ mw = {
 	},
 	message: jest.fn().mockReturnValue( {
 		text: jest.fn(),
-		parse: jest.fn()
+		parse: jest.fn(),
+		params: jest.fn( () => mw.message() )
 	} ),
+	msg: jest.fn().mockReturnValue( '' ),
 	Uri: jest.fn().mockReturnValue( {
 		getQueryString: jest.fn(),
 		query: {
@@ -34,6 +45,9 @@ mw = {
 		parseImageUrl: jest.fn().mockReturnValue( {
 			resizeUrl: jest.fn()
 		} )
+	},
+	language: {
+		convertNumber: jest.fn()
 	}
 };
 /*

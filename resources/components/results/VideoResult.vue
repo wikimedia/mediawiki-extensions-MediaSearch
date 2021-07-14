@@ -42,8 +42,7 @@
  * @file VideoResult.vue
  *
  * Video-specific search result layout. Implements the general searchResult
- * mixin as well as the "time-based" result mixin. Also includes custom
- * computed properties for resolution and mime type.
+ * mixin as well as the "time-based" result mixin.
  */
 var searchResult = require( '../../mixins/searchResult.js' ),
 	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' ),
@@ -66,18 +65,6 @@ module.exports = {
 		return {
 			icon: icons.sdIconPlay
 		};
-	},
-
-	computed: {
-		/**
-		 * @return {string}
-		 */
-		resolution: function () {
-			var width = this.imageinfo[ 0 ].width,
-				height = this.imageinfo[ 0 ].height;
-
-			return width + 'x' + height;
-		}
 	}
 };
 </script>

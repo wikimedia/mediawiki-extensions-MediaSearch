@@ -1,5 +1,5 @@
 const ensureArray = require( '../../resources/ensureArray.js' );
-const searchResultData = require( './fixtures/mockSearchApiResponse.json' ).query.pages;
+const searchResultData = require( './fixtures/mockImageSearchApiResponse.json' ).query.pages;
 const dict = { a: 'apple', b: 'banana', c: 'canteloupe' };
 const simpleArray = [ 'foo', 'bar', 'baz' ];
 const deeperArray = [

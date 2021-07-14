@@ -5,7 +5,7 @@ const i18n = require( './plugins/i18n.js' );
 const when = require( 'jest-when' ).when;
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on pageid, not a straight array
-const sampleResults = require( './fixtures/mockSearchApiResponse.json' ).query.pages;
+const sampleResults = require( './fixtures/mockImageSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];

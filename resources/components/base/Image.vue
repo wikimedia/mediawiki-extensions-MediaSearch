@@ -12,6 +12,7 @@
 <script>
 // @vue/component
 module.exports = {
+	name: 'SdImage',
 	props: {
 		source: {
 			type: String,
