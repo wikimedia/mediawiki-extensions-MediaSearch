@@ -130,6 +130,17 @@ describe( 'search', () => {
 		);
 	} );
 
+	it( 'makes an API request with the correct gsrsearch param for "image" type searches when filterValues is undefined', () => {
+		context.state.filterValues[ options.type ] = undefined;
+
+		actions.search( context, options );
+		expect( global.mw.Api.prototype.get ).toHaveBeenCalledWith(
+			expect.objectContaining( {
+				gsrsearch: `filetype:bitmap|drawing ${options.term}`
+			} )
+		);
+	} );
+
 	it( 'sets the pending state to true when dispatched', () => {
 		actions.search( context, options );
 		expect( context.commit ).toHaveBeenCalledWith( 'setPending', {

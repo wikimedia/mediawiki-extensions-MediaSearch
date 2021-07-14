@@ -104,7 +104,8 @@ module.exports = {
 			namespaces,
 			filters,
 			urlWidth,
-			request;
+			request,
+			filterValues = context.state.filterValues[ options.type ] || {};
 
 		// If a search request is already in-flight, abort it
 		if ( activeSearchRequest && activeSearchRequest.abort ) {
@@ -120,7 +121,7 @@ module.exports = {
 
 		if ( options.type === 'page' ) {
 			// Page/category-specific params.
-			namespaceFilter = context.state.filterValues[ options.type ].namespace;
+			namespaceFilter = filterValues.namespace;
 
 			// Default to all namespaces.
 			namespaces = Object.keys( namespaceGroups.all ).join( '|' );
@@ -138,8 +139,8 @@ module.exports = {
 		} else {
 			// Params used in all non-page/category searches.
 			// 1. Special handling for assessment filter
-			if ( context.state.filterValues[ options.type ].assessment ) {
-				var assessmentValue = context.state.filterValues[ options.type ].assessment;
+			if ( filterValues.assessment ) {
+				var assessmentValue = filterValues.assessment;
 				var assessmentStatements = searchOptions[ options.type ].assessment.data.statementData;
 
 				// eslint-disable-next-line no-restricted-syntax
@@ -151,7 +152,7 @@ module.exports = {
 				params.gsrsearch = statement + ' ' + params.gsrsearch;
 			}
 			// 2. Handle remaining filters
-			filters = getMediaFilters( options.type, context.state.filterValues[ options.type ] );
+			filters = getMediaFilters( options.type, filterValues );
 			if ( filters ) {
 				params.gsrsearch = filters + ' ' + params.gsrsearch;
 			}
@@ -177,8 +178,8 @@ module.exports = {
 		}
 
 		// Add sort filter.
-		if ( 'sort' in context.state.filterValues[ options.type ] &&
-			context.state.filterValues[ options.type ].sort === 'recency' ) {
+		if ( 'sort' in filterValues &&
+			filterValues.sort === 'recency' ) {
 			params.gsrsort = 'create_timestamp_desc';
 		}
 
