@@ -6,6 +6,7 @@
 			"Kkairri",
 			"Linuxmetel",
 			"Marine-Blue",
+			"MathXplore",
 			"Object＊tofu",
 			"Omotecho",
 			"Shirayuki",
@@ -56,5 +57,9 @@
 	"mediasearch-copytextlayout-copy-success": "クリップボードにコピーされました。",
 	"mediasearch-clear-filters": "フィルターをクリア",
 	"mediasearch-did-you-mean": "もしかして: <a href=\"$2\">$1</a>",
-	"mediasearch-error-message": "不正な検索"
+	"mediasearch-error-message": "不正な検索",
+	"mediasearch-filter-assessment-picture-of-the-day": "今日の一枚",
+	"mediasearch-filter-assessment-picture-of-the-year": "今年の一枚",
+	"mediasearch-filter-assessment-featured-image": "注目の写真",
+	"mediasearch-filter-assessment-menu-label": "コミュニティ評価"
 }
