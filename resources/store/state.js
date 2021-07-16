@@ -83,6 +83,14 @@ module.exports = {
 		other: initialResults.activeType === 'other' ? initialFilters : {}
 	},
 
+	details: {
+		image: null,
+		audio: null,
+		video: null,
+		page: null,
+		other: null
+	},
+
 	/**
 	 * Whether the app is fully initialized (app mounted, images resolved).
 	 */

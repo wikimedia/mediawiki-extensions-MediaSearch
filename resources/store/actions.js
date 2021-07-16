@@ -308,6 +308,40 @@ module.exports = {
 	},
 
 	/**
+	 * Fetch expanded details for a given search result by pageId
+	 *
+	 * @param {Object} context
+	 * @param {Object} options
+	 * @param {string} options.mediaType
+	 * @param {number} options.pageId
+	 * @return {jQuery.Deferred}
+	 */
+	fetchDetails: function ( context, options ) {
+		var userLanguage = mw.config.get( 'wgUserLanguage' ),
+			params = {
+				format: 'json',
+				uselang: userLanguage,
+				action: 'query',
+				inprop: 'url',
+				pageids: options.pageId,
+				iiextmetadatalanguage: userLanguage
+			};
+
+		// Set special params for audio/video files
+		if ( options.mediaType === 'video' || options.mediaType === 'audio' ) {
+			params.prop = 'info|videoinfo|entityterms';
+			params.viprop = 'url|size|mime|extmetadata|derivatives';
+			params.viurlwidth = 640;
+		} else {
+			params.prop = 'info|imageinfo|entityterms';
+			params.iiprop = 'url|size|mime|extmetadata';
+			params.iiurlheight = options.mediaType === 'image' ? 180 : undefined;
+		}
+
+		return getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
+	},
+
+	/**
 	 * Handle search term clear.
 	 *
 	 * @param {Object} context
