@@ -3,7 +3,7 @@
 	<div
 		class="sdms-quick-view"
 		:class="rootClasses"
-		@keyup.esc="closeAndRestoreFocus"
+		@keyup.esc="close"
 		@keyup.left="$emit( 'previous', true)"
 		@keyup.right="$emit( 'next', true)"
 	>
@@ -39,7 +39,6 @@
 				ref="close"
 				class="sdms-quick-view__button sdms-quick-view__close-button"
 				:title="closeButtonText"
-				@keyup.enter="closeAndRestoreFocus"
 				@click="close"
 			>
 				<sd-icon :icon="icons.sdIconClose"></sd-icon>
@@ -559,20 +558,20 @@ module.exports = {
 
 	methods: {
 		/**
-		 * @fires close
-		 */
-		close: function () {
-			this.$emit( 'close' );
-		},
-
-		/**
-		 * Includes a boolean flag that tells the parent to restore focus to
-		 * the originating search result
+		 * Emit a close event. If the user triggered this from the keyboard instead
+		 * of by clicking, add an additional parameter so that the parent knows to
+		 * restore focus to the originating search result.
 		 *
+		 * @param {Event} event
 		 * @fires close
 		 */
-		closeAndRestoreFocus: function () {
-			this.$emit( 'close', true );
+		close: function ( event ) {
+			// If triggered by the keyboard, restore focus to previous element
+			if ( event.detail === 0 ) {
+				this.$emit( 'close', true );
+			} else {
+				this.$emit( 'close' );
+			}
 		},
 
 		/**
