@@ -67,5 +67,7 @@
 	"mediasearch-error-message": "잘못된 검색",
 	"mediasearch-error-text": "위에 새 검색을 입력하고 다시 시도하십시오",
 	"mediasearch-specialsearch-default": "검색 결과를 특수:검색 인터페이스에 표시",
-	"mediasearch-specialsearch-default-help": "검색 상자의 검색 결과를 Special:MediaSearch 대신 기존의 Special:Search에 표시하려면 이 설정을 선택하십시오"
+	"mediasearch-specialsearch-default-help": "검색 상자의 검색 결과를 Special:MediaSearch 대신 기존의 Special:Search에 표시하려면 이 설정을 선택하십시오",
+	"mediasearch-filter-assessment-picture-of-the-day": "오늘의 사진",
+	"mediasearch-filter-assessment-picture-of-the-year": "올해의 사진"
 }
