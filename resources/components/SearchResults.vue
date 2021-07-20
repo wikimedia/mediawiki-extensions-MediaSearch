@@ -277,8 +277,11 @@ module.exports = {
 
 			this.$nextTick(
 				function () {
-					// Scroll the window to the top of the QuickView aside.
-					this.$refs.aside.scrollIntoView();
+					// Scroll the window to the top of the QuickView aside
+					// (only happens on desktop skin)
+					if ( this.$refs.aside ) {
+						this.$refs.aside.scrollIntoView();
+					}
 
 					// Scroll search results to the selected result, if needed
 					// (e.g. if the user is scrolling through results via
