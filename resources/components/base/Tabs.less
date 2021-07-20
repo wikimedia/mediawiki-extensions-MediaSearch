@@ -3,7 +3,7 @@
 
 .sd-tabs {
 	&__header {
-		.box-shadow( inset 0 -1px 0 0 @border-color-base );
+		box-shadow: inset 0 -1px 0 0 @border-color-base;
 		.flex-display();
 		align-items: flex-end;
 		justify-content: space-between;
@@ -64,18 +64,18 @@
 
 			// Currently selected tab.
 			&--current {
-				.box-shadow( inset 0 -2px 0 0 @color-primary );
+				box-shadow: inset 0 -2px 0 0 @color-primary;
 				color: @color-primary;
 			}
 
 			&:hover {
-				.box-shadow( inset 0 -2px 0 0 @color-primary--hover );
+				box-shadow: inset 0 -2px 0 0 @color-primary--hover;
 				color: @color-primary--hover;
 			}
 
 			// During mousedown.
 			&:active {
-				.box-shadow( inset 0 -2px 0 0 @color-primary--active );
+				box-shadow: inset 0 -2px 0 0 @color-primary--active;
 				color: @color-primary--active;
 			}
 
