@@ -19,5 +19,7 @@
 	"mediasearch-clear-title": "Fjern",
 	"mediasearch-load-more-results": "Indlæs mere",
 	"mediasearch-quickview-button-text": "Flere detaljer",
-	"mediasearch-quickview-next-button-text": "Vis næste resultat"
+	"mediasearch-quickview-next-button-text": "Vis næste resultat",
+	"mediasearch-filter-assessment-picture-of-the-day": "Dagens billede",
+	"mediasearch-filter-assessment-picture-of-the-year": "Årets billede"
 }
