@@ -105,7 +105,7 @@ class SearchOptions {
 	 * @param MessageLocalizer $context
 	 * @return array
 	 */
-	public static function getSearchOptions( MessageLocalizer $context ) : array {
+	public static function getSearchOptions( MessageLocalizer $context ): array {
 		$instance = static::getInstanceFromContext( $context );
 		return $instance->getOptions();
 	}
@@ -117,7 +117,7 @@ class SearchOptions {
 	 *
 	 * @return array
 	 */
-	public function getOptions() : array {
+	public function getOptions(): array {
 		$searchOptions = [];
 		// Some options are only present for certain media types.
 		// The methods which generate type-specific options take a mediatype
@@ -149,7 +149,7 @@ class SearchOptions {
 	 * @return array
 	 * @throws InvalidArgumentException
 	 */
-	public function getImageSizes( string $type ) : array {
+	public function getImageSizes( string $type ): array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
@@ -186,7 +186,7 @@ class SearchOptions {
 	 * @param string $type
 	 * @return array
 	 */
-	public function getMimeTypes( string $type ) : array {
+	public function getMimeTypes( string $type ): array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
@@ -308,7 +308,7 @@ class SearchOptions {
 	 * @param string $type
 	 * @return array [ 'items' => [], 'data' => [] ]
 	 */
-	public function getAssessments( string $type ) : array {
+	public function getAssessments( string $type ): array {
 		$assessmentOptions = [];
 		$assessmentData = [];
 
@@ -368,7 +368,7 @@ class SearchOptions {
 	 * @param string $type
 	 * @return array
 	 */
-	public function getSorts( string $type ) : array {
+	public function getSorts( string $type ): array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
@@ -396,7 +396,7 @@ class SearchOptions {
 	 * @param string $type
 	 * @return array
 	 */
-	public function getLicenseGroups( string $type ) : array {
+	public function getLicenseGroups( string $type ): array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
@@ -451,7 +451,7 @@ class SearchOptions {
 	 * @param string $type
 	 * @return array
 	 */
-	public function getNamespaces( string $type ) : array {
+	public function getNamespaces( string $type ): array {
 		if ( !in_array( $type, static::ALL_TYPES, true ) ) {
 			throw new InvalidArgumentException( "$type is not a valid type" );
 		}
@@ -496,7 +496,7 @@ class SearchOptions {
 	 *
 	 * @return array
 	 */
-	public function getNamespaceGroups() : array {
+	public function getNamespaceGroups(): array {
 		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 		$allNamespaces = $namespaceInfo->getCanonicalNamespaces();
 

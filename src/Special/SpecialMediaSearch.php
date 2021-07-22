@@ -369,7 +369,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param array $querystring
 	 * @return string
 	 */
-	private function getType( string $term, array $querystring ) : string {
+	private function getType( string $term, array $querystring ): string {
 		$title = Title::newFromText( $term );
 		if ( $title !== null && !in_array( $title->getNamespace(), [ NS_FILE, NS_MAIN ] ) ) {
 			return SearchOptions::TYPE_PAGE;
@@ -517,7 +517,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param array $queryParams
 	 * @return array
 	 */
-	protected function getActiveFilters( array $queryParams ) : array {
+	protected function getActiveFilters( array $queryParams ): array {
 		return array_intersect_key( $queryParams, array_flip( SearchOptions::ALL_FILTERS ) );
 	}
 
@@ -580,7 +580,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param string $type
 	 * @return array
 	 */
-	protected function getFiltersForDisplay( $activeFilters, $type ) : array {
+	protected function getFiltersForDisplay( $activeFilters, $type ): array {
 		$searchOptions = $this->searchOptions->getOptions();
 
 		// reshape data array into a multi-dimensional [ value => label ] format
@@ -624,7 +624,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param array $filters [ "mimeType" => "tiff", "imageSize" => ">500" ]
 	 * @return string "kittens filemime:tiff fileres:>500"
 	 */
-	protected function getTermWithFilters( $term, $filters ) : string {
+	protected function getTermWithFilters( $term, $filters ): string {
 		if ( empty( $term ) || empty( $filters ) ) {
 			return $term;
 		}
@@ -674,7 +674,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 *
 	 * @return array
 	 */
-	protected function getSearchKeywords() : array {
+	protected function getSearchKeywords(): array {
 		$features = ( new FullTextKeywordRegistry( $this->searchConfig ) )->getKeywords();
 
 		$keywords = [];
@@ -690,7 +690,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param array $activeFilters
 	 * @return string
 	 */
-	protected function getSort( $activeFilters ) : string {
+	protected function getSort( $activeFilters ): string {
 		if ( array_key_exists( 'sort', $activeFilters ) && $activeFilters[ 'sort' ] === 'recency' ) {
 			return 'create_timestamp_desc';
 		} else {
@@ -777,7 +777,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param string $type
 	 * @return array
 	 */
-	protected function getResultData( array $result, array $allResults, $type ) : array {
+	protected function getResultData( array $result, array $allResults, $type ): array {
 		// Required context for formatting
 		$thumbLimits = $this->getThumbLimits();
 		$userLanguage = $this->getLanguage();
