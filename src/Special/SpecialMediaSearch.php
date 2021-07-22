@@ -174,7 +174,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$didYouMeanLink = null;
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
-			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ] );
+			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ], $activeFilters );
 			$didYouMeanLink = $this->generateDidYouMeanLink( $querystring, $didYouMean );
 		}
 
@@ -638,10 +638,24 @@ class SpecialMediaSearch extends SpecialPage {
 			$allFilters .= "$key:$value ";
 		}
 
+		$allFilters .= $this->getAssessments( $filters );
+
+		return $allFilters . $term;
+	}
+
+	/**
+	 * Prepare a string of assessments, used to generate a search string required for the API.
+	 * If assessments are not enabled or empty it will return an empty string
+	 *
+	 * @param array $filters [ "mimeType" => "tiff", "imageSize" => ">500" ]
+	 * @return string "haswbstatement::P6731=Q63348049"
+	 */
+	private function getAssessments( $filters ) {
 		// Special handling for "Assessment" filters;
 		// These are transformed into instances of the "haswbstatement:" keyword
 		// using pre-configured wikidata statements
 		$enabledAssessments = $this->getConfig()->get( 'MediaSearchAssessmentFilters' );
+		$allAssessments = '';
 
 		// If assessment filters have been enabled...
 		if ( $enabledAssessments ) {
@@ -661,12 +675,11 @@ class SpecialMediaSearch extends SpecialPage {
 				);
 
 				$assessmentStatement = $assessmentData[ $currentAssessment ][ 'statement' ];
-				$allFilters .= "$assessmentStatement ";
+				$allAssessments = "$assessmentStatement ";
 			}
-
 		}
 
-		return $allFilters . $term;
+		return $allAssessments;
 	}
 
 	/**
@@ -742,16 +755,25 @@ class SpecialMediaSearch extends SpecialPage {
 	}
 
 	/**
-	 * @param string $suggestion
+	 * @param string $suggestion filetype:bitmap|drawing haswbstatement:P6731=Q63348049 cat
+	 * @param array $activeFilters ["assessment" => "featured-image"]
 	 * @return string
 	 */
-	protected function extractSuggestedTerm( $suggestion ) {
-		$filters = $this->getSearchKeywords();
+	protected function extractSuggestedTerm( $suggestion, $activeFilters ) {
+		$availableFilters = $this->getSearchKeywords();
 		$suggestion = preg_replace(
-			'/(?<=^|\s)(' . implode( '|', $filters ) . '):.+?(?=$|\s)/',
+			'/(?<=^|\s)(' . implode( '|', $availableFilters ) . '):.+?(?=$|\s)/',
 			' ',
 			$suggestion
 		);
+
+		$assessments = $this->getAssessments( $activeFilters );
+		$suggestion = str_replace(
+			$assessments,
+			'',
+			$suggestion
+		);
+
 		return trim( $suggestion );
 	}
 

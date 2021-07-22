@@ -54,12 +54,18 @@ function getMediaFilters( mediaType, filterValues ) {
  * @param {string} filters
  * @return {string}
  */
-function extractSuggestedTerm( suggestion, filters ) {
+function extractSuggestedTerm( suggestion, filters, assessment ) {
+	var filteredSuggestion = suggestion;
+
 	if ( filters ) {
-		return suggestion.substring( filters.length ).trim();
-	} else {
-		return suggestion;
+		filteredSuggestion = filteredSuggestion.substring( filters.length ).trim();
 	}
+
+	if ( assessment ) {
+		filteredSuggestion = filteredSuggestion.replace( assessment, '' ).trim();
+	}
+
+	return filteredSuggestion;
 }
 
 module.exports = {
@@ -105,6 +111,7 @@ module.exports = {
 			filters,
 			urlWidth,
 			request,
+			statement,
 			filterValues = context.state.filterValues[ options.type ] || {};
 
 		// If a search request is already in-flight, abort it
@@ -148,8 +155,10 @@ module.exports = {
 					return i.value === assessmentValue;
 				} );
 
-				var statement = assessment.statement;
-				params.gsrsearch = statement + ' ' + params.gsrsearch;
+				if ( assessment ) {
+					statement = assessment.statement;
+					params.gsrsearch = statement + ' ' + params.gsrsearch;
+				}
 			}
 			// 2. Handle remaining filters
 			filters = getMediaFilters( options.type, filterValues );
@@ -236,7 +245,7 @@ module.exports = {
 
 			if ( response.query && response.query.searchinfo && response.query.searchinfo.suggestion ) {
 				context.commit( 'setDidYouMean',
-					extractSuggestedTerm( response.query.searchinfo.suggestion, filters )
+					extractSuggestedTerm( response.query.searchinfo.suggestion, filters, statement )
 				);
 			}
 
