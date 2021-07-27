@@ -252,7 +252,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->parse(),
 			'didYouMean' => $didYouMean,
 			// phpcs:ignore Generic.Files.LineLength.TooLong
-			'didYouMeanMessage' => $this->msg( 'mediasearch-did-you-mean', $didYouMean, $didYouMeanLink )->parse(),
+			'didYouMeanMessage' => $this->msg( 'mediasearch-did-you-mean', $didYouMean, $didYouMeanLink )->text(),
 			'totalHits' => $totalHits,
 			'showResultsCount' => $totalHits > 0,
 			'resultsCount' => $this->msg(
