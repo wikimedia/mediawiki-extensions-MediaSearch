@@ -24,5 +24,6 @@
 	"mediasearch-filter-license-any": "كل التراخيص",
 	"mediasearch-filter-namespace-discussion": "نقاش",
 	"mediasearch-no-results": "لا توجد نتائج",
-	"mediasearch-load-more-results": "حمل المزيد"
+	"mediasearch-load-more-results": "حمل المزيد",
+	"mediasearch-filter-assessment-featured-image": "الصورة المختارة"
 }
