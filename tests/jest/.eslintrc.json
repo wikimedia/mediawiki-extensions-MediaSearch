@@ -11,8 +11,7 @@
 	},
 	"rules": {
 		"no-implicit-globals": "off",
-		"max-len": "off",
-		"one-var": "off"
+		"max-len": "off"
 	},
 	"env": {
 		"es6": true,
