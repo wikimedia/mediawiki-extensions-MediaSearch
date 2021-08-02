@@ -49,12 +49,14 @@ module.exports = {
 			state.results[ mediaType ] = [];
 			state.continue[ mediaType ] = undefined;
 			state.totalHits[ mediaType ] = 0;
+			state.details[ mediaType ] = null;
 		} else {
 			// Reset results for all types if second arg is not provided
 			types.forEach( function ( type ) {
 				state.results[ type ] = [];
 				state.continue[ type ] = undefined;
 				state.totalHits[ type ] = 0;
+				state.details[ type ] = null;
 			} );
 		}
 	},
@@ -91,6 +93,14 @@ module.exports = {
 	 */
 	setTotalHits: function ( state, payload ) {
 		state.totalHits[ payload.mediaType ] = payload.totalHits;
+	},
+
+	setDetails: function ( state, payload ) {
+		state.details[ payload.mediaType ] = payload.details;
+	},
+
+	clearDetails: function ( state, payload ) {
+		state.details[ payload.mediaType ] = null;
 	},
 
 	/**

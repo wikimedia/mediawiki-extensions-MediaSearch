@@ -39,5 +39,12 @@ module.exports = {
 		page: {},
 		other: {}
 	},
+	details: {
+		image: null,
+		audio: null,
+		video: null,
+		page: null,
+		other: null
+	},
 	initialized: false
 };

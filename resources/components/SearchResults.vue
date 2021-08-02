@@ -53,16 +53,16 @@
 		<template v-if="isMobileSkin">
 			<sd-dialog
 				class="sdms-search-results__details-dialog"
-				:active="!!details"
+				:active="!!details[ mediaType ]"
 				:headless="true"
 				@close="hideDetails"
 				@key="onDialogKeyup"
 			>
 				<quick-view
-					v-if="details"
+					v-if="details[ mediaType ]"
 					ref="quickview"
-					:key="details.pageid"
-					v-bind="details"
+					:key="details[ mediaType ].pageid"
+					v-bind="details[ mediaType ]"
 					:media-type="mediaType"
 					:is-dialog="true"
 					@close="hideDetails"
@@ -81,10 +81,10 @@
 			:hidden="!showQuickView"
 		>
 			<quick-view
-				v-if="details"
+				v-if="details[ mediaType ]"
 				ref="quickview"
-				:key="details.pageid"
-				v-bind="details"
+				:key="details[ mediaType ].pageid"
+				v-bind="details[ mediaType ]"
 				:media-type="mediaType"
 				@close="hideDetails"
 				@previous="changeQuickViewResult($event, -1)"
@@ -111,7 +111,8 @@
  * result, including some additional data fetched from the API.
  */
 var mapState = require( 'vuex' ).mapState,
-	getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
+	mapMutations = require( 'vuex' ).mapMutations,
+	mapActions = require( 'vuex' ).mapActions,
 	ImageResult = require( './results/ImageResult.vue' ),
 	AudioResult = require( './results/AudioResult.vue' ),
 	VideoResult = require( './results/VideoResult.vue' ),
@@ -157,8 +158,6 @@ module.exports = {
 		return {
 			// Whether to show the QuickView panel.
 			showQuickView: false,
-			// Data for the item open in QuickView.
-			details: null,
 			// Which quickview control to focus on when the panel opens.
 			focusOn: 'close',
 			// Computed style attribute for results.
@@ -167,12 +166,13 @@ module.exports = {
 	},
 
 	computed: $.extend( {}, mapState( [
-		'term',
-		'hasError',
-		'results',
-		'pending',
 		'continue',
-		'initialized'
+		'details',
+		'hasError',
+		'initialized',
+		'pending',
+		'results',
+		'term'
 	] ), {
 		/**
 		 * Which component should be used to display individual search results
@@ -257,7 +257,12 @@ module.exports = {
 		}
 	} ),
 
-	methods: {
+	methods: $.extend( {}, mapMutations( [
+		'setDetails',
+		'clearDetails'
+	] ), mapActions( [
+		'fetchDetails'
+	] ), {
 		/**
 		 * Store the results of the fetchDetails API request as `this.details`
 		 * so that it can be passed to the QuickView component.
@@ -296,14 +301,17 @@ module.exports = {
 			// way, for fast connections, the loading state will be less
 			// noticeable.
 			detailsTimeout = setTimeout( function () {
-				this.details = null;
+				this.clearDetails( { mediaType: this.mediaType } );
 			}.bind( this ), 500 );
 
 			// Get data for the item opened in QuickView.
-			this.fetchDetails( pageid ).then(
+			this.fetchDetails( { pageId: pageid, mediaType: this.mediaType } ).then(
 				function ( response ) {
 					clearTimeout( detailsTimeout );
-					this.details = response.query.pages[ pageid ];
+					this.setDetails( {
+						mediaType: this.mediaType,
+						details: response.query.pages[ pageid ]
+					} );
 
 					// Let the QuickView component programatically manage focus
 					// once it is displayed
@@ -336,12 +344,12 @@ module.exports = {
 			var originatingResultId;
 
 			if ( restoreFocus ) {
-				originatingResultId = this.details.pageid;
+				originatingResultId = this.details[ this.mediaType ].pageid;
 				this.$refs[ originatingResultId ][ 0 ].focus();
 			}
 
 			this.showQuickView = false;
-			this.details = null;
+			this.clearDetails( { mediaType: this.mediaType } );
 			this.focusOn = 'close';
 
 			this.$log( {
@@ -359,7 +367,7 @@ module.exports = {
 			var tabResults = this.results[ this.mediaType ],
 				currentItem = tabResults.filter(
 					function ( result ) {
-						return result.pageid === this.details.pageid;
+						return result.pageid === this.details[ this.mediaType ].pageid;
 					}.bind( this )
 				),
 				currentIndex = tabResults.indexOf( currentItem[ 0 ] ),
@@ -421,46 +429,13 @@ module.exports = {
 		},
 
 		/**
-		 * Make an API request for basic image information plus extended
-		 * metadata
-		 *
-		 * @param {number} pageid
-		 * @return {jQuery.Deferred}
-		 */
-		fetchDetails: function ( pageid ) {
-			var userLanguage = mw.config.get( 'wgUserLanguage' ),
-				params = {
-					format: 'json',
-					uselang: userLanguage,
-					action: 'query',
-					inprop: 'url',
-					pageids: pageid,
-					iiextmetadatalanguage: userLanguage
-				},
-				externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' );
-
-			// Set special params for audio/video files
-			if ( this.mediaType === 'video' || this.mediaType === 'audio' ) {
-				params.prop = 'info|videoinfo|entityterms';
-				params.viprop = 'url|size|mime|extmetadata|derivatives';
-				params.viurlwidth = 640;
-			} else {
-				params.prop = 'info|imageinfo|entityterms';
-				params.iiprop = 'url|size|mime|extmetadata';
-				params.iiurlheight = this.mediaType === 'image' ? 180 : undefined;
-			}
-
-			return getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
-		},
-
-		/**
 		 * @param {number} pageid
 		 * @return {Object}
 		 */
 		getResultClass: function ( pageid ) {
 			return {
 				// Visual indication that result is currently displayed in QuickView
-				'sdms-search-result--highlighted': this.details && this.details.pageid === pageid,
+				'sdms-search-result--highlighted': this.details[ this.mediaType ] && this.details[ this.mediaType ].pageid === pageid,
 				// If there are 3 or fewer image results, we'll limit their
 				// growth to avoid having one overly-stretched image in the grid.
 				'sdms-image-result--limit-size': this.mediaType === 'image' && this.results[ this.mediaType ].length <= 3
@@ -538,13 +513,13 @@ module.exports = {
 			} );
 			/* eslint-enable camelcase */
 		}
-	},
+	} ),
 
 	watch: {
 		// if search term changes, immediately discard any expanded detail view
 		term: function ( /* newTerm */ ) {
 			this.showQuickView = false;
-			this.details = null;
+			this.clearDetails( { mediaType: this.mediaType } );
 		},
 
 		initialized: function () {
