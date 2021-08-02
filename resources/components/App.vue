@@ -144,15 +144,17 @@ module.exports = {
 	},
 
 	computed: $.extend( {}, mapState( [
-		'term',
+		'continue',
+		'filterValues',
 		'hasError',
-		'results',
 		'pending',
 		'relatedConcepts',
-		'filterValues'
+		'results',
+		'term',
+		'totalHits'
 	] ), mapGetters( [
-		'checkForMore',
-		'allActiveFilters'
+		'allActiveFilters',
+		'checkForMore'
 	] ), {
 		/**
 		 * @return {string[  ]} [  'image', 'video', 'audio', 'page', 'other'  ]
@@ -192,19 +194,25 @@ module.exports = {
 	} ),
 
 	methods: $.extend( {}, mapMutations( [
+		'addFilterValue',
+		'clearDidYouMean',
+		'clearRelatedConcepts',
+		'clearStoredPageState',
+		'resetFilters',
 		'resetFilters',
 		'resetResults',
-		'clearRelatedConcepts',
-		'clearDidYouMean',
-		'setTerm',
+		'restoreResults',
+		'restoreContinue',
+		'restoreTotalHits',
 		'setHasError',
 		'setPending',
-		'resetFilters',
-		'addFilterValue'
+		'setTerm',
+		'stashPageState',
+		'restorePageState'
 	] ), mapActions( [
-		'search',
+		'clear',
 		'getRelatedConcepts',
-		'clear'
+		'search'
 	] ), {
 		/**
 		 * Keep UI state, URL, and history in sync as the user changes tabs
@@ -470,6 +478,54 @@ module.exports = {
 
 			// Delete any sort params that may have been added from a prior tab
 			delete url.query.sort;
+		},
+
+		/**
+		 * Determine of the UI state should be restored the previous session;
+		 * Some modern browsers can do this automatically so we should only
+		 * handle this ourselves if necessary.
+		 */
+		restorePageStateIfNecessary: function () {
+			var isBackNavigating = false,
+				hasStashedData = false;
+
+			// 1. Determine if the user arrived on the page via back navigation.
+			if ( typeof window.performance.getEntriesByType === 'function' &&
+				// experimental approach - supported in newer browsers;
+				// fall back to deprecated window.performance.navigation property
+				// if getEntriesByType is not supported (safari 9, mobile safari 10)
+				window.performance.getEntriesByType( 'navigation' )[ 0 ].type === 'back_forward' ) {
+				isBackNavigating = true;
+			} else if ( window.performance.navigation.type === 2 ) {
+				isBackNavigating = true;
+			}
+
+			// 2. Determine if we have stashed data in localstorage from a previous session
+			if ( localStorage.getItem( 'mediasearch-results' ) ) {
+				hasStashedData = true;
+			}
+
+			if ( isBackNavigating && hasStashedData ) {
+				this.restorePageState();
+			}
+
+			// Clear any previously stashed data; at this point we
+			// have either already used it or did not need it
+			this.clearStoredPageState();
+		},
+
+		/**
+		 * If necessary, stash page state into localstorage to restore in the
+		 * case of back navigation later
+		 *
+		 * @param {Event} event
+		 */
+		onPageHide: function ( event ) {
+			if ( event.persisted ) {
+				this.clearStoredPageState();
+			} else {
+				this.stashPageState();
+			}
 		}
 	} ),
 
@@ -541,7 +597,9 @@ module.exports = {
 	created: function () {
 		// Set up bound handler for history navigation events
 		this.boundOnPopState = this.onPopState.bind( this );
+		this.boundOnPageHide = this.onPageHide.bind( this );
 		window.addEventListener( 'popstate', this.boundOnPopState );
+		window.addEventListener( 'pagehide', this.boundOnPageHide );
 
 		// Set the initial autoload count for all tabs for semi-infinite scroll
 		// behavior
@@ -566,6 +624,11 @@ module.exports = {
 			} );
 			/* eslint-enable camelcase */
 		}
+	},
+
+	mounted: function () {
+		// Restore the user's previous session from localstorage if necessary
+		this.restorePageStateIfNecessary();
 	},
 
 	beforeDestroy: function () {

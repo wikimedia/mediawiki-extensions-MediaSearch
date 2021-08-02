@@ -188,5 +188,66 @@ module.exports = {
 	 */
 	setInitialized: function ( state ) {
 		state.initialized = true;
+	},
+
+	/**
+	 * Stash the current page state into LocalStorage in case it needs to be
+	 * restored later
+	 *
+	 * @param {Object} state
+	 */
+	stashPageState: function ( state ) {
+		localStorage.setItem( 'mediasearch-results', JSON.stringify( state.results ) );
+		localStorage.setItem( 'mediasearch-continue', JSON.stringify( state.continue ) );
+		localStorage.setItem( 'mediasearch-totalhits', JSON.stringify( state.totalHits ) );
+		localStorage.setItem( 'mediasearch-quickview', JSON.stringify( state.details ) );
+		localStorage.setItem( 'mediasearch-scroll-y', window.scrollY );
+	},
+
+	/**
+	 * Restore previously-stashed page state from LocalStorage
+	 *
+	 * @param {Object} state
+	 */
+	restorePageState: function ( state ) {
+		var storedResults = JSON.parse( localStorage.getItem( 'mediasearch-results' ) ),
+			storedContinue = JSON.parse( localStorage.getItem( 'mediasearch-continue' ) ),
+			storedTotalHits = JSON.parse( localStorage.getItem( 'mediasearch-totalhits' ) ),
+			storedQuickviewData = JSON.parse( localStorage.getItem( 'mediasearch-quickview' ) ),
+			storedScrollY = JSON.parse( localStorage.getItem( 'mediasearch-scroll-y' ) );
+
+		Object.keys( storedResults ).forEach( function ( key ) {
+			state.results[ key ] = storedResults[ key ];
+		} );
+
+		Object.keys( storedContinue ).forEach( function ( key ) {
+			state.continue[ key ] = storedContinue[ key ];
+		} );
+
+		Object.keys( storedTotalHits ).forEach( function ( key ) {
+			state.totalHits[ key ] = storedTotalHits[ key ];
+		} );
+
+		Object.keys( storedQuickviewData ).forEach( function ( key ) {
+			state.details[ key ] = storedQuickviewData[ key ];
+		} );
+
+		// restore scroll position
+		setTimeout( function () {
+			window.scroll( 0, storedScrollY );
+		}, 2000 );
+	},
+
+	/**
+	 * Clear the saved data in localstorage
+	 */
+	clearStoredPageState: function () {
+		// Other tools like ULS also may be stashing things in localstorage,
+		// so only clear mediasearch- keys.
+		localStorage.removeItem( 'mediasearch-results' );
+		localStorage.removeItem( 'mediasearch-continue' );
+		localStorage.removeItem( 'mediasearch-totalhits' );
+		localStorage.removeItem( 'mediasearch-quickview' );
+		localStorage.removeItem( 'mediasearch-scroll-y' );
 	}
 };
