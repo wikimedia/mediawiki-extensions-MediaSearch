@@ -539,15 +539,8 @@ module.exports = {
 	},
 
 	created: function () {
-		// Set up a listener for popState events in case the user navigates
-		// through their history stack. Previous search queries should be
-		// re-created when this happens, and URL params and UI state should
-		// remain in sync
-
-		// First, create a bound handler function and reference it for later removal
+		// Set up bound handler for history navigation events
 		this.boundOnPopState = this.onPopState.bind( this );
-
-		// Set up the event listener
 		window.addEventListener( 'popstate', this.boundOnPopState );
 
 		// Set the initial autoload count for all tabs for semi-infinite scroll
