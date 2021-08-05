@@ -3,6 +3,7 @@
 		ref="link"
 		class="sdms-video-result"
 		:href="canonicalurl"
+		target="_blank"
 		:title="title"
 		@click="showDetails"
 	>

@@ -6,6 +6,7 @@
 			</span>
 			<h3 v-if="displayName">
 				<a :href="canonicalurl"
+					target="_blank"
 					:title="title"
 					@click="$emit('click')">
 					{{ displayName }}
