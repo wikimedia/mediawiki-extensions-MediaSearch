@@ -4,6 +4,7 @@
 			<a
 				ref="link"
 				:href="canonicalurl"
+				target="_blank"
 				:title="title"
 				@click="showDetails"
 			>

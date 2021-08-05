@@ -21,9 +21,5 @@ module.exports = {
 
 	allActiveFilters: function ( state ) {
 		return JSON.stringify( state.filterValues );
-	},
-
-	allActiveDetails: function ( state ) {
-		return JSON.stringify( state.details );
 	}
 };
