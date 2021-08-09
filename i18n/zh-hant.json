@@ -3,6 +3,7 @@
 		"authors": [
 			"A Retired User",
 			"Kly",
+			"LNDDYL",
 			"Winston Sung",
 			"Wmr",
 			"Xiplus",
@@ -37,7 +38,7 @@
 	"mediasearch-filter-license-other": "其它",
 	"mediasearch-filter-namespace-all": "全部",
 	"mediasearch-filter-namespace-discussion": "討論",
-	"mediasearch-filter-namespace-help": "綜合幫助",
+	"mediasearch-filter-namespace-help": "一般說明",
 	"mediasearch-filter-namespace-custom": "自訂",
 	"mediasearch-filter-namespace-label": "命名空間：$1",
 	"mediasearch-filter-namespace-dialog-title": "命名空間選擇器",

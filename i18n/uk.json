@@ -66,6 +66,7 @@
 	"mediasearch-clear-filters": "Очистити фільтри",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|результат|результати|результатів}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|слово|слова|слів}})",
+	"mediasearch-image-size": "($1)",
 	"mediasearch-did-you-mean": "Чи мали ви на увазі: <a href=\"$2\">$1</a>",
 	"mediasearch-error-message": "Недійсний пошук",
 	"mediasearch-error-text": "Введіть новий пошук вище та повторіть спробу",
