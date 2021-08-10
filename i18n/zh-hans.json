@@ -86,5 +86,8 @@
 	"mediasearch-error-message": "搜索无效",
 	"mediasearch-error-text": "在上方输入新搜索并重试",
 	"mediasearch-specialsearch-default": "在Special:Search界面中显示搜索结果",
-	"mediasearch-specialsearch-default-help": "选择显示旧版Special:Search界面中主搜索栏的搜索结果，而不是Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "选择显示旧版Special:Search界面中主搜索栏的搜索结果，而不是Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "今日图片",
+	"mediasearch-filter-assessment-picture-of-the-year": "年度图片",
+	"mediasearch-filter-assessment-featured-image": "精选图片"
 }

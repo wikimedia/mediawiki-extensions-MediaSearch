@@ -17,5 +17,9 @@
 	"mediasearch-filter-license-cc-by": "Bruk med namngjeving",
 	"mediasearch-filter-license-cc-by-sa": "Bruk med namngjeving og same lisensen",
 	"mediasearch-filter-license-unrestricted": "Ingen avgrensingar",
-	"mediasearch-filter-license-other": "Andre"
+	"mediasearch-filter-license-other": "Andre",
+	"mediasearch-no-results": "Ingen resultat vart funne",
+	"mediasearch-no-results-tips": "Prøv meir ålmenne ord eller sjekk stavinga du har brukt",
+	"mediasearch-user-notice-title": "Ser du etter [[Special:Search]]?",
+	"mediasearch-user-notice-body": "Du kan no endra [[Special:Preferences#mw-prefsection-searchoptions|innstillingane]] dine for å velja søkjeopplevinga du likar best."
 }
