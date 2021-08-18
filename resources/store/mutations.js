@@ -1,4 +1,5 @@
-var Vue = require( 'vue' );
+var Vue = require( 'vue' ),
+	STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY;
 
 module.exports = {
 
@@ -169,5 +170,53 @@ module.exports = {
 	 */
 	setInitialized: function ( state ) {
 		state.initialized = true;
+	},
+
+	/**
+	 * Stash the current page state into LocalStorage in case it needs to be
+	 * restored later
+	 *
+	 * @param {Object} state
+	 */
+	stashPageState: function ( state ) {
+		var stash = {
+			results: state.results,
+			continue: state.continue,
+			totalHits: state.totalHits,
+			details: state.details,
+			scrollY: window.scrollY
+		};
+
+		mw.storage.setObject( STORAGE_KEY, stash );
+	},
+
+	/**
+	 * Restore previously-stashed page state from LocalStorage
+	 *
+	 * @param {Object} state
+	 */
+	restorePageState: function ( state ) {
+		var stash = mw.storage.getObject( STORAGE_KEY ),
+			props = [ 'results', 'continue', 'totalHits', 'details' ];
+
+		// Restore previously stored state for results, continue, totalHits, and
+		// details (all of which are further divided by media type)
+		props.forEach( function ( prop ) {
+			Object.keys( stash[ prop ] ).forEach( function ( key ) {
+				state[ prop ][ key ] = stash[ prop ][ key ];
+			} );
+		} );
+
+		// Restore the scroll position after a short delay
+		setTimeout( function () {
+			window.scroll( 0, stash.scrollY );
+		}, 1500 );
+	},
+
+	/**
+	 * Clear the saved data in localstorage
+	 */
+	clearStoredPageState: function () {
+		mw.storage.remove( STORAGE_KEY );
 	}
 };

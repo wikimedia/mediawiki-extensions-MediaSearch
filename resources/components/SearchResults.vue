@@ -112,6 +112,7 @@
  */
 var mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
+	mapGetters = require( 'vuex' ).mapGetters,
 	mapActions = require( 'vuex' ).mapActions,
 	ImageResult = require( './results/ImageResult.vue' ),
 	AudioResult = require( './results/AudioResult.vue' ),
@@ -173,6 +174,8 @@ module.exports = {
 		'pending',
 		'results',
 		'term'
+	] ), mapGetters( [
+		'allActiveDetails'
 	] ), {
 		/**
 		 * Which component should be used to display individual search results
@@ -526,8 +529,14 @@ module.exports = {
 			this.getResultStyle();
 		},
 
-		details: function () {
-			this.$nextTick( this.getResultStyle.bind( this ) );
+		allActiveDetails: function ( newVal ) {
+			var currentDetails = JSON.parse( newVal );
+
+			if ( currentDetails[ this.mediaType ] && !this.showQuickView ) {
+				this.showQuickView = true;
+			}
+
+			this.$nextTick().then( this.getResultStyle.bind( this ) );
 		}
 	},
 
