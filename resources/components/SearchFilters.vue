@@ -173,7 +173,7 @@ module.exports = {
 		resultsCount: function () {
 			return this.$i18n(
 				'mediasearch-results-count',
-				this.totalHits[ this.mediaType ].toLocaleString( mw.config.get( 'wgUserLanguage' ) )
+				mw.language.convertNumber( this.totalHits[ this.mediaType ] )
 			);
 		},
 
