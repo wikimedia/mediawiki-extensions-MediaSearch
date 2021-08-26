@@ -249,16 +249,16 @@
 											{{/snippet}}
 
 											{{#categoryInfoText}}
-												<p>{{.}}</p>
+												<p class="sdms-page-result__category-info">{{.}}</p>
 											{{/categoryInfoText}}
 
 											{{^categoryInfoText}}
 												{{#formattedPageSize}}
-													<p>{{.}}</p>
+													<p class="sdms-page-result__size">{{.}}</p>
 												{{/formattedPageSize}}
 
 												{{#wordcountMessage}}
-													<p>{{.}}</p>
+													<p class="sdms-page-result__wordcount">{{.}}</p>
 												{{/wordcountMessage}}
 											{{/categoryInfoText}}
 
@@ -293,12 +293,17 @@
 														{{ name }}
 													</a>
 												</h3>
-												{{#resolution}}
-													<p class="sd-other-result__meta" dir="ltr">{{.}}</p>
-												{{/resolution}}
-												{{#imageSizeMessage}}
-													<p class="sd-other-result__meta">{{.}}</p>
-												{{/imageSizeMessage}}
+												<p class="sdms-other-result__meta">
+													{{#extension}}
+														<span class="sd-other-result__extension">{{.}}</span>
+													{{/extension}}
+													{{#resolution}}
+														<span class="sd-other-result__resolution" dir="ltr">{{.}}</span>
+													{{/resolution}}
+													{{#imageSizeMessage}}
+														<span class="sd-other-result__imageSize">{{.}}</span>
+													{{/imageSizeMessage}}
+												</p>
 											</div>
 										</div>
 									{{/results}}

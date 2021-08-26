@@ -911,6 +911,10 @@ class SpecialMediaSearch extends SpecialPage {
 				$result['imageResultClass'] .= ' sdms-image-result--limit-size';
 			}
 
+			if ( $imageInfo[ 'mime' ] ) {
+				$result[ 'extension' ] = $imageInfo[ 'mime' ];
+			}
+
 			// Generate style attribute for the image itself.
 			// There are height and max-width rules with the important
 			// keyword for .content a > img in Minerva Neue, and they
