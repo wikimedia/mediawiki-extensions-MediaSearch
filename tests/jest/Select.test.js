@@ -95,4 +95,213 @@ describe( 'Select', () => {
 			} ).toThrow();
 		} );
 	} );
+
+	describe( 'when interacting with the dropdown', () => {
+
+		it( 'shows a dropdown menu when select is clicked', () => {
+
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.showMenu ).toBe( true );
+		} );
+
+		it( 'shows a dropdown menu when enter is pressed on the select element', () => {
+
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'keyup.enter' );
+
+			expect( wrapper.vm.showMenu ).toBe( true );
+		} );
+
+		it( 'it has no active item if none has been defined', () => {
+
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.activeItemIndex ).toBe( -1 );
+		} );
+
+		it( 'it has active state preset to the provided value', () => {
+
+			const index = 2;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: index
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.activeItemIndex ).toBe( index );
+		} );
+
+		it( 'it has selected value preset to the provided value', () => {
+
+			const index = 2;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: index
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.selectedItemIndex ).toBe( index );
+		} );
+
+		it( 'it closes the menu when a value is selected', () => {
+
+			const selectionId = 1;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+			expect( wrapper.vm.showMenu ).toBe( true );
+
+			// we are triggering the method directly, to avoid "cross testing"
+			// of nested components
+			wrapper.vm.onSelect( selectionId, FRUITS[ selectionId ] );
+			expect( wrapper.vm.showMenu ).toBe( false );
+		} );
+
+		it( 'it closes the menu on blur', () => {
+
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+			expect( wrapper.vm.showMenu ).toBe( true );
+
+			wrapper.find( '.sd-select__content' ).trigger( 'blur' );
+			expect( wrapper.vm.showMenu ).toBe( false );
+		} );
+
+		it( 'it emit a "select" message when an item is clicked', () => {
+
+			const selectionId = 1;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS
+				}
+			} );
+
+			// we are triggering the method directly, to avoid "cross testing"
+			// of nested components
+			wrapper.vm.onSelect( selectionId, FRUITS[ selectionId ] );
+
+			const expectedEmittedValue = FRUITS[ selectionId ].value;
+			expect( wrapper.emitted().select[ 0 ][ 0 ] ).toBe( expectedEmittedValue );
+		} );
+
+		it( 'it set active state to selected index when reopening menu with click', () => {
+
+			const selectionId = 2;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: selectionId
+				}
+			} );
+
+			// we are triggering the method directly, to avoid "cross testing"
+			// of nested components
+			const newSelectionId = 1;
+			wrapper.vm.onSelect( newSelectionId, FRUITS[ newSelectionId ] );
+
+			// open the menu again
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.activeItemIndex ).toBe( newSelectionId );
+		} );
+
+		it( 'it set active state to selected index when reopening menu with enter', () => {
+
+			const selectionId = 2;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: selectionId
+				}
+			} );
+
+			// we are triggering the method directly, to avoid "cross testing"
+			// of nested components
+			const newSelectionId = 1;
+			wrapper.vm.onSelect( newSelectionId, FRUITS[ newSelectionId ] );
+
+			// open the menu again
+			wrapper.find( '.sd-select__content' ).trigger( 'keyup.enter' );
+
+			expect( wrapper.vm.activeItemIndex ).toBe( newSelectionId );
+
+		} );
+
+		it( 'it default active state to the selected when menu is reopened', () => {
+
+			const initialSelectionIndex = 2;
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: initialSelectionIndex
+				}
+			} );
+
+			// emulate hovering out of the menu, by setting active to an non existing value
+			const newSelectionId = -1;
+			wrapper.vm.onActiveItemChange( newSelectionId );
+
+			// open the menu again
+			wrapper.find( '.sd-select__content' ).trigger( 'click' );
+
+			expect( wrapper.vm.activeItemIndex ).toBe( initialSelectionIndex );
+
+		} );
+	} );
+
 } );

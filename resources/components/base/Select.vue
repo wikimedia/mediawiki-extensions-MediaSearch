@@ -202,6 +202,7 @@ module.exports = {
 		 */
 		onClick: function () {
 			this.toggleMenu( !this.showMenu );
+			this.restoreActiveItemIndex();
 		},
 
 		/**
@@ -216,6 +217,7 @@ module.exports = {
 			// If the menu is hidden, show it.
 			if ( !this.showMenu ) {
 				this.toggleMenu( true );
+				this.restoreActiveItemIndex();
 				return;
 			}
 
@@ -328,6 +330,14 @@ module.exports = {
 		reset: function () {
 			this.selectedItemIndex = this.initialSelectedItemIndex;
 			this.activeItemIndex = this.initialSelectedItemIndex;
+		},
+
+		/**
+		 * Restore the ActiveItemIndex to be equal to the selectedItemIndex
+		 * This is usually needed to make sure that when the dropdowns is open it activate the selected Item
+		 */
+		restoreActiveItemIndex: function () {
+			this.activeItemIndex = this.selectedItemIndex;
 		}
 	}
 };
