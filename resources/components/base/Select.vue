@@ -54,8 +54,7 @@ var Icon = require( './Icon.vue' ),
  *
  * Select component with SelectMenu dropdown.
  *
- * This component takes a set of items as a prop (item data can take various
- * forms; see SelectMenu.vue for details) and passes those items to the
+ * This component takes a set of items as a prop and passes those items to the
  * SelectMenu component for display. This component controls when the menu is
  * shown, shows the selected item if there is one, and emits the selected item
  * value to the parent.
@@ -89,9 +88,9 @@ module.exports = {
 			default: null
 		},
 
-		/** See SelectMenu.vue for allowed formats for items. */
+		/** Items should be an array of objects with "label" and "value" properties */
 		items: {
-			type: [ Array, Object ],
+			type: [ Array ],
 			required: true
 		},
 
@@ -193,15 +192,7 @@ module.exports = {
 		 * @return {number} Number of items
 		 */
 		itemsLength: function () {
-			if ( Array.isArray( this.items ) ) {
-				return this.items.length;
-			}
-
-			if ( typeof this.items === 'object' ) {
-				return Object.keys( this.items ).length;
-			}
-
-			return 0;
+			return this.items.length;
 		}
 	},
 
@@ -220,7 +211,7 @@ module.exports = {
 		 * @return {void}
 		 */
 		onEnter: function () {
-			var value, keys;
+			var value;
 
 			// If the menu is hidden, show it.
 			if ( !this.showMenu ) {
@@ -240,26 +231,7 @@ module.exports = {
 			//   the menu is reopened
 			// - Emit the selected item to the parent
 			// - Hide the menu
-			if (
-				Array.isArray( this.items ) &&
-				this.items.length &&
-				typeof this.items[ 0 ] === 'string'
-			) {
-				// Handle array of strings.
-				value = this.items[ this.activeItemIndex ];
-			} else if (
-				Array.isArray( this.items ) &&
-				this.items.length &&
-				typeof this.items[ 0 ] === 'object'
-			) {
-				// Handle array of objects.
-				value = this.items[ this.activeItemIndex ].value;
-			} else if ( typeof this.items === 'object' ) {
-				// Handle object.
-				keys = Object.keys( this.items );
-				value = keys[ this.activeItemIndex ];
-			}
-
+			value = this.items[ this.activeItemIndex ].value;
 			this.selectedItemIndex = this.activeItemIndex;
 			this.$emit( 'select', value );
 			this.toggleMenu( false );
@@ -328,8 +300,7 @@ module.exports = {
 		/**
 		 * Programmatically set the selection if it has been changed by means
 		 * other than direct user interaction. Changes made in this way should
-		 * never emit "select" events. This method needs to handle all the
-		 * different possible forms that the "items" property can take.
+		 * never emit "select" events.
 		 *
 		 * @param {string} selection value of the item to be selected
 		 * @throws error if specified value does not exist
@@ -337,25 +308,10 @@ module.exports = {
 		select: function ( selection ) {
 			var selectionIndex;
 
-			if ( Array.isArray( this.items ) && typeof this.items[ 0 ] === 'string' ) {
-				// Handle array of strings
-				// eslint-disable-next-line no-restricted-properties
-				selectionIndex = this.items.findIndex( function ( item ) {
-					return item === selection;
-				} );
-			} else if ( Array.isArray( this.items ) && typeof this.items[ 0 ] === 'object' ) {
-				// Handle array of objects
-				// eslint-disable-next-line no-restricted-properties
-				selectionIndex = this.items.findIndex( function ( item ) {
-					return item.value === selection;
-				} );
-			} else {
-				// Handle key/value pairs
-				// eslint-disable-next-line no-restricted-syntax
-				selectionIndex = Object.keys( this.items ).find( function ( key ) {
-					return this.items[ key ] === selection;
-				} );
-			}
+			// eslint-disable-next-line no-restricted-properties
+			selectionIndex = this.items.findIndex( function ( item ) {
+				return item.value === selection;
+			} );
 
 			if ( selectionIndex && selectionIndex >= 0 ) {
 				this.selectedItemIndex = selectionIndex;

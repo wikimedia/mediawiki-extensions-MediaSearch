@@ -95,6 +95,4 @@ describe( 'Select', () => {
 			} ).toThrow();
 		} );
 	} );
-
-	test.todo( 'Test behavior with all different possible "item" shapes' );
 } );
