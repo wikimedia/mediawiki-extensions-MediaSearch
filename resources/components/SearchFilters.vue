@@ -1,6 +1,10 @@
 <template>
 	<div class="sdms-search-filters-wrapper" :class="rootClasses">
-		<div class="sdms-search-filters">
+		<div
+			ref="filters"
+			class="sdms-search-filters"
+			@scroll.passive="onScroll"
+		>
 			<template v-for="( filter, index ) in searchFilters">
 				<div :key="'filter-' + index">
 					<sd-select
@@ -26,16 +30,10 @@
 					</sd-button>
 				</div>
 			</template>
-			<div class="sdms-search-results-count">
+			<div ref="count" class="sdms-search-results-count">
 				<span v-if="showResultsCount">
 					{{ resultsCount }}
 				</span>
-				<sd-observer
-					v-if="supportsObserver"
-					:options="{ threshold: 1 }"
-					@intersect="removeGradientClass"
-					@hide="addGradientClass"
-				></sd-observer>
 			</div>
 		</div>
 
@@ -66,7 +64,6 @@
 var mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
 	SdSelect = require( './base/Select.vue' ),
-	SdObserver = require( './base/Observer.vue' ),
 	SdButton = require( './base/Button.vue' ),
 	NamespaceFilterDialog = require( './NamespaceFilterDialog.vue' ),
 	SearchFilter = require( '../models/SearchFilter.js' ),
@@ -78,7 +75,6 @@ module.exports = {
 
 	components: {
 		'sd-select': SdSelect,
-		'sd-observer': SdObserver,
 		'sd-button': SdButton,
 		'namespace-filter-dialog': NamespaceFilterDialog
 	},
@@ -92,7 +88,8 @@ module.exports = {
 
 	data: function () {
 		return {
-			hasGradient: false,
+			hasOverflow: false,
+			isScrolledToEnd: false,
 			namespaceFilterDialogActive: false
 		};
 	},
@@ -106,8 +103,12 @@ module.exports = {
 		 */
 		rootClasses: function () {
 			return {
-				'sdms-search-filters-wrapper--gradient': this.hasGradient
+				'sdms-search-filters-wrapper--gradient': this.showGradient
 			};
+		},
+
+		showGradient: function () {
+			return this.hasOverflow && !this.isScrolledToEnd;
 		},
 
 		/**
@@ -326,21 +327,6 @@ module.exports = {
 		},
 
 		/**
-		 * When final filter is out of view, add class that will add a gradient
-		 * to indicate to the user that they can horizontally scroll.
-		 */
-		addGradientClass: function () {
-			this.hasGradient = true;
-		},
-
-		/**
-		 * When final filter is in view, don't show the gradient.
-		 */
-		removeGradientClass: function () {
-			this.hasGradient = false;
-		},
-
-		/**
 		 * Get the ref for a filter.
 		 *
 		 * Because the namespace filter is handled outside the v-for loop that
@@ -392,6 +378,49 @@ module.exports = {
 					ref.reset();
 				}
 			}.bind( this ) );
+		},
+
+		/**
+		 * Handle horizontal scrolling events in the filters bar when they
+		 * must overflow (smaller screens only), to determine whether or not
+		 * the user has scrolled to the end (plus or minus 1 pixel) of the
+		 * content.
+		 *
+		 * @param {Event} e
+		 */
+		onScroll: function ( e ) {
+			var el = e.target,
+				scrollMax = el.scrollWidth - el.clientWidth;
+
+			// Allow a margin of error of 1px due to JS rounding weirdness;
+			if ( scrollMax - el.scrollLeft <= 1 ) {
+				this.isScrolledToEnd = true;
+			} else {
+				this.isScrolledToEnd = false;
+			}
+		},
+
+		/**
+		 * Use an IntersectionObserver (where supported) to determine
+		 * whether or not the contents of the filter bar are overflowing.
+		 * This will get recalculated whenever the viewport is resized.
+		 */
+		watchFilterOverflow: function () {
+			// callback for the observer
+			function cb( entries ) {
+				var entry = entries[ 0 ];
+				if ( entry && entry.isIntersecting ) {
+					this.hasOverflow = false;
+				}
+				if ( entry && !entry.isIntersecting ) {
+					this.hasOverflow = true;
+				}
+			}
+
+			if ( this.supportsObserver ) {
+				this.observer = new IntersectionObserver( cb.bind( this ), { threshold: 1 } );
+				this.observer.observe( this.$refs.count );
+			}
 		}
 	} ),
 
@@ -413,6 +442,13 @@ module.exports = {
 	 */
 	mounted: function () {
 		this.synchronizeFilters();
+		this.watchFilterOverflow();
+	},
+
+	destroyed: function () {
+		if ( this.observer ) {
+			this.observer.disconnect();
+		}
 	}
 };
 </script>
