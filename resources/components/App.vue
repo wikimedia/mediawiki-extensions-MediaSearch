@@ -155,7 +155,7 @@ module.exports = {
 		'allActiveFilters'
 	] ), {
 		/**
-		 * @return {string[  ]} [  'image', 'video', 'audio', 'page', 'other'  ]
+		 * @return {string[]} [  'image', 'video', 'audio', 'page', 'other'  ]
 		 */
 		tabs: function () {
 			return MEDIASEARCH_TABS.map( function ( tab ) {
@@ -319,7 +319,10 @@ module.exports = {
 				url.query.type = this.currentTab;
 
 				Object.keys( e.state ).forEach( function ( key ) {
-					if ( key in searchOptions[ this.currentTab ] ) {
+					if (
+						searchOptions[ this.currentTab ] &&
+						key in searchOptions[ this.currentTab ]
+					) {
 						url.query[ key ] = e.state[ key ];
 						this.addFilterValue( {
 							mediaType: this.currentTab,
