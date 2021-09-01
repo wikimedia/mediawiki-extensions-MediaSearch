@@ -54,5 +54,10 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|sõna}})",
 	"mediasearch-did-you-mean": "Kas mõtlesid: <a href=\"$2\">$1</a>",
 	"mediasearch-specialsearch-default": "Näita otsitulemusi leheküljel Special:Search",
-	"mediasearch-specialsearch-default-help": "Selle valikuga näidatakse peamise otsiriba tulemusi vanema lehekülje Special:Search vahendusel, lehekülje Special:MediaSearch asemel."
+	"mediasearch-specialsearch-default-help": "Selle valikuga näidatakse peamise otsiriba tulemusi vanema lehekülje Special:Search vahendusel, lehekülje Special:MediaSearch asemel.",
+	"mediasearch-filter-assessment-picture-of-the-day": "Päeva pilt",
+	"mediasearch-filter-assessment-featured-image": "Eeskujulik pilt",
+	"mediasearch-filter-assessment-valued-image": "Väärtpilt",
+	"mediasearch-filter-assessment-quality-image": "Hea pilt",
+	"mediasearch-filter-assessment-menu-label": "Kasutajate hinnangud"
 }
