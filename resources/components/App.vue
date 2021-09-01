@@ -175,7 +175,8 @@ module.exports = {
 		'pushQueryToHistoryState',
 		'performNewSearch',
 		'searchMore',
-		'updateCurrentType'
+		'updateCurrentType',
+		'ready'
 	] ), {
 		/**
 		 * Keep UI state, URL, and history in sync as the user changes tabs
@@ -329,6 +330,65 @@ module.exports = {
 			} );
 			/* eslint-enable camelcase */
 		}
+	},
+
+	mounted: function () {
+		// eslint-disable-next-line no-jquery/no-global-selector
+		var $container = $( '#sdms-app' );
+		this.$nextTick( function () {
+			var readyDeferred = $.Deferred(),
+				promises = $container.find( 'img' ).get().map( function ( image ) {
+					// We start out with an initial serverside DOM that we'll swap out as
+					// soon as the Vue components are mounted
+					// Images, however, are not loaded until they become visible (their src
+					// will not be set until they enter the viewport - see Image.vue
+					// intersection observer), so we're going to see a FOUC when we replace
+					// the initial existing content (which may have painted these images
+					// already) with the new set of image nodes (that were not yet visible,
+					// so have not been loaded)
+					// We'll make sure to set the src attribute of all initial images ahead
+					// of time and allow the images to load (this should be fast, given that
+					// they've started loaded already in the serverside render) before we
+					// empty the exiting content and replace it with the new JS components
+					if ( !image.src && image.dataset && image.dataset.src ) {
+						image.src = image.dataset.src;
+					}
+
+					if ( typeof image.decode !== 'function' ) {
+						// If image.decode() isn't supported (e.g. IE) just return
+						// a resolved promise.
+						return $.Deferred().resolve().promise();
+					}
+
+					return image.decode().then( null, function () {
+						// turn rejected promises into successful resolves, so that below
+						// $.when can act as `allSettled` (it otherwise short-circuits as
+						// as soon as one of the promises fails)
+						return $.Deferred().resolve().promise();
+					} );
+				} );
+
+			// When above image-loading has completed, we're allowed to proceed & swap out
+			// the existing DOM with the new components. It may not complete or take awhile,
+			// though (e.g. many images, poor bandwidth, other issues), in which case we
+			// won't let that prevent us from taking over the content: the FOUC becomes
+			// a non-issue at this point because the image likely had not loaded in the
+			// initial render anyway
+			// We'll replace the existing render by Vue components when either of these happen:
+			// - all images of the Vue render have been loaded (or confirmed to have failed)
+			// - 1 second has passed
+			$.when.apply( $, promises ).then( readyDeferred.resolve );
+			setTimeout( readyDeferred.resolve, 1000 );
+			readyDeferred.promise().then( function () {
+				// only replace serverside render once entire view has rendered
+				// and images are settled, ensuring a smooth transition
+				$container.show().siblings().remove();
+				this.ready();
+
+				// Restore the user's previous session from localstorage if necessary
+				this.restorePageStateIfNecessary();
+			}.bind( this ) );
+		}.bind( this ) );
 	}
 };
 </script>
