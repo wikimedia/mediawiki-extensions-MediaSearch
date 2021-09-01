@@ -376,7 +376,8 @@ module.exports = {
 		getRef: function ( filter ) {
 			return filter.type === 'namespace' ?
 				this.$refs[ filter.type ] :
-				this.$refs[ filter.type ][ 0 ];
+				// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
+				this.$refs[ filter.type ][ 0 ] || this.$refs[ filter.type ];
 		},
 
 		resetAllFilters: function () {

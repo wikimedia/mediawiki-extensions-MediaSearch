@@ -6,16 +6,16 @@
 				role="tablist"
 				tabindex="0"
 				:aria-activedescendant="currentTabId"
-				@keydown.left="moveBack"
-				@keydown.up.prevent="moveBack"
-				@keydown.right="moveForward"
-				@keydown.down.prevent="moveForward"
+				@keydown.left.prevent="prev"
+				@keydown.up.prevent="prev"
+				@keydown.right.prevent="next"
+				@keydown.down.prevent="next"
 			>
 				<div
 					v-for="(tab, index) in tabs"
 					:id="tab.id + '-label'"
 					:key="tab.title"
-					:class="determineTabLabelClasses(tab, index)"
+					:class="getLabelClasses(tab, index)"
 					:aria-selected="tab.name === currentTabName"
 					:aria-controls="tab.id"
 					class="sd-tabs__tabs-list__item"
@@ -37,6 +37,7 @@
 
 <script>
 var Vue = require( 'vue' ), // Vue is imported here for type definition
+	VueCompositionAPI = require( '@vue/composition-api' ),
 	observer = require( './mixins/observer.js' );
 
 /**
@@ -44,10 +45,6 @@ var Vue = require( 'vue' ), // Vue is imported here for type definition
  *
  * Tab can be changed via user click on a tab menu item or by changing the
  * active prop passed to the Tabs component.
- *
- * This component has two slots: the main slot, which is meant to contain Tab
- * components, and the filters slot, which can contain Select components that
- * will be displayed inline with the tabs list in the heading.
  */
 // @vue/component
 module.exports = {
@@ -56,36 +53,89 @@ module.exports = {
 	mixins: [ observer ],
 
 	props: {
+		/**
+		 * Name of the currently active tab.
+		 *
+		 * This is not required: if omitted, the first tab will be active on
+		 * mount, then this component will keep track of any tab changes.
+		 * However, if you need to be able to control the active tab from the
+		 * parent component, use this prop and keep it current by binding it to
+		 * a value that updates on the tab-change event.
+		 */
 		active: {
 			type: String,
 			default: null
 		}
 	},
 
-	data: function () {
-		return {
-			tabs: {},
-			currentTabName: null,
-			hasGradient: false,
-			observerElement: '.sd-tabs__tabs-list__item--last',
-			observerOptions: {
-				threshold: 1
+	setup: function ( props, context ) {
+		// Define reactive values
+		var tabs = VueCompositionAPI.reactive( {} ),
+			active = VueCompositionAPI.toRef( props, 'active' ),
+			currentTabName = VueCompositionAPI.ref( null ),
+			hasGradient = VueCompositionAPI.ref( false ),
+			observerElement = VueCompositionAPI.ref( '.sd-tabs__tabs-list__item--last' ),
+			observerOptions = VueCompositionAPI.reactive( { threshold: 1 } );
+
+		/**
+		 * @type {Object} Class binding object for the header
+		 */
+		var headerClasses = VueCompositionAPI.computed( function () {
+			return { 'sd-tabs__header--gradient': hasGradient.value };
+		} );
+
+		/**
+		 * @type {string|undefined} DOM ID of the active tab
+		 */
+		var currentTabId = VueCompositionAPI.computed( function () {
+			if ( !currentTabName ) {
+				return;
 			}
-		};
-	},
 
-	computed: {
-		headerClasses: function () {
-			return {
-				'sd-tabs__header--gradient': this.hasGradient
-			};
-		},
-
-		currentTabId: function () {
-			return this.tabs[ this.currentTabName ] ?
-				this.tabs[ this.currentTabName ].id + '-label' :
+			return tabs[ currentTabName.value ] ?
+				'sd-tab-' + tabs[ currentTabName.value ].name + '-label' :
 				false;
-		}
+		} );
+
+		/**
+		 * Initialize tab data.
+		 *
+		 * Requires different behavior in Vue 2 vs Vue 3; in the former,
+		 * context.slots.default() returns the array of child tabs directly;
+		 * in Vue 3 they are wrapped in a Fragment VNode.
+		 */
+		VueCompositionAPI.onMounted( function () {
+			// unwrap the fragment if present (Vue 3)
+			var defaultSlot = context.slots.default(),
+				tabNodes = defaultSlot[ 0 ] && defaultSlot[ 0 ].children || defaultSlot;
+
+			/**
+			 * @todo Once migrated to Vue 3, use tab.props instead
+			 */
+			tabNodes.forEach( function ( tab ) {
+				tabs[ tab.componentOptions.propsData.name ] = tab.componentOptions.propsData;
+			} );
+
+			// Set the current tab value, either to the active prop if it's
+			// provided or to the first tab.
+			currentTabName.value = ( active.value ) ? active.value : Object.keys( tabs )[ 0 ];
+		} );
+
+		/**
+		 * Provide reactive data to the child Tab components so they know
+		 * whether or not they are currently active.
+		 */
+		VueCompositionAPI.provide( 'currentTabName', currentTabName );
+
+		return {
+			tabs: tabs,
+			currentTabName: currentTabName,
+			currentTabId: currentTabId,
+			headerClasses: headerClasses,
+			hasGradient: hasGradient,
+			observerElement: observerElement,
+			observerOptions: observerOptions
+		};
 	},
 
 	methods: {
@@ -103,25 +153,13 @@ module.exports = {
 		},
 
 		/**
-		 * Set active attribute on each tab.
-		 *
-		 * @param {string} currentTabName
-		 */
-		setTabState: function ( currentTabName ) {
-			var tabName;
-			for ( tabName in this.tabs ) {
-				this.tabs[ tabName ].isActive = tabName === currentTabName;
-			}
-		},
-
-		/**
 		 * Set tab label classes.
 		 *
 		 * @param {Vue.component} tab
-		 * @param {int} index
+		 * @param {number} index
 		 * @return {Object}
 		 */
-		determineTabLabelClasses: function ( tab, index ) {
+		getLabelClasses: function ( tab, index ) {
 			return {
 				'sd-tabs__tabs-list__item--current': tab.name === this.currentTabName,
 				'sd-tabs__tabs-list__item--disabled': tab.disabled,
@@ -132,7 +170,7 @@ module.exports = {
 		/**
 		 * Left or up arrow keydown should move to previous tab, if one exists.
 		 */
-		moveBack: function () {
+		prev: function () {
 			var tabNames = Object.keys( this.tabs ),
 				previousTabIndex = tabNames.indexOf( this.currentTabName ) - 1;
 
@@ -147,7 +185,7 @@ module.exports = {
 		/**
 		 * Right or down arrow keydown should move to next tab, if one exists.
 		 */
-		moveForward: function () {
+		next: function () {
 			var tabNames = Object.keys( this.tabs ),
 				nextTabIndex = tabNames.indexOf( this.currentTabName ) + 1;
 
@@ -160,28 +198,7 @@ module.exports = {
 		},
 
 		/**
-		 * Create an object with tabs keyed by their names, then set the
-		 * isActive attribute for each tab.
-		 */
-		initializeTabs: function () {
-			var tabs = this.$slots.default;
-			this.tabs = {};
-
-			tabs.forEach(
-				function ( tab ) {
-					this.tabs[ tab.componentInstance.name ] = tab.componentInstance;
-				}.bind( this )
-			);
-
-			// If no active tab was passed in as a prop, default to first one.
-			this.currentTabName = this.active ?
-				this.active :
-				Object.keys( this.tabs )[ 0 ];
-			this.setTabState( this.currentTabName );
-		},
-
-		/**
-		 * @param {int} tabIndex
+		 * @param {number} tabIndex
 		 * @return {boolean}
 		 */
 		isLastTab: function ( tabIndex ) {
@@ -206,8 +223,6 @@ module.exports = {
 		 * @param {string} newTabName
 		 */
 		currentTabName: function () {
-			this.setTabState( this.currentTabName );
-
 			// Don't emit an event if the currentTabName changed as a result of
 			// the active prop changing. In that case, the parent already knows.
 			if ( this.currentTabName !== this.active ) {
@@ -221,10 +236,6 @@ module.exports = {
 			},
 			immediate: true
 		}
-	},
-
-	mounted: function () {
-		this.initializeTabs();
 	}
 };
 </script>

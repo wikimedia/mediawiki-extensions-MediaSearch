@@ -224,6 +224,7 @@
 				"mediawiki.ForeignApi",
 				"mediawiki.user",
 				"vue",
+				"@vue/composition-api",
 				"vuex",
 				"es6-polyfills"
 			],

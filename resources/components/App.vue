@@ -206,7 +206,8 @@ module.exports = {
 		onFilterChange: function ( data ) {
 			// the new search (with updated filter params) is handled
 			// by the allActiveFilters watcher
-			this.$refs[ data.mediaType ][ 0 ].hideDetails();
+			// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
+			( this.$refs[ data.mediaType ][ 0 ] || this.$refs[ data.mediaType ] ).hideDetails();
 
 			this.updateOrDeleteQueryParam( { key: data.filterType, value: data.value } );
 			this.pushQueryToHistoryState();

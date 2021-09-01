@@ -14,6 +14,7 @@
 </template>
 
 <script>
+var VueCompositionAPI = require( '@vue/composition-api' );
 /**
  * A single tab, to be used inside a Tabs component. See App for usage example.
  */
@@ -36,16 +37,30 @@ module.exports = {
 		}
 	},
 
-	data: function () {
-		return {
-			isActive: false
-		};
-	},
+	setup: function ( props ) {
+		// Unwrap props and Inject data provided by the parent component
+		// (Tabs).
+		var name = VueCompositionAPI.toRefs( props ).name,
+			currentTabName = VueCompositionAPI.inject( 'currentTabName' );
 
-	computed: {
-		id: function () {
-			return 'sd-tab-' + this.name;
-		}
+		/**
+		 * @type {boolean}
+		 */
+		var isActive = VueCompositionAPI.computed( function () {
+			return name.value === currentTabName.value;
+		} );
+
+		/**
+		 * @type {string}
+		 */
+		var id = VueCompositionAPI.computed( function () {
+			return 'sd-tab-' + name.value;
+		} );
+
+		return {
+			isActive: isActive,
+			id: id
+		};
 	}
 };
 </script>
