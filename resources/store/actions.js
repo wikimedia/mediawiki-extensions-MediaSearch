@@ -4,7 +4,6 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
 	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
 	LIMIT = 40,
 	activeSearchRequest = null,
-	activeConceptsRequest = null,
 	searchOptions = require( '../data/searchOptions.json' );
 
 /**
@@ -279,45 +278,6 @@ module.exports = {
 	},
 
 	/**
-	 * Fetch data for concept chips.
-	 *
-	 * @param {Object} context
-	 * @param {string} term
-	 * @return {jQuery.Deferred}
-	 */
-	getRelatedConcepts: function ( context, term ) {
-		var params = {
-				format: 'json',
-				uselang: mw.config.get( 'wgUserLanguage' ),
-				action: 'relatedconcepts',
-				term: term,
-				limit: 10
-			},
-			request;
-
-		// Abort in-flight request, if it exists.
-		if ( activeConceptsRequest ) {
-			activeConceptsRequest.abort();
-		}
-
-		request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
-		request.promise( {
-			abort: function () {
-				request.abort();
-			}
-		} );
-		activeConceptsRequest = request;
-
-		return request.then( function ( response ) {
-			activeConceptsRequest = null;
-
-			if ( response.query && response.query.relatedconcepts && response.query.relatedconcepts.length > 0 ) {
-				context.commit( 'setRelatedConcepts', response.query.relatedconcepts );
-			}
-		} );
-	},
-
-	/**
 	 * Fetch expanded details for a given search result by pageId
 	 *
 	 * @param {Object} context
@@ -362,13 +322,7 @@ module.exports = {
 			activeSearchRequest = null;
 		}
 
-		if ( activeConceptsRequest ) {
-			activeConceptsRequest.abort();
-			activeConceptsRequest = null;
-		}
-
 		context.commit( 'clearTerm' );
-		context.commit( 'clearRelatedConcepts' );
 		context.commit( 'resetFilters' );
 		context.commit( 'resetResults' );
 		context.commit( 'clearDidYouMean' );

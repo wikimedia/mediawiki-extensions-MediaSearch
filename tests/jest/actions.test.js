@@ -215,7 +215,6 @@ describe( 'clear', () => {
 	it( 'commits all the expected mutations when called', () => {
 		actions.clear( context );
 		expect( context.commit ).toHaveBeenCalledWith( 'clearTerm' );
-		expect( context.commit ).toHaveBeenCalledWith( 'clearRelatedConcepts' );
 		expect( context.commit ).toHaveBeenCalledWith( 'resetFilters' );
 		expect( context.commit ).toHaveBeenCalledWith( 'resetResults' );
 		expect( context.commit ).toHaveBeenCalledWith( 'clearDidYouMean' );

@@ -146,25 +146,6 @@ module.exports = {
 	},
 
 	/**
-	 * Add related concept results to state.
-	 *
-	 * @param {Object} state
-	 * @param {Array} relatedConcepts
-	 */
-	setRelatedConcepts: function ( state, relatedConcepts ) {
-		state.relatedConcepts = state.relatedConcepts.concat( relatedConcepts );
-	},
-
-	/**
-	 * Remove related concepts.
-	 *
-	 * @param {Object} state
-	 */
-	clearRelatedConcepts: function ( state ) {
-		state.relatedConcepts = [];
-	},
-
-	/**
 	 * @param {Object} state
 	 * @param {string} suggestion
 	 */

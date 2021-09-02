@@ -18,8 +18,6 @@ module.exports = {
 	 */
 	term: initialTerm,
 
-	relatedConcepts: [],
-
 	/**
 	 * Suggested alternate search term, if any
 	 */

@@ -36,29 +36,14 @@
 				<did-you-mean>
 				</did-you-mean>
 
-				<transition-group
-					name="sdms-concept-chips-transition"
-					class="sdms-concept-chips-transition"
-					tag="div"
-				>
-					<concept-chips
-						v-if="enableConceptChips && tab === 'image' && relatedConcepts.length > 0"
-						:key="'concept-chips-' + tab"
+				<div :key="'tab-content-' + tab">
+					<!-- Display the available results for each tab -->
+					<search-results
+						:ref="tab"
 						:media-type="tab"
-						:concepts="relatedConcepts"
-						@concept-select="onUpdateTerm"
-					>
-					</concept-chips>
-
-					<div :key="'tab-content-' + tab">
-						<!-- Display the available results for each tab -->
-						<search-results
-							:ref="tab"
-							:media-type="tab"
-							@load-more="resetCountAndLoadMore( tab )">
-						</search-results>
-					</div>
-				</transition-group>
+						@load-more="resetCountAndLoadMore( tab )">
+					</search-results>
+				</div>
 
 				<!-- Auto-load more results when user scrolls to the end of the list/grid,
 				as long as the "autoload counter" for the tab has not reached zero -->
@@ -103,7 +88,6 @@ var AUTOLOAD_COUNT = 2,
 	SdTabs = require( './base/Tabs.vue' ),
 	SearchResults = require( './SearchResults.vue' ),
 	SearchFilters = require( './SearchFilters.vue' ),
-	ConceptChips = require( './ConceptChips.vue' ),
 	DidYouMean = require( './DidYouMean.vue' ),
 	Observer = require( './base/Observer.vue' ),
 	UserNotice = require( './UserNotice.vue' ),
@@ -121,7 +105,6 @@ module.exports = {
 		'sd-autocomplete-search-input': SdAutocompleteSearchInput,
 		'search-results': SearchResults,
 		'search-filters': SearchFilters,
-		'concept-chips': ConceptChips,
 		'did-you-mean': DidYouMean,
 		'search-user-notice': UserNotice,
 		observer: Observer
@@ -135,11 +118,7 @@ module.exports = {
 
 			// Object with keys corresponding to each tab;
 			// values are integers; set in the created() hook
-			autoloadCounter: {},
-
-			// Temporary feature flag for Concept Chips. To enable, add
-			// ?conceptchips=true to the URL.
-			enableConceptChips: !!url.query.conceptchips
+			autoloadCounter: {}
 		};
 	},
 
@@ -148,7 +127,6 @@ module.exports = {
 		'hasError',
 		'results',
 		'pending',
-		'relatedConcepts',
 		'filterValues'
 	] ), mapGetters( [
 		'checkForMore',
@@ -194,7 +172,6 @@ module.exports = {
 	methods: $.extend( {}, mapMutations( [
 		'resetFilters',
 		'resetResults',
-		'clearRelatedConcepts',
 		'clearDidYouMean',
 		'setTerm',
 		'setHasError',
@@ -203,7 +180,6 @@ module.exports = {
 		'addFilterValue'
 	] ), mapActions( [
 		'search',
-		'getRelatedConcepts',
 		'clear'
 	] ), {
 		/**
@@ -306,7 +282,6 @@ module.exports = {
 				// ensure that the results are reset
 				if ( this.term === '' ) {
 					this.resetResults();
-					this.clearRelatedConcepts();
 					this.clearLookupResults();
 				}
 
@@ -409,7 +384,6 @@ module.exports = {
 		 */
 		performNewSearch: function ( mediaType ) {
 			this.resetResults( mediaType );
-			this.clearRelatedConcepts();
 			this.clearDidYouMean();
 			this.autoloadCounter = this.setInitialAutoloadCountForTabs();
 
@@ -487,14 +461,6 @@ module.exports = {
 		currentTab: function ( newTab, oldTab ) {
 			if ( newTab && newTab !== oldTab ) {
 				this.getMoreResultsForTabIfAvailable( newTab );
-
-				if (
-					this.enableConceptChips &&
-					newTab === 'image' &&
-					this.relatedConcepts.length < 1
-				) {
-					this.getRelatedConcepts( this.term );
-				}
 			}
 		},
 
@@ -508,10 +474,6 @@ module.exports = {
 		term: function ( newTerm, oldTerm ) {
 			if ( newTerm && newTerm !== oldTerm ) {
 				this.performNewSearch();
-
-				if ( this.enableConceptChips && this.currentTab === 'image' ) {
-					this.getRelatedConcepts( newTerm );
-				}
 			}
 		},
 
@@ -556,12 +518,6 @@ module.exports = {
 		// Set the initial autoload count for all tabs for semi-infinite scroll
 		// behavior
 		this.autoloadCounter = this.setInitialAutoloadCountForTabs();
-
-		// If a search term exists on page load, fetch related concepts for
-		// concept chips.
-		if ( this.enableConceptChips && this.term && this.currentTab === 'image' ) {
-			this.getRelatedConcepts( this.term );
-		}
 
 		// If a search term was already present when the user arrives on the page,
 		// log the results of the initial server-rendered search query regardless
