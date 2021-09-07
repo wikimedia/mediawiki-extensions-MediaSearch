@@ -122,6 +122,7 @@
 				"resources/components/base/Image.vue",
 				"resources/components/base/Player.vue",
 				"resources/components/base/mixins/binaryInput.js",
+				"resources/components/base/mixins/observer.js",
 				"resources/components/results/ImageResult.vue",
 				"resources/components/results/VideoResult.vue",
 				"resources/components/results/AudioResult.vue",

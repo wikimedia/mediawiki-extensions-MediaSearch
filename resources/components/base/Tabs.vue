@@ -15,7 +15,7 @@
 					v-for="(tab, index) in tabs"
 					:id="tab.id + '-label'"
 					:key="tab.title"
-					:class="determineTabLabelClasses(tab)"
+					:class="determineTabLabelClasses(tab, index)"
 					:aria-selected="tab.name === currentTabName"
 					:aria-controls="tab.id"
 					class="sd-tabs__tabs-list__item"
@@ -25,11 +25,6 @@
 					@keyup.enter="selectTab(tab.name)"
 				>
 					{{ tab.title }}
-					<observer
-						v-if="isLastTab(index) && supportsObserver"
-						@intersect="removeGradientClass"
-						@hide="addGradientClass"
-					></observer>
 				</div>
 			</div>
 		</div>
@@ -42,7 +37,7 @@
 
 <script>
 var Vue = require( 'vue' ), // Vue is imported here for type definition
-	Observer = require( './Observer.vue' );
+	observer = require( './mixins/observer.js' );
 
 /**
  * A group of tabs with a tab menu.
@@ -58,9 +53,7 @@ var Vue = require( 'vue' ), // Vue is imported here for type definition
 module.exports = {
 	name: 'SdTabs',
 
-	components: {
-		observer: Observer
-	},
+	mixins: [ observer ],
 
 	props: {
 		active: {
@@ -73,7 +66,11 @@ module.exports = {
 		return {
 			tabs: {},
 			currentTabName: null,
-			hasGradient: false
+			hasGradient: false,
+			observerElement: '.sd-tabs__tabs-list__item--last',
+			observerOptions: {
+				threshold: 1
+			}
 		};
 	},
 
@@ -88,14 +85,6 @@ module.exports = {
 			return this.tabs[ this.currentTabName ] ?
 				this.tabs[ this.currentTabName ].id + '-label' :
 				false;
-		},
-
-		supportsObserver: function () {
-			return (
-				'IntersectionObserver' in window &&
-				'IntersectionObserverEntry' in window &&
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype
-			);
 		}
 	},
 
@@ -129,12 +118,14 @@ module.exports = {
 		 * Set tab label classes.
 		 *
 		 * @param {Vue.component} tab
+		 * @param {int} index
 		 * @return {Object}
 		 */
-		determineTabLabelClasses: function ( tab ) {
+		determineTabLabelClasses: function ( tab, index ) {
 			return {
 				'sd-tabs__tabs-list__item--current': tab.name === this.currentTabName,
-				'sd-tabs__tabs-list__item--disabled': tab.disabled
+				'sd-tabs__tabs-list__item--disabled': tab.disabled,
+				'sd-tabs__tabs-list__item--last': this.isLastTab( index )
 			};
 		},
 
@@ -190,27 +181,12 @@ module.exports = {
 		},
 
 		/**
-		 * @param {string} tabName
+		 * @param {int} tabIndex
 		 * @return {boolean}
 		 */
-		isLastTab: function ( tabName ) {
+		isLastTab: function ( tabIndex ) {
 			var tabKeys = Object.keys( this.tabs );
-			return tabName === tabKeys[ tabKeys.length - 1 ];
-		},
-
-		/**
-		 * When final tab is out of view, add class that will add a gradient to
-		 * indicate to the user that they can horizontally scroll.
-		 */
-		addGradientClass: function () {
-			this.hasGradient = true;
-		},
-
-		/**
-		 * When final tab is in view, don't show the gradient.
-		 */
-		removeGradientClass: function () {
-			this.hasGradient = false;
+			return tabIndex === tabKeys[ tabKeys.length - 1 ];
 		}
 	},
 
@@ -237,6 +213,13 @@ module.exports = {
 			if ( this.currentTabName !== this.active ) {
 				this.$emit( 'tab-change', this.tabs[ this.currentTabName ] );
 			}
+		},
+
+		observerIntersecting: {
+			handler: function ( intersecting ) {
+				this.hasGradient = !intersecting;
+			},
+			immediate: true
 		}
 	},
 

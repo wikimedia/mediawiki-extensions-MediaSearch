@@ -30,7 +30,7 @@
 					</sd-button>
 				</div>
 			</template>
-			<div ref="count" class="sdms-search-results-count">
+			<div class="sdms-search-results-count">
 				<span v-if="showResultsCount">
 					{{ resultsCount }}
 				</span>
@@ -67,7 +67,8 @@ var mapState = require( 'vuex' ).mapState,
 	SdButton = require( './base/Button.vue' ),
 	NamespaceFilterDialog = require( './NamespaceFilterDialog.vue' ),
 	SearchFilter = require( '../models/SearchFilter.js' ),
-	searchOptions = require( './../data/searchOptions.json' );
+	searchOptions = require( './../data/searchOptions.json' ),
+	observer = require( './base/mixins/observer.js' );
 
 // @vue/component
 module.exports = {
@@ -78,6 +79,8 @@ module.exports = {
 		'sd-button': SdButton,
 		'namespace-filter-dialog': NamespaceFilterDialog
 	},
+
+	mixins: [ observer ],
 
 	props: {
 		mediaType: {
@@ -90,7 +93,11 @@ module.exports = {
 		return {
 			hasOverflow: false,
 			isScrolledToEnd: false,
-			namespaceFilterDialogActive: false
+			namespaceFilterDialogActive: false,
+			observerOptions: {
+				threshold: 1
+			},
+			observerElement: '.sdms-search-results-count'
 		};
 	},
 
@@ -149,12 +156,6 @@ module.exports = {
 		 */
 		currentActiveFilters: function () {
 			return Object.keys( this.filterValues[ this.mediaType ] );
-		},
-
-		supportsObserver: function () {
-			return 'IntersectionObserver' in window &&
-				'IntersectionObserverEntry' in window &&
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype;
 		},
 
 		/**
@@ -398,29 +399,6 @@ module.exports = {
 			} else {
 				this.isScrolledToEnd = false;
 			}
-		},
-
-		/**
-		 * Use an IntersectionObserver (where supported) to determine
-		 * whether or not the contents of the filter bar are overflowing.
-		 * This will get recalculated whenever the viewport is resized.
-		 */
-		watchFilterOverflow: function () {
-			// callback for the observer
-			function cb( entries ) {
-				var entry = entries[ 0 ];
-				if ( entry && entry.isIntersecting ) {
-					this.hasOverflow = false;
-				}
-				if ( entry && !entry.isIntersecting ) {
-					this.hasOverflow = true;
-				}
-			}
-
-			if ( this.supportsObserver ) {
-				this.observer = new IntersectionObserver( cb.bind( this ), { threshold: 1 } );
-				this.observer.observe( this.$refs.count );
-			}
 		}
 	} ),
 
@@ -432,6 +410,13 @@ module.exports = {
 		 */
 		currentActiveFilters: function () {
 			this.synchronizeFilters();
+		},
+
+		observerIntersecting: {
+			handler: function ( intersecting ) {
+				this.hasOverflow = !intersecting;
+			},
+			immediate: true
 		}
 	},
 
@@ -442,13 +427,6 @@ module.exports = {
 	 */
 	mounted: function () {
 		this.synchronizeFilters();
-		this.watchFilterOverflow();
-	},
-
-	destroyed: function () {
-		if ( this.observer ) {
-			this.observer.disconnect();
-		}
 	}
 };
 </script>
