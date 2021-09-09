@@ -334,7 +334,8 @@ module.exports = {
 
 		/**
 		 * Restore the ActiveItemIndex to be equal to the selectedItemIndex
-		 * This is usually needed to make sure that when the dropdowns is open it activate the selected Item
+		 * This is usually needed to make sure that when the dropdowns is open
+		 * it activate the selected Item
 		 */
 		restoreActiveItemIndex: function () {
 			this.activeItemIndex = this.selectedItemIndex;
