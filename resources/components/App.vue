@@ -79,6 +79,7 @@
  */
 var AUTOLOAD_COUNT = 2,
 	MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
+	STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY,
 	mapState = require( 'vuex' ).mapState,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapMutations = require( 'vuex' ).mapMutations,
@@ -123,14 +124,16 @@ module.exports = {
 	},
 
 	computed: $.extend( {}, mapState( [
-		'term',
+		'continue',
+		'filterValues',
 		'hasError',
-		'results',
 		'pending',
-		'filterValues'
+		'results',
+		'term',
+		'totalHits'
 	] ), mapGetters( [
-		'checkForMore',
-		'allActiveFilters'
+		'allActiveFilters',
+		'checkForMore'
 	] ), {
 		/**
 		 * @return {string[]} [  'image', 'video', 'audio', 'page', 'other'  ]
@@ -170,17 +173,22 @@ module.exports = {
 	} ),
 
 	methods: $.extend( {}, mapMutations( [
+		'addFilterValue',
+		'clearDidYouMean',
+		'clearStoredPageState',
+		'resetFilters',
 		'resetFilters',
 		'resetResults',
-		'clearDidYouMean',
-		'setTerm',
+		'restoreContinue',
+		'restoreTotalHits',
 		'setHasError',
 		'setPending',
-		'resetFilters',
-		'addFilterValue'
+		'setTerm',
+		'stashPageState',
+		'restorePageState'
 	] ), mapActions( [
-		'search',
-		'clear'
+		'clear',
+		'search'
 	] ), {
 		/**
 		 * Keep UI state, URL, and history in sync as the user changes tabs
@@ -447,6 +455,54 @@ module.exports = {
 
 			// Delete any sort params that may have been added from a prior tab
 			delete url.query.sort;
+		},
+
+		/**
+		 * Determine of the UI state should be restored the previous session;
+		 * Some modern browsers can do this automatically so we should only
+		 * handle this ourselves if necessary.
+		 */
+		restorePageStateIfNecessary: function () {
+			var isBackNavigating = false,
+				hasStashedData = false,
+				perf = window.performance,
+				navigationEntry;
+
+			if ( perf && perf.getEntriesByType ) {
+				navigationEntry = perf.getEntriesByType( 'navigation' )[ 0 ];
+			}
+
+			// Determine whether the user arrived via back navigation using the
+			// new window.performance API if supported, falling back to the
+			// deprecated API if not
+			isBackNavigating = navigationEntry ?
+				( navigationEntry.type === 'back_forward' ) :
+				( perf.navigation.type === 2 );
+
+			// Determine if we have stashed data in localstorage from a previous session
+			hasStashedData = !!mw.storage.get( STORAGE_KEY );
+
+			if ( isBackNavigating && hasStashedData ) {
+				this.restorePageState();
+			}
+
+			// Clear any previously stashed data; at this point we
+			// have either already used it or did not need it
+			this.clearStoredPageState();
+		},
+
+		/**
+		 * If necessary, stash page state into localstorage to restore in the
+		 * case of back navigation later
+		 *
+		 * @param {Event} event
+		 */
+		onPageHide: function ( event ) {
+			if ( event.persisted ) {
+				this.clearStoredPageState();
+			} else {
+				this.stashPageState();
+			}
 		}
 	} ),
 
@@ -504,16 +560,11 @@ module.exports = {
 	},
 
 	created: function () {
-		// Set up a listener for popState events in case the user navigates
-		// through their history stack. Previous search queries should be
-		// re-created when this happens, and URL params and UI state should
-		// remain in sync
-
-		// First, create a bound handler function and reference it for later removal
+		// Set up bound handler for history navigation events
 		this.boundOnPopState = this.onPopState.bind( this );
-
-		// Set up the event listener
+		this.boundOnPageHide = this.onPageHide.bind( this );
 		window.addEventListener( 'popstate', this.boundOnPopState );
+		window.addEventListener( 'pagehide', this.boundOnPageHide );
 
 		// Set the initial autoload count for all tabs for semi-infinite scroll
 		// behavior
@@ -532,6 +583,11 @@ module.exports = {
 			} );
 			/* eslint-enable camelcase */
 		}
+	},
+
+	mounted: function () {
+		// Restore the user's previous session from localstorage if necessary
+		this.restorePageStateIfNecessary();
 	},
 
 	beforeDestroy: function () {
