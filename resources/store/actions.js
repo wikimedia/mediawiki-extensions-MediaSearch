@@ -4,6 +4,7 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
 	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
 	LIMIT = 40,
 	activeSearchRequest = null,
+	uri = new mw.Uri(),
 	searchOptions = require( '../data/searchOptions.json' );
 
 /**
@@ -184,6 +185,17 @@ module.exports = {
 			params.iiurlwidth = urlWidth;
 			params.wbetterms = 'label';
 		}
+
+		// if there are query params prefixed with mediasearch_, then also
+		// pass them on to the API search request - this allows requesting
+		// a specific search profile and carry it forward in JS navigation
+		Object.keys( uri.query )
+			.filter( function ( param ) {
+				return param.match( /^mediasearch_/ );
+			} )
+			.forEach( function ( param ) {
+				params[ param ] = uri.query[ param ];
+			} );
 
 		// Add sort filter.
 		if ( 'sort' in filterValues &&
