@@ -48,7 +48,7 @@
 				<!-- Auto-load more results when user scrolls to the end of the list/grid,
 				as long as the "autoload counter" for the tab has not reached zero -->
 				<observer
-					v-if="autoloadCounter[ tab ] > 0 && supportsObserver"
+					v-if="autoloadCounter[ tab ] > 0"
 					@intersect="getMoreResultsForTabIfAvailable( tab )"
 				>
 				</observer>
@@ -160,15 +160,6 @@ module.exports = {
 			);
 
 			return names;
-		},
-
-		supportsObserver: function () {
-			return (
-				'IntersectionObserver' in window &&
-				'IntersectionObserverEntry' in window &&
-				// eslint-disable-next-line compat/compat
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype
-			);
 		}
 	} ),
 

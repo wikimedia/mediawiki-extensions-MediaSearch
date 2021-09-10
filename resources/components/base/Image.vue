@@ -1,6 +1,6 @@
 <template>
 	<img
-		:src="supportsObserver ? false : source"
+		:src="observerSupported ? false : source"
 		:data-src="source"
 		:alt="alt"
 		class="sd-image"
@@ -10,9 +10,12 @@
 </template>
 
 <script>
+var observer = require( './mixins/observer.js' );
+
 // @vue/component
 module.exports = {
 	name: 'SdImage',
+	mixins: [ observer ],
 	props: {
 		source: {
 			type: String,
@@ -37,22 +40,18 @@ module.exports = {
 
 	data: function () {
 		return {
-			isIntersecting: false,
-			debounceTimeoutId: null
+			debounceTimeoutId: null,
+			observerOptions: {
+				// Set the detection area to extend past the bottom of the
+				// viewport by 50% (a figure that comes from MobileFrontEnd) so
+				// images will load before they enter the viewport.
+				rootMargin: '0px 0px 50% 0px',
+				threshold: 0
+			}
 		};
 	},
 
 	computed: {
-		/**
-		 * @return {boolean}
-		 */
-		supportsObserver: function () {
-			return (
-				'IntersectionObserver' in window &&
-				'IntersectionObserverEntry' in window &&
-				'intersectionRatio' in window.IntersectionObserverEntry.prototype
-			);
-		},
 
 		/**
 		 * If we have image dimensions, add a style attribute to constrain the
@@ -76,64 +75,30 @@ module.exports = {
 		}
 	},
 
-	/**
-	 * Use an intersection observer to determine when the image has entered the
-	 * viewport, then add the src attribute.
-	 */
-	mounted: function () {
-		function loadImageIfIntersecting() {
-			if ( this.isIntersecting ) {
+	methods: {
+		loadImageIfIntersecting: function () {
+			if ( this.observerIntersecting ) {
 				// set the "src" attribute so the image loads
 				this.$el.src = this.$el.dataset.src;
-
-				// remove the element from the observer's watch list so it
-				// doesn't keep getting called
-				this.observer.unobserve( this.$el );
+				this.disconnectObserver();
 			}
-		}
-
-		/**
-		 * Callback function which is given to the Observer object; this is
-		 * what gets executed when the element enters the viewport
-		 *
-		 * @param {Array} entries array of elements watched by the observer
-		 */
-		function intersectionCallback( entries ) {
-			var entry = entries[ 0 ];
-
-			this.isIntersecting = entry && entry.isIntersecting;
-
-			// debounce to avoid loading images that are rapidly scrolled
-			// out of screen anyway
-			clearTimeout( this.debounceTimeoutId );
-			this.debounceTimeoutId = setTimeout(
-				loadImageIfIntersecting.bind( this ),
-				250
-			);
-		}
-
-		if ( this.supportsObserver ) {
-			this.observer = new IntersectionObserver(
-				intersectionCallback.bind( this ),
-				{
-					// Set the detection area to extend past the bottom of the
-					// viewport by 50% (a figure that comes from MobileFrontEnd) so
-					// images will load before they enter the viewport.
-					rootMargin: '0px 0px 50% 0px',
-					threshold: 0
-				}
-			);
-
-			this.observer.observe( this.$el );
 		}
 	},
 
-	/**
-	 * Disconnect the observer when the component is destroyed
-	 */
-	destroyed: function () {
-		if ( this.supportsObserver ) {
-			this.observer.disconnect();
+	watch: {
+		observerIntersecting: {
+			handler: function ( intersecting ) {
+				if ( intersecting ) {
+					// debounce to avoid loading images that are rapidly scrolled
+					// out of screen anyway
+					clearTimeout( this.debounceTimeoutId );
+					this.debounceTimeoutId = setTimeout(
+						this.loadImageIfIntersecting.bind( this ),
+						250
+					);
+				}
+			},
+			immediate: true
 		}
 	}
 };

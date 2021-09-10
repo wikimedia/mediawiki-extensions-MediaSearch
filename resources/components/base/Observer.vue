@@ -16,52 +16,19 @@
  * as needed. Add this component to the end of a list for an "infinite scroll"
  * effect.
  */
+var observer = require( './mixins/observer.js' );
+
 module.exports = {
 	name: 'SdObserver',
-
+	mixins: [ observer ],
 	props: {
+		// IntersectObserver Options object used to overrride the Observer mixins options
 		options: Object
 	},
-
 	data: function () {
 		return {
-			observer: null
+			observerOptions: this.options
 		};
-	},
-
-	/**
-	 * Create an intersection observer when the Observer component mounts
-	 */
-	mounted: function () {
-		var options = this.options || {};
-
-		function intersectionCallback( entries ) {
-			// An array of entries will be passed to the callback,
-			// but we only care about the first element
-			var entry = entries[ 0 ];
-
-			if ( entry && entry.isIntersecting ) {
-				this.$emit( 'intersect' );
-			}
-
-			if ( entry && !entry.isIntersecting ) {
-				this.$emit( 'hide' );
-			}
-		}
-
-		this.observer = new IntersectionObserver(
-			intersectionCallback.bind( this ), // what to do when intersection occurs
-			options // additional options can be provided as props to this component
-		);
-
-		this.observer.observe( this.$el );
-	},
-
-	/**
-	 * Disconnect the observer when the component is destroyed
-	 */
-	destroyed: function () {
-		this.observer.disconnect();
 	}
 };
 </script>
