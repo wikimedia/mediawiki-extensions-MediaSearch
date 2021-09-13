@@ -48,6 +48,9 @@ mw = {
 	},
 	language: {
 		convertNumber: jest.fn()
+	},
+	storage: {
+		get: jest.fn()
 	}
 };
 /*
