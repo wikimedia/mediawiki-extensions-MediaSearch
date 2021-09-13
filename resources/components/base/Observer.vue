@@ -6,15 +6,17 @@
 /**
  * Observer.vue
  *
- * This component is a simple wrapper for an Intersection Observer object
+ * This component is a simple wrapper for the observer reusable mixins that offers
+ * Intersection Observer feature
  * (https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API),
  * which provides a simple way to determine when an element intersects with the
  * viewport (or a specific subsection of the viewport).
  *
  * By itself this component should have no visual or behavioral impact on the
- * UI. It simply emits an "intersect" event which can be handled by the parent
- * as needed. Add this component to the end of a list for an "infinite scroll"
- * effect.
+ * UI. It uses a reusable Mixins (observer), that emits three diffrent message:
+ * - intersect: Triggered when the element is intersecting
+ * - hide: Triggered when the element is not intersecting anymore
+ * - change: Triggered everytime there is a change in the intersecting
  */
 var observer = require( './mixins/observer.js' );
 
