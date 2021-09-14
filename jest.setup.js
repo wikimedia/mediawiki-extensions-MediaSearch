@@ -20,7 +20,8 @@ Title.newFromText = jest.fn().mockReturnValue( {
 	title: '',
 	getMainText: jest.fn().mockReturnValue( 'mock' ),
 	getName: jest.fn().mockReturnValue( 'mock' ),
-	getExtension: jest.fn().mockReturnValue( 'mock' )
+	getExtension: jest.fn().mockReturnValue( 'mock' ),
+	getNamespaceId: jest.fn().mockReturnValue( 0 )
 } );
 
 mw = {

@@ -109,7 +109,7 @@ module.exports = {
 		 * @return {string|null}
 		 */
 		namespacePrefix: function () {
-			var title = new mw.Title( this.title );
+			var title = mw.Title.newFromText( this.title );
 
 			if ( !title ) {
 				return null;
