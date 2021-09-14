@@ -135,7 +135,11 @@ module.exports = {
 		 * That said, let's standardize on 24-hour time since that's what users
 		 * are used to (and it's cleaner than having to add AM/PM).
 		 *
-		 * @return {string}
+		 * This method must guard against invalid dates as well as legacy
+		 * browsers that don't support the UTC timezone; in either of these
+		 * cases, no value will be returned.
+		 *
+		 * @return {string|null}
 		 */
 		lastEdited: function () {
 			var date = new Date( this.timestamp ),
@@ -143,23 +147,29 @@ module.exports = {
 				dateString;
 
 			if ( date instanceof Date ) {
-				timeString = date.toLocaleString( userLanguage, {
-					timeZone: 'UTC',
-					hour: 'numeric',
-					minute: 'numeric',
-					hour12: false
-				} );
-				dateString = date.toLocaleString( userLanguage, {
-					timeZone: 'UTC',
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric'
-				} );
-
+				// Some browsers may not support UTC timezone.
+				// If not, simply display nothing.
+				try {
+					timeString = date.toLocaleString( userLanguage, {
+						timeZone: 'UTC',
+						hour: 'numeric',
+						minute: 'numeric',
+						hour12: false
+					} );
+					dateString = date.toLocaleString( userLanguage, {
+						timeZone: 'UTC',
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric'
+					} );
+				} catch ( e ) {
+					return null;
+				}
 				return timeString + ', ' + dateString;
+			} else {
+				return null;
 			}
 
-			return '';
 		}
 	}
 };
