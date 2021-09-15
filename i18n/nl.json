@@ -71,6 +71,7 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|woord|woorden}})",
 	"mediasearch-image-size": "($1)",
 	"mediasearch-did-you-mean": "Bedoelde u: <a href=\"$2\">$1</a>",
+	"mediasearch-error-message": "Ongeldige zoekopdracht",
 	"mediasearch-error-text": "Voer hierboven een nieuwe zoekopdracht in en probeer het opnieuw",
 	"mediasearch-specialsearch-default": "Toon zoekresultaten in de Special:Search-interface",
 	"mediasearch-specialsearch-default-help": "Selecteer om zoekresultaten te tonen vanuit de hoofdzoekbalk in de oudere Special:Search interface in plaats van Special:MediaSearch",
