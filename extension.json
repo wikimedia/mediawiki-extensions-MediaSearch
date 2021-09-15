@@ -148,6 +148,7 @@
 				"resources/store/getters.js",
 				"resources/store/actions.js",
 				"resources/mixins/autocompleteLookupHandler.js",
+				"resources/mixins/restoreHistoryHandler.js",
 				"resources/mixins/searchResult.js",
 				"resources/mixins/searchResultTimeBased.js",
 				"resources/plugins/eventLogger.js",
