@@ -3,12 +3,12 @@ var Vue = require( 'vue' ),
 
 module.exports = {
 
-	setTerm: function ( state, newTerm ) {
-		state.term = newTerm;
+	setSearchTerm: function ( state, newTerm ) {
+		state.uriQuery.search = newTerm;
 	},
 
 	clearTerm: function ( state ) {
-		state.term = '';
+		state.uriQuery.search = '';
 	},
 
 	/**
@@ -219,5 +219,54 @@ module.exports = {
 	 */
 	clearStoredPageState: function () {
 		mw.storage.remove( STORAGE_KEY );
+	},
+	/**
+	 * Delete all filter query params from the uriQuery object but leave any
+	 * other filters such as debug mode, feature flags, etc. intact.
+	 *
+	 * @param {Object} state
+	 */
+	clearFilterQueryParams: function ( state ) {
+		Object.keys( state.filterValues ).forEach( function ( type ) {
+			Object.keys( state.filterValues[ type ] ).forEach( function ( filter ) {
+				Vue.delete( state.uriQuery, filter );
+			} );
+		} );
+	},
+	/**
+	 * Update all the filters with the provided object.
+	 *
+	 * @param {Object} state
+	 * @param {Object} currentFilterValues
+	 */
+	updateFilterQueryParams: function ( state, currentFilterValues ) {
+		Object.keys( currentFilterValues ).forEach( function ( filter ) {
+			Vue.set( state.uriQuery, filter, currentFilterValues[ filter ] );
+		} );
+	},
+
+	/**
+	 * Update the current type in the URI query. This will drive the active
+	 * selected Tabs and all related to it.
+	 *
+	 * @param {Object} state
+	 * @param {Object} newType
+	 */
+	setCurrentType: function ( state, newType ) {
+		Vue.set( state.uriQuery, 'type', newType );
+	},
+	/**
+	 * Update or delete a specific key within mw.url.query.
+	 * The item will be deleted if the value is falsy
+	 *
+	 * @param {Object} state
+	 * @param {Object} payload - Key / Value
+	 */
+	updateOrDeleteQueryParam: function ( state, payload ) {
+		if ( payload.value ) {
+			state.uriQuery[ payload.key ] = payload.value;
+		} else {
+			Vue.delete( state.uriQuery, payload.key );
+		}
 	}
 };
