@@ -7,18 +7,27 @@
 		>
 			<template v-for="( filter, index ) in searchFilters">
 				<div :key="'filter-' + index">
+					<!-- Namespace filter requires special treatment; see below. -->
+					<!-- Sort filter has slightly different behavior from other
+					non-namespace filters because one of the two options
+					(relevance or recency) must always be selected. For other
+					filters, a generic label must be shown whenever their value
+					is un-set. See T285349 for more context. -->
 					<sd-select
 						v-if="filter.type !== 'namespace'"
 						:ref="filter.type"
 						:class="getFilterClasses( filter.type )"
 						:name="filter.type"
 						:items="filter.items"
-						:initial-selected-item-index="0"
+						:label="getFilterDefaultLabel( filter.type )"
+						:initial-selected-item-index="filter.type === 'sort' ? 0 : -1"
 						:prefix="getFilterPrefix( filter.type )"
 						@select="onSelect( $event, filter.type )"
 					>
 					</sd-select>
 
+					<!-- Namespace filter is represented as a button that
+					launches a modal -->
 					<sd-button
 						v-else
 						:key="'filter-namespace-' + index"
@@ -251,7 +260,11 @@ module.exports = {
 		 * @fires filter-change
 		 */
 		onSelect: function ( value, filterType ) {
-			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '';
+			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
+				// eslint-disable-next-line no-restricted-syntax
+				currentFilter = this.searchFilters.find( function ( filter ) {
+					return filter.type === filterType;
+				} );
 
 			// for logging purposes, we only want a simple string value
 			function normalizedValue( v ) {
@@ -279,6 +292,10 @@ module.exports = {
 					mediaType: this.mediaType,
 					filterType: filterType
 				} );
+
+				// Un-set the filter so that the initial label is displayed
+				// when an "empty value" option is selected
+				this.getRef( currentFilter ).reset();
 
 				/* eslint-disable camelcase */
 				this.$log( {
@@ -325,6 +342,25 @@ module.exports = {
 			}
 
 			return '';
+		},
+
+		/**
+		 * @param {string} filterType
+		 * @return {string}
+		 */
+		getFilterDefaultLabel: function ( filterType ) {
+			switch ( filterType ) {
+				case 'filemime':
+					return this.$i18n( 'mediasearch-filter-file-type' );
+				case 'fileres':
+					return this.$i18n( 'mediasearch-filter-size' );
+				case 'assessment':
+					return this.$i18n( 'mediasearch-filter-assessment' );
+				case 'haslicense':
+					return this.$i18n( 'mediasearch-filter-license' );
+				default:
+					return;
+			}
 		},
 
 		/**

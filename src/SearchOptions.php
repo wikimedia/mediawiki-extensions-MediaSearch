@@ -157,7 +157,7 @@ class SearchOptions {
 		if ( $type === static::TYPE_IMAGE ) {
 			return [ 'items' => [
 				[
-					'label' => $this->context->msg( 'mediasearch-filter-size-any' )->parse(),
+					'label' => $this->context->msg( 'mediasearch-filter-size-unset' )->parse(),
 					'value' => ''
 				],
 				[
@@ -196,7 +196,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->parse(),
 						'value' => ''
 					],
 					[
@@ -232,7 +232,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->parse(),
 						'value' => ''
 					],
 					[
@@ -260,7 +260,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->parse(),
 						'value' => ''
 					],
 					[
@@ -280,7 +280,7 @@ class SearchOptions {
 				return [ 'items' => [
 					[
 						// phpcs:ignore Generic.Files.LineLength.TooLong
-						'label' => $this->context->msg( 'mediasearch-filter-file-type-any' )->parse(),
+						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->parse(),
 						'value' => ''
 					],
 					[
@@ -330,7 +330,7 @@ class SearchOptions {
 		if ( $assessmentConfig && ( $type === static::TYPE_IMAGE || $type === self::TYPE_VIDEO ) ) {
 			// Start with the default label
 			$assessmentOptions[] = [
-				'label' => $this->context->msg( 'mediasearch-filter-assessment-menu-label' )->parse(),
+				'label' => $this->context->msg( 'mediasearch-filter-assessment-unset' )->parse(),
 				'value' => ''
 			];
 
