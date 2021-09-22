@@ -99,7 +99,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @inheritDoc
 	 */
 	public function getDescription() {
-		return $this->msg( 'mediasearch-title' )->parse();
+		return $this->msg( 'mediasearch-title' )->text();
 	}
 
 	/**
@@ -160,8 +160,8 @@ class SpecialMediaSearch extends SpecialPage {
 			// like a bad query with illegal characters, an elastic failure, ...
 			// (MWException)
 			$error = [
-				'title' => $this->msg( 'mediasearch-error-message' )->parse(),
-				'text' => $this->msg( 'mediasearch-error-text' )->parse(),
+				'title' => $this->msg( 'mediasearch-error-message' )->text(),
+				'text' => $this->msg( 'mediasearch-error-text' )->text(),
 			];
 		}
 
@@ -195,31 +195,31 @@ class SpecialMediaSearch extends SpecialPage {
 			'tabs' => [
 				[
 					'type' => SearchOptions::TYPE_IMAGE,
-					'label' => $this->msg( 'mediasearch-tab-image' )->parse(),
+					'label' => $this->msg( 'mediasearch-tab-image' )->text(),
 					'isActive' => $type === SearchOptions::TYPE_IMAGE,
 					'isImage' => true,
 				],
 				[
 					'type' => SearchOptions::TYPE_AUDIO,
-					'label' => $this->msg( 'mediasearch-tab-audio' )->parse(),
+					'label' => $this->msg( 'mediasearch-tab-audio' )->text(),
 					'isActive' => $type === SearchOptions::TYPE_AUDIO,
 					'isAudio' => true,
 				],
 				[
 					'type' => SearchOptions::TYPE_VIDEO,
-					'label' => $this->msg( 'mediasearch-tab-video' )->parse(),
+					'label' => $this->msg( 'mediasearch-tab-video' )->text(),
 					'isActive' => $type === SearchOptions::TYPE_VIDEO,
 					'isVideo' => true,
 				],
 				[
 					'type' => SearchOptions::TYPE_OTHER,
-					'label' => $this->msg( 'mediasearch-tab-other' )->parse(),
+					'label' => $this->msg( 'mediasearch-tab-other' )->text(),
 					'isActive' => $type === SearchOptions::TYPE_OTHER,
 					'isOther' => true,
 				],
 				[
 					'type' => SearchOptions::TYPE_PAGE,
-					'label' => $this->msg( 'mediasearch-tab-page' )->parse(),
+					'label' => $this->msg( 'mediasearch-tab-page' )->text(),
 					'isActive' => $type === SearchOptions::TYPE_PAGE,
 					'isPage' => true,
 				],
@@ -236,20 +236,20 @@ class SpecialMediaSearch extends SpecialPage {
 			'activeFilters' => array_values( $activeFilters ),
 			'filtersForDisplay' => array_values( $filtersForDisplay ),
 			'clearFiltersUrl' => $this->getPageTitle()->getLinkURL( array_diff( $querystring, $activeFilters ) ),
-			'clearFiltersText' => $this->msg( 'mediasearch-clear-filters' )->parse(),
+			'clearFiltersText' => $this->msg( 'mediasearch-clear-filters' )->text(),
 			'hasMore' => $continue !== null,
 			'endOfResults' => count( $results ) > 0 && $continue === null,
-			'endOfResultsMessage' => $this->msg( 'mediasearch-end-of-results' )->parse(),
-			'errorTitle' => $this->msg( 'mediasearch-error-message' )->parse(),
-			'errorText' => $this->msg( 'mediasearch-error-text' )->parse(),
-			'searchLabel' => $this->msg( 'mediasearch-input-label' )->parse(),
-			'searchButton' => $this->msg( 'searchbutton' )->parse(),
-			'searchPlaceholder' => $this->msg( 'mediasearch-input-placeholder' )->parse(),
-			'continueMessage' => $this->msg( 'mediasearch-load-more-results' )->parse(),
+			'endOfResultsMessage' => $this->msg( 'mediasearch-end-of-results' )->text(),
+			'errorTitle' => $this->msg( 'mediasearch-error-message' )->text(),
+			'errorText' => $this->msg( 'mediasearch-error-text' )->text(),
+			'searchLabel' => $this->msg( 'mediasearch-input-label' )->text(),
+			'searchButton' => $this->msg( 'searchbutton' )->text(),
+			'searchPlaceholder' => $this->msg( 'mediasearch-input-placeholder' )->text(),
+			'continueMessage' => $this->msg( 'mediasearch-load-more-results' )->text(),
 			'emptyMessage' => $this->msg( 'mediasearch-empty-state', $totalSiteImages )
-				->parse(),
-			'noResultsMessage' => $this->msg( 'mediasearch-no-results' )->parse(),
-			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->parse(),
+				->text(),
+			'noResultsMessage' => $this->msg( 'mediasearch-no-results' )->text(),
+			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->text(),
 			'didYouMean' => $didYouMean,
 			// phpcs:ignore Generic.Files.LineLength.TooLong
 			'didYouMeanMessage' => $this->msg( 'mediasearch-did-you-mean', $didYouMean, $didYouMeanLink )->text(),
@@ -258,7 +258,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'resultsCount' => $this->msg(
 				'mediasearch-results-count',
 				$userLanguage->formatNum( $totalHits )
-			)->parse(),
+			)->text(),
 		];
 
 		$externalEntitySearchBaseUri = $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' );
@@ -820,7 +820,7 @@ class SpecialMediaSearch extends SpecialPage {
 				'categoryInfoText' => $this->msg(
 					'mediasearch-category-info',
 					$categoryInfoParams
-				)->parse()
+				)->text()
 			];
 		}
 
@@ -844,7 +844,7 @@ class SpecialMediaSearch extends SpecialPage {
 			$result['wordcountMessage'] = $this->msg(
 				'mediasearch-wordcount',
 				$userLanguage->formatNum( $result['wordcount'] )
-			)->parse();
+			)->text();
 		}
 
 		// Formatted image size.
@@ -852,7 +852,7 @@ class SpecialMediaSearch extends SpecialPage {
 			$result['imageSizeMessage'] = $this->msg(
 				'mediasearch-image-size',
 				$userLanguage->formatSize( $result['imageinfo'][0]['size'] )
-			)->parse();
+			)->text();
 		}
 
 		if (
