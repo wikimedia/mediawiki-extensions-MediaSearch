@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nieszczarda2"
+		]
+	},
+	"mediasearch-filter-size-unset": "Усе",
+	"mediasearch-filter-file-type-any": "Тып файлу",
+	"mediasearch-filter-file-type-unset": "Усе",
+	"mediasearch-filter-assessment-any-assessment": "Любая ацэнка",
+	"mediasearch-filter-assessment-unset": "Усе",
+	"mediasearch-filter-file-type": "Тып файлу",
+	"mediasearch-filter-assessment": "Ацэнкі супольнасці",
+	"mediasearch-filter-license": "Ліцэнзія",
+	"mediasearch-filter-license-unset": "Усе"
+}

@@ -16,11 +16,12 @@
 	"mediasearch-tab-page": "Categorie e pagine",
 	"mediasearch-tab-other": "Altri media",
 	"mediasearch-filter-size": "Dimensione immagine",
+	"mediasearch-filter-size-unset": "Tutto",
 	"mediasearch-filter-size-any": "Immagini di tutte le dimensioni",
 	"mediasearch-filter-size-small": "Piccolo",
 	"mediasearch-filter-size-medium": "Medio",
 	"mediasearch-filter-size-large": "Grande",
-	"mediasearch-filter-file-type-any": "Tutti i tipi di file",
+	"mediasearch-filter-file-type-any": "Tipo file",
 	"mediasearch-filter-sort-label": "Ordina per:",
 	"mediasearch-filter-license-any": "Tutte le licenze",
 	"mediasearch-filter-license-cc-by": "Usa con attribuzione",
@@ -47,5 +48,7 @@
 	"mediasearch-did-you-mean": "Forse cercavi: $1",
 	"mediasearch-error-message": "Ricerca non valida",
 	"mediasearch-filter-assessment-picture-of-the-day": "Immagine del giorno",
-	"mediasearch-filter-assessment-picture-of-the-year": "Immagine dell'anno"
+	"mediasearch-filter-assessment-picture-of-the-year": "Immagine dell'anno",
+	"mediasearch-filter-file-type": "Tipo file",
+	"mediasearch-filter-license": "Licenza"
 }

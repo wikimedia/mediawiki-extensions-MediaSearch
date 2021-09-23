@@ -8,6 +8,7 @@
 			"Wmr",
 			"Xiplus",
 			"予弦",
+			"列维劳德",
 			"神樂坂秀吉",
 			"蘭斯特"
 		]
@@ -25,7 +26,7 @@
 	"mediasearch-filter-size-small": "小",
 	"mediasearch-filter-size-medium": "中",
 	"mediasearch-filter-size-large": "大",
-	"mediasearch-filter-file-type-any": "所有檔案類型",
+	"mediasearch-filter-file-type-any": "檔案類型",
 	"mediasearch-filter-sort-label": "排序按：",
 	"mediasearch-filter-sort-default": "相關性",
 	"mediasearch-filter-sort-recency": "新近度",

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gwanki"
+		]
+	},
+	"mediasearch-filter-size-unset": "Duka",
+	"mediasearch-filter-file-type-any": "Irin fayil",
+	"mediasearch-filter-file-type-unset": "Duka",
+	"mediasearch-filter-assessment-any-assessment": "Kowanne taimako",
+	"mediasearch-filter-assessment-unset": "Duka",
+	"mediasearch-filter-file-type": "Irin fayil",
+	"mediasearch-filter-assessment": "Ƙimar al'umma",
+	"mediasearch-filter-license": "Lasisi",
+	"mediasearch-filter-license-unset": "Duka"
+}

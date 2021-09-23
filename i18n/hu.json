@@ -16,11 +16,13 @@
 	"mediasearch-tab-page": "Kategóriák és lapok",
 	"mediasearch-tab-other": "Egyéb média",
 	"mediasearch-filter-size": "Média mérete",
+	"mediasearch-filter-size-unset": "Mind",
 	"mediasearch-filter-size-any": "Bármilyen méret",
 	"mediasearch-filter-size-small": "Kicsi",
 	"mediasearch-filter-size-medium": "Közepes",
 	"mediasearch-filter-size-large": "Nagy",
-	"mediasearch-filter-file-type-any": "Minden fájltípus",
+	"mediasearch-filter-file-type-any": "Fájltípus",
+	"mediasearch-filter-file-type-unset": "Mind",
 	"mediasearch-filter-sort-label": "Válogatás szempontja:",
 	"mediasearch-filter-sort-default": "Relevancia",
 	"mediasearch-filter-sort-popularity": "Népszerűség",
@@ -57,5 +59,9 @@
 	"mediasearch-wordcount": "($1 szó)",
 	"mediasearch-did-you-mean": "Erre gondoltál: $1 ?",
 	"mediasearch-error-message": "Érvénytelen keresés",
-	"mediasearch-error-text": "Írj be egy új keresést és próbáld ismét"
+	"mediasearch-error-text": "Írj be egy új keresést és próbáld ismét",
+	"mediasearch-filter-assessment-unset": "Mind",
+	"mediasearch-filter-file-type": "Fájltípus",
+	"mediasearch-filter-license": "Licensz",
+	"mediasearch-filter-license-unset": "Mind"
 }
