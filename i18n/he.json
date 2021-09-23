@@ -63,7 +63,7 @@
 	"mediasearch-clear-filters": "ניקוי מסננים",
 	"mediasearch-results-count": "{{PLURAL:$1|תוצאה אחת|$1 תוצאות}}",
 	"mediasearch-wordcount": "({{PLURAL:$1|מילה אחת|$1 מילים}})",
-	"mediasearch-did-you-mean": "האם התכוונת לכתוב: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "האם התכוונת לכתוב: $1",
 	"mediasearch-error-message": "חיפוש בלתי־תקין",
 	"mediasearch-error-text": "נא להזין חיפוש חדש לעיל ולנסות שוב",
 	"mediasearch-specialsearch-default": "להציג את תוצאות החיפוש בממשק Special:Search",

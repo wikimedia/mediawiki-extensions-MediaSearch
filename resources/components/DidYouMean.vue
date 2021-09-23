@@ -1,8 +1,8 @@
 <template>
 	<!-- eslint-disable vue/no-v-html -->
 	<div v-if="didYouMean"
-		class="sdms-did-you-mean"
-		v-html="didYouMeanMessage">
+		class="sdms-did-you-mean">
+		<a :href="didYouMeanLink">{{ didYouMeanMessage }}</a>
 	</div>
 	<!-- eslint-enable vue/no-v-html -->
 </template>
@@ -45,7 +45,7 @@ module.exports = {
 		 */
 		didYouMeanMessage: function () {
 			return this.$i18n( 'mediasearch-did-you-mean' )
-				.params( [ this.didYouMean, this.didYouMeanLink ] )
+				.params( [ this.didYouMean ] )
 				.text();
 		}
 	} )

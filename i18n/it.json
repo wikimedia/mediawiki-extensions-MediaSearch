@@ -44,7 +44,7 @@
 	"mediasearch-copytextlayout-copy-success": "Copiato negli appunti.",
 	"mediasearch-clear-filters": "Cancella filtri",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|risultato|risultati}}",
-	"mediasearch-did-you-mean": "Forse cercavi: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Forse cercavi: $1",
 	"mediasearch-error-message": "Ricerca non valida",
 	"mediasearch-filter-assessment-picture-of-the-day": "Immagine del giorno",
 	"mediasearch-filter-assessment-picture-of-the-year": "Immagine dell'anno"

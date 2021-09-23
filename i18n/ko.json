@@ -63,7 +63,7 @@
 	"mediasearch-clear-filters": "필터 지우기",
 	"mediasearch-results-count": "$1개 {{PLURAL:$1|결과}}",
 	"mediasearch-wordcount": "($1{{PLURAL:$1|어절}})",
-	"mediasearch-did-you-mean": "이것을 찾으셨나요: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "이것을 찾으셨나요: $1",
 	"mediasearch-error-message": "잘못된 검색",
 	"mediasearch-error-text": "위에 새 검색을 입력하고 다시 시도하십시오",
 	"mediasearch-specialsearch-default": "검색 결과를 특수:검색 인터페이스에 표시",

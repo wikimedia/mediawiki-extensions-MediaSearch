@@ -68,7 +68,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|نتيجة|نتائج}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|كلمة|كلمات}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "هل تعني: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "هل تعني: $1",
 	"mediasearch-error-message": "بحث غير صالح",
 	"mediasearch-error-text": "أدخِل كلمات جديدة في الأعلى وابحث مجدداً",
 	"mediasearch-specialsearch-default": "أظهر نتائج البحث في خاص:واجهة البحث",

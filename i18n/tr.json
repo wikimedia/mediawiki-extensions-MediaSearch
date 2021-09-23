@@ -69,7 +69,7 @@
 	"mediasearch-clear-filters": "Filtreleri temizle",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|sonuç|sonuç}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|kelime|kelime}})",
-	"mediasearch-did-you-mean": "<a href=\"$2\">$1</a> demek mi istediniz",
+	"mediasearch-did-you-mean": "$1 demek mi istediniz",
 	"mediasearch-error-message": "Geçersiz arama",
 	"mediasearch-error-text": "Yukarıya yeni bir arama girin ve tekrar deneyin",
 	"mediasearch-specialsearch-default": "Arama sonuçlarını Special:Search arayüzünde göster",

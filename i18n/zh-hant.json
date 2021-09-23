@@ -66,7 +66,7 @@
 	"mediasearch-clear-filters": "清除篩選",
 	"mediasearch-results-count": "$1個結果",
 	"mediasearch-wordcount": "（$1個字）",
-	"mediasearch-did-you-mean": "您是不是指：<a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "您是不是指：$1",
 	"mediasearch-error-message": "無效搜尋",
 	"mediasearch-error-text": "在上方輸入新搜尋並重試",
 	"mediasearch-specialsearch-default": "顯示在 Special:Search 介面的搜尋結果",

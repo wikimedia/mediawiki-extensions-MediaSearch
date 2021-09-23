@@ -74,7 +74,7 @@
 	"mediasearch-clear-filters": "Очистить фильтры",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|результат|результата|результатов}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|слово|слова|слов}})",
-	"mediasearch-did-you-mean": "Вы имели в виду: <a href=\"$2\">$1</а>",
+	"mediasearch-did-you-mean": "Вы имели в виду: $1",
 	"mediasearch-error-message": "Неверный поисковый запрос",
 	"mediasearch-error-text": "Введите новый запрос выше и повторите попытку",
 	"mediasearch-specialsearch-default": "Показать результаты поиска в обычном интерфейсе (Special:Search)",

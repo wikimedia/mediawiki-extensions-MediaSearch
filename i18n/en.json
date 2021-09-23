@@ -60,7 +60,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|result|results}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|word|words}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Did you mean: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Did you mean: $1",
 	"mediasearch-error-message": "Invalid search",
 	"mediasearch-error-text": "Enter a new search above and try again",
 	"mediasearch-specialsearch-default": "Show search results in the Special:Search interface",

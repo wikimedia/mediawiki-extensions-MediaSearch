@@ -56,7 +56,7 @@
 	"mediasearch-copytextlayout-copy-fail": "クリップボードにコピーできませんでした。",
 	"mediasearch-copytextlayout-copy-success": "クリップボードにコピーされました。",
 	"mediasearch-clear-filters": "フィルターをクリア",
-	"mediasearch-did-you-mean": "もしかして: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "もしかして: $1",
 	"mediasearch-error-message": "不正な検索",
 	"mediasearch-filter-assessment-picture-of-the-day": "今日の一枚",
 	"mediasearch-filter-assessment-picture-of-the-year": "今年の一枚",

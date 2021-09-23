@@ -82,7 +82,7 @@
 	"mediasearch-clear-filters": "清除过滤器",
 	"mediasearch-results-count": "$1个结果",
 	"mediasearch-wordcount": "（$1个字）",
-	"mediasearch-did-you-mean": "你的意思是不是：<a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "你的意思是不是：$1",
 	"mediasearch-error-message": "搜索无效",
 	"mediasearch-error-text": "在上方输入新搜索并重试",
 	"mediasearch-specialsearch-default": "在Special:Search界面中显示搜索结果",

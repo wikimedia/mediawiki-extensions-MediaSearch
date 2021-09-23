@@ -55,7 +55,7 @@
 	"mediasearch-clear-filters": "Szűrők törlése",
 	"mediasearch-results-count": "$1 találat",
 	"mediasearch-wordcount": "($1 szó)",
-	"mediasearch-did-you-mean": "Erre gondoltál: <a href=\"$2\">$1</a> ?",
+	"mediasearch-did-you-mean": "Erre gondoltál: $1 ?",
 	"mediasearch-error-message": "Érvénytelen keresés",
 	"mediasearch-error-text": "Írj be egy új keresést és próbáld ismét"
 }
