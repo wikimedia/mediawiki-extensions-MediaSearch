@@ -5,7 +5,8 @@
 	"scripts": {
 		"test": "grunt test && npm run test:unit",
 		"build-lib": ". ./bin/build.sh",
-		"test:unit": "jest"
+		"test:unit": "jest",
+		"lint:fix": "grunt fix"
 	},
 	"devDependencies": {
 		"@vue/test-utils": "^1.1.3",

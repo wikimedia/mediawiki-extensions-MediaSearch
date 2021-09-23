@@ -31,4 +31,8 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'test', [ 'eslint', 'stylelint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
+	grunt.registerTask( 'fix', function () {
+		grunt.config.set( 'eslint.options.fix', true );
+		grunt.task.run( 'eslint' );
+	} );
 };

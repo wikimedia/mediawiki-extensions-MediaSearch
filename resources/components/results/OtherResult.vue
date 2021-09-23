@@ -28,10 +28,10 @@
 
 				<span
 					v-if="imageSize"
-					class="sdms-other-result__imageSize"
 					v-i18n-html:mediasearch-image-size="[
 						formatSize( imageSize )
-					]">
+					]"
+					class="sdms-other-result__imageSize">
 				</span>
 			</p>
 		</div>

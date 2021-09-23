@@ -50,9 +50,10 @@ function getMediaFilters( mediaType, filterValues ) {
 }
 
 /**
- * @param {string} suggestion
- * @param {string} filters
- * @return {string}
+ * @param {string} suggestion suggested search term pre-pended with active search keywords
+ * @param {string|undefined} filters ex: filetype:bitmap|drawing filemime:png
+ * @param {string|undefined} assessment ex: haswbstatement:P6731=Q63348049
+ * @return {string} string containing *only* the suggested new query, no keywords
  */
 function extractSuggestedTerm( suggestion, filters, assessment ) {
 	var filteredSuggestion = suggestion;

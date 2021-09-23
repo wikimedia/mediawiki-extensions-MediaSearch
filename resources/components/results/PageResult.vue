@@ -20,12 +20,12 @@
 
 		<p
 			v-if="hasCategoryText"
-			class="sdms-page-result__category-info"
 			v-i18n-html:mediasearch-category-info="[
 				formatNumber( categoryinfo.size ),
 				formatNumber( categoryinfo.subcats ),
 				formatNumber( categoryinfo.files )
 			]"
+			class="sdms-page-result__category-info"
 		></p>
 
 		<template v-else>
@@ -36,10 +36,10 @@
 			</p>
 
 			<p v-if="wordcount"
-				class="sdms-page-result__wordcount"
 				v-i18n-html:mediasearch-wordcount="[
 					formatNumber( wordcount )
-				]">
+				]"
+				class="sdms-page-result__wordcount">
 			</p>
 		</template>
 
