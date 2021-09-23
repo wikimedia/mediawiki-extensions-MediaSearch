@@ -66,7 +66,7 @@
 	"mediasearch-clear-filters": "Filter aufheben",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|Ergebnis|Ergebnisse}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|Wort|$1 Wörter}})",
-	"mediasearch-did-you-mean": "Meinst du: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Meinst du: $1",
 	"mediasearch-error-message": "Ungültige Suche",
 	"mediasearch-error-text": "Gib oben eine neue Suche ein und versuche es erneut",
 	"mediasearch-specialsearch-default": "Suchergebnisse in der Special:Search-Oberfläche anzeigen",

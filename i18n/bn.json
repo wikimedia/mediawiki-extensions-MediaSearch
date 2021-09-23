@@ -65,7 +65,7 @@
 	"mediasearch-clear-filters": "ছাঁকনি পরিষ্কার করুন",
 	"mediasearch-results-count": "$1টি {{PLURAL:$1|ফলাফল}}",
 	"mediasearch-wordcount": "($1টি {{PLURAL:$1|শব্দ}})",
-	"mediasearch-did-you-mean": "আপনি কি বোঝাতে চেয়েছেন: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "আপনি কি বোঝাতে চেয়েছেন: $1",
 	"mediasearch-error-message": "অবৈধ অনুসন্ধান",
 	"mediasearch-error-text": "উপরে একটি নতুন অনুসন্ধান লিখুন এবং আবার চেষ্টা করুন",
 	"mediasearch-specialsearch-default": "বিশেষ:অনুসন্ধান ইন্টারফেসে অনুসন্ধানের ফলাফলগুলি দেখান",

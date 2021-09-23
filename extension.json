@@ -243,8 +243,5 @@
 	"MessagesDirs": {
 		"MediaSearch": [ "i18n" ]
 	},
-	"RawHtmlMessages": [
-		"mediasearch-did-you-mean"
-	],
 	"manifest_version": 2
 }

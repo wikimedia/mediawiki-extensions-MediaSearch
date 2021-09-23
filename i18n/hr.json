@@ -60,7 +60,7 @@
 	"mediasearch-clear-filters": "Očisti filtar",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|rezultat|rezultata}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|riječ|riječi}})",
-	"mediasearch-did-you-mean": "Jeste li mislili: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Jeste li mislili: $1",
 	"mediasearch-error-message": "Nevaljala pretraga",
 	"mediasearch-error-text": "Unesite iznad novu pretragu i pokušajte ponovo",
 	"mediasearch-specialsearch-default": "Prikaži rezultate pretrage kao na sučelju Special:Search",

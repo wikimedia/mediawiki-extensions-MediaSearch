@@ -61,7 +61,7 @@
 	"mediasearch-clear-filters": "Nullstill filtre",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|resultat|resultater}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|ord}})",
-	"mediasearch-did-you-mean": "Mente du: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Mente du: $1",
 	"mediasearch-error-message": "Ugyldig søk",
 	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen",
 	"mediasearch-specialsearch-default": "Vis søkeresultater i Special:Search-grensesnittet",

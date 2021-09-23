@@ -46,5 +46,5 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|wuslědk|wuslědkaj|wuslědki|wuslědkow}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|słowo|słowje|słowa|słowow}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Měniš ty: <a href=\"$2\">$1</a>"
+	"mediasearch-did-you-mean": "Měniš ty: $1"
 }

@@ -61,7 +61,7 @@
 	"mediasearch-clear-filters": "Исчисти филтри",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|ставка|ставки}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|збор|збора}})",
-	"mediasearch-did-you-mean": "Дали мислевте на: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Дали мислевте на: $1",
 	"mediasearch-error-message": "Неважечко пребарување",
 	"mediasearch-error-text": "Погоре внесете ново пребарување и обидете се пак",
 	"mediasearch-specialsearch-default": "Прикажувај исход од пребарување во посредникот Special:Search interface",

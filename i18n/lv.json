@@ -30,5 +30,5 @@
 	"mediasearch-quickview-button-text": "Vairāk informācijas",
 	"mediasearch-copytextlayout-copy": "Kopēt",
 	"mediasearch-clear-filters": "Notīrīt filtrus",
-	"mediasearch-did-you-mean": "Vai tu domāji: <a href=\"$2\">$1</a>"
+	"mediasearch-did-you-mean": "Vai tu domāji: $1"
 }

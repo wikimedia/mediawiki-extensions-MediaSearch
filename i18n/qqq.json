@@ -69,7 +69,7 @@
 	"mediasearch-results-count": "Total number of results for a search. Parameters:\n* $1 - Number of results (totalhits)",
 	"mediasearch-wordcount": "Wordcount of a page, wrapped in parentheses. Parameters:\n* $1 - Number of words (wordcount)",
 	"mediasearch-image-size": "{{optional}}\nSize of an image, wrapped in parentheses. Parameters:\n* $1 - Image size",
-	"mediasearch-did-you-mean": "Text prompting the user to search for an alternate search term if they entered a likely typo. Parameters:\n* $1 - Suggested term\n* $2 - Link to search results for suggested term",
+	"mediasearch-did-you-mean": "Text prompting the user to search for an alternate search term if they entered a likely typo. Parameters:\n* $1 - Suggested term",
 	"mediasearch-error-message": "Error message informing the user of an invalid search",
 	"mediasearch-error-text": "Text prompting the user to retry their search query",
 	"mediasearch-specialsearch-default": "Title of preference to use Special:Search as the default search (instead of Special:MediaSearch)",

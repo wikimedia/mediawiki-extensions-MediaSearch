@@ -74,7 +74,7 @@
 	"mediasearch-results-count": "$1 résultat{{PLURAL:$1||s}}",
 	"mediasearch-wordcount": "($1 mot{{PLURAL:$1||s}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Vouliez-vous dire : <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Vouliez-vous dire : $1",
 	"mediasearch-error-message": "Recherche incorrecte",
 	"mediasearch-error-text": "Entrez une nouvelle recherche ci-dessus et essayez à nouveau",
 	"mediasearch-specialsearch-default": "Afficher les résultats de recherche dans l’interface Spécial:Recherche",

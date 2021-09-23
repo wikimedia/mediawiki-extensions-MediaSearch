@@ -70,7 +70,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|resulaat|resultaten}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|woord|woorden}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Bedoelde u: <a href=\"$2\">$1</a>",
+	"mediasearch-did-you-mean": "Bedoelde u: $1",
 	"mediasearch-error-message": "Ongeldige zoekopdracht",
 	"mediasearch-error-text": "Voer hierboven een nieuwe zoekopdracht in en probeer het opnieuw",
 	"mediasearch-specialsearch-default": "Toon zoekresultaten in de Special:Search-interface",
