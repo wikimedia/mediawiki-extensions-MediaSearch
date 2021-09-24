@@ -7,6 +7,7 @@
 			"Amire80",
 			"Din-nani1",
 			"Dnshitobu",
+			"Jahinfo",
 			"Masssly",
 			"Musahfm",
 			"Sir Amugi",
@@ -14,6 +15,8 @@
 		]
 	},
 	"mediasearch-tab-other": "Media sheli dabam",
+	"mediasearch-filter-size-unset": "Zaa",
+	"mediasearch-filter-file-type-unset": "Zaa",
 	"mediasearch-filter-namespace-all": "Zaa",
 	"mediasearch-filter-namespace-discussion": "Zambu",
 	"mediasearch-filter-namespace-help": "Zaa sɔŋsim",
@@ -25,5 +28,9 @@
 	"mediasearch-user-notice-body": "A ni tooi mali ŋɔ  niŋ",
 	"mediasearch-user-notice-dismiss": "Yimi lahibaliŋɔ yalani",
 	"mediasearch-switch-special-search": "!!FUZZY!!Labimi zaɣ'gahindili palo: Vihi ma",
-	"mediasearch-error-message": "Vihigu shɛli diŋ kani"
+	"mediasearch-error-message": "Vihigu shɛli diŋ kani",
+	"mediasearch-filter-assessment-any-assessment": "Dahimbu sheli",
+	"mediasearch-filter-assessment-unset": "Zaa",
+	"mediasearch-filter-assessment": "Tiŋni dahimbu",
+	"mediasearch-filter-license-unset": "Zaa"
 }
