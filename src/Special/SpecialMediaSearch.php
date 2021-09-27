@@ -11,6 +11,7 @@ use Exception;
 use FauxRequest;
 use InvalidArgumentException;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsManager;
 use MWException;
@@ -66,12 +67,18 @@ class SpecialMediaSearch extends SpecialPage {
 	private $searchEngine;
 
 	/**
+	 * @var LinkRenderer
+	 */
+	private $linkRenderer;
+
+	/**
 	 * @inheritDoc
 	 */
 	public function __construct(
 		SearchEngineFactory $searchEngineFactory,
 		NamespaceInfo $namespaceInfo,
 		UserOptionsManager $userOptionsManager,
+		LinkRenderer $linkRenderer,
 		$name = 'MediaSearch',
 		ApiBase $api = null,
 		TemplateParser $templateParser = null,
@@ -93,6 +100,8 @@ class SpecialMediaSearch extends SpecialPage {
 		$this->searchEngine = $searchEngineFactory->create();
 
 		$this->searchOptions = SearchOptions::getInstanceFromContext( $this->getContext() );
+
+		$this->linkRenderer = $linkRenderer;
 	}
 
 	/**
@@ -252,7 +261,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->text(),
 			'didYouMean' => $didYouMean,
 			// phpcs:ignore Generic.Files.LineLength.TooLong
-			'didYouMeanMessage' => $this->msg( 'mediasearch-did-you-mean', $didYouMean, $didYouMeanLink )->text(),
+			'didYouMeanMessage' => $didYouMean ? $this->msg( 'mediasearch-did-you-mean' )->rawParams( $didYouMeanLink )->parse() : null,
 			'totalHits' => $totalHits,
 			'showResultsCount' => $totalHits > 0,
 			'resultsCount' => $this->msg(
@@ -783,12 +792,12 @@ class SpecialMediaSearch extends SpecialPage {
 	 *
 	 * @param array $queryParams
 	 * @param string $suggestion
-	 * @return string
+	 * @return string HTML
 	 */
 	protected function generateDidYouMeanLink( $queryParams, $suggestion ) {
 		unset( $queryParams[ 'title' ] );
 		$queryParams[ 'search' ] = $suggestion;
-		return $this->getPageTitle()->getLinkURL( $queryParams );
+		return $this->linkRenderer->makeLink( $this->getPageTitle(), $suggestion, [], $queryParams );
 	}
 
 	/**
