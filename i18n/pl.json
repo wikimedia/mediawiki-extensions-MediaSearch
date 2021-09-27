@@ -5,6 +5,7 @@
 			"Kareyac",
 			"Matma Rex",
 			"Mkazberuk",
+			"Mruczek",
 			"Rail",
 			"Railfail536",
 			"Woytecr"
@@ -23,7 +24,7 @@
 	"mediasearch-filter-size-small": "Małe",
 	"mediasearch-filter-size-medium": "Średnie",
 	"mediasearch-filter-size-large": "Duże",
-	"mediasearch-filter-file-type-any": "Wszystkie typy plików",
+	"mediasearch-filter-file-type-any": "Typ pliku",
 	"mediasearch-filter-sort-label": "Sortuj według:",
 	"mediasearch-filter-sort-default": "Trafności",
 	"mediasearch-filter-sort-recency": "Nowości",

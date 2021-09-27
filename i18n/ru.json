@@ -32,7 +32,7 @@
 	"mediasearch-filter-size-small": "Маленький",
 	"mediasearch-filter-size-medium": "Средний",
 	"mediasearch-filter-size-large": "Большой",
-	"mediasearch-filter-file-type-any": "Все типы файлов",
+	"mediasearch-filter-file-type-any": "Типы файлов",
 	"mediasearch-filter-sort-label": "Сортировать по:",
 	"mediasearch-filter-sort-default": "Релевантность",
 	"mediasearch-filter-sort-recency": "Новизна",

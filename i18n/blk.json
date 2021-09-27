@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Khun Kt"
+		]
+	},
+	"mediasearch-filter-size-unset": "ကားကအဝ်ႏ",
+	"mediasearch-filter-file-type-any": "ဖုဲင်အစွိုးအမျိုꩻ",
+	"mediasearch-filter-file-type-unset": "ကားကအဝ်ႏ",
+	"mediasearch-filter-assessment-unset": "ကားကအဝ်ႏ",
+	"mediasearch-filter-file-type": "ဖုဲင်အစွိုးအမျိုꩻ",
+	"mediasearch-filter-license": "လုဲင်သိဥ်",
+	"mediasearch-filter-license-unset": "ကားကအဝ်ႏ"
+}

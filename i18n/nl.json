@@ -28,7 +28,7 @@
 	"mediasearch-filter-size-small": "Klein",
 	"mediasearch-filter-size-medium": "Gemiddeld",
 	"mediasearch-filter-size-large": "Groot",
-	"mediasearch-filter-file-type-any": "Alle bestandstypes",
+	"mediasearch-filter-file-type-any": "Bestandstype",
 	"mediasearch-filter-sort-label": "Sorteren op:",
 	"mediasearch-filter-sort-default": "Relevantie",
 	"mediasearch-filter-sort-recency": "Recentheid",

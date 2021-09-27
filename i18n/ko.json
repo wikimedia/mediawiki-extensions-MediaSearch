@@ -17,11 +17,13 @@
 	"mediasearch-tab-page": "분류 및 페이지",
 	"mediasearch-tab-other": "기타 미디어",
 	"mediasearch-filter-size": "이미지 크기",
+	"mediasearch-filter-size-unset": "모두",
 	"mediasearch-filter-size-any": "모든 이미지 크기",
 	"mediasearch-filter-size-small": "작음",
 	"mediasearch-filter-size-medium": "중간",
 	"mediasearch-filter-size-large": "큼",
-	"mediasearch-filter-file-type-any": "모든 파일 유형",
+	"mediasearch-filter-file-type-any": "파일 유형",
+	"mediasearch-filter-file-type-unset": "모두",
 	"mediasearch-filter-sort-label": "정렬 기준:",
 	"mediasearch-filter-sort-default": "관련성",
 	"mediasearch-filter-sort-recency": "최신",
@@ -73,5 +75,9 @@
 	"mediasearch-filter-assessment-featured-image": "알찬 사진",
 	"mediasearch-filter-assessment-valued-image": "가치있는 그림",
 	"mediasearch-filter-assessment-quality-image": "품질이 좋은 이미지",
-	"mediasearch-filter-assessment-menu-label": "공동체 측정"
+	"mediasearch-filter-assessment-menu-label": "공동체 측정",
+	"mediasearch-filter-assessment-unset": "모두",
+	"mediasearch-filter-file-type": "파일 유형",
+	"mediasearch-filter-license": "라이선스",
+	"mediasearch-filter-license-unset": "모두"
 }

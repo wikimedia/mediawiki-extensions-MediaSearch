@@ -20,13 +20,13 @@
 	"mediasearch-tab-page": "Label text for tab with categories and pages search results",
 	"mediasearch-tab-other": "Label text for tab with other file results",
 	"mediasearch-filter-size": "Label text for dropdown to filter image search results by size",
-	"mediasearch-filter-size-unset": "Label text for option to unset size filter",
+	"mediasearch-filter-size-unset": "Label text for option to unset size filter\n{{identical|All}}",
 	"mediasearch-filter-size-any": "Label text for option to filter media search results by any size",
 	"mediasearch-filter-size-small": "Label text for option to filter media search results by small sizes",
 	"mediasearch-filter-size-medium": "Label text for option to filter media search results by medium sizes",
 	"mediasearch-filter-size-large": "Label text for option to filter media search results by large sizes",
 	"mediasearch-filter-file-type-any": "Label text for option to filter media search results by any file type",
-	"mediasearch-filter-file-type-unset": "Label text for option to unset file type filter",
+	"mediasearch-filter-file-type-unset": "Label text for option to unset file type filter\n{{identical|All}}",
 	"mediasearch-filter-sort-label": "Label that precedes sort option values",
 	"mediasearch-filter-sort-default": "Label for default sort option (relevance)\n{{identical|Relevance}}",
 	"mediasearch-filter-sort-recency": "Label for recency sort option",
@@ -81,9 +81,9 @@
 	"mediasearch-filter-assessment-valued-image": "Refers to the commons image assessment - Valued image",
 	"mediasearch-filter-assessment-quality-image": "Refers to the commons image assessment - Quality image",
 	"mediasearch-filter-assessment-menu-label": "Label for search filter for commons image community assessments",
-	"mediasearch-filter-assessment-unset": "Label for option to un-set the community assessment filter",
+	"mediasearch-filter-assessment-unset": "Label for option to un-set the community assessment filter\n{{identical|All}}",
 	"mediasearch-filter-file-type": "Label for file type search filter",
 	"mediasearch-filter-assessment": "Label for search filter for commons image community assessments",
-	"mediasearch-filter-license": "Label for license type search filter",
-	"mediasearch-filter-license-unset": "Label text for option to unset license filter"
+	"mediasearch-filter-license": "Label for license type search filter\n{{identical|License}}",
+	"mediasearch-filter-license-unset": "Label text for option to unset license filter\n{{identical|All}}"
 }

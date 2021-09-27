@@ -4,6 +4,7 @@
 			"Alno",
 			"Ayack",
 			"Derugon",
+			"DreZhsh",
 			"Eneelk",
 			"Epok",
 			"Florian COLLIN",
@@ -27,11 +28,13 @@
 	"mediasearch-tab-page": "Catégories et pages",
 	"mediasearch-tab-other": "Autre média",
 	"mediasearch-filter-size": "Taille de l’image",
+	"mediasearch-filter-size-unset": "Tous",
 	"mediasearch-filter-size-any": "Toutes les tailles d’image",
 	"mediasearch-filter-size-small": "Petite",
 	"mediasearch-filter-size-medium": "Moyenne",
 	"mediasearch-filter-size-large": "Grande",
-	"mediasearch-filter-file-type-any": "Tous types de fichiers",
+	"mediasearch-filter-file-type-any": "Types de fichiers",
+	"mediasearch-filter-file-type-unset": "Tous",
 	"mediasearch-filter-sort-label": "Trier par :",
 	"mediasearch-filter-sort-default": "Pertinence",
 	"mediasearch-filter-sort-recency": "Date",
@@ -84,5 +87,9 @@
 	"mediasearch-filter-assessment-featured-image": "Image en vedette",
 	"mediasearch-filter-assessment-valued-image": "Image valorisée",
 	"mediasearch-filter-assessment-quality-image": "Image de qualité",
-	"mediasearch-filter-assessment-menu-label": "Évaluations de la communauté"
+	"mediasearch-filter-assessment-menu-label": "Évaluations de la communauté",
+	"mediasearch-filter-assessment-unset": "Tous",
+	"mediasearch-filter-file-type": "Type de fichier",
+	"mediasearch-filter-license": "Licence",
+	"mediasearch-filter-license-unset": "Tous"
 }
