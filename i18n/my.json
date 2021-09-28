@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dr Lotus Black"
+			"Dr Lotus Black",
+			"ခွန်ပညာႏ(တောင်ႏကီꩻ)"
 		]
 	},
+	"mediasearch-filter-size-unset": "လို့လို့စင်စင် / ကားကအောဝ်ႏ",
 	"mediasearch-filter-license-any": "လိုင်စင်အားလုံး",
-	"mediasearch-filter-license-other": "အခြား"
+	"mediasearch-filter-license-other": "အခြား",
+	"mediasearch-filter-license-unset": "လို့လို့စင်စင် / ကားကအောဝ်ႏ"
 }
