@@ -183,6 +183,7 @@ module.exports = {
 			results: state.results,
 			continue: state.continue,
 			totalHits: state.totalHits,
+			filterValues: state.filterValues,
 			details: state.details,
 			scrollY: window.scrollY
 		};
@@ -197,7 +198,7 @@ module.exports = {
 	 */
 	restorePageState: function ( state ) {
 		var stash = mw.storage.getObject( STORAGE_KEY ),
-			props = [ 'results', 'continue', 'totalHits', 'details' ];
+			props = [ 'results', 'continue', 'totalHits', 'details', 'filterValues' ];
 
 		// Restore previously stored state for results, continue, totalHits, and
 		// details (all of which are further divided by media type)
