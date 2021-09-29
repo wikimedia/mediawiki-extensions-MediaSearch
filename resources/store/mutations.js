@@ -1,4 +1,5 @@
-var Vue = require( 'vue' ),
+var AUTOLOAD_COUNT = 2,
+	Vue = require( 'vue' ),
 	STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY;
 
 module.exports = {
@@ -96,10 +97,21 @@ module.exports = {
 		state.totalHits[ payload.mediaType ] = payload.totalHits;
 	},
 
+	/**
+	 * @param {Object} state
+	 * @param {Object} payload
+	 * @param {string} payload.mediaType
+	 * @param {Object} payload.details
+	 */
 	setDetails: function ( state, payload ) {
 		state.details[ payload.mediaType ] = payload.details;
 	},
 
+	/**
+	 * @param {Object} state
+	 * @param {Object} payload
+	 * @param {string} payload.mediaType
+	 */
 	clearDetails: function ( state, payload ) {
 		state.details[ payload.mediaType ] = null;
 	},
@@ -260,13 +272,48 @@ module.exports = {
 	 * The item will be deleted if the value is falsy
 	 *
 	 * @param {Object} state
-	 * @param {Object} payload - Key / Value
+	 * @param {Object} payload
+	 * @param {string} payload.key
+	 * @param {string} payload.value
 	 */
 	updateOrDeleteQueryParam: function ( state, payload ) {
 		if ( payload.value ) {
 			Vue.set( state.uriQuery, payload.key, payload.value );
 		} else {
 			Vue.delete( state.uriQuery, payload.key );
+		}
+	},
+	/**
+	 * Reset the object containing the number of autoload for each MediaType
+	 * to the static value of AUTOLOAD_COUNT
+	 *
+	 * @param {Object} state
+	 */
+	resetAutoLoadForAllMediaType: function ( state ) {
+		Object.keys( state.autoloadCounter ).forEach( function ( mediaType ) {
+			Vue.set( state.autoloadCounter, mediaType, AUTOLOAD_COUNT );
+		} );
+	},
+	/**
+	 * Reset the number of autoload for a specific MediaType
+	 * to the static value of AUTOLOAD_COUNT
+	 *
+	 * @param {Object} state
+	 * @param {string} mediaType
+	 */
+	resetAutoLoadForMediaType: function ( state, mediaType ) {
+		Vue.set( state.autoloadCounter, mediaType, AUTOLOAD_COUNT );
+	},
+	/**
+	 * Decrease the number of autoload for a specific MediaType by 1
+	 *
+	 * @param {Object} state
+	 * @param {string} mediaType
+	 */
+	decreaseAutoloadCounterForMediaType: function ( state, mediaType ) {
+		var currentValue = state.autoloadCounter[ mediaType ];
+		if ( currentValue >= 1 ) {
+			Vue.set( state.autoloadCounter, mediaType, currentValue - 1 );
 		}
 	}
 };

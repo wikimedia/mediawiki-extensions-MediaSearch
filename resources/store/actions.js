@@ -68,226 +68,300 @@ function extractSuggestedTerm( suggestion, filters, assessment ) {
 
 	return filteredSuggestion;
 }
+/**
+ * Perform a search via API request. Should return a promise.
+ * There are a few different ways that searches should behave.
+ * This search will use the current term and type
+ *
+ * - If a totally new search term has been provided, blow away existing
+ *   results for all tabs but only fetch new results for whatever tab is
+ *   currently active
+ * - If the user switches to a tab where results have not yet been loaded
+ *   but the search term is still good, fetch results for the active tab
+ *   and add them, but leave other results alone
+ * - Certain actions like scrolling will load more results within a given
+ *   queue if they are available. In this case the term and the media-type
+ *   will not change, but the "continue" state will, and new results will
+ *   be added to the current tab only
+ *
+ * @param {Object} context
+ * @param {boolean} forceSearch
+ * @return {jQuery.Deferred}
+ */
+function searchCurrentTermAndType( context ) {
+	// Don't make API requests if the search term is empty or is in error
+	if ( context.getters.currentSearchTerm === '' ) {
+		return;
+	}
 
-module.exports = {
-	/**
-	 * Perform a search via API request. Should return a promise.
-	 * There are a few different ways that searches should behave.
-	 *
-	 * - If a totally new search term has been provided, blow away existing
-	 *   results for all tabs but only fetch new results for whatever tab is
-	 *   currently active
-	 * - If the user switches to a tab where results have not yet been loaded
-	 *   but the search term is still good, fetch results for the active tab
-	 *   and add them, but leave other results alone
-	 * - Certain actions like scrolling will load more results within a given
-	 *   queue if they are available. In this case the term and the media-type
-	 *   will not change, but the "continue" state will, and new results will
-	 *   be added to the current tab only
-	 *
-	 * @param {Object} context
-	 * @param {Object} options
-	 * @param {string} options.type image / page / audio / video / other
-	 * @param {string} options.term search term
-	 * @return {jQuery.Deferred}
-	 */
-	search: function ( context, options ) {
-		// common request params for all requests
-		var params = {
-				format: 'json',
-				uselang: mw.config.get( 'wgUserLanguage' ),
-				action: 'query',
-				generator: 'search',
-				gsrsearch: options.term,
-				gsrlimit: LIMIT,
-				gsroffset: context.state.continue[ options.type ] || 0,
-				gsrinfo: 'totalhits|suggestion',
-				gsrprop: 'size|wordcount|timestamp|snippet',
-				prop: options.type === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
-				inprop: 'url'
-			},
-			namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
-			namespaceFilter,
-			namespaces,
-			filters,
-			urlWidth,
-			request,
-			statement,
-			filterValues = context.state.filterValues[ options.type ] || {};
+	// common request params for all requests
+	var params = {
+			format: 'json',
+			uselang: mw.config.get( 'wgUserLanguage' ),
+			action: 'query',
+			generator: 'search',
+			gsrsearch: context.getters.currentSearchTerm,
+			gsrlimit: LIMIT,
+			gsroffset: context.state.continue[ context.getters.currentType ] || 0,
+			gsrinfo: 'totalhits|suggestion',
+			gsrprop: 'size|wordcount|timestamp|snippet',
+			prop: context.getters.currentType === 'page' ? 'info|categoryinfo' : 'info|imageinfo|entityterms',
+			inprop: 'url'
+		},
+		namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
+		namespaceFilter,
+		namespaces,
+		filters,
+		urlWidth,
+		request,
+		statement,
+		filterValues = context.state.filterValues[ context.getters.currentType ] || {};
 
-		// If a search request is already in-flight, abort it
-		if ( activeSearchRequest && activeSearchRequest.abort ) {
-			activeSearchRequest.abort();
+	// If a search request is already in-flight, abort it
+	if ( activeSearchRequest && activeSearchRequest.abort ) {
+		activeSearchRequest.abort();
+	}
+
+	if ( context.state.continue[ context.getters.currentType ] === null ) {
+		// prevent API requests when they're already known not to have results
+		// (because there was no continuation offset)
+		activeSearchRequest = $.Deferred().resolve().promise( { abort: function () {} } );
+		return activeSearchRequest;
+	}
+
+	if ( context.getters.currentType === 'page' ) {
+		// Page/category-specific params.
+		namespaceFilter = filterValues.namespace;
+
+		// Default to all namespaces.
+		namespaces = Object.keys( namespaceGroups.all ).join( '|' );
+
+		if ( namespaceFilter ) {
+			// If the namespace filter value is one of the pre-defined
+			// namespace groups, get the list of values from the namespace
+			// group data. Otherwise, we're getting a custom list of
+			// namespaces - use that.
+			namespaces = namespaceFilter in namespaceGroups ?
+				Object.keys( namespaceGroups[ namespaceFilter ] ).join( '|' ) :
+				namespaceFilter;
 		}
+		params.gsrnamespace = namespaces;
+	} else {
+		// Params used in all non-page/category searches.
+		// 1. Special handling for assessment filter
+		if ( filterValues.assessment ) {
+			var assessmentValue = filterValues.assessment;
+			var assessmentStatements = searchOptions[ context.getters.currentType ].assessment.data.statementData;
 
-		if ( context.state.continue[ options.type ] === null ) {
-			// prevent API requests when they're already known not to have results
-			// (because there was no continuation offset)
-			activeSearchRequest = $.Deferred().resolve().promise( { abort: function () {} } );
-			return activeSearchRequest;
-		}
-
-		if ( options.type === 'page' ) {
-			// Page/category-specific params.
-			namespaceFilter = filterValues.namespace;
-
-			// Default to all namespaces.
-			namespaces = Object.keys( namespaceGroups.all ).join( '|' );
-
-			if ( namespaceFilter ) {
-				// If the namespace filter value is one of the pre-defined
-				// namespace groups, get the list of values from the namespace
-				// group data. Otherwise, we're getting a custom list of
-				// namespaces - use that.
-				namespaces = namespaceFilter in namespaceGroups ?
-					Object.keys( namespaceGroups[ namespaceFilter ] ).join( '|' ) :
-					namespaceFilter;
-			}
-			params.gsrnamespace = namespaces;
-		} else {
-			// Params used in all non-page/category searches.
-			// 1. Special handling for assessment filter
-			if ( filterValues.assessment ) {
-				var assessmentValue = filterValues.assessment;
-				var assessmentStatements = searchOptions[ options.type ].assessment.data.statementData;
-
-				// eslint-disable-next-line no-restricted-syntax
-				var assessment = assessmentStatements.find( function ( i ) {
-					return i.value === assessmentValue;
-				} );
-
-				if ( assessment ) {
-					statement = assessment.statement;
-					params.gsrsearch = statement + ' ' + params.gsrsearch;
-				}
-			}
-			// 2. Handle remaining filters
-			filters = getMediaFilters( options.type, filterValues );
-			if ( filters ) {
-				params.gsrsearch = filters + ' ' + params.gsrsearch;
-			}
-			switch ( options.type ) {
-				case 'video':
-					urlWidth = 200;
-					break;
-
-				case 'other':
-					// generating thumbnails from many of these file types is very
-					// expensive and slow, enough so that we're better off using a
-					// larger (takes longer to transfer) pre-generated (but readily
-					// available) size
-					urlWidth = Math.min.apply( Math, mw.config.get( 'sdmsThumbRenderMap' ) );
-					break;
-			}
-
-			params.gsrnamespace = 6; // NS_FILE
-			params.iiprop = 'url|size|mime';
-			params.iiurlheight = options.type === 'image' ? 180 : undefined;
-			params.iiurlwidth = urlWidth;
-			params.wbetterms = 'label';
-		}
-
-		// if there are query params prefixed with mediasearch_, then also
-		// pass them on to the API search request - this allows requesting
-		// a specific search profile and carry it forward in JS navigation
-		Object.keys( context.state.uriQuery )
-			.filter( function ( param ) {
-				return param.match( /^mediasearch_/ );
-			} )
-			.forEach( function ( param ) {
-				params[ param ] = context.state.uriQuery[ param ];
+			// eslint-disable-next-line no-restricted-syntax
+			var assessment = assessmentStatements.find( function ( i ) {
+				return i.value === assessmentValue;
 			} );
 
-		// Add sort filter.
-		if ( 'sort' in filterValues &&
-			filterValues.sort === 'recency' ) {
-			params.gsrsort = 'create_timestamp_desc';
+			if ( assessment ) {
+				statement = assessment.statement;
+				params.gsrsearch = statement + ' ' + params.gsrsearch;
+			}
+		}
+		// 2. Handle remaining filters
+		filters = getMediaFilters( context.getters.currentType, filterValues );
+		if ( filters ) {
+			params.gsrsearch = filters + ' ' + params.gsrsearch;
+		}
+		switch ( context.getters.currentType ) {
+			case 'video':
+				urlWidth = 200;
+				break;
+
+			case 'other':
+				// generating thumbnails from many of these file types is very
+				// expensive and slow, enough so that we're better off using a
+				// larger (takes longer to transfer) pre-generated (but readily
+				// available) size
+				urlWidth = Math.min.apply( Math, mw.config.get( 'sdmsThumbRenderMap' ) );
+				break;
 		}
 
-		// Reset current error state
-		context.commit( 'setHasError', false );
+		params.gsrnamespace = 6; // NS_FILE
+		params.iiprop = 'url|size|mime';
+		params.iiurlheight = context.getters.currentType === 'image' ? 180 : undefined;
+		params.iiurlwidth = urlWidth;
+		params.wbetterms = 'label';
+	}
 
-		// Set the pending state for the given queue
-		context.commit( 'setPending', {
-			type: options.type,
-			pending: true
+	// if there are query params prefixed with mediasearch_, then also
+	// pass them on to the API search request - this allows requesting
+	// a specific search profile and carry it forward in JS navigation
+	Object.keys( context.state.uriQuery )
+		.filter( function ( param ) {
+			return param.match( /^mediasearch_/ );
+		} )
+		.forEach( function ( param ) {
+			params[ param ] = context.state.uriQuery[ param ];
 		} );
 
-		request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
+	// Add sort filter.
+	if ( 'sort' in filterValues &&
+		filterValues.sort === 'recency' ) {
+		params.gsrsort = 'create_timestamp_desc';
+	}
 
-		request.promise( {
-			abort: function () {
-				request.abort();
-			}
-		} );
+	// Reset current error state
+	context.commit( 'setHasError', false );
 
-		activeSearchRequest = request;
+	// Set the pending state for the given queue
+	context.commit( 'setPending', {
+		type: context.getters.currentType,
+		pending: true
+	} );
 
-		return request.then( function ( response ) {
-			var existingPageIds = context.state.results[ options.type ].map( function ( result ) {
-					return result.pageid;
-				} ),
-				results, pageIDs, sortedResults;
+	request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
 
-			if ( response.query && response.query.pages ) {
-				results = response.query.pages;
-				pageIDs = Object.keys( results );
+	request.promise( {
+		abort: function () {
+			request.abort();
+		}
+	} );
 
-				// Sort the results within each batch prior to committing them
-				// to the store. Also, ensure that there is no duplication of
-				// results between batches (see https://phabricator.wikimedia.org/T272923);
-				// if a new result's pageId already exists in the set of
-				// previously-loaded results, filter it out.
-				sortedResults = pageIDs
-					.map( function ( id ) { return results[ id ]; } )
-					.filter( function ( result ) { return existingPageIds.indexOf( result.pageid ) < 0; } )
-					.sort( function ( a, b ) { return a.index - b.index; } );
+	activeSearchRequest = request;
 
-				sortedResults.forEach( function ( result ) {
-					context.commit( 'addResult', { type: options.type, item: result } );
+	return request.then( function ( response ) {
+		var existingPageIds = context.state.results[ context.getters.currentType ].map( function ( result ) {
+				return result.pageid;
+			} ),
+			results, pageIDs, sortedResults;
+
+		if ( response.query && response.query.pages ) {
+			results = response.query.pages;
+			pageIDs = Object.keys( results );
+
+			// Sort the results within each batch prior to committing them
+			// to the store. Also, ensure that there is no duplication of
+			// results between batches (see https://phabricator.wikimedia.org/T272923);
+			// if a new result's pageId already exists in the set of
+			// previously-loaded results, filter it out.
+			sortedResults = pageIDs
+				.map( function ( id ) { return results[ id ]; } )
+				.filter( function ( result ) { return existingPageIds.indexOf( result.pageid ) < 0; } )
+				.sort( function ( a, b ) { return a.index - b.index; } );
+
+			sortedResults.forEach( function ( result ) {
+				context.commit( 'addResult', { type: context.getters.currentType, item: result } );
+			} );
+
+			if ( response.query.searchinfo && response.query.searchinfo.totalhits ) {
+				context.commit( 'setTotalHits', {
+					mediaType: context.getters.currentType,
+					totalHits: response.query.searchinfo.totalhits
 				} );
+			}
+		}
 
-				if ( response.query.searchinfo && response.query.searchinfo.totalhits ) {
-					context.commit( 'setTotalHits', {
-						mediaType: options.type,
-						totalHits: response.query.searchinfo.totalhits
-					} );
+		if ( response.query && response.query.searchinfo && response.query.searchinfo.suggestion ) {
+			context.commit( 'setDidYouMean',
+				extractSuggestedTerm( response.query.searchinfo.suggestion, filters, statement )
+			);
+		}
+
+		// Set whether or not the query can be continued
+		if ( response.continue && response.continue.gsroffset ) {
+			// Store the "continue" property of the request so we can pick up where we left off
+			context.commit( 'setContinue', { type: context.getters.currentType, continue: response.continue.gsroffset } );
+		} else {
+			context.commit( 'setContinue', { type: context.getters.currentType, continue: null } );
+		}
+	} ).done( function () {
+		// Set pending back to false when request is complete
+		activeSearchRequest = null;
+		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
+	} ).catch( function ( errorCode, details ) {
+		// Set pending to false and clear the stashed request
+		activeSearchRequest = null;
+		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
+
+		// No other error handling is required if the request has been
+		// aborted by the client
+		if ( details && details.textStatus === 'abort' ) {
+			return;
+		}
+
+		// In the case of a real failure, throw the error back to the App
+		// component to display a suitable message to the user
+		context.commit( 'setHasError', true );
+		throw details;
+	} );
+}
+
+module.exports = {
+
+	/**
+	 * Force a new search overriding any current pending request and
+	 * resetting current autoloadcounter for the searched term
+	 *
+	 * @param {Object} context
+	 * @return {jQuery.Deferred}
+	 */
+	performNewSearch: function ( context ) {
+		return searchCurrentTermAndType( context ).then( function () {
+			/* eslint-disable camelcase, no-underscore-dangle */
+			this._vm.$log( {
+				action: 'search_new',
+				search_query: this.getters.currentSearchTerm,
+				search_media_type: this.getters.currentType,
+				search_result_count: this.state.results[ this.getters.currentType ].length
+			} );
+			/* eslint-enable camelcase, no-underscore-dangle */
+		}.bind( this ) );
+	},
+	/**
+	 * Continue to search the current term and type. This will just trigger a search
+	 * if there are more values available and if the autoloadcounter is not 0.
+	 *
+	 * @param {Object} context
+	 * @param {boolean} resetCounter
+	 * @return {jQuery.Deferred}
+	 */
+	searchMore: function ( context, resetCounter ) {
+
+		if ( resetCounter ) {
+			context.commit( 'resetAutoLoadForMediaType', context.getters.currentType );
+		}
+
+		if (
+			context.getters.allResultsEmpty ||
+			!context.getters.checkForMore[ context.getters.currentType ] ||
+			context.state.autoloadCounter[ context.getters.currentType ] === 0 ||
+			context.state.hasError ) {
+			return;
+		}
+
+		if ( !context.state.pending[ context.getters.currentType ] ) {
+			// If more results are available, and if another request is not
+			// already pending, then launch a search request
+			return searchCurrentTermAndType( context ).then( function ( decreaseAutoload ) {
+
+				if ( !decreaseAutoload ) {
+					this.commit( 'decreaseAutoloadCounterForMediaType', this.getters.currentType );
 				}
-			}
+				/* eslint-disable camelcase, no-underscore-dangle */
+				this._vm.$log( {
+					action: 'search_load_more',
+					search_query: this.getters.currentSearchTerm,
+					search_media_type: this.getters.currentType,
+					search_result_count: this.state.results[ this.getters.currentType ].length
+				} );
+				/* eslint-enable camelcase, no-underscore-dangle */
+			}.bind( this, resetCounter ) );
 
-			if ( response.query && response.query.searchinfo && response.query.searchinfo.suggestion ) {
-				context.commit( 'setDidYouMean',
-					extractSuggestedTerm( response.query.searchinfo.suggestion, filters, statement )
-				);
-			}
-
-			// Set whether or not the query can be continued
-			if ( response.continue && response.continue.gsroffset ) {
-				// Store the "continue" property of the request so we can pick up where we left off
-				context.commit( 'setContinue', { type: options.type, continue: response.continue.gsroffset } );
-			} else {
-				context.commit( 'setContinue', { type: options.type, continue: null } );
-			}
-		} ).done( function () {
-			// Set pending back to false when request is complete
-			activeSearchRequest = null;
-			context.commit( 'setPending', { type: options.type, pending: false } );
-		} ).catch( function ( errorCode, details ) {
-			// Set pending to false and clear the stashed request
-			activeSearchRequest = null;
-			context.commit( 'setPending', { type: options.type, pending: false } );
-
-			// No other error handling is required if the request has been
-			// aborted by the client
-			if ( details && details.textStatus === 'abort' ) {
-				return;
-			}
-
-			// In the case of a real failure, throw the error back to the App
-			// component to display a suitable message to the user
-			context.commit( 'setHasError', true );
-			throw details;
-		} );
+		} else {
+			// If more results are available but another request is
+			// currently in-flight, attempt to make the request again
+			// after some time has passed
+			window.setTimeout(
+				context.dispatch.bind( this, 'searchMore' ),
+				2000
+			);
+		}
 	},
 
 	/**
@@ -361,13 +435,22 @@ module.exports = {
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.pushState( mwUri.query, null, queryString );
 	},
-
+	/**
+	 * Replace the current value of url.query to the browser's session history stack
+	 *
+	 * @param {Object} context
+	 */
 	replaceQueryToHistoryState: function ( context ) {
 		mwUri.query = context.state.uriQuery;
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.replaceState( mwUri.query, null, queryString );
 	},
-
+	/**
+	 * Update the current Type value and reset all filters
+	 *
+	 * @param {Object} context
+	 * @param {string} currentType
+	 */
 	updateCurrentType: function ( context, currentType ) {
 		if ( context.getters.currentType === currentType ) {
 			return;
@@ -376,19 +459,23 @@ module.exports = {
 		context.commit( 'setCurrentType', currentType );
 		context.commit( 'updateFilterQueryParams', context.state.filterValues[ currentType ] );
 	},
-
+	/**
+	 * Clean query paramethers and update the history state
+	 *
+	 * @param {Object} context
+	 */
 	clearQueryParams: function ( context ) {
 		context.commit( 'clearTerm' );
 		context.commit( 'clearFilterQueryParams' );
 		context.dispatch( 'pushQueryToHistoryState' );
 	},
-
+	/**
+	 * Align mw active type with query parameter one. This is to make sure we
+	 * align the UI with the value received from the PHP side
+	 *
+	 * @param {Object} context
+	 */
 	syncActiveTypeAndQueryType: function ( context ) {
-		// activeType is set in PHP and will *always* be present and valid;
-		// However, in the case of bad "type" URL params from the user,
-		// activeType and url.query.type may be out of sync. This is our
-		// opportunity to ensure that gets fixed, before the URL is interpreted
-		// to determine the state of the UI
 		var activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
 
 		if ( context.state.uriQuery.type !== activeType ) {

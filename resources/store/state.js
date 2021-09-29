@@ -1,6 +1,7 @@
 'use strict';
 
-var initialResults = mw.config.get( 'sdmsInitialSearchResults' ),
+var AUTOLOAD_COUNT = 2,
+	initialResults = mw.config.get( 'sdmsInitialSearchResults' ),
 	initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) ),
 	didYouMean = mw.config.get( 'sdmsDidYouMean' ),
 	ensureArray = require( './../ensureArray.js' ),
@@ -90,5 +91,16 @@ module.exports = {
 	/**
 	 * Local instance of the query paramethers avaialable within the URI library
 	 */
-	uriQuery: mwUri.query
+	uriQuery: mwUri.query,
+	/**
+	 * Object with keys corresponding to the number of automatic search request
+	 * left for each individual MediaType
+	 */
+	autoloadCounter: {
+		image: AUTOLOAD_COUNT,
+		audio: AUTOLOAD_COUNT,
+		video: AUTOLOAD_COUNT,
+		page: AUTOLOAD_COUNT,
+		other: AUTOLOAD_COUNT
+	}
 };

@@ -41,15 +41,15 @@
 					<search-results
 						:ref="tab"
 						:media-type="tab"
-						@load-more="resetCountAndLoadMore( tab )">
+						@load-more="resetCountAndLoadMore">
 					</search-results>
 				</div>
 
 				<!-- Auto-load more results when user scrolls to the end of the list/grid,
 				as long as the "autoload counter" for the tab has not reached zero -->
 				<observer
-					v-if="autoloadCounter[ tab ] > 0"
-					@intersect="getMoreResultsForTabIfAvailable( tab )"
+					v-if="autoloadCounter[ tab ] > 0 && results[ tab ].length > 0"
+					@intersect="getMoreResultsForTabIfAvailable"
 				>
 				</observer>
 			</sd-tab>
@@ -77,8 +77,7 @@
  * request and this component passes an array of string lookup results to the
  * AutocompleteSearchInput for display.
  */
-var AUTOLOAD_COUNT = 2,
-	MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
+var MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	mapState = require( 'vuex' ).mapState,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapMutations = require( 'vuex' ).mapMutations,
@@ -114,15 +113,8 @@ module.exports = {
 		restoreHistoryHandler
 	],
 
-	data: function () {
-		return {
-			// Object with keys corresponding to each tab;
-			// values are integers; set in the created() hook
-			autoloadCounter: {}
-		};
-	},
-
 	computed: $.extend( {}, mapState( [
+		'autoloadCounter',
 		'continue',
 		'filterValues',
 		'hasError',
@@ -167,9 +159,11 @@ module.exports = {
 	methods: $.extend( {}, mapMutations( [
 		'addFilterValue',
 		'clearDidYouMean',
+		'decreaseAutoloadCounterForMediaType',
 		'resetResults',
 		'restoreContinue',
 		'restoreTotalHits',
+		'resetAutoLoadForAllMediaType',
 		'setHasError',
 		'setPending',
 		'setSearchTerm',
@@ -177,9 +171,10 @@ module.exports = {
 		'clearFilterQueryParams'
 	] ), mapActions( [
 		'clear',
-		'search',
 		'syncActiveTypeAndQueryType',
 		'pushQueryToHistoryState',
+		'performNewSearch',
+		'searchMore',
 		'updateCurrentType'
 	] ), {
 		/**
@@ -237,75 +232,20 @@ module.exports = {
 			this.setPending( { type: this.currentType, pending: false } );
 			this.setHasError( false );
 
-			this.autoloadCounter = this.setInitialAutoloadCountForTabs();
+			this.resetAutoLoadForAllMediaType();
 
 			this.$log( { action: 'search_clear' } );
 		},
 
 		/**
-		 * @param {string} tab image, audio, etc.
+		 * Trigger an action to search for more result if available and log the action
 		 */
-		getMoreResultsForTabIfAvailable: function ( tab ) {
-			// Don't make API requests if the search term is empty, or
-			// the search is in an error state
-			if ( this.currentSearchTerm === '' || this.hasError ) {
-				return;
-			}
-
-			if ( this.checkForMore[ tab ] && !this.pending[ tab ] ) {
-				// Decrement the autoload count of the appropriate tab
-				this.autoloadCounter[ tab ]--;
-
-				// If more results are available, and if another request is not
-				// already pending, then launch a search request
-				this.search( {
-					term: this.currentSearchTerm,
-					type: this.currentType
-				} ).then( function () {
-					/* eslint-disable camelcase */
-					this.$log( {
-						action: 'search_load_more',
-						search_query: this.currentSearchTerm,
-						search_media_type: this.currentType,
-						search_result_count: this.results[ this.currentType ].length
-					} );
-					/* eslint-enable camelcase */
-				}.bind( this ) );
-
-			} else if ( this.checkForMore[ tab ] && this.pending[ tab ] ) {
-				// If more results are available but another request is
-				// currently in-flight, attempt to make the request again
-				// after some time has passed
-				window.setTimeout(
-					this.getMoreResultsForTabIfAvailable.bind( this, tab ),
-					2000
-				);
-			}
+		getMoreResultsForTabIfAvailable: function () {
+			this.searchMore();
 		},
 
-		resetCountAndLoadMore: function ( tab ) {
-			// Don't make API requests if the search term is empty
-			if ( this.currentSearchTerm === '' ) {
-				return;
-			}
-
-			// Reset the autoload count for the given tab
-			this.autoloadCounter[ tab ] = AUTOLOAD_COUNT;
-
-			// Launch a search request
-			this.search( {
-				term: this.currentSearchTerm,
-				type: this.currentType
-			} ).then( function () {
-				/* eslint-disable camelcase */
-				this.$log( {
-					action: 'search_load_more',
-					search_query: this.currentSearchTerm,
-					search_media_type: this.currentType,
-					search_result_count: this.results[ this.currentType ].length
-				} );
-				/* eslint-enable camelcase */
-			}.bind( this ) );
+		resetCountAndLoadMore: function () {
+			this.searchMore( true );
 		},
 
 		/**
@@ -315,10 +255,10 @@ module.exports = {
 		 *
 		 * @param {string} mediaType If provided, only reset results for this type
 		 */
-		performNewSearch: function ( mediaType ) {
+		onTermOrFilterChange: function ( mediaType ) {
 			this.resetResults( mediaType );
 			this.clearDidYouMean();
-			this.autoloadCounter = this.setInitialAutoloadCountForTabs();
+			this.resetAutoLoadForAllMediaType();
 
 			// Clear any delayed/debounced lookup requests that may still be
 			// pending once a new search is submitted, ex. if the user rapidly
@@ -334,37 +274,7 @@ module.exports = {
 				this.lookupPromises.abort();
 			}
 
-			// Don't make API requests if the search term is empty
-			if ( this.currentSearchTerm === '' ) {
-				return;
-			}
-
-			this.search( {
-				term: this.currentSearchTerm,
-				type: this.currentType
-			} ).then( function () {
-				/* eslint-disable camelcase */
-				this.$log( {
-					action: 'search_new',
-					search_query: this.currentSearchTerm,
-					search_media_type: this.currentType,
-					search_result_count: this.results[ this.currentType ].length
-				} );
-				/* eslint-enable camelcase */
-			}.bind( this ) );
-		},
-
-		/**
-		 * @return {Object} counter object broken down by tab name
-		 */
-		setInitialAutoloadCountForTabs: function () {
-			var count = {};
-
-			this.tabs.forEach( function ( tabName ) {
-				count[ tabName ] = AUTOLOAD_COUNT;
-			} );
-
-			return count;
+			this.performNewSearch();
 		}
 	} ),
 
@@ -378,7 +288,7 @@ module.exports = {
 		 */
 		currentType: function ( newTab, oldTab ) {
 			if ( newTab && newTab !== oldTab ) {
-				this.getMoreResultsForTabIfAvailable( newTab );
+				this.getMoreResultsForTabIfAvailable();
 			}
 		},
 
@@ -391,22 +301,19 @@ module.exports = {
 		 */
 		currentSearchTerm: function ( newTerm, oldTerm ) {
 			if ( newTerm && newTerm !== oldTerm ) {
-				this.performNewSearch();
+				this.onTermOrFilterChange();
 			}
 		},
 
 		allActiveFilters: function ( newVal, oldVal ) {
 			if ( newVal && newVal !== oldVal ) {
-				this.performNewSearch( this.currentType );
+				this.onTermOrFilterChange( this.currentType );
 			}
 		}
 	},
 
 	created: function () {
 		this.syncActiveTypeAndQueryType();
-		// Set the initial autoload count for all tabs for semi-infinite scroll
-		// behavior
-		this.autoloadCounter = this.setInitialAutoloadCountForTabs();
 		// If a search term was already present when the user arrives on the page,
 		// log the results of the initial server-rendered search query regardless
 		// of whether any results were found
