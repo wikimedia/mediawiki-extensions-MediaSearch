@@ -4,15 +4,27 @@
 			"Joetaras"
 		]
 	},
+	"mediasearch-continue": "Prossime",
 	"mediasearch-tab-image": "Immaggine",
 	"mediasearch-tab-audio": "Audio",
 	"mediasearch-tab-video": "Video",
 	"mediasearch-filter-size": "Dimenzione d'u medie",
+	"mediasearch-filter-size-unset": "Tutte",
 	"mediasearch-filter-size-any": "Tutte le dimenziune",
 	"mediasearch-filter-size-small": "Piccenne",
 	"mediasearch-filter-size-medium": "Medie",
 	"mediasearch-filter-size-large": "Granne",
-	"mediasearch-filter-file-type-any": "Tutte le tipe de file",
+	"mediasearch-filter-file-type-any": "Tipe de file",
+	"mediasearch-filter-file-type-unset": "Tutte",
 	"mediasearch-filter-sort-label": "Ordine pe:",
-	"mediasearch-filter-sort-default": "Rilevanze"
+	"mediasearch-filter-sort-default": "Rilevanze",
+	"mediasearch-filter-license-other": "Otre",
+	"mediasearch-filter-namespace-all": "Tutte",
+	"mediasearch-filter-namespace-discussion": "'Ngazzamende",
+	"mediasearch-filter-namespace-custom": "Personalizze",
+	"mediasearch-filter-namespace-label": "Namespace: $1",
+	"mediasearch-filter-namespace-dialog-title": "Scacchiatore de namespace",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Conferme",
+	"mediasearch-clear-title": "Live",
+	"mediasearch-copytextlayout-copy": "Copie"
 }

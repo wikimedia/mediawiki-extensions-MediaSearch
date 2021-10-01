@@ -3,6 +3,7 @@
 		"authors": [
 			"Agent",
 			"Dgstranz",
+			"Fewasser Traduce",
 			"Fitoschido",
 			"Ihojose",
 			"Jackiezelaya",
@@ -80,5 +81,6 @@
 	"mediasearch-filter-assessment-featured-image": "Imagen destacada",
 	"mediasearch-filter-assessment-valued-image": "Imagen valorada",
 	"mediasearch-filter-assessment-quality-image": "Imagen de calidad",
-	"mediasearch-filter-assessment-menu-label": "Evaluaciones de la comunidad"
+	"mediasearch-filter-assessment-menu-label": "Evaluaciones de la comunidad",
+	"mediasearch-filter-license": "Licencia"
 }
