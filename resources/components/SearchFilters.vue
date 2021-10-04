@@ -334,7 +334,7 @@ module.exports = {
 		 * Add select list prefixes per filter type.
 		 *
 		 * @param {string} filterType
-		 * @return {string}
+		 * @return {mw.Message} message object
 		 */
 		getFilterPrefix: function ( filterType ) {
 			if ( filterType === 'sort' ) {
@@ -346,7 +346,7 @@ module.exports = {
 
 		/**
 		 * @param {string} filterType
-		 * @return {string}
+		 * @return {mw.Message} message object
 		 */
 		getFilterDefaultLabel: function ( filterType ) {
 			switch ( filterType ) {
