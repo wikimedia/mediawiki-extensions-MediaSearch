@@ -6,6 +6,7 @@
 			"MITO",
 			"Nike",
 			"Pyscowicz",
+			"Rönttönen",
 			"Stryn",
 			"Susannaanas"
 		]
@@ -22,7 +23,7 @@
 	"mediasearch-filter-size-small": "Pieni",
 	"mediasearch-filter-size-medium": "Keskikokoinen",
 	"mediasearch-filter-size-large": "Suuri",
-	"mediasearch-filter-file-type-any": "Kaikki tiedostotyypit",
+	"mediasearch-filter-file-type-any": "Tiedoston tyyppi",
 	"mediasearch-filter-sort-label": "Lajitteluperuste:",
 	"mediasearch-filter-sort-default": "Merkityksellisyys",
 	"mediasearch-filter-sort-recency": "Viimeisin",
