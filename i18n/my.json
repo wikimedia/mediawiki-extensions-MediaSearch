@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Dr Lotus Black",
+			"Ninjastrikers",
 			"ခွန်ပညာႏ(တောင်ႏကီꩻ)"
 		]
 	},
-	"mediasearch-filter-size-unset": "လို့လို့စင်စင် / ကားကအောဝ်ႏ",
+	"mediasearch-filter-size-unset": "အားလုံး",
 	"mediasearch-filter-file-type-any": "ဖိုင်အမျိုးအစား",
 	"mediasearch-filter-license-any": "လိုင်စင်အားလုံး",
 	"mediasearch-filter-license-other": "အခြား",
 	"mediasearch-filter-license": "လိုင်စင်",
-	"mediasearch-filter-license-unset": "လို့လို့စင်စင် / ကားကအောဝ်ႏ"
+	"mediasearch-filter-license-unset": "အားလုံး"
 }
