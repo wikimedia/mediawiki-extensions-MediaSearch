@@ -6,6 +6,7 @@ use ApiBase;
 use ApiMain;
 use CirrusSearch\Parser\FullTextKeywordRegistry;
 use CirrusSearch\SearchConfig;
+use Config;
 use DerivativeContext;
 use Exception;
 use FauxRequest;
@@ -52,6 +53,11 @@ class SpecialMediaSearch extends SpecialPage {
 	protected $searchConfig;
 
 	/**
+	 * @var Config
+	 */
+	protected $mainConfig;
+
+	/**
 	 * @var SearchOptions
 	 */
 	private $searchOptions;
@@ -82,7 +88,8 @@ class SpecialMediaSearch extends SpecialPage {
 		$name = 'MediaSearch',
 		ApiBase $api = null,
 		TemplateParser $templateParser = null,
-		SearchConfig $searchConfig = null
+		SearchConfig $searchConfig = null,
+		Config $mainConfig = null
 	) {
 		parent::__construct( $name );
 
@@ -94,6 +101,10 @@ class SpecialMediaSearch extends SpecialPage {
 		$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
 			->getConfigFactory()
 			->makeConfig( 'CirrusSearch' );
+
+		$this->mainConfig = $mainConfig ?? MediaWikiServices::getInstance()
+			->getConfigFactory()
+			->makeConfig( 'main' );
 
 		$this->userOptionsManager = $userOptionsManager;
 
@@ -123,7 +134,6 @@ class SpecialMediaSearch extends SpecialPage {
 	 */
 	public function execute( $subPage ) {
 		OutputPage::setupOOUI();
-
 		$userLanguage = $this->getLanguage();
 
 		// url & querystring params of this page
@@ -140,8 +150,61 @@ class SpecialMediaSearch extends SpecialPage {
 			$this->getOutput()->redirect( $redirectUrl );
 			return;
 		}
+		$tabs = [];
 
-		$type = $this->getType( $term, $queryParams );
+		$tabOrder = [
+			SearchOptions::TYPE_IMAGE,
+			SearchOptions::TYPE_AUDIO,
+			SearchOptions::TYPE_VIDEO,
+			SearchOptions::TYPE_OTHER,
+			SearchOptions::TYPE_PAGE
+		];
+		if ( $this->mainConfig->get( 'MediaSearchTabOrder' ) ) {
+			$tabOrder = array_intersect(
+				$this->mainConfig->get( 'MediaSearchTabOrder' ),
+				$tabOrder
+			);
+		}
+
+		$type = $this->getType( $term, $queryParams, $tabOrder );
+
+		$tabDefinitions = [
+			'image' => [
+				'type' => SearchOptions::TYPE_IMAGE,
+				'label' => $this->msg( 'mediasearch-tab-image' )->text(),
+				'isActive' => $type === SearchOptions::TYPE_IMAGE,
+				'isImage' => true,
+			],
+			'audio' => [
+				'type' => SearchOptions::TYPE_AUDIO,
+				'label' => $this->msg( 'mediasearch-tab-audio' )->text(),
+				'isActive' => $type === SearchOptions::TYPE_AUDIO,
+				'isAudio' => true,
+			],
+			'video' => [
+				'type' => SearchOptions::TYPE_VIDEO,
+				'label' => $this->msg( 'mediasearch-tab-video' )->text(),
+				'isActive' => $type === SearchOptions::TYPE_VIDEO,
+				'isVideo' => true,
+			],
+			'other' => [
+				'type' => SearchOptions::TYPE_OTHER,
+				'label' => $this->msg( 'mediasearch-tab-other' )->text(),
+				'isActive' => $type === SearchOptions::TYPE_OTHER,
+				'isOther' => true,
+			],
+			'page' => [
+				'type' => SearchOptions::TYPE_PAGE,
+				'label' => $this->msg( 'mediasearch-tab-page' )->text(),
+				'isActive' => $type === SearchOptions::TYPE_PAGE,
+				'isPage' => true,
+			],
+		];
+
+		foreach ( $tabOrder as $tabPlace ) {
+			array_push( $tabs, $tabDefinitions[ $tabPlace ] );
+		}
+
 		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
 		$error = [];
 		$results = [];
@@ -206,38 +269,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'hasTerm' => (bool)$term,
 			'limit' => $limit,
 			'activeType' => $type,
-			'tabs' => [
-				[
-					'type' => SearchOptions::TYPE_IMAGE,
-					'label' => $this->msg( 'mediasearch-tab-image' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_IMAGE,
-					'isImage' => true,
-				],
-				[
-					'type' => SearchOptions::TYPE_AUDIO,
-					'label' => $this->msg( 'mediasearch-tab-audio' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_AUDIO,
-					'isAudio' => true,
-				],
-				[
-					'type' => SearchOptions::TYPE_VIDEO,
-					'label' => $this->msg( 'mediasearch-tab-video' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_VIDEO,
-					'isVideo' => true,
-				],
-				[
-					'type' => SearchOptions::TYPE_OTHER,
-					'label' => $this->msg( 'mediasearch-tab-other' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_OTHER,
-					'isOther' => true,
-				],
-				[
-					'type' => SearchOptions::TYPE_PAGE,
-					'label' => $this->msg( 'mediasearch-tab-page' )->text(),
-					'isActive' => $type === SearchOptions::TYPE_PAGE,
-					'isPage' => true,
-				],
-			],
+			'tabs' => $tabs,
 			'error' => $error,
 			'results' => array_map(
 				function ( $result ) use ( $results, $type ) {
@@ -381,9 +413,10 @@ class SpecialMediaSearch extends SpecialPage {
 	 *
 	 * @param string $term
 	 * @param array $queryParams
+	 * @param array $tabOrderConfig
 	 * @return string
 	 */
-	private function getType( string $term, array $queryParams ): string {
+	private function getType( string $term, array $queryParams, array $tabOrderConfig ): string {
 		$title = Title::newFromText( $term );
 		if ( $title !== null && !in_array( $title->getNamespace(), [ NS_FILE, NS_MAIN ] ) ) {
 			return SearchOptions::TYPE_PAGE;
@@ -393,8 +426,8 @@ class SpecialMediaSearch extends SpecialPage {
 			// If type is specified AND matches one of the supported types, use it
 			return $queryParams['type'];
 		} else {
-			// Otherwise, default to the Image tab
-			return SearchOptions::TYPE_IMAGE;
+			// Otherwise, default to the first prescribed tab
+			return $tabOrderConfig[0];
 		}
 	}
 

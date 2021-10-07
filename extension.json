@@ -49,6 +49,10 @@
 				"potd": "mediasearch-filter-assessment-picture-of-the-day",
 				"poty": "mediasearch-filter-assessment-picture-of-the-year"
 			}
+		},
+		"MediaSearchTabOrder": {
+			"description": "Optional array of values defining search type tab order. Array elements can have values: image, audio, video, page, other",
+			"value": []
 		}
 	},
 	"Hooks": {
