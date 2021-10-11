@@ -51,10 +51,7 @@ mw = {
 		convertNumber: jest.fn()
 	},
 	storage: {
-		get: jest.fn(),
-		setObject: jest.fn(),
-		getObject: jest.fn(),
-		remove: jest.fn()
+		get: jest.fn()
 	}
 };
 /*

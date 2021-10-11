@@ -4,7 +4,7 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
 	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
 	LIMIT = 40,
 	activeSearchRequest = null,
-	mwUri = new mw.Uri(),
+	uri = new mw.Uri(),
 	searchOptions = require( '../data/searchOptions.json' );
 
 /**
@@ -190,12 +190,12 @@ module.exports = {
 		// if there are query params prefixed with mediasearch_, then also
 		// pass them on to the API search request - this allows requesting
 		// a specific search profile and carry it forward in JS navigation
-		Object.keys( context.state.uriQuery )
+		Object.keys( uri.query )
 			.filter( function ( param ) {
 				return param.match( /^mediasearch_/ );
 			} )
 			.forEach( function ( param ) {
-				params[ param ] = context.state.uriQuery[ param ];
+				params[ param ] = uri.query[ param ];
 			} );
 
 		// Add sort filter.
@@ -335,12 +335,10 @@ module.exports = {
 			activeSearchRequest = null;
 		}
 
-		context.commit( 'clearFilterQueryParams' );
 		context.commit( 'clearTerm' );
 		context.commit( 'resetFilters' );
 		context.commit( 'resetResults' );
 		context.commit( 'clearDidYouMean' );
-		context.dispatch( 'pushQueryToHistoryState' );
 	},
 
 	/**
@@ -348,51 +346,5 @@ module.exports = {
 	 */
 	ready: function ( context ) {
 		context.commit( 'setInitialized' );
-	},
-
-	/**
-	 * Push the current value of url.query to the browser's session history stack
-	 *
-	 * @param {Object} context
-	 */
-	pushQueryToHistoryState: function ( context ) {
-		// update mw URI query object with the one currently available within the store
-		mwUri.query = context.state.uriQuery;
-		var queryString = '?' + mwUri.getQueryString();
-		window.history.pushState( mwUri.query, null, queryString );
-	},
-
-	replaceQueryToHistoryState: function ( context ) {
-		mwUri.query = context.state.uriQuery;
-		var queryString = '?' + mwUri.getQueryString();
-		window.history.replaceState( mwUri.query, null, queryString );
-	},
-
-	updateCurrentType: function ( context, currentType ) {
-		if ( context.getters.currentType === currentType ) {
-			return;
-		}
-		context.commit( 'clearFilterQueryParams' );
-		context.commit( 'setCurrentType', currentType );
-		context.commit( 'updateFilterQueryParams', context.state.filterValues[ currentType ] );
-	},
-
-	clearQueryParams: function ( context ) {
-		context.commit( 'clearTerm' );
-		context.commit( 'clearFilterQueryParams' );
-		context.dispatch( 'pushQueryToHistoryState' );
-	},
-
-	syncActiveTypeAndQueryType: function ( context ) {
-		// activeType is set in PHP and will *always* be present and valid;
-		// However, in the case of bad "type" URL params from the user,
-		// activeType and url.query.type may be out of sync. This is our
-		// opportunity to ensure that gets fixed, before the URL is interpreted
-		// to determine the state of the UI
-		var activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
-
-		if ( context.state.uriQuery.type !== activeType ) {
-			context.commit( 'setCurrentType', activeType );
-		}
 	}
 };

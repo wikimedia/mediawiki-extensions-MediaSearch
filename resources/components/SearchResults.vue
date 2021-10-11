@@ -172,10 +172,10 @@ module.exports = {
 		'hasError',
 		'initialized',
 		'pending',
-		'results'
+		'results',
+		'term'
 	] ), mapGetters( [
-		'allActiveDetails',
-		'currentSearchTerm'
+		'allActiveDetails'
 	] ), {
 		/**
 		 * Which component should be used to display individual search results
@@ -233,7 +233,7 @@ module.exports = {
 		 * @return {boolean}
 		 */
 		hasNoResults: function () {
-			return this.currentSearchTerm.length > 0 && // user has entered a search term
+			return this.term.length > 0 && // user has entered a search term
 				this.results[ this.mediaType ].length === 0 && // tab has no results
 				this.continue[ this.mediaType ] === null; // query cannot be continued
 		},
@@ -242,7 +242,7 @@ module.exports = {
 		 * @return {boolean}
 		 */
 		endOfResults: function () {
-			return this.currentSearchTerm.length > 0 && // user has entered a search term
+			return this.term.length > 0 && // user has entered a search term
 				this.results[ this.mediaType ].length > 0 && // tab has some results
 				this.continue[ this.mediaType ] === null; // query cannot be continued
 		},
@@ -254,7 +254,7 @@ module.exports = {
 		 * @return {boolean}
 		 */
 		shouldShowEmptyState: function () {
-			return this.currentSearchTerm.length === 0 &&
+			return this.term.length === 0 &&
 				this.results[ this.mediaType ] &&
 				this.results[ this.mediaType ].length === 0;
 		}
@@ -520,7 +520,7 @@ module.exports = {
 
 	watch: {
 		// if search term changes, immediately discard any expanded detail view
-		currentSearchTerm: function ( /* newTerm */ ) {
+		term: function ( /* newTerm */ ) {
 			this.showQuickView = false;
 			this.clearDetails( { mediaType: this.mediaType } );
 		},

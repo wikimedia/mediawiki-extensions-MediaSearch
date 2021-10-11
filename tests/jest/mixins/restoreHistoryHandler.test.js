@@ -7,12 +7,10 @@ describe( 'RestoreHistoryHandler', () => {
 	let mixinsInstance;
 	beforeEach( () => {
 		mixinsInstance = RestoreHistoryHandler;
-		mixinsInstance.methods.replaceQueryToHistoryState = jest.fn();
 	} );
 
 	afterEach( () => {
 		Performance.restorePerformance();
-		mixinsInstance.methods.replaceQueryToHistoryState = null;
 	} );
 
 	describe( 'on normal navigation', () => {
@@ -180,8 +178,7 @@ describe( 'RestoreHistoryHandler', () => {
 			mixinsInstance.methods.clearLookupResults = jest.fn();
 			mixinsInstance.methods.resetFilters = jest.fn();
 			mixinsInstance.methods.clearFilterQueryParams = jest.fn();
-			mixinsInstance.methods.setSearchTerm = jest.fn();
-			mixinsInstance.methods.updateCurrentType = jest.fn();
+			mixinsInstance.methods.setTerm = jest.fn();
 		} );
 
 		it( 'it does not restore data when state is not passed as argument', () => {
@@ -195,10 +192,10 @@ describe( 'RestoreHistoryHandler', () => {
 			const wrapper = VueTestUtils.shallowMount( Component );
 			wrapper.vm.onPopState( event );
 
-			expect( mixinsInstance.methods.setSearchTerm ).not.toHaveBeenCalled();
+			expect( mixinsInstance.methods.setTerm ).not.toHaveBeenCalled();
 		} );
 
-		it( 'it setSearchTerm using the event search paramether', () => {
+		it( 'it setTerm using the event search paramether', () => {
 			const event = {
 				state: {
 					search: 'dummy',
@@ -214,11 +211,11 @@ describe( 'RestoreHistoryHandler', () => {
 			const wrapper = VueTestUtils.shallowMount( Component );
 			wrapper.vm.onPopState( event );
 
-			expect( mixinsInstance.methods.setSearchTerm ).toHaveBeenCalled();
-			expect( mixinsInstance.methods.setSearchTerm ).toHaveBeenCalledWith( event.state.search );
+			expect( mixinsInstance.methods.setTerm ).toHaveBeenCalled();
+			expect( mixinsInstance.methods.setTerm ).toHaveBeenCalledWith( event.state.search );
 		} );
 
-		it( 'it set currentType using the event type paramether', () => {
+		it( 'it set currentTab using the event type paramether', () => {
 			const event = {
 				state: {
 					search: 'dummy',
@@ -234,8 +231,7 @@ describe( 'RestoreHistoryHandler', () => {
 			const wrapper = VueTestUtils.shallowMount( Component );
 			wrapper.vm.onPopState( event );
 
-			expect( mixinsInstance.methods.updateCurrentType ).toHaveBeenCalled();
-			expect( mixinsInstance.methods.updateCurrentType ).toHaveBeenCalledWith( event.state.type );
+			expect( wrapper.vm.currentTab ).toBe( event.state.type );
 		} );
 
 		it( 'it clear lookup result if term is empty string', () => {
@@ -250,23 +246,23 @@ describe( 'RestoreHistoryHandler', () => {
 				render() {},
 				mixins: [ mixinsInstance ],
 				props: {
-					currentSearchTerm: ''
+					term: ''
 				}
 			};
 
 			const wrapper = VueTestUtils.shallowMount( Component,
 				{
 					propsData: {
-						currentSearchTerm: ''
+						term: ''
 					}
 				} );
 			wrapper.vm.onPopState( event );
 
-			// the currentSearchTerm is set by the setSearchTerm method,
+			// the term is set by the setTerm method,
 			// but in this case we have to manually set at load to be an empty string
-			expect( mixinsInstance.methods.setSearchTerm ).toHaveBeenCalled();
+			expect( mixinsInstance.methods.setTerm ).toHaveBeenCalled();
 
-			expect( wrapper.vm.currentSearchTerm ).toBe( '' );
+			expect( wrapper.vm.term ).toBe( '' );
 			expect( mixinsInstance.methods.resetResults ).toHaveBeenCalled();
 		} );
 
@@ -282,23 +278,23 @@ describe( 'RestoreHistoryHandler', () => {
 				render() {},
 				mixins: [ mixinsInstance ],
 				props: {
-					currentSearchTerm: ''
+					term: ''
 				}
 			};
 
 			const wrapper = VueTestUtils.shallowMount( Component,
 				{
 					propsData: {
-						currentSearchTerm: ''
+						term: ''
 					}
 				} );
 			wrapper.vm.onPopState( event );
 
-			// the term is set by the setSearchTerm method,
+			// the term is set by the setTerm method,
 			// but in this case we have to manually set at load to be an empty string
-			expect( mixinsInstance.methods.setSearchTerm ).toHaveBeenCalled();
+			expect( mixinsInstance.methods.setTerm ).toHaveBeenCalled();
 
-			expect( wrapper.vm.currentSearchTerm ).toBe( '' );
+			expect( wrapper.vm.term ).toBe( '' );
 			expect( mixinsInstance.methods.clearLookupResults ).toHaveBeenCalled();
 		} );
 
@@ -347,7 +343,7 @@ describe( 'RestoreHistoryHandler', () => {
 			const Component = {
 				render() {},
 				props: {
-					currentType: null,
+					currentTab: null,
 					term: null
 				},
 				mixins: [ mixinsInstance ]
@@ -355,7 +351,7 @@ describe( 'RestoreHistoryHandler', () => {
 
 			const wrapper = VueTestUtils.shallowMount( Component, {
 				propsData: {
-					currentType: 'dummy',
+					currentTab: 'dummy',
 					term: 'dummy'
 				}
 			} );
@@ -364,20 +360,6 @@ describe( 'RestoreHistoryHandler', () => {
 
 			expect( window.removeEventListener ).toHaveBeenCalled();
 			expect( window.removeEventListener ).toHaveBeenCalledTimes( 1 );
-
-		} );
-	} );
-
-	describe( 'on mounted', () => {
-		it( 'triggers replaceQueryToHistoryState', () => {
-			const Component = {
-				render() {},
-				mixins: [ mixinsInstance ]
-			};
-
-			VueTestUtils.shallowMount( Component );
-
-			expect( mixinsInstance.methods.replaceQueryToHistoryState ).toHaveBeenCalled();
 
 		} );
 	} );
