@@ -25,11 +25,5 @@ module.exports = {
 
 	allActiveDetails: function ( state ) {
 		return JSON.stringify( state.details );
-	},
-	currentType: function ( state ) {
-		return state.uriQuery.type;
-	},
-	currentSearchTerm: function ( state ) {
-		return state.uriQuery.search;
 	}
 };
