@@ -1,7 +1,6 @@
 // Object representing the default starting state in vuex when no search has yet
 // been made
 module.exports = {
-	term: '',
 	didYouMean: null,
 	hasError: false,
 	results: {
@@ -46,5 +45,6 @@ module.exports = {
 		page: null,
 		other: null
 	},
-	initialized: false
+	initialized: false,
+	uriQuery: {}
 };

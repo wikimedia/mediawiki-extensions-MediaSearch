@@ -5,21 +5,26 @@ let state;
 
 beforeEach( () => {
 	state = initialState;
+	window.scrollY = 0;
 } );
 
-describe( 'setTerm', () => {
-	it( 'assigns a new value to the "term" property in state', () => {
+afterEach( () => {
+	jest.useRealTimers();
+} );
+
+describe( 'setSearchTerm', () => {
+	it( 'assigns a new value to the "search" property in state.uriQuery', () => {
 		const newTerm = 'cat';
-		mutations.setTerm( state, newTerm );
-		expect( state.term ).toBe( newTerm );
+		mutations.setSearchTerm( state, newTerm );
+		expect( state.uriQuery.search ).toBe( newTerm );
 	} );
 } );
 
 describe( 'clearTerm', () => {
-	it( 'resets the "term" property to an empty string', () => {
-		state.term = 'cat';
+	it( 'resets the "search" property to an empty string', () => {
+		state.uriQuery.search = 'cat';
 		mutations.clearTerm( state );
-		expect( state.term ).toBe( '' );
+		expect( state.uriQuery.search ).toBe( '' );
 	} );
 } );
 
@@ -93,6 +98,65 @@ describe( 'resetResults', () => {
 			expect( state.totalHits[ currentType ] ).toBe( 0 );
 			expect( state.results[ secondType ] ).toEqual( [] );
 		} );
+	} );
+} );
+
+describe( 'setContinue', () => {
+	it( 'sets the value of provided type within the continue object', () => {
+		const dummyPayload = {
+			type: 'dummyType',
+			continue: 'dummyContinue'
+		};
+		mutations.setContinue( state, dummyPayload );
+		expect( state.continue[ dummyPayload.type ] ).toBeTruthy();
+		expect( state.continue[ dummyPayload.type ] ).toBe( dummyPayload.continue );
+	} );
+} );
+
+describe( 'setPending', () => {
+	it( 'sets the value of provided type within the pending object', () => {
+		const dummyPayload = {
+			type: 'dummyType',
+			pending: 'dummyPending'
+		};
+		mutations.setPending( state, dummyPayload );
+		expect( state.pending[ dummyPayload.type ] ).toBeTruthy();
+		expect( state.pending[ dummyPayload.type ] ).toBe( dummyPayload.pending );
+	} );
+} );
+
+describe( 'setTotalHits', () => {
+	it( 'sets the value of provided mediatype within the totalHits object', () => {
+		const dummyPayload = {
+			mediaType: 'dummyType',
+			totalHits: 10
+		};
+		mutations.setTotalHits( state, dummyPayload );
+		expect( state.totalHits[ dummyPayload.mediaType ] ).toBeTruthy();
+		expect( state.totalHits[ dummyPayload.mediaType ] ).toBe( dummyPayload.totalHits );
+	} );
+} );
+
+describe( 'setDetails', () => {
+	it( 'sets the value of provided mediatype within the details object', () => {
+		const dummyPayload = {
+			mediaType: 'dummyType',
+			details: 10
+		};
+		mutations.setDetails( state, dummyPayload );
+		expect( state.details[ dummyPayload.mediaType ] ).toBeTruthy();
+		expect( state.details[ dummyPayload.mediaType ] ).toBe( dummyPayload.details );
+	} );
+} );
+
+describe( 'clearDetails', () => {
+	it( 'clears the value of provided mediatype within the details object', () => {
+		const dummyPayload = {
+			mediaType: 'dummyType'
+		};
+		state.details[ dummyPayload.mediaType ] = 'dummyValue';
+		mutations.clearDetails( state, dummyPayload );
+		expect( state.details[ dummyPayload.mediaType ] ).toBe( null );
 	} );
 } );
 
@@ -181,5 +245,236 @@ describe( 'resetFilters', () => {
 		mutations.resetFilters( state );
 		expect( state.filterValues[ currentType ] ).toEqual( {} );
 		expect( state.filterValues[ secondType ] ).toEqual( {} );
+	} );
+} );
+
+describe( 'setDidYouMean', () => {
+	it( 'sets the value of didYouMean', () => {
+		const dummyValue = 'dummyValue';
+		mutations.setDidYouMean( state, dummyValue );
+		expect( state.didYouMean ).toBe( dummyValue );
+	} );
+} );
+
+describe( 'clearDidYouMean', () => {
+	it( 'clears the value of didYouMean', () => {
+		state.didYouMean = 'dummyValue';
+		mutations.clearDidYouMean( state );
+		expect( state.didYouMean ).toBe( null );
+	} );
+} );
+
+describe( 'setDidYouMean', () => {
+	it( 'sets the value of initialized to true', () => {
+		mutations.setInitialized( state );
+		expect( state.initialized ).toBe( true );
+	} );
+} );
+
+describe( 'stashPageState', () => {
+
+	it( 'calls setObject on the MW storage object with values from the state', () => {
+		state = {
+			results: 'result',
+			continue: 'continue',
+			totalHits: 'totalHits',
+			details: 'details',
+			scrollY: 0
+		};
+
+		mutations.stashPageState( state );
+		expect( mw.storage.setObject ).toHaveBeenCalled();
+		expect( mw.storage.setObject.mock.calls[ 0 ][ 1 ] ).toMatchObject( state );
+
+	} );
+
+	it( 'calls setObject on the MW storage using scrollY from windows', () => {
+		state = {
+			scrollY: 100
+		};
+		window.scrollY = state.scrollY;
+
+		mutations.stashPageState( state );
+		expect( mw.storage.setObject ).toHaveBeenCalled();
+		expect( mw.storage.setObject.mock.calls[ 0 ][ 1 ].scrollY ).toBe( state.scrollY );
+
+	} );
+} );
+
+describe( 'restorePageState', () => {
+	it( 'restore the store with stashed values', () => {
+		const stash = {
+			results: {
+				dummy: 'result'
+			},
+			continue: {
+				dummy: 'continue'
+			},
+			totalHits: {
+				dummy: 'totalHits'
+			},
+			filterValues: {
+				dummy: 'filterValues'
+			},
+			details: {
+				dummy: 'details'
+			}
+		};
+
+		state = {
+			results: {},
+			continue: {},
+			totalHits: {},
+			filterValues: {},
+			details: {}
+		};
+
+		mw.storage.getObject.mockReturnValue( stash );
+
+		mutations.restorePageState( state );
+		expect( state.results ).toMatchObject( stash.results );
+		expect( state.continue ).toMatchObject( stash.continue );
+		expect( state.totalHits ).toMatchObject( stash.totalHits );
+		expect( state.filterValues ).toMatchObject( stash.filterValues );
+		expect( state.details ).toMatchObject( stash.details );
+	} );
+
+	it( 'restore the scroll position from stashed value', () => {
+		const stash = {
+			results: {},
+			continue: {},
+			totalHits: {},
+			details: {},
+			filterValues: {},
+			scrollY: 1000
+		};
+
+		state = {
+			results: {},
+			continue: {},
+			totalHits: {},
+			details: {},
+			filterValues: {},
+			scrollY: 0
+		};
+
+		jest.useFakeTimers();
+		window.scroll = jest.fn();
+
+		mw.storage.getObject.mockReturnValue( stash );
+		mutations.restorePageState( state );
+
+		jest.runAllTimers();
+
+		expect( window.scroll ).toHaveBeenCalled();
+		expect( window.scroll ).toHaveBeenCalledWith( 0, stash.scrollY );
+	} );
+} );
+
+describe( 'clearStoredPageState', () => {
+	it( 'removes stashed values from mw storage', () => {
+
+		mutations.clearStoredPageState();
+
+		expect( mw.storage.remove ).toHaveBeenCalled();
+	} );
+} );
+
+describe( 'clearFilterQueryParams', () => {
+	it( 'delete all filter query params from the uriQuery object', () => {
+		state = {
+			filterValues: {
+				fakeType: {
+					dummy1: 'test',
+					dummy2: 'test'
+				},
+				fakeType2: {
+					dummy3: 'test',
+					dummy4: 'test'
+				}
+			},
+			uriQuery: {
+				dummy1: 'test',
+				dummy2: 'test',
+				dummy3: 'test',
+				dummy4: 'test'
+			}
+		};
+
+		mutations.clearFilterQueryParams( state );
+
+		expect( state ).toMatchObject( {} );
+	} );
+} );
+
+describe( 'updateFilterQueryParams', () => {
+	it( 'update all the filters with the provided object', () => {
+		state = {
+			uriQuery: {
+				dummy1: '',
+				dummy2: '',
+				dummy3: '',
+				dummy4: ''
+			}
+		};
+
+		const newValues = {
+			dummy1: 'test1',
+			dummy2: 'test2',
+			dummy3: 'test3',
+			dummy4: 'test4'
+		};
+
+		mutations.updateFilterQueryParams( state, newValues );
+
+		expect( state.uriQuery ).toMatchObject( newValues );
+	} );
+} );
+
+describe( 'setCurrentType', () => {
+	it( 'sets the uriQuery type paramether', () => {
+		const newType = 'dummy';
+
+		state = {
+			uriQuery: {
+				type: ''
+			}
+		};
+
+		mutations.setCurrentType( state, newType );
+
+		expect( state.uriQuery.type ).toBe( newType );
+	} );
+} );
+
+describe( 'updateOrDeleteQueryParam', () => {
+	it( 'updates the uriQuery params when a value is set', () => {
+		const newParams = {
+			key: 'dummyKey',
+			value: 'dummyValue'
+		};
+
+		state = {
+			uriQuery: {}
+		};
+
+		mutations.updateOrDeleteQueryParam( state, newParams );
+
+		expect( state.uriQuery[ newParams.key ] ).toBe( newParams.value );
+	} );
+
+	it( 'deletes the uriQuery params when a value is falsy', () => {
+		const newParams = {
+			key: 'dummyKey',
+			value: null
+		};
+
+		state = {
+			uriQuery: {}
+		};
+
+		mutations.updateOrDeleteQueryParam( state, newParams );
+
+		expect( state.uriQuery[ newParams.key ] ).toBe( undefined );
 	} );
 } );
