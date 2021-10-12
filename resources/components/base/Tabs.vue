@@ -211,7 +211,7 @@ module.exports = {
 			// Don't emit an event if the currentTabName changed as a result of
 			// the active prop changing. In that case, the parent already knows.
 			if ( this.currentTabName !== this.active ) {
-				this.$emit( 'tab-change', this.tabs[ this.currentTabName ] );
+				this.$emit( 'tab-change', this.currentTabName );
 			}
 		},
 

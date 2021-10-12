@@ -7,16 +7,9 @@ var initialResults = mw.config.get( 'sdmsInitialSearchResults' ),
 	sortedResults = ensureArray( initialResults.results || [] ).sort( function ( a, b ) {
 		return a.index - b.index;
 	} ),
-	// grab straight from existing input field in case already user started changing input
-	// before JS loaded, and disable right away to prevent further input
-	// eslint-disable-next-line no-jquery/no-global-selector
-	initialTerm = $( '#sdms-search-input__input' ).prop( 'disabled', true ).val() || '';
+	mwUri = new mw.Uri();
 
 module.exports = {
-	/**
-	 * string search term
-	 */
-	term: initialTerm,
 
 	/**
 	 * Suggested alternate search term, if any
@@ -47,11 +40,11 @@ module.exports = {
 	 * 3. null (representing that there are no more results)
 	 */
 	continue: {
-		image: initialResults.activeType === 'image' ? initialResults.continue : undefined,
-		audio: initialResults.activeType === 'audio' ? initialResults.continue : undefined,
-		video: initialResults.activeType === 'video' ? initialResults.continue : undefined,
-		page: initialResults.activeType === 'page' ? initialResults.continue : undefined,
-		other: initialResults.activeType === 'other' ? initialResults.continue : undefined
+		image: initialResults.activeType === 'image' ? initialResults.continue : null,
+		audio: initialResults.activeType === 'audio' ? initialResults.continue : null,
+		video: initialResults.activeType === 'video' ? initialResults.continue : null,
+		page: initialResults.activeType === 'page' ? initialResults.continue : null,
+		other: initialResults.activeType === 'other' ? initialResults.continue : null
 	},
 
 	pending: {
@@ -92,5 +85,10 @@ module.exports = {
 	/**
 	 * Whether the app is fully initialized (app mounted, images resolved).
 	 */
-	initialized: false
+	initialized: false,
+
+	/**
+	 * Local instance of the query paramethers avaialable within the URI library
+	 */
+	uriQuery: mwUri.query
 };
