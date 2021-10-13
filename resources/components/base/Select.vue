@@ -81,10 +81,10 @@ module.exports = {
 		/**
 		 * Displayed when no item is selected. If omitted, the first item will
 		 * be selected and displayed initially (or the selected item is one is
-		 * provided as a prop).
+		 * provided as a prop). MW Message objects are allowed.
 		 */
 		label: {
-			type: String,
+			type: [ String, Object ],
 			default: null
 		},
 
@@ -109,6 +109,7 @@ module.exports = {
 
 		/**
 		 * Prefix will be shown before the selected value, e.g. "Sort by:"
+		 * MW Message objects are allowed.
 		 */
 		prefix: {
 			type: [ String, Object ],
