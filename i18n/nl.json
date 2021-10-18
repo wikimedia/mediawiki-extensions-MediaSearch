@@ -9,6 +9,7 @@
 			"Nieuwsgierige Gebruiker",
 			"Optilete",
 			"PonkoSasuke",
+			"Robin van der Vliet",
 			"Romaine",
 			"Sjoerddebruin",
 			"Spinster",
@@ -24,11 +25,13 @@
 	"mediasearch-tab-page": "Categorieën en pagina's",
 	"mediasearch-tab-other": "Andere media",
 	"mediasearch-filter-size": "Afbeeldingsgrootte",
+	"mediasearch-filter-size-unset": "Alle",
 	"mediasearch-filter-size-any": "Alle afbeeldingsgroottes",
 	"mediasearch-filter-size-small": "Klein",
 	"mediasearch-filter-size-medium": "Gemiddeld",
 	"mediasearch-filter-size-large": "Groot",
 	"mediasearch-filter-file-type-any": "Bestandstype",
+	"mediasearch-filter-file-type-unset": "Alle",
 	"mediasearch-filter-sort-label": "Sorteren op:",
 	"mediasearch-filter-sort-default": "Relevantie",
 	"mediasearch-filter-sort-recency": "Recentheid",
@@ -80,5 +83,9 @@
 	"mediasearch-filter-assessment-featured-image": "Uitgelichte afbeelding",
 	"mediasearch-filter-assessment-valued-image": "Gewaardeerde afbeelding",
 	"mediasearch-filter-assessment-quality-image": "Kwaliteitsafbeelding",
-	"mediasearch-filter-assessment-menu-label": "Gemeenschaps-beoordelingen"
+	"mediasearch-filter-assessment-menu-label": "Gemeenschaps-beoordelingen",
+	"mediasearch-filter-assessment-unset": "Alle",
+	"mediasearch-filter-file-type": "Bestandstype",
+	"mediasearch-filter-license": "Licentie",
+	"mediasearch-filter-license-unset": "Alle"
 }

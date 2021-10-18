@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Adignyoke"
+			"Adignyoke",
+			"Akandee1"
 		]
 	},
-	"mediasearch-filter-size-unset": "Za'an",
-	"mediasearch-filter-file-type-unset": "Za'a"
+	"mediasearch-filter-size-unset": "Za'a",
+	"mediasearch-filter-file-type-unset": "Za'a",
+	"mediasearch-did-you-mean": "Fum yetı:$1",
+	"mediasearch-filter-assessment-unset": "Za'a",
+	"mediasearch-filter-license-unset": "Za'a waabi"
 }

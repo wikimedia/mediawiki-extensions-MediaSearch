@@ -21,7 +21,7 @@
 	"mediasearch-filter-size-small": "Petit",
 	"mediasearch-filter-size-medium": "Mitjà",
 	"mediasearch-filter-size-large": "Gran",
-	"mediasearch-filter-file-type-any": "Tots els tipus de fitxer",
+	"mediasearch-filter-file-type-any": "Tipus de fitxer",
 	"mediasearch-filter-sort-label": "Ordena per:",
 	"mediasearch-filter-sort-default": "Rellevància",
 	"mediasearch-filter-sort-recency": "Novetat",
