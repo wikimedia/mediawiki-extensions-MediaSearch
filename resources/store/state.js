@@ -40,11 +40,11 @@ module.exports = {
 	 * 3. null (representing that there are no more results)
 	 */
 	continue: {
-		image: initialResults.activeType === 'image' ? initialResults.continue : null,
-		audio: initialResults.activeType === 'audio' ? initialResults.continue : null,
-		video: initialResults.activeType === 'video' ? initialResults.continue : null,
-		page: initialResults.activeType === 'page' ? initialResults.continue : null,
-		other: initialResults.activeType === 'other' ? initialResults.continue : null
+		image: initialResults.activeType === 'image' ? initialResults.continue : undefined,
+		audio: initialResults.activeType === 'audio' ? initialResults.continue : undefined,
+		video: initialResults.activeType === 'video' ? initialResults.continue : undefined,
+		page: initialResults.activeType === 'page' ? initialResults.continue : undefined,
+		other: initialResults.activeType === 'other' ? initialResults.continue : undefined
 	},
 
 	pending: {

@@ -30,6 +30,6 @@ module.exports = {
 		return state.uriQuery.type;
 	},
 	currentSearchTerm: function ( state ) {
-		return state.uriQuery.search;
+		return state.uriQuery.search || '';
 	}
 };
