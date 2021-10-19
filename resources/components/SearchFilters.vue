@@ -185,7 +185,7 @@ module.exports = {
 			return this.$i18n(
 				'mediasearch-results-count',
 				mw.language.convertNumber( this.totalHits[ this.mediaType ] )
-			);
+			).text();
 		},
 
 		/**
@@ -219,7 +219,7 @@ module.exports = {
 			return this.$i18n(
 				'mediasearch-filter-namespace-label',
 				this.$i18n( messageKey )
-			);
+			).text();
 		},
 
 		/**
@@ -338,7 +338,7 @@ module.exports = {
 		 */
 		getFilterPrefix: function ( filterType ) {
 			if ( filterType === 'sort' ) {
-				return this.$i18n( 'mediasearch-filter-sort-label' );
+				return this.$i18n( 'mediasearch-filter-sort-label' ).text();
 			}
 
 			return '';
@@ -351,13 +351,13 @@ module.exports = {
 		getFilterDefaultLabel: function ( filterType ) {
 			switch ( filterType ) {
 				case 'filemime':
-					return this.$i18n( 'mediasearch-filter-file-type' );
+					return this.$i18n( 'mediasearch-filter-file-type' ).text();
 				case 'fileres':
-					return this.$i18n( 'mediasearch-filter-size' );
+					return this.$i18n( 'mediasearch-filter-size' ).text();
 				case 'assessment':
-					return this.$i18n( 'mediasearch-filter-assessment' );
+					return this.$i18n( 'mediasearch-filter-assessment' ).text();
 				case 'haslicense':
-					return this.$i18n( 'mediasearch-filter-license' );
+					return this.$i18n( 'mediasearch-filter-license' ).text();
 				default:
 					return;
 			}

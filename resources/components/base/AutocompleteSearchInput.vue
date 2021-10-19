@@ -62,7 +62,7 @@
 			:progressive="true"
 			@click="onSubmit"
 		>
-			{{ $i18n( 'searchbutton' ) }}
+			{{ $i18n( 'searchbutton' ).text() }}
 		</sd-button>
 	</div>
 </template>

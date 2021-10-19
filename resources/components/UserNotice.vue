@@ -16,7 +16,7 @@
 				:icon="closeIcon"
 				@click="dismiss"
 			>
-				{{ $i18n( 'mediasearch-user-notice-dismiss' ) }}
+				{{ $i18n( 'mediasearch-user-notice-dismiss' ).text() }}
 			</sd-button>
 		</sd-message>
 	</transition>

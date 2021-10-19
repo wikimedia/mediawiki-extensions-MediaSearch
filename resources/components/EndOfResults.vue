@@ -1,7 +1,7 @@
 <template>
 	<div class="sdms-end-of-results">
 		<p>
-			{{ $i18n( 'mediasearch-end-of-results' ) }}
+			{{ $i18n( 'mediasearch-end-of-results' ).text() }}
 		</p>
 	</div>
 </template>

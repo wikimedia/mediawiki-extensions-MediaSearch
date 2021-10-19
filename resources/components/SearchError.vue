@@ -3,9 +3,9 @@
 		<div class="sdms-error__icon"></div>
 
 		<p>
-			{{ $i18n( 'mediasearch-error-message' ) }}
+			{{ $i18n( 'mediasearch-error-message' ).text() }}
 			<span class="sdms-error__message">
-				{{ $i18n( 'mediasearch-error-text' ) }}
+				{{ $i18n( 'mediasearch-error-text' ).text() }}
 			</span>
 		</p>
 	</div>

@@ -104,8 +104,8 @@ module.exports = {
 		return {
 			selectedRadio: this.initialRadio,
 			selectedCustom: this.initialCustom,
-			dialogTitle: this.$i18n( 'mediasearch-filter-namespace-dialog-title' ),
-			dialogAction: this.$i18n( 'mediasearch-filter-namespace-dialog-progressive-action' )
+			dialogTitle: this.$i18n( 'mediasearch-filter-namespace-dialog-title' ).text(),
+			dialogAction: this.$i18n( 'mediasearch-filter-namespace-dialog-progressive-action' ).text()
 		};
 	},
 

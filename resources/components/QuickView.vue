@@ -157,7 +157,7 @@
 				class="sdms-quick-view__cta"
 				@click="onMoreDetailsClick"
 			>
-				{{ $i18n( 'mediasearch-quickview-button-text' ) }}
+				{{ $i18n( 'mediasearch-quickview-button-text' ).text() }}
 			</a>
 		</div>
 	</div>
@@ -243,9 +243,9 @@ module.exports = {
 			isExtraSmall: false,
 			showSpinner: false,
 			icons: icons,
-			closeButtonText: this.$i18n( 'mediasearch-quickview-close-button-text' ),
-			previousButtonText: this.$i18n( 'mediasearch-quickview-previous-button-text' ),
-			nextButtonText: this.$i18n( 'mediasearch-quickview-next-button-text' )
+			closeButtonText: this.$i18n( 'mediasearch-quickview-close-button-text' ).text(),
+			previousButtonText: this.$i18n( 'mediasearch-quickview-previous-button-text' ).text(),
+			nextButtonText: this.$i18n( 'mediasearch-quickview-next-button-text' ).text()
 		};
 	},
 
@@ -472,9 +472,9 @@ module.exports = {
 			) {
 				assessmentValues = this.metadata.Assessments.value.split( '|' );
 				assessmentValues.forEach( function ( assessment ) {
-					assessmentList.push( this.$i18n( assessmentLabels[ assessment ] ) );
+					assessmentList.push( this.$i18n( assessmentLabels[ assessment ] ).text() );
 				}.bind( this ) );
-				return assessmentList.join( this.$i18n( 'comma-separator' ) );
+				return assessmentList.join( this.$i18n( 'comma-separator' ).text() );
 			} else {
 				return null;
 			}
