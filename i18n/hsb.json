@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"J budissin"
+			"J budissin",
+			"Michawiki"
 		]
 	},
 	"mediasearch-title": "Za medijemi pytać",
@@ -16,7 +17,7 @@
 	"mediasearch-filter-size-small": "małe",
 	"mediasearch-filter-size-medium": "srjedźne",
 	"mediasearch-filter-size-large": "wulke",
-	"mediasearch-filter-file-type-any": "Wšě typy datajow",
+	"mediasearch-filter-file-type-any": "Datajowy typ",
 	"mediasearch-filter-sort-label": "Sortěrować po:",
 	"mediasearch-filter-sort-default": "relewancy",
 	"mediasearch-filter-sort-recency": "starobje",

@@ -14,6 +14,7 @@
 			"MarcoAurelio",
 			"Mpayansilva",
 			"Rodney Araujo",
+			"Whovian Biologist",
 			"ZealousBlaze"
 		]
 	},
@@ -29,7 +30,7 @@
 	"mediasearch-filter-size-small": "Pequeño",
 	"mediasearch-filter-size-medium": "Mediano",
 	"mediasearch-filter-size-large": "Grande",
-	"mediasearch-filter-file-type-any": "Todos los tipos de archivo",
+	"mediasearch-filter-file-type-any": "Tipo de archivo",
 	"mediasearch-filter-sort-label": "Ordenar por:",
 	"mediasearch-filter-sort-default": "Relevancia",
 	"mediasearch-filter-sort-recency": "Novedad",
