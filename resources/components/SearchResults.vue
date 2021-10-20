@@ -32,7 +32,7 @@
 				:progressive="true"
 				@click="$emit( 'load-more' )"
 			>
-				{{ $i18n( 'mediasearch-load-more-results' ) }}
+				{{ $i18n( 'mediasearch-load-more-results' ).text() }}
 			</sd-button>
 
 			<!-- If an invalid search has been detected, don't display
