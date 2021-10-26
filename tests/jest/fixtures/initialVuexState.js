@@ -46,5 +46,12 @@ module.exports = {
 		other: null
 	},
 	initialized: false,
-	uriQuery: {}
+	uriQuery: {},
+	autoloadCounter: {
+		image: 0,
+		audio: 0,
+		video: 0,
+		page: 0,
+		other: 0
+	}
 };

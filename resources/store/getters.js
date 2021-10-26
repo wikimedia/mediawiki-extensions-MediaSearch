@@ -31,5 +31,16 @@ module.exports = {
 	},
 	currentSearchTerm: function ( state ) {
 		return state.uriQuery.search || '';
+	},
+	allResultsEmpty: function ( state ) {
+		var isEmpty = true;
+
+		Object.keys( state.results ).forEach( function ( mediaType ) {
+			if ( state.results[ mediaType ].length !== 0 ) {
+				isEmpty = false;
+			}
+		} );
+
+		return isEmpty;
 	}
 };
