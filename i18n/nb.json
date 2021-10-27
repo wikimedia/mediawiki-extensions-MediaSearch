@@ -40,7 +40,7 @@
 	"mediasearch-filter-namespace-dialog-progressive-action": "Send",
 	"mediasearch-no-results": "Vi fant ingen resultater",
 	"mediasearch-no-results-tips": "Prøv med mer generelle begreper og sjekk stavemåten",
-	"mediasearch-end-of-results": "Ingen resultater ble funnet",
+	"mediasearch-end-of-results": "Ingen flere resultater funnet",
 	"mediasearch-empty-state": "Søk blant mer enn $1 {{PLURAL:$1|mediefil|mediefiler}} som kan gjenbrukes fritt",
 	"mediasearch-clear-title": "Fjern",
 	"mediasearch-input-label": "Mediesøk",
