@@ -27,7 +27,8 @@ module.exports = {
 		return JSON.stringify( state.details );
 	},
 	currentType: function ( state ) {
-		return state.uriQuery.type;
+		var firstMediaType = Object.keys( state.results )[ 0 ];
+		return state.uriQuery.type || firstMediaType;
 	},
 	currentSearchTerm: function ( state ) {
 		return state.uriQuery.search || '';

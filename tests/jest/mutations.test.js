@@ -434,18 +434,53 @@ describe( 'mutations', () => {
 	} );
 
 	describe( 'setCurrentType', () => {
-		it( 'sets the uriQuery type paramether', () => {
+		it( 'sets the uriQuery.type paramether to the media type provided', () => {
 			const newType = 'dummy';
 
 			state = {
 				uriQuery: {
 					type: ''
+				},
+				results: {
+					dummy: {}
 				}
 			};
 
 			mutations.setCurrentType( state, newType );
 
 			expect( state.uriQuery.type ).toBe( newType );
+		} );
+		it( 'does not set the value if type provided is null', () => {
+			const newType = null;
+
+			state = {
+				uriQuery: {
+					type: ''
+				},
+				results: {
+					dummy: {}
+				}
+			};
+
+			mutations.setCurrentType( state, newType );
+
+			expect( state.uriQuery.type ).not.toBe( newType );
+		} );
+		it( 'does not set the value if type provided is not one of the results key', () => {
+			const newType = 'anotherDummy';
+
+			state = {
+				uriQuery: {
+					type: ''
+				},
+				results: {
+					dummy: {}
+				}
+			};
+
+			mutations.setCurrentType( state, newType );
+
+			expect( state.uriQuery.type ).not.toBe( newType );
 		} );
 	} );
 
