@@ -4,16 +4,20 @@
 			"Pikne"
 		]
 	},
+	"mediasearch-desc": "Kuvab failikesksed otsitulemused [[Special:MediaSearch|failiotsingu]] lehekülje abil.",
 	"mediasearch-title": "Failiotsing",
 	"mediasearch-tab-image": "Pildid",
 	"mediasearch-tab-audio": "Heli",
 	"mediasearch-tab-page": "Kategooriad ja leheküljed",
 	"mediasearch-tab-other": "Muud failid",
+	"mediasearch-filter-size": "Pildisuurus",
+	"mediasearch-filter-size-unset": "Kõik",
 	"mediasearch-filter-size-any": "Kõik pildisuurused",
 	"mediasearch-filter-size-small": "Väike",
 	"mediasearch-filter-size-medium": "Keskmine",
 	"mediasearch-filter-size-large": "Suur",
-	"mediasearch-filter-file-type-any": "Kõik failitüübid",
+	"mediasearch-filter-file-type-any": "Failitüüp",
+	"mediasearch-filter-file-type-unset": "Kõik",
 	"mediasearch-filter-sort-label": "Järjestusalus:",
 	"mediasearch-filter-sort-default": "asjakohasus",
 	"mediasearch-filter-sort-recency": "hiljutisus",
@@ -59,5 +63,10 @@
 	"mediasearch-filter-assessment-featured-image": "Eeskujulik pilt",
 	"mediasearch-filter-assessment-valued-image": "Väärtpilt",
 	"mediasearch-filter-assessment-quality-image": "Hea pilt",
-	"mediasearch-filter-assessment-menu-label": "Kasutajate hinnangud"
+	"mediasearch-filter-assessment-menu-label": "Kasutajate hinnangud",
+	"mediasearch-filter-assessment-unset": "Kõik",
+	"mediasearch-filter-file-type": "Failitüüp",
+	"mediasearch-filter-assessment": "Kasutajate hinnang",
+	"mediasearch-filter-license": "Litsents",
+	"mediasearch-filter-license-unset": "Kõik"
 }
