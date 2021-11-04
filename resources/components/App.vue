@@ -300,13 +300,15 @@ module.exports = {
 		 * @param {string} oldTerm
 		 */
 		currentSearchTerm: function ( newTerm, oldTerm ) {
-			if ( newTerm && newTerm !== oldTerm ) {
+			if ( newTerm === '' ) {
+				this.onClear();
+			} else if ( newTerm !== oldTerm ) {
 				this.onTermOrFilterChange();
 			}
 		},
 
 		allActiveFilters: function ( newVal, oldVal ) {
-			if ( newVal && newVal !== oldVal ) {
+			if ( newVal !== oldVal && this.currentSearchTerm !== '' ) {
 				this.onTermOrFilterChange( this.currentType );
 			}
 		}
