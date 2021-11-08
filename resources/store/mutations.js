@@ -259,13 +259,18 @@ module.exports = {
 
 	/**
 	 * Update the current type in the URI query. This will drive the active
-	 * selected Tabs and all related to it.
+	 * selected Tabs and all related to it. if the type is not in the list of
+	 * available types, it will be added.
 	 *
 	 * @param {Object} state
 	 * @param {Object} newType
 	 */
 	setCurrentType: function ( state, newType ) {
-		Vue.set( state.uriQuery, 'type', newType );
+		var allowedTypes = Object.keys( state.results );
+
+		if ( allowedTypes.indexOf( newType ) !== -1 ) {
+			Vue.set( state.uriQuery, 'type', newType );
+		}
 	},
 	/**
 	 * Update or delete a specific key within mw.url.query.

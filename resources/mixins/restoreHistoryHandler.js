@@ -37,7 +37,7 @@ module.exports = {
 			// If the newly-active history entry includes a state object, use it
 			// to reset the URL query params and the UI state
 
-			if ( e.state ) {
+			if ( e.state && e.state.type ) {
 				this.setSearchTerm( e.state.search || '' );
 				this.updateCurrentType( e.state.type );
 
