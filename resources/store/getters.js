@@ -26,13 +26,21 @@ module.exports = {
 	allActiveDetails: function ( state ) {
 		return JSON.stringify( state.details );
 	},
+
 	currentType: function ( state ) {
 		var firstMediaType = Object.keys( state.results )[ 0 ];
 		return state.uriQuery.type || firstMediaType;
 	},
+
 	currentSearchTerm: function ( state ) {
-		return state.uriQuery.search || '';
+		var currentSearch = state.uriQuery.search || '';
+		if ( Array.isArray( currentSearch ) ) {
+			return currentSearch[ currentSearch.length - 1 ];
+		}
+
+		return currentSearch;
 	},
+
 	allResultsEmpty: function ( state ) {
 		var isEmpty = true;
 
