@@ -193,7 +193,7 @@ module.exports = {
 		 * @fires close|key
 		 */
 		onKeyup: function ( e ) {
-			if ( e.code === 'Escape' ) {
+			if ( e.code === 'Escape' || e.code === '27' ) {
 				this.$emit( 'close' );
 			} else {
 				this.$emit( 'key', e.code );

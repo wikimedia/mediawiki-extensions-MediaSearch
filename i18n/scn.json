@@ -4,5 +4,27 @@
 			"Ajeje Brazorf"
 		]
 	},
-	"mediasearch-tab-audio": "Àudiu"
+	"mediasearch-tab-image": "Mmàggini",
+	"mediasearch-tab-audio": "Àudiu",
+	"mediasearch-tab-page": "Catigurìi e pàggini",
+	"mediasearch-filter-size-unset": "Tuttu",
+	"mediasearch-filter-file-type-any": "Tipu file",
+	"mediasearch-filter-file-type-unset": "Tutti",
+	"mediasearch-filter-license-any": "Tutti li licenzi",
+	"mediasearch-filter-license-other": "Àutru",
+	"mediasearch-filter-namespace-all": "Tutti",
+	"mediasearch-filter-namespace-discussion": "Discussioni",
+	"mediasearch-filter-namespace-help": "Aiutu ginirali",
+	"mediasearch-filter-namespace-label": "Namespace: $1",
+	"mediasearch-quickview-button-text": "Àutri dittagghî",
+	"mediasearch-quickview-close-button-text": "Chiudi li dittagghî dû file",
+	"mediasearch-category-info": "$1 {{PLURAL:$1|mèmmiru|mèmmiri}} ($2 {{PLURAL:$2|suttacatigurìa|suttacatigurìi}}, $3 {{PLURAL:$3|file}})",
+	"mediasearch-results-count": "{{PLURAL:$1|risurtatu|risurtati}}",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|palora|palori}}",
+	"mediasearch-filter-assessment-picture-of-the-day": "Mmàggini dû jornu",
+	"mediasearch-filter-assessment-picture-of-the-year": "Mmàggini di l'annu",
+	"mediasearch-filter-assessment-unset": "Tutti",
+	"mediasearch-filter-file-type": "Tipu file",
+	"mediasearch-filter-license": "Licenza",
+	"mediasearch-filter-license-unset": "Tutti"
 }
