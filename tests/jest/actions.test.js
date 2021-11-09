@@ -240,11 +240,6 @@ describe( 'search', () => {
 
 	describe( 'searchMore', () => {
 		describe( 'will not run', () => {
-			it( 'if results are empty', () => {
-				context.getters.allResultsEmpty = true;
-				actions.searchMore( context );
-				expect( global.mw.Api.prototype.get ).not.toHaveBeenCalled();
-			} );
 			it( 'if checkForMore for current mediaType is false', () => {
 				context.getters.currentType = 'image';
 				context.getters.allResultsEmpty = false;

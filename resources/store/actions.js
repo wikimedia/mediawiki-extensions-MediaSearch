@@ -328,7 +328,6 @@ module.exports = {
 		}
 
 		if (
-			context.getters.allResultsEmpty ||
 			!context.getters.checkForMore[ context.getters.currentType ] ||
 			context.state.autoloadCounter[ context.getters.currentType ] === 0 ||
 			context.state.hasError ) {
