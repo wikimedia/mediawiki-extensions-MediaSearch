@@ -9,12 +9,12 @@
 				<component
 					:is="resultComponent"
 					v-for="(result, index) in results[ mediaType ]"
-					:ref="result.pageid"
+					:ref="result.title"
 					:key="index"
-					:class="getResultClass( result.pageid )"
+					:class="getResultClass( result.title )"
 					:style="resultStyle"
 					v-bind="result"
-					@click="onResultClick( result.pageid, index )"
+					@click="onResultClick( result.title, index )"
 					@show-details="showDetails( $event, index )"
 				>
 				</component>
@@ -61,7 +61,7 @@
 				<quick-view
 					v-if="details[ mediaType ]"
 					ref="quickview"
-					:key="details[ mediaType ].pageid"
+					:key="details[ mediaType ].title"
 					v-bind="details[ mediaType ]"
 					:media-type="mediaType"
 					:is-dialog="true"
@@ -83,7 +83,7 @@
 			<quick-view
 				v-if="details[ mediaType ]"
 				ref="quickview"
-				:key="details[ mediaType ].pageid"
+				:key="details[ mediaType ].title"
 				v-bind="details[ mediaType ]"
 				:media-type="mediaType"
 				@close="hideDetails"
@@ -273,10 +273,10 @@ module.exports = {
 		 * This method also handles some UX nuances of opening the QuickView
 		 * panel and showing a placeholder UI while data is loading.
 		 *
-		 * @param {number} pageid
+		 * @param {string} title
 		 * @param {number} index
 		 */
-		showDetails: function ( pageid, index ) {
+		showDetails: function ( title, index ) {
 			var detailsTimeout;
 
 			// Immediately open the QuickView aside. If the details haven't been
@@ -294,7 +294,7 @@ module.exports = {
 					// Scroll search results to the selected result, if needed
 					// (e.g. if the user is scrolling through results via
 					// keyboard nav or the QuickView nav buttons).
-					this.scrollIntoViewIfNeeded( pageid );
+					this.scrollIntoViewIfNeeded( title );
 				}.bind( this )
 			);
 
@@ -308,12 +308,22 @@ module.exports = {
 			}.bind( this ), 500 );
 
 			// Get data for the item opened in QuickView.
-			this.fetchDetails( { pageId: pageid, mediaType: this.mediaType } ).then(
+			this.fetchDetails( { title: title, mediaType: this.mediaType } ).then(
 				function ( response ) {
 					clearTimeout( detailsTimeout );
+					var searchedItemDetails;
+
+					Object.keys( response.query.pages ).forEach(
+						function ( key ) {
+							if ( response.query.pages[ key ].title === title ) {
+								searchedItemDetails = response.query.pages[ key ];
+							}
+						}
+					);
+
 					this.setDetails( {
 						mediaType: this.mediaType,
-						details: response.query.pages[ pageid ]
+						details: searchedItemDetails
 					} );
 
 					// Let the QuickView component programatically manage focus
@@ -328,7 +338,7 @@ module.exports = {
 					this.$log( {
 						action: 'result_click',
 						search_media_type: this.mediaType,
-						search_result_page_id: pageid,
+						search_result_page_id: title,
 						search_result_position: index,
 						search_result_has_quickview: true
 					} );
@@ -347,7 +357,7 @@ module.exports = {
 			var originatingResultId;
 
 			if ( restoreFocus ) {
-				originatingResultId = this.details[ this.mediaType ].pageid;
+				originatingResultId = this.details[ this.mediaType ].title;
 				this.$refs[ originatingResultId ][ 0 ].focus();
 			}
 
@@ -370,7 +380,7 @@ module.exports = {
 			var tabResults = this.results[ this.mediaType ],
 				currentItem = tabResults.filter(
 					function ( result ) {
-						return result.pageid === this.details[ this.mediaType ].pageid;
+						return result.title === this.details[ this.mediaType ].title;
 					}.bind( this )
 				),
 				currentIndex = tabResults.indexOf( currentItem[ 0 ] ),
@@ -379,7 +389,7 @@ module.exports = {
 			// If we're not surpassing either end of the results array, go to
 			// the previous or next item.
 			if ( nextIndex >= 0 && nextIndex < tabResults.length ) {
-				this.showDetails( tabResults[ nextIndex ].pageid );
+				this.showDetails( tabResults[ nextIndex ].title );
 			}
 
 			// When the user navigates between results via keyboard, we want the
@@ -396,10 +406,10 @@ module.exports = {
 		/**
 		 * Scroll current QuickView result into view if it's not fully visible.
 		 *
-		 * @param {number} pageid
+		 * @param {string} title
 		 */
-		scrollIntoViewIfNeeded: function ( pageid ) {
-			var element = this.$refs[ pageid ][ 0 ].$el,
+		scrollIntoViewIfNeeded: function ( title ) {
+			var element = this.$refs[ title ][ 0 ].$el,
 				bounds = element.getBoundingClientRect(),
 				viewportHeight = window.innerHeight || document.documentElement.clientHeight,
 				isAboveViewport = bounds.top < 0 || bounds.bottom < 0,
@@ -432,13 +442,13 @@ module.exports = {
 		},
 
 		/**
-		 * @param {number} pageid
+		 * @param {string} title
 		 * @return {Object}
 		 */
-		getResultClass: function ( pageid ) {
+		getResultClass: function ( title ) {
 			return {
 				// Visual indication that result is currently displayed in QuickView
-				'sdms-search-result--highlighted': this.details[ this.mediaType ] && this.details[ this.mediaType ].pageid === pageid,
+				'sdms-search-result--highlighted': this.details[ this.mediaType ] && this.details[ this.mediaType ].title === title,
 				// If there are 3 or fewer image results, we'll limit their
 				// growth to avoid having one overly-stretched image in the grid.
 				'sdms-image-result--limit-size': this.mediaType === 'image' && this.results[ this.mediaType ].length <= 3
@@ -502,15 +512,15 @@ module.exports = {
 		 * Clicks on results that do not display a quickview should still be
 		 * logged for analytics purposes.
 		 *
-		 * @param {number} pageid
+		 * @param {string} title
 		 * @param {number} index
 		 */
-		onResultClick: function ( pageid, index ) {
+		onResultClick: function ( title, index ) {
 			/* eslint-disable camelcase */
 			this.$log( {
 				action: 'result_click',
 				search_media_type: this.mediaType,
-				search_result_page_id: pageid,
+				search_result_page_id: title,
 				search_result_position: index,
 				search_result_has_quickview: false
 			} );

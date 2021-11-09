@@ -32,7 +32,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -48,7 +47,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -65,7 +63,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -82,7 +79,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -102,7 +98,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -118,7 +113,6 @@ describe( 'ImageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -133,12 +127,11 @@ describe( 'ImageResult', () => {
 		} );
 	} );
 
-	it( 'the "show-details" event includes the result pageId in its payload', done => {
+	it( 'the "show-details" event includes the result title in its payload', done => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -148,7 +141,7 @@ describe( 'ImageResult', () => {
 
 		wrapper.find( 'a' ).trigger( 'click' );
 		Vue.nextTick().then( () => {
-			expect( wrapper.emitted()[ 'show-details' ][ 0 ][ 0 ] ).toBe( sampleResult.pageid );
+			expect( wrapper.emitted()[ 'show-details' ][ 0 ][ 0 ] ).toBe( sampleResult.title );
 			done();
 		} );
 	} );

@@ -226,23 +226,23 @@ function searchCurrentTermAndType( context ) {
 	activeSearchRequest = request;
 
 	return request.then( function ( response ) {
-		var existingPageIds = context.state.results[ context.getters.currentType ].map( function ( result ) {
-				return result.pageid;
+		var existingTitles = context.state.results[ context.getters.currentType ].map( function ( result ) {
+				return result.title;
 			} ),
-			results, pageIDs, sortedResults;
+			results, titles, sortedResults;
 
 		if ( response.query && response.query.pages ) {
 			results = response.query.pages;
-			pageIDs = Object.keys( results );
+			titles = Object.keys( results );
 
 			// Sort the results within each batch prior to committing them
 			// to the store. Also, ensure that there is no duplication of
 			// results between batches (see https://phabricator.wikimedia.org/T272923);
-			// if a new result's pageId already exists in the set of
+			// if a new result's title already exists in the set of
 			// previously-loaded results, filter it out.
-			sortedResults = pageIDs
+			sortedResults = titles
 				.map( function ( id ) { return results[ id ]; } )
-				.filter( function ( result ) { return existingPageIds.indexOf( result.pageid ) < 0; } )
+				.filter( function ( result ) { return existingTitles.indexOf( result.title ) < 0; } )
 				.sort( function ( a, b ) { return a.index - b.index; } );
 
 			sortedResults.forEach( function ( result ) {
@@ -364,12 +364,12 @@ module.exports = {
 	},
 
 	/**
-	 * Fetch expanded details for a given search result by pageId
+	 * Fetch expanded details for a given search result by title
 	 *
 	 * @param {Object} context
 	 * @param {Object} options
 	 * @param {string} options.mediaType
-	 * @param {number} options.pageId
+	 * @param {string} options.title
 	 * @return {jQuery.Deferred}
 	 */
 	fetchDetails: function ( context, options ) {
@@ -379,7 +379,7 @@ module.exports = {
 				uselang: userLanguage,
 				action: 'query',
 				inprop: 'url',
-				pageids: options.pageId,
+				titles: options.title,
 				iiextmetadatalanguage: userLanguage
 			};
 

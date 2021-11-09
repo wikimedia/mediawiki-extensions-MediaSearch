@@ -5,7 +5,7 @@ const OtherResult = require( '../../../resources/components/results/OtherResult.
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
-// Note: results are stored as key/value pairs based on pageid, not a straight array
+// Note: results are stored as key/value pairs based on title, not a straight array
 const sampleResults = require( '../fixtures/mockOtherSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
@@ -36,7 +36,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -52,7 +51,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -68,7 +66,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -83,7 +80,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -102,7 +98,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -117,7 +112,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -136,7 +130,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -152,7 +145,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
@@ -168,7 +160,6 @@ describe( 'OtherResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}

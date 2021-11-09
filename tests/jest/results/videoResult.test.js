@@ -4,7 +4,7 @@ const VideoResult = require( '../../../resources/components/results/VideoResult.
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
-// Note: results are stored as key/value pairs based on pageid, not a straight array
+// Note: results are stored as key/value pairs based on title, not a straight array
 const sampleResults = require( '../fixtures/mockVideoSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
@@ -31,7 +31,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -48,7 +47,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -64,7 +62,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -80,7 +77,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -96,7 +92,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -112,7 +107,6 @@ describe( 'VideoResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -127,12 +121,11 @@ describe( 'VideoResult', () => {
 		} );
 	} );
 
-	it( 'the "show-details" event includes the result pageId in its payload', done => {
+	it( 'the "show-details" event includes the result title in its payload', done => {
 		const wrapper = VueTestUtils.shallowMount( VideoResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
-				pageid: sampleResult.pageid,
 				imageinfo: sampleResult.imageinfo,
 				index: sampleResult.index,
 				name: sampleResult.name,
@@ -142,7 +135,7 @@ describe( 'VideoResult', () => {
 
 		wrapper.find( 'a' ).trigger( 'click' );
 		Vue.nextTick().then( () => {
-			expect( wrapper.emitted()[ 'show-details' ][ 0 ][ 0 ] ).toBe( sampleResult.pageid );
+			expect( wrapper.emitted()[ 'show-details' ][ 0 ][ 0 ] ).toBe( sampleResult.title );
 			done();
 		} );
 	} );

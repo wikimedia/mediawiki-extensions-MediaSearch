@@ -40,7 +40,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl
 
 			}
@@ -56,7 +55,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				snippet: dummyHtmlSnippet
 			}
@@ -71,7 +69,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResultWithCategoryInfo.title,
 				index: sampleResultWithCategoryInfo.index,
-				pageid: sampleResultWithCategoryInfo.pageid,
 				canonicalurl: sampleResultWithCategoryInfo.canonicalurl,
 				categoryinfo: sampleResultWithCategoryInfo.categoryinfo
 			}
@@ -85,7 +82,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				size: sampleResult.size
 			}
@@ -100,7 +96,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl,
 				wordcount: sampleResult.wordcount
 			}
@@ -114,7 +109,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl
 			}
 		} );
@@ -127,7 +121,6 @@ describe( 'PageResult', () => {
 			propsData: {
 				title: sampleResult.title,
 				index: sampleResult.index,
-				pageid: sampleResult.pageid,
 				canonicalurl: sampleResult.canonicalurl
 			}
 		} );

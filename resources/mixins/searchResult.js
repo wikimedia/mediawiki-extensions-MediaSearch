@@ -21,11 +21,6 @@ module.exports = {
 			required: true
 		},
 
-		pageid: {
-			type: Number,
-			required: true
-		},
-
 		imageinfo: {
 			type: Array,
 			required: false,
@@ -117,7 +112,7 @@ module.exports = {
 			// are listening. See https://phabricator.wikimedia.org/T260203
 			// for an example.
 			e.stopPropagation();
-			this.$emit( 'show-details', this.pageid );
+			this.$emit( 'show-details', this.title );
 		},
 
 		/**

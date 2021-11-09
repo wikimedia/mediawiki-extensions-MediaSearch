@@ -4,7 +4,7 @@ const QuickView = require( '../../resources/components/QuickView.vue' );
 const i18n = require( './plugins/i18n.js' );
 const when = require( 'jest-when' ).when;
 // grab a random image result from the set
-// Note: results are stored as key/value pairs based on pageid, not a straight array
+// Note: results are stored as key/value pairs based on title, not a straight array
 const sampleResults = require( './fixtures/mockImageSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
@@ -27,7 +27,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -43,7 +42,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -60,7 +58,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -85,7 +82,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -107,7 +103,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -129,7 +124,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -151,7 +145,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
@@ -167,7 +160,6 @@ describe( 'QuickView', () => {
 				propsData: {
 					title: sampleResult.title,
 					canonicalurl: sampleResult.canonicalurl,
-					pageid: sampleResult.pageid,
 					imageinfo: sampleResult.imageinfo,
 					mediaType: 'image',
 					isDialog: false
