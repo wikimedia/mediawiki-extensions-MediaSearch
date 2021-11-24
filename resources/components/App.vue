@@ -287,7 +287,7 @@ module.exports = {
 		 * @param {string} oldTab image, audio, etc.
 		 */
 		currentType: function ( newTab, oldTab ) {
-			if ( newTab && newTab !== oldTab ) {
+			if ( newTab && newTab !== oldTab && this.currentSearchTerm !== '' ) {
 				this.getMoreResultsForTabIfAvailable();
 			}
 		},
