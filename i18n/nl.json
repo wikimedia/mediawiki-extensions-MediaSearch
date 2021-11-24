@@ -12,7 +12,9 @@
 			"Romaine",
 			"Sjoerddebruin",
 			"Spinster",
-			"Xbaked potatox"
+			"Xbaked potatox",
+			"Danieldegroot2",
+			"Robin van der Vliet"
 		]
 	},
 	"mediasearch-desc": "Mediagerichte manier om zoekresultaten weer te geven via de [[Special:MediaSearch|mediasearch]]-pagina",
@@ -64,13 +66,14 @@
 	"mediasearch-switch-special-search": "Overschakelen naar Special:Search",
 	"mediasearch-category-info": "$1 {{PLURAL:$1|item|items}} ($2 {{PLURAL:$2|subcategorie|subcategorieën}}, $3 {{PLURAL:$3|bestand|bestanden}})",
 	"mediasearch-copytextlayout-copy": "Kopiëren",
-	"mediasearch-copytextlayout-copy-fail": "Kon niet naar het klembord kopieren.",
+	"mediasearch-copytextlayout-copy-fail": "Kon niet naar het klembord kopiëren.",
 	"mediasearch-copytextlayout-copy-success": "De tekst is gekopieerd naar het klembord.",
 	"mediasearch-clear-filters": "Filters legen",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|resulaat|resultaten}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|woord|woorden}})",
 	"mediasearch-image-size": "($1)",
 	"mediasearch-did-you-mean": "Bedoelde u: $1",
+	"mediasearch-error-message": "Ongeldige zoekopdracht",
 	"mediasearch-error-text": "Voer hierboven een nieuwe zoekopdracht in en probeer het opnieuw",
 	"mediasearch-specialsearch-default": "Toon zoekresultaten in de Special:Search-interface",
 	"mediasearch-specialsearch-default-help": "Selecteer om zoekresultaten te tonen vanuit de hoofdzoekbalk in de oudere Special:Search interface in plaats van Special:MediaSearch",

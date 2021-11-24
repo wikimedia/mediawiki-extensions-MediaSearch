@@ -25,7 +25,12 @@
 			"坑触可",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"GuoPC",
+			"Lantx",
+			"Shimamura Sakura",
+			"TsuyaMarisa",
+			"Xiplus"
 		]
 	},
 	"mediasearch-title": "搜索媒体",
@@ -56,8 +61,8 @@
 	"mediasearch-filter-namespace-discussion": "讨论",
 	"mediasearch-filter-namespace-help": "一般性帮助",
 	"mediasearch-filter-namespace-custom": "自定义",
-	"mediasearch-filter-namespace-label": "名字空间：$1",
-	"mediasearch-filter-namespace-dialog-title": "名字空间选择器",
+	"mediasearch-filter-namespace-label": "命名空间：$1",
+	"mediasearch-filter-namespace-dialog-title": "命名空间选择器",
 	"mediasearch-filter-namespace-dialog-progressive-action": "提交",
 	"mediasearch-no-results": "我们没有找到任何结果",
 	"mediasearch-no-results-tips": "请尝试更通用的搜索词或者检查您的拼写",
@@ -82,7 +87,7 @@
 	"mediasearch-clear-filters": "清除过滤器",
 	"mediasearch-results-count": "$1个结果",
 	"mediasearch-wordcount": "（$1个字）",
-	"mediasearch-did-you-mean": "你的意思是不是：$1",
+	"mediasearch-did-you-mean": "您是否想找：$1",
 	"mediasearch-error-message": "搜索无效",
 	"mediasearch-error-text": "在上方输入新搜索并重试",
 	"mediasearch-specialsearch-default": "在Special:Search界面中显示搜索结果",

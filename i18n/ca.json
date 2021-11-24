@@ -5,7 +5,8 @@
 			"Jmarchn",
 			"Mguix",
 			"Toniher",
-			"Vfc"
+			"Vfc",
+			"Galactic Thrasher"
 		]
 	},
 	"mediasearch-title": "Cerca de fitxers multimèdia",
@@ -63,7 +64,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|resultat|resultats}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|paraula|paraules}})",
 	"mediasearch-image-size": "($1)",
-	"mediasearch-did-you-mean": "Potser volíeu dir: $1",
+	"mediasearch-did-you-mean": "Volíeu dir: $1",
 	"mediasearch-error-message": "Recerca no vàlida",
 	"mediasearch-error-text": "Entreu a dalt una nova cerca i provar de nou",
 	"mediasearch-specialsearch-default": "Mostra els resultats de la cerca a la interfície de Special:Search",

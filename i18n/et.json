@@ -4,11 +4,13 @@
 			"Pikne"
 		]
 	},
+	"mediasearch-desc": "Kuvab failikesksed otsitulemused [[Special:MediaSearch|failiotsingu]] lehekülje abil.",
 	"mediasearch-title": "Failiotsing",
 	"mediasearch-tab-image": "Pildid",
 	"mediasearch-tab-audio": "Heli",
 	"mediasearch-tab-page": "Kategooriad ja leheküljed",
 	"mediasearch-tab-other": "Muud failid",
+	"mediasearch-filter-size": "Pildisuurus",
 	"mediasearch-filter-size-any": "Kõik pildisuurused",
 	"mediasearch-filter-size-small": "Väike",
 	"mediasearch-filter-size-medium": "Keskmine",

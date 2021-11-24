@@ -7,7 +7,8 @@
 			"Mkazberuk",
 			"Rail",
 			"Railfail536",
-			"Woytecr"
+			"Woytecr",
+			"Mruczek"
 		]
 	},
 	"mediasearch-desc": "Skoncentrowana na multimediach metoda wyświetlania wyników wyszukiwania dodana poprzez stronę [[Special:MediaSearch|wyszukiwania mediów]]",
@@ -54,7 +55,7 @@
 	"mediasearch-quickview-close-button-text": "Zamknij szczegóły pliku",
 	"mediasearch-quickview-previous-button-text": "Zobacz poprzedni wynik",
 	"mediasearch-quickview-next-button-text": "Zobacz następny wynik",
-	"mediasearch-user-notice-title": "Szukasz [[{{#special:Search}}]]?",
+	"mediasearch-user-notice-title": "Szukasz [[Special:Search|Specjalna:Szukaj]]?",
 	"mediasearch-user-notice-body": "Możesz dostosować swoje [[Special:Preferences#mw-prefsection-searchoptions|preferencje]], aby wybrać preferowaną metodę wyszukiwania.",
 	"mediasearch-user-notice-dismiss": "Odrzuć powiadomienie",
 	"mediasearch-switch-special-search": "Przełącz na {{#special:Search}}",
@@ -65,15 +66,15 @@
 	"mediasearch-clear-filters": "Wyczyść filtry",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|wynik|wyniki|wyników}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|słowo|słowa|słów}})",
-	"mediasearch-did-you-mean": "Czy masz na myśli: $1",
+	"mediasearch-did-you-mean": "Czy chodziło Ci o: $1",
 	"mediasearch-error-message": "Nieprawidłowe wyszukiwanie",
 	"mediasearch-error-text": "Wpisz nowe wyszukiwanie powyżej i spróbuj ponownie",
 	"mediasearch-specialsearch-default": "Pokaż wyniki wyszukiwania w interfejsie {{#special:Search}}",
 	"mediasearch-specialsearch-default-help": "Zaznacz, aby wyświetlić wyniki wyszukiwania z głównego paska wyszukiwania w starszym interfejsie {{#special:Search}} zamiast {{#special:MediaSearch}}",
-	"mediasearch-filter-assessment-picture-of-the-day": "Grafika dnia",
-	"mediasearch-filter-assessment-picture-of-the-year": "Grafika roku",
-	"mediasearch-filter-assessment-featured-image": "Polecane zdjęcie",
-	"mediasearch-filter-assessment-valued-image": "Ceniony obraz",
-	"mediasearch-filter-assessment-quality-image": "Obraz wysokiej jakości",
-	"mediasearch-filter-assessment-menu-label": "Oceny społeczności"
+	"mediasearch-filter-assessment-picture-of-the-day": "Grafika na dziś",
+	"mediasearch-filter-assessment-picture-of-the-year": "Grafika Roku",
+	"mediasearch-filter-assessment-featured-image": "Grafika na medal",
+	"mediasearch-filter-assessment-valued-image": "Wartościowa grafika",
+	"mediasearch-filter-assessment-quality-image": "Grafika wysokiej jakości",
+	"mediasearch-filter-assessment-menu-label": "Wyróżnienia społeczności"
 }

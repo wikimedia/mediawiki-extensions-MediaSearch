@@ -9,9 +9,11 @@
 			"Xiplus",
 			"予弦",
 			"神樂坂秀吉",
-			"蘭斯特"
+			"蘭斯特",
+			"列维劳德"
 		]
 	},
+	"mediasearch-desc": "透過[[Special:MediaSearch|多媒體搜尋]]頁面以多媒體為中心來顯示搜尋結果。",
 	"mediasearch-title": "搜尋多媒體",
 	"mediasearch-continue": "下一頁",
 	"mediasearch-tab-image": "圖片",
@@ -73,5 +75,8 @@
 	"mediasearch-specialsearch-default-help": "選擇顯示來自舊版 Special:Search 介面（而非 Special:MediaSearch）之主搜尋欄的搜尋結果",
 	"mediasearch-filter-assessment-picture-of-the-day": "每日圖片",
 	"mediasearch-filter-assessment-picture-of-the-year": "年度圖片",
-	"mediasearch-filter-assessment-featured-image": "特色圖片"
+	"mediasearch-filter-assessment-featured-image": "特色圖片",
+	"mediasearch-filter-assessment-valued-image": "具價值圖片",
+	"mediasearch-filter-assessment-quality-image": "品質圖片",
+	"mediasearch-filter-assessment-menu-label": "社群評估"
 }

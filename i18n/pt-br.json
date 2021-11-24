@@ -63,7 +63,7 @@
 	"mediasearch-clear-filters": "Limpar filtros",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|resultado|resultados}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|palavara|palavaras}})",
-	"mediasearch-did-you-mean": "Você quis dizer: $1",
+	"mediasearch-did-you-mean": "Você quis dizer: $1?",
 	"mediasearch-error-message": "Pesquisa inválida",
 	"mediasearch-error-text": "Insira uma nova pesquisa acima e tente novamente",
 	"mediasearch-specialsearch-default": "Mostre os resultados da pesquisa na interface Especial:Pesquisa",

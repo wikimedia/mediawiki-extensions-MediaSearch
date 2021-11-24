@@ -57,7 +57,7 @@
 	"mediasearch-copytextlayout-copy-success": "Copiad in di apont",
 	"mediasearch-clear-filters": "Scancela i filter",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|risultad}}",
-	"mediasearch-wordcount": "$1 ({{PLURAL:$1|parola|$1 parole}})",
+	"mediasearch-wordcount": "$1 ({{PLURAL:$1|parolla|$1 parolle}})",
 	"mediasearch-did-you-mean": "Te vorevet dì: $1",
 	"mediasearch-error-message": "Ricerca minga bona",
 	"mediasearch-error-text": "Met denter un altra ricerca e provegh anmò.",
