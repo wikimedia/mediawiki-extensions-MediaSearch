@@ -24,7 +24,7 @@
 
 <script>
 var Button = require( './base/Button.vue' ),
-	closeIcon = require( '../../../../lib/icons.js' ).sdIconClose,
+	closeIcon = require( '../../lib/icons.js' ).sdIconClose,
 	Message = require( './base/Message.vue' ),
 	specialSearchLink = 'https://meta.wikimedia.org/wiki/Special:Search';
 

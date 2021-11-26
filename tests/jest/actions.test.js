@@ -5,6 +5,7 @@ const initialState = require( './fixtures/initialVuexState.js' ),
 	mockImageDetailsApiResponse = require( './fixtures/mockImageDetailsApiResponse.json' ),
 	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	when = require( 'jest-when' ).when;
+
 require( './mocks/history.js' );
 
 let context;

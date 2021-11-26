@@ -9,6 +9,7 @@
 		"lint:fix": "grunt fix"
 	},
 	"devDependencies": {
+		"@vue/composition-api": "^1.4.1",
 		"@vue/test-utils": "^1.1.3",
 		"babel-core": "^6.26.3",
 		"eslint-config-wikimedia": "0.20.0",

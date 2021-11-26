@@ -25,10 +25,14 @@ module.exports = {
 		 *
 		 * @param {string} key Key of message to get
 		 * @param {...Mixed} parameters Values for $N replacements
+		 * @param message
 		 * @return {mw.Message}
 		 */
-		Vue.prototype.$i18n = function () {
-			return mw.message.apply( mw, arguments );
+		Vue.prototype.$i18n = function ( message ) {
+			return {
+				text: jest.fn().mockReturnValue( message ),
+				parse: jest.fn().mockReturnValue( message )
+			};
 		};
 
 		/*

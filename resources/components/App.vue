@@ -113,17 +113,20 @@ module.exports = {
 		restoreHistoryHandler
 	],
 
+	// The App.vue file contains no local state. An empty object is returned as
+	// a placeholder for ease of unit-testing. When the time comes to migrate
+	// the MediaSearch front-end to Vue 3, this file could be re-written using
+	// the composition API or even <script setup> to eliminate this redundant
+	// option.
+	data: function () {
+		return {};
+	},
+
 	computed: $.extend( {}, mapState( [
 		'autoloadCounter',
-		'continue',
-		'filterValues',
-		'hasError',
-		'pending',
-		'results',
-		'totalHits'
+		'results'
 	] ), mapGetters( [
 		'allActiveFilters',
-		'checkForMore',
 		'currentType',
 		'currentSearchTerm'
 
@@ -157,18 +160,13 @@ module.exports = {
 	} ),
 
 	methods: $.extend( {}, mapMutations( [
-		'addFilterValue',
 		'clearDidYouMean',
-		'decreaseAutoloadCounterForMediaType',
 		'resetResults',
-		'restoreContinue',
-		'restoreTotalHits',
 		'resetAutoLoadForAllMediaType',
 		'setHasError',
 		'setPending',
 		'setSearchTerm',
-		'updateOrDeleteQueryParam',
-		'clearFilterQueryParams'
+		'updateOrDeleteQueryParam'
 	] ), mapActions( [
 		'clear',
 		'syncActiveTypeAndQueryType',
