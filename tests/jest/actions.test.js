@@ -203,8 +203,11 @@ describe( 'search', () => {
 
 		it( 'Handles errors successfully', done => {
 			const deferred = $.Deferred(),
-				promise = deferred.promise();
+				promise = deferred.promise(),
+				pendingRequestType = 'video';
 
+			// we need to set a different type than the current one in pending state
+			context.state.pending[ pendingRequestType ] = true;
 			global.mw.Api.prototype.get.mockReturnValue( promise );
 			actions.performNewSearch( context );
 
@@ -214,7 +217,7 @@ describe( 'search', () => {
 				expect( context.commit ).toHaveBeenCalledWith( 'setHasError', true );
 			} ).always( () => {
 				expect( context.commit ).toHaveBeenCalledWith( 'setPending', {
-					type: context.getters.currentType,
+					type: pendingRequestType,
 					pending: false
 				} );
 				done();

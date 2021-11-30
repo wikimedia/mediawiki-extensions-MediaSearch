@@ -276,8 +276,18 @@ function searchCurrentTermAndType( context ) {
 		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
 	} ).catch( function ( errorCode, details ) {
 		// Set pending to false and clear the stashed request
+		var pendingType;
 		activeSearchRequest = null;
-		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
+
+		Object.keys( context.state.pending ).forEach( function ( type ) {
+			if ( context.state.pending[ type ] === true && context.getters.currentType !== type ) {
+				pendingType = type;
+			}
+		} );
+
+		if ( pendingType ) {
+			context.commit( 'setPending', { type: pendingType, pending: false } );
+		}
 
 		// No other error handling is required if the request has been
 		// aborted by the client
