@@ -44,12 +44,14 @@ class SearchOptions {
 	];
 
 	public const NAMESPACES_ALL = 'all';
+	public const NAMESPACES_ALL_INCL_FILE = 'all_incl_file';
 	public const NAMESPACES_DISCUSSION = 'discussion';
 	public const NAMESPACES_HELP = 'help';
 	public const NAMESPACES_CUSTOM = 'custom';
 
 	public const NAMESPACE_GROUPS = [
 		self::NAMESPACES_ALL,
+		self::NAMESPACES_ALL_INCL_FILE,
 		self::NAMESPACES_DISCUSSION,
 		self::NAMESPACES_HELP,
 		self::NAMESPACES_CUSTOM
@@ -500,10 +502,33 @@ class SearchOptions {
 		$namespaceInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 		$allNamespaces = $namespaceInfo->getCanonicalNamespaces();
 
-		$nonFileNamespaces = array_filter( $allNamespaces, static function ( $namespaceId ) {
-			// Exclude virtual namespaces & file namespace.
-			return $namespaceId >= 0 && $namespaceId !== NS_FILE;
-		}, ARRAY_FILTER_USE_KEY );
+		// $wgNamespacesToBeSearchedDefault is an array with namespace ids as keys, and 1|0 to
+		// indicate if the namespace should be searched by default
+		if ( $this->mainConfig->get( 'NamespacesToBeSearchedDefault' ) ) {
+			$defaultSearchNamespaces = array_filter(
+				$this->mainConfig->get( 'NamespacesToBeSearchedDefault' )
+			);
+		} else {
+			$defaultSearchNamespaces = [ 0 => 1 ];
+		}
+
+		$realNamespaces = array_filter(
+			$allNamespaces,
+			static function ( $namespaceId ) {
+				// Exclude virtual namespaces
+				return $namespaceId >= 0;
+			},
+			ARRAY_FILTER_USE_KEY
+		);
+		$nonFileNamespaces = array_filter(
+			$realNamespaces,
+			static function ( $namespaceId ) {
+				return $namespaceId !== NS_FILE;
+			},
+			ARRAY_FILTER_USE_KEY
+		);
+
+		$customNamespaces = array_intersect_key( $nonFileNamespaces, $defaultSearchNamespaces );
 
 		$talkNamespaces = array_combine(
 			$namespaceInfo->getTalkNamespaces(),
@@ -513,12 +538,14 @@ class SearchOptions {
 		);
 
 		return [
+			static::NAMESPACES_ALL_INCL_FILE => $realNamespaces,
 			static::NAMESPACES_ALL => $nonFileNamespaces,
 			static::NAMESPACES_DISCUSSION => $talkNamespaces,
 			static::NAMESPACES_HELP => [
 				NS_PROJECT => $namespaceInfo->getCanonicalName( NS_PROJECT ),
 				NS_HELP => $namespaceInfo->getCanonicalName( NS_HELP ),
-			]
+			],
+			static::NAMESPACES_CUSTOM => $customNamespaces
 		];
 	}
 
@@ -537,7 +564,7 @@ class SearchOptions {
 		}
 
 		$inputIds = explode( '|', $input );
-		$allowedIds = array_keys( $namespaceGroups[ static::NAMESPACES_ALL ] );
+		$allowedIds = array_keys( $namespaceGroups[ static::NAMESPACES_ALL_INCL_FILE ] );
 		$verifiedIds = array_intersect( $allowedIds, $inputIds );
 		if ( count( $verifiedIds ) === count( $inputIds ) ) {
 			return $verifiedIds;

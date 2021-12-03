@@ -233,7 +233,9 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForValidTypes() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
-			new HashConfig(),
+			new HashConfig( [
+				'NamespacesToBeSearchedDefault' => [ NS_FILE ]
+			] ),
 			new HashConfig()
 		);
 
@@ -259,7 +261,9 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	public function testGetNamespacesForPage() {
 		$options = new SearchOptions(
 			new MockMessageLocalizer(),
-			new HashConfig(),
+			new HashConfig( [
+				'NamespacesToBeSearchedDefault' => [ NS_FILE ]
+			] ),
 			new HashConfig()
 		);
 
@@ -327,7 +331,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 			new MockMessageLocalizer(),
 			new HashConfig( [
 				'MediaSearchAssessmentFilters' => $assessmentFilters,
-				'MediaSearchAssessmentQuickviewLabels' => null
+				'MediaSearchAssessmentQuickviewLabels' => null,
 			] ),
 			new HashConfig()
 		);

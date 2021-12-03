@@ -80,24 +80,11 @@ describe( 'EndOfResults', () => {
 				}
 			} );
 
-			expect( wrapper.vm.initialRadio ).toBe( 'custom' );
+			expect( wrapper.vm.initialRadio ).toBe( 'all' );
 		} );
 	} );
 
 	describe( 'initialCustom', () => {
-		it( 'returns 0 if initialValue is a valid namespaceGroup', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
-					items: [],
-					namespaces: {},
-					namespaceGroups: { test: { value: 'test' } },
-					initialValue: 'test'
-				}
-			} );
-
-			expect( wrapper.vm.initialCustom ).toContain( '0' );
-		} );
 		it( 'returns initialValue if is a custom value (number)', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
 				localVue: localVue,
@@ -346,7 +333,7 @@ describe( 'EndOfResults', () => {
 						propsData: {
 							items: [],
 							namespaces: {},
-							namespaceGroups: { test: { test: 'test' } },
+							namespaceGroups: { test: { test: 'test' }, custom: { test: 'test' } },
 							initialValue: 'test'
 						}
 					} );
@@ -361,7 +348,7 @@ describe( 'EndOfResults', () => {
 						propsData: {
 							items: [],
 							namespaces: {},
-							namespaceGroups: { test: { test: 'test' } },
+							namespaceGroups: { test: { test: 'test' }, custom: { test: 'test' } },
 							initialValue: 'test'
 						}
 					} );
