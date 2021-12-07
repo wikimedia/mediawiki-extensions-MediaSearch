@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Javiero",
+			"KuboF",
+			"Mirin",
+			"NMaia",
+			"Renardo",
+			"Robin van der Vliet"
+		]
+	},
+	"mediasearch-title": "Serĉi aŭdvidaĵojn",
+	"mediasearch-continue": "Sekva",
+	"mediasearch-tab-image": "Bildoj",
+	"mediasearch-tab-audio": "Aŭdaĵoj",
+	"mediasearch-tab-video": "Filmetoj",
+	"mediasearch-tab-page": "Kategorioj kaj Paĝoj",
+	"mediasearch-tab-other": "Aliaj plurmediaĵoj",
+	"mediasearch-filter-size": "Grando de bildo",
+	"mediasearch-filter-size-any": "Ĉiuj bildaj grandecoj",
+	"mediasearch-filter-size-small": "Malgranda",
+	"mediasearch-filter-size-medium": "Mezgranda",
+	"mediasearch-filter-size-large": "Granda",
+	"mediasearch-filter-sort-label": "Ordigi laŭ:",
+	"mediasearch-filter-sort-default": "Rilateco",
+	"mediasearch-filter-sort-popularity": "Populareco",
+	"mediasearch-filter-license-any": "Ĉiuj licencoj",
+	"mediasearch-filter-license-cc-by": "Uzu kun atribuo",
+	"mediasearch-filter-license-cc-by-sa": "Uzu kun atribuo kaj sama licenco",
+	"mediasearch-filter-license-unrestricted": "Neniuj restriktoj",
+	"mediasearch-filter-license-other": "Alia",
+	"mediasearch-no-results": "Ni ne trovis ajnajn rezultojn",
+	"mediasearch-input-label": "Serĉi aŭdvidaĵojn",
+	"mediasearch-load-more-results": "Ŝargi pli",
+	"mediasearch-quickview-button-text": "Pliaj detaloj",
+	"mediasearch-copytextlayout-copy": "Kopii"
+}

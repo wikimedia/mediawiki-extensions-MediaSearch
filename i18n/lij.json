@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Giromin Cangiaxo"
+		]
+	},
+	"mediasearch-title": "Serca un file murtimediâ",
+	"mediasearch-continue": "Avanti",
+	"mediasearch-tab-image": "Inmaggine",
+	"mediasearch-tab-audio": "Audio",
+	"mediasearch-tab-video": "Viddeo",
+	"mediasearch-filter-size": "Dimenscion do file murtimediâ",
+	"mediasearch-filter-size-any": "Qualunque dimenscion",
+	"mediasearch-filter-size-small": "Picin",
+	"mediasearch-filter-size-medium": "Mezan",
+	"mediasearch-filter-size-large": "Grande"
+}

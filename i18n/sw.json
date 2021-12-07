@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Edwingudfriend"
+		]
+	},
+	"mediasearch-continue": "Inayofuata",
+	"mediasearch-tab-page": "Jamii na Kurasa",
+	"mediasearch-filter-sort-label": "Panga kwa:",
+	"mediasearch-filter-sort-default": "Umuhimu",
+	"mediasearch-filter-sort-recency": "Hivi karibuni",
+	"mediasearch-filter-sort-popularity": "Umaarufu",
+	"mediasearch-category-info": "$ 1 {{PLURAL: $ 1 | mwanachama | wanachama}} - $ 2 {{PLURAL: $ 2 | vijamii | vijamii}}, $ 3 {{{PLURAL: $ 3 | faili | faili}}"
+}

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fulup"
+		]
+	},
+	"mediasearch-title": "Klask ur media",
+	"mediasearch-continue": "War-lerc'h",
+	"mediasearch-tab-image": "Skeudennoù",
+	"mediasearch-tab-audio": "Son",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-filter-size": "Ment ar media",
+	"mediasearch-filter-size-any": "Ne vern ar vent",
+	"mediasearch-filter-size-small": "Bihan",
+	"mediasearch-filter-size-medium": "Etre",
+	"mediasearch-filter-size-large": "Bras"
+}

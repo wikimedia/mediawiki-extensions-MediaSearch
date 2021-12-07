@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahrada2016"
+		]
+	},
+	"mediasearch-tab-other": "Midiyaa Biraa",
+	"mediasearch-filter-namespace-all": "Hunda",
+	"mediasearch-filter-namespace-discussion": "Marii",
+	"mediasearch-filter-namespace-help": "Gargaarsa Waliigalaa",
+	"mediasearch-filter-namespace-custom": "Duudhaa",
+	"mediasearch-filter-namespace-label": "Idmaqaa:$1",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Dabarsii",
+	"mediasearch-specialsearch-default": "Addatti bu'aa barbaachaa argisiisi:Qunnama barbaadi",
+	"mediasearch-user-notice-title": "[[Special:Search]] ilaalaayirtaa?",
+	"mediasearch-user-notice-dismiss": "Yaadachiisa kana balleessi",
+	"mediasearch-switch-special-search": "Ka addaa bani:Barbaadi"
+}

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"mediasearch-tab-image": "Mmàggini",
+	"mediasearch-tab-audio": "Àudiu",
+	"mediasearch-tab-page": "Catigurìi e pàggini",
+	"mediasearch-filter-license-any": "Tutti li licenzi",
+	"mediasearch-filter-license-other": "Àutru",
+	"mediasearch-filter-namespace-all": "Tutti",
+	"mediasearch-filter-namespace-discussion": "Discussioni",
+	"mediasearch-filter-namespace-help": "Aiutu ginirali",
+	"mediasearch-filter-namespace-label": "Namespace: $1",
+	"mediasearch-quickview-button-text": "Àutri dittagghî",
+	"mediasearch-quickview-close-button-text": "Chiudi li dittagghî dû file",
+	"mediasearch-category-info": "$1 {{PLURAL:$1|mèmmiru|mèmmiri}} ($2 {{PLURAL:$2|suttacatigurìa|suttacatigurìi}}, $3 {{PLURAL:$3|file}})",
+	"mediasearch-results-count": "{{PLURAL:$1|risurtatu|risurtati}}",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|palora|palori}}"
+}

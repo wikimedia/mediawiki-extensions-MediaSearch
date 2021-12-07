@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Veeven"
+		]
+	},
+	"mediasearch-tab-image": "బొమ్మలు",
+	"mediasearch-filter-namespace-all": "అన్నీ",
+	"mediasearch-filter-namespace-discussion": "చర్చ",
+	"mediasearch-filter-namespace-help": "సాధారణ సహాయం",
+	"mediasearch-filter-namespace-label": "పేరుబరి: $1",
+	"mediasearch-no-results": "మాకు ఫలితాలేమీ దొరకలేదు",
+	"mediasearch-clear-title": "తొలగించు"
+}

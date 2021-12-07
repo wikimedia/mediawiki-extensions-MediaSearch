@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Achiri Bitamsimli",
+			"Alhassan Mohammed Awal",
+			"Alhassan Peter",
+			"Amire80",
+			"Din-nani1",
+			"Dnshitobu",
+			"Jahinfo",
+			"Masssly",
+			"Musahfm",
+			"Sir Amugi",
+			"Yakubu Fadilatu"
+		]
+	},
+	"mediasearch-tab-other": "Media sheli dabam",
+	"mediasearch-filter-namespace-all": "Zaa",
+	"mediasearch-filter-namespace-discussion": "Zambu",
+	"mediasearch-filter-namespace-help": "Zaa sɔŋsim",
+	"mediasearch-filter-namespace-custom": "Kali",
+	"mediasearch-filter-namespace-label": "Yuli sambu shee $1",
+	"mediasearch-filter-namespace-dialog-title": "Yuli polo din piira",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Zaŋ ti",
+	"mediasearch-error-message": "Vihigu shɛli diŋ kani",
+	"mediasearch-user-notice-title": "Yuuni bɔra[[Zaɣ'gahindili:bomi di shee]]",
+	"mediasearch-user-notice-body": "A ni tooi mali ŋɔ  niŋ",
+	"mediasearch-user-notice-dismiss": "Yimi lahibaliŋɔ yalani",
+	"mediasearch-switch-special-search": "!!FUZZY!!Labimi zaɣ'gahindili palo: Vihi ma"
+}

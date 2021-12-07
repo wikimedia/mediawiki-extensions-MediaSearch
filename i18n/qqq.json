@@ -7,7 +7,8 @@
 			"Pikne",
 			"Robby",
 			"Shirayuki",
-			"Umherirrender"
+			"Umherirrender",
+			"Raymond"
 		]
 	},
 	"mediasearch-title": "Title text for the media search special page",
@@ -29,13 +30,13 @@
 	"mediasearch-filter-sort-popularity": "Label for popularity sort option",
 	"mediasearch-filter-license-any": "Label text for option to filter media search results by any license",
 	"mediasearch-filter-license-cc-by": "Label text for option to filter media search results by CC-BY licenses",
-	"mediasearch-filter-license-attribution": "Label text for option to filter media search results by CC-BY licenses",
+	"mediasearch-filter-license-attribution": "Label text for option to filter media search results by licenses requiring attribution",
 	"mediasearch-filter-license-cc-by-sa": "Label text for option to filter media search results by CC-SA licenses",
-	"mediasearch-filter-license-attribution-same-license": "Label text for option to filter media search results by CC-SA licenses",
+	"mediasearch-filter-license-attribution-same-license": "Label text for option to filter media search results by licenses requiring attribution and same licensing",
 	"mediasearch-filter-license-unrestricted": "Label text for option to filter media search results by CC-0 license or public domain media",
 	"mediasearch-filter-license-other": "Label text for option to filter media search results by other licenses",
-	"mediasearch-filter-namespace-all": "Label text for option to filter by all namespaces",
-	"mediasearch-filter-namespace-discussion": "Label text for option to filter by discussion namespaces",
+	"mediasearch-filter-namespace-all": "Label text for option to filter by all namespaces\n{{identical|All}}",
+	"mediasearch-filter-namespace-discussion": "Label text for option to filter by discussion namespaces\n{{identical|Discussion}}",
 	"mediasearch-filter-namespace-help": "Label text for option to filter by general help namespaces",
 	"mediasearch-filter-namespace-custom": "Label text for option to filter by a custom list of namespaces",
 	"mediasearch-filter-namespace-label": "Label for the button that triggers the namespace filter dialog. Parameters:\n* $1 - Current selected filter value message",

@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Laitei",
+			"Taytay",
+			"Teitei Para"
+		]
+	},
+	"mediasearch-filter-license-any": "License zydua",
+	"mediasearch-filter-license-unrestricted": "Bitaina y vei",
+	"mediasearch-filter-license-other": "Ahropa",
+	"mediasearch-no-results": "Kheihhawhpa theilâ rai hmô tlâ mapi",
+	"mediasearch-load-more-results": "A hluh viapa khâh",
+	"mediasearch-quickview-button-text": "Chhichâna hluh viapazy",
+	"mediasearch-quickview-close-button-text": "Faih chhichânazy khaw",
+	"mediasearch-copytextlayout-copy": "Patly",
+	"mediasearch-copytextlayout-copy-success": "Â patly haw"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"AlimOmar",
+			"Sahran"
+		]
+	},
+	"mediasearch-filter-namespace-all": "ھەممىسى",
+	"mediasearch-filter-namespace-help": "ئادەتتىكى ياردەم",
+	"mediasearch-filter-namespace-custom": "ئىختىيارىچە",
+	"mediasearch-filter-namespace-label": "ئات بوشلۇقى: $1",
+	"mediasearch-filter-namespace-dialog-title": "ئات بوشلۇقى تاللىغۇچ",
+	"mediasearch-filter-namespace-dialog-progressive-action": "تاپشۇر",
+	"mediasearch-no-results": "نەتىجە تېپىلمىدى"
+}

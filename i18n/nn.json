@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Njardarlogar"
+		]
+	},
+	"mediasearch-tab-video": "Video",
+	"mediasearch-tab-page": "Kategoriar og sider",
+	"mediasearch-tab-other": "Andre medium",
+	"mediasearch-filter-size": "Biletstorleik",
+	"mediasearch-filter-size-any": "Alle biletstorleikar",
+	"mediasearch-filter-sort-default": "Relevans",
+	"mediasearch-filter-sort-recency": "Dato",
+	"mediasearch-filter-sort-popularity": "Popularitet",
+	"mediasearch-filter-license-any": "Alle lisensar",
+	"mediasearch-filter-license-cc-by": "Bruk med namngjeving",
+	"mediasearch-filter-license-cc-by-sa": "Bruk med namngjeving og same lisensen",
+	"mediasearch-filter-license-unrestricted": "Ingen avgrensingar",
+	"mediasearch-filter-license-other": "Andre",
+	"mediasearch-no-results": "Ingen resultat vart funne",
+	"mediasearch-no-results-tips": "Prøv meir gjengse ord eller sjekk stavinga du har brukt",
+	"mediasearch-end-of-results": "Det vart ikkje funne fleire resultat",
+	"mediasearch-quickview-button-text": "Fleire detaljar",
+	"mediasearch-user-notice-title": "Ser du etter [[Special:Search]]?",
+	"mediasearch-user-notice-body": "Du kan no endra [[Special:Preferences#mw-prefsection-searchoptions|innstillingane]] dine for å velja søkjeopplevinga du likar best."
+}

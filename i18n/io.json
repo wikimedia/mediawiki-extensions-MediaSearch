@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"JSantos",
+			"Joao Xavier"
+		]
+	},
+	"mediasearch-title": "Serchar 'media'",
+	"mediasearch-continue": "Sequanta",
+	"mediasearch-tab-image": "Imaji",
+	"mediasearch-tab-audio": "*Audio",
+	"mediasearch-tab-video": "*Video",
+	"mediasearch-filter-size": "Grandeso dil arkivo",
+	"mediasearch-filter-size-small": "Mikra",
+	"mediasearch-filter-size-large": "Larja",
+	"mediasearch-filter-license-unrestricted": "Sen restrikti",
+	"mediasearch-no-results": "Nula rezulti trovita"
+}

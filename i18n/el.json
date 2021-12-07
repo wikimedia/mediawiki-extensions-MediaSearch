@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Geraki",
+			"Giorgos456",
+			"NikosLikomitros",
+			"Nikosgranturismogt",
+			"Protnet"
+		]
+	},
+	"mediasearch-tab-image": "Εικόνες",
+	"mediasearch-tab-audio": "Ήχος",
+	"mediasearch-tab-video": "Βίντεο",
+	"mediasearch-filter-size": "Μέγεθος εικόνας",
+	"mediasearch-load-more-results": "Φόρτωση περισσότερων"
+}

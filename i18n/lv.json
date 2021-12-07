@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Papuass"
+		]
+	},
+	"mediasearch-title": "Meklēt medijus",
+	"mediasearch-continue": "Nākamie",
+	"mediasearch-tab-image": "Attēli",
+	"mediasearch-tab-audio": "Audio",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-tab-page": "Kategorijas un lapas",
+	"mediasearch-tab-other": "Citi",
+	"mediasearch-filter-size": "Attēla izmērs",
+	"mediasearch-filter-size-any": "Jebkāda izmēra",
+	"mediasearch-filter-size-small": "Mazs",
+	"mediasearch-filter-size-medium": "Vidējs",
+	"mediasearch-filter-size-large": "Liels",
+	"mediasearch-filter-sort-label": "Kārtot pēc:",
+	"mediasearch-filter-sort-default": "Atbilstības",
+	"mediasearch-filter-sort-recency": "Nesenuma",
+	"mediasearch-filter-sort-popularity": "Popularitātes",
+	"mediasearch-filter-license-any": "Visas licences",
+	"mediasearch-filter-license-unrestricted": "Nav ierobežojumu",
+	"mediasearch-filter-license-other": "Cita",
+	"mediasearch-no-results": "Nav atrasts neviens rezultāts",
+	"mediasearch-clear-title": "Noņemt",
+	"mediasearch-load-more-results": "Ielādēt vairāk",
+	"mediasearch-quickview-button-text": "Vairāk informācijas",
+	"mediasearch-copytextlayout-copy": "Kopēt",
+	"mediasearch-clear-filters": "Notīrīt filtrus"
+}

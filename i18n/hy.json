@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"23artashes",
+			"Kareyac"
+		]
+	},
+	"mediasearch-title": "Որոնել մեդիա",
+	"mediasearch-continue": "Հաջորդ",
+	"mediasearch-tab-image": "Պատկերներ",
+	"mediasearch-tab-audio": "Աուդիո",
+	"mediasearch-tab-video": "Վիդեո",
+	"mediasearch-tab-other": "Այլ",
+	"mediasearch-filter-size-small": "Փոքր",
+	"mediasearch-filter-size-medium": "Միջին",
+	"mediasearch-filter-size-large": "Մեծ",
+	"mediasearch-filter-license-other": "Այլ",
+	"mediasearch-filter-namespace-all": "Բոլորը",
+	"mediasearch-filter-namespace-discussion": "Քննարկում",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Հաստատել",
+	"mediasearch-no-results": "Ոչինչ չի գտնվել"
+}

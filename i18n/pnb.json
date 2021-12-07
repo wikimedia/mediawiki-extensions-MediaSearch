@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Abbas dhothar"
+		]
+	},
+	"mediasearch-tab-image": "تصویراں",
+	"mediasearch-tab-audio": "آڈیو",
+	"mediasearch-tab-video": "ویڈیو",
+	"mediasearch-filter-size": "مورت سائز",
+	"mediasearch-filter-sort-label": "چُنن ترتیب:",
+	"mediasearch-filter-sort-default": "متعلقہ",
+	"mediasearch-filter-license-any": "سارے لائیسنس",
+	"mediasearch-filter-license-other": "ہور",
+	"mediasearch-quickview-button-text": "ہور تفصیل"
+}
