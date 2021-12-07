@@ -45,7 +45,7 @@ module.exports = {
 		},
 
 		/**
-		 * Set to true to wrap component in a span instead of a div.
+		 * Set to true to make component inline instead of block.
 		 */
 		inline: {
 			type: Boolean
@@ -80,10 +80,6 @@ module.exports = {
 				'sd-copy-text-layout--hide-overflow': this.hideOverflow,
 				'sd-copy-text-layout--inline': this.inline && !this.hideOverflow
 			};
-		},
-
-		elementType: function () {
-			return this.inline ? 'span' : 'div';
 		}
 	},
 

@@ -55,7 +55,8 @@ mw = {
 		setObject: jest.fn(),
 		getObject: jest.fn(),
 		remove: jest.fn()
-	}
+	},
+	notify: jest.fn()
 };
 /*
  * MW front-end code expects certain global variables to exist in the
