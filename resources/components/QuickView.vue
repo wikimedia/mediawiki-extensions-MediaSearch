@@ -677,12 +677,13 @@ module.exports = {
 		},
 
 		onMoreDetailsClick: function () {
-			/* eslint-disable camelcase */
-			this.$log( {
-				action: 'quickview_more_details_click',
-				search_result_page_id: this.title
-			} );
-			/* eslint-enable camelcase */
+			/* Temp disabled for T297400 */
+
+			/** this.$log( {
+			/*  action: 'quickview_more_details_click',
+			/*  search_result_page_id: this.title
+			/*} );
+			*/
 		},
 
 		onPlay: function () {
