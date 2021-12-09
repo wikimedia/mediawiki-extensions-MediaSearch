@@ -354,11 +354,10 @@ module.exports = {
 		 * @param {boolean} restoreFocus
 		 */
 		hideDetails: function ( restoreFocus ) {
-			var originatingResultId;
+			var originatingResultTitle = this.details[ this.mediaType ].title;
 
 			if ( restoreFocus ) {
-				originatingResultId = this.details[ this.mediaType ].title;
-				this.$refs[ originatingResultId ][ 0 ].focus();
+				this.$refs[ originatingResultTitle ][ 0 ].focus();
 			}
 
 			this.showQuickView = false;
@@ -368,6 +367,12 @@ module.exports = {
 			this.$log( {
 				action: 'quickview_hide'
 			} );
+
+			this.$nextTick(
+				function () {
+					this.scrollIntoViewIfNeeded( originatingResultTitle );
+				}.bind( this )
+			);
 		},
 
 		/**
