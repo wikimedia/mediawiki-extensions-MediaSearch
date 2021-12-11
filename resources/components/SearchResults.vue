@@ -275,7 +275,9 @@ module.exports = {
 		 *
 		 * @param {string} title
 		 * @param {number} index
+		 * @todo reimplement logging once an updated event schema is available
 		 */
+		// eslint-disable-next-line no-unused-vars
 		showDetails: function ( title, index ) {
 			var detailsTimeout;
 
@@ -334,15 +336,8 @@ module.exports = {
 						}.bind( this )
 					);
 
-					/* eslint-disable camelcase */
-					this.$log( {
-						action: 'result_click',
-						search_media_type: this.mediaType,
-						search_result_page_id: title,
-						search_result_position: index,
-						search_result_has_quickview: true
-					} );
-					/* eslint-enable camelcase */
+					// Logging code temporariliy removed due to T297400
+					// Restore when an updated event schema is available
 				}.bind( this )
 			);
 		},
@@ -519,17 +514,12 @@ module.exports = {
 		 *
 		 * @param {string} title
 		 * @param {number} index
+		 * @todo reimplement logging once an updated event schema is available
 		 */
+		// eslint-disable-next-line no-unused-vars
 		onResultClick: function ( title, index ) {
-			/* eslint-disable camelcase */
-			this.$log( {
-				action: 'result_click',
-				search_media_type: this.mediaType,
-				search_result_page_id: title,
-				search_result_position: index,
-				search_result_has_quickview: false
-			} );
-			/* eslint-enable camelcase */
+			// Logging code temporariliy removed due to T297400
+			// Restore when an updated event schema is available
 		}
 	} ),
 
