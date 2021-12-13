@@ -349,10 +349,17 @@ module.exports = {
 		 * @param {boolean} restoreFocus
 		 */
 		hideDetails: function ( restoreFocus ) {
+			if ( !this.details[ this.mediaType ] ) {
+				return;
+			}
+
 			var originatingResultTitle = this.details[ this.mediaType ].title;
 
 			if ( restoreFocus ) {
-				this.$refs[ originatingResultTitle ][ 0 ].focus();
+				// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
+				var result = this.$refs[ originatingResultTitle ][ 0 ] ||
+					this.$refs[ originatingResultTitle ];
+				result.focus();
 			}
 
 			this.showQuickView = false;
@@ -409,7 +416,8 @@ module.exports = {
 		 * @param {string} title
 		 */
 		scrollIntoViewIfNeeded: function ( title ) {
-			var element = this.$refs[ title ][ 0 ].$el,
+			// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
+			var element = ( this.$refs[ title ][ 0 ] || this.$refs[ title ] ).$el,
 				bounds = element.getBoundingClientRect(),
 				viewportHeight = window.innerHeight || document.documentElement.clientHeight,
 				isAboveViewport = bounds.top < 0 || bounds.bottom < 0,

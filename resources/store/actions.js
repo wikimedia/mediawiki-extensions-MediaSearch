@@ -440,7 +440,10 @@ module.exports = {
 	 */
 	pushQueryToHistoryState: function ( context ) {
 		// update mw URI query object with the one currently available within the store
-		mwUri.query = context.state.uriQuery;
+		// In Vue 3, context.state.uriQuery is a Proxy, and passing it to replaceState()
+		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
+		// object ourselves, using $.extend()
+		mwUri.query = $.extend( {}, context.state.uriQuery );
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.pushState( mwUri.query, null, queryString );
 	},
@@ -450,7 +453,10 @@ module.exports = {
 	 * @param {Object} context
 	 */
 	replaceQueryToHistoryState: function ( context ) {
-		mwUri.query = context.state.uriQuery;
+		// In Vue 3, context.state.uriQuery is a Proxy, and passing it to replaceState()
+		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
+		// object ourselves, using $.extend()
+		mwUri.query = $.extend( {}, context.state.uriQuery );
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.replaceState( mwUri.query, null, queryString );
 	},

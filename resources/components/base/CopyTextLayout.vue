@@ -40,7 +40,7 @@ module.exports = {
 		buttonText: {
 			type: [ String, Object ],
 			default: function () {
-				return this.$i18n( 'mediasearch-copytextlayout-copy' ).text();
+				return mw.message( 'mediasearch-copytextlayout-copy' ).text();
 			}
 		},
 
@@ -62,14 +62,14 @@ module.exports = {
 		successMessage: {
 			type: [ String, Object ],
 			default: function () {
-				return this.$i18n( 'mediasearch-copytextlayout-copy-success' ).text();
+				return mw.message( 'mediasearch-copytextlayout-copy-success' ).text();
 			}
 		},
 
 		failMessage: {
 			type: [ String, Object ],
 			default: function () {
-				return this.$i18n( 'mediasearch-copytextlayout-copy-fail' ).text();
+				return mw.message( 'mediasearch-copytextlayout-copy-fail' ).text();
 			}
 		}
 	},
