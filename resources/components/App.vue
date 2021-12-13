@@ -241,11 +241,28 @@ module.exports = {
 		 * Trigger an action to search for more result if available and log the action
 		 */
 		getMoreResultsForTabIfAvailable: function () {
-			this.searchMore();
+			this.searchMore().then( function () {
+				/* eslint-disable camelcase */
+				this.$log( {
+					action: 'search_load_more',
+					search_query: this.currentSearchTerm,
+					search_media_type: this.currentType,
+					search_result_count: this.results[ this.currentType ].length
+				} );
+				/* eslint-enable camelcase */
+			}.bind( this ) );
 		},
 
 		resetCountAndLoadMore: function () {
-			this.searchMore( true );
+			this.searchMore( true ).then( function () {
+				/* eslint-disable camelcase */
+				this.$log( {
+					action: 'search_load_more',
+					search_query: this.currentSearchTerm,
+					search_media_type: this.currentType,
+					search_result_count: this.results[ this.currentType ].length
+				} );
+			}.bind( this ) );
 		},
 
 		/**
@@ -274,7 +291,16 @@ module.exports = {
 				this.lookupPromises.abort();
 			}
 
-			this.performNewSearch();
+			this.performNewSearch().then( function () {
+				/* eslint-disable camelcase */
+				this.$log( {
+					action: 'search_new',
+					search_query: this.currentSearchTerm,
+					search_media_type: this.currentType,
+					search_result_count: this.results[ this.currentType ].length
+				} );
+				/* eslint-enable camelcase */
+			}.bind( this ) );
 		}
 	} ),
 

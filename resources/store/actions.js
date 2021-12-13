@@ -312,16 +312,7 @@ module.exports = {
 	 * @return {jQuery.Deferred}
 	 */
 	performNewSearch: function ( context ) {
-		return searchCurrentTermAndType( context ).then( function () {
-			/* eslint-disable camelcase, no-underscore-dangle */
-			this._vm.$log( {
-				action: 'search_new',
-				search_query: this.getters.currentSearchTerm,
-				search_media_type: this.getters.currentType,
-				search_result_count: this.state.results[ this.getters.currentType ].length
-			} );
-			/* eslint-enable camelcase, no-underscore-dangle */
-		}.bind( this ) );
+		return searchCurrentTermAndType( context );
 	},
 	/**
 	 * Continue to search the current term and type. This will just trigger a search
@@ -341,35 +332,31 @@ module.exports = {
 			!context.getters.checkForMore[ context.getters.currentType ] ||
 			context.state.autoloadCounter[ context.getters.currentType ] === 0 ||
 			context.state.hasError ) {
-			return;
+			return $.Deferred().resolve().promise();
 		}
 
 		if ( !context.state.pending[ context.getters.currentType ] ) {
 			// If more results are available, and if another request is not
 			// already pending, then launch a search request
 			return searchCurrentTermAndType( context ).then( function ( decreaseAutoload ) {
-
 				if ( !decreaseAutoload ) {
 					this.commit( 'decreaseAutoloadCounterForMediaType', this.getters.currentType );
 				}
-				/* eslint-disable camelcase, no-underscore-dangle */
-				this._vm.$log( {
-					action: 'search_load_more',
-					search_query: this.getters.currentSearchTerm,
-					search_media_type: this.getters.currentType,
-					search_result_count: this.state.results[ this.getters.currentType ].length
-				} );
-				/* eslint-enable camelcase, no-underscore-dangle */
 			}.bind( this, resetCounter ) );
 
 		} else {
 			// If more results are available but another request is
 			// currently in-flight, attempt to make the request again
 			// after some time has passed
+			var deferred = $.Deferred();
 			window.setTimeout(
-				context.dispatch.bind( this, 'searchMore' ),
+				function () {
+					context.dispatch( 'searchMore' )
+						.then( deferred.resolve, deferred.reject );
+				},
 				2000
 			);
+			return deferred.promise();
 		}
 	},
 

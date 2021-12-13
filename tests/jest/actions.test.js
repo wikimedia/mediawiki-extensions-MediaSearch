@@ -28,11 +28,6 @@ beforeEach( () => {
 	context.getters.currentSearchTerm = 'cat';
 	context.getters.currentType = 'image';
 
-	// eslint-disable-next-line no-underscore-dangle
-	actions._vm = {
-		$log: jest.fn()
-	};
-
 	// this is required to make sure that the getters and setters
 	// are available within the "this"
 	actions.getters = context.getters;
@@ -243,19 +238,6 @@ describe( 'performNewSearch', () => {
 		} );
 	} );
 
-	it( 'will log a search_new action', done => {
-
-		/* eslint-disable no-underscore-dangle */
-		actions.performNewSearch( context ).then( () => {
-			expect( actions._vm.$log ).toHaveBeenCalled();
-			expect( actions._vm.$log ).toBeCalledWith( expect.any( Object ) );
-			expect( actions._vm.$log.mock.calls[ 0 ][ 0 ].action ).toBeTruthy();
-			expect( actions._vm.$log.mock.calls[ 0 ][ 0 ].action ).toBe( 'search_new' );
-			done();
-		} );
-		/* eslint-enable no-underscore-dangle */
-	} );
-
 	describe( 'when response inludes suggestionInfo', () => {
 		it( 'commits an "setDidYouMean" mutations', done => {
 
@@ -404,28 +386,6 @@ describe( 'searchMore', () => {
 		actions.searchMore( context );
 
 		expect( global.mw.Api.prototype.get ).toHaveBeenCalled();
-	} );
-
-	it( 'will log a search_load_more action', done => {
-		expect.hasAssertions();
-		context.getters.currentType = 'image';
-		context.getters.allResultsEmpty = false;
-		context.getters.checkForMore = {
-			image: true
-		};
-		context.state.autoloadCounter = {
-			image: 1
-		};
-
-		/* eslint-disable no-underscore-dangle */
-		actions.searchMore( context ).then( () => {
-			expect( actions._vm.$log ).toHaveBeenCalled();
-			expect( actions._vm.$log ).toBeCalledWith( expect.any( Object ) );
-			expect( actions._vm.$log.mock.calls[ 0 ][ 0 ].action ).toBeTruthy();
-			expect( actions._vm.$log.mock.calls[ 0 ][ 0 ].action ).toBe( 'search_load_more' );
-			done();
-		} );
-		/* eslint-enable no-underscore-dangle */
 	} );
 
 	it( 'will decreate autocounter', done => {
