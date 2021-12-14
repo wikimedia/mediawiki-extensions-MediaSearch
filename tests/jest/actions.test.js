@@ -70,7 +70,7 @@ describe( 'performNewSearch', () => {
 					action: 'query',
 					format: 'json',
 					generator: 'search',
-					gsrsearch: `filetype:bitmap|drawing ${context.getters.currentSearchTerm}`,
+					gsrsearch: `filetype:bitmap|drawing -fileres:0 ${context.getters.currentSearchTerm}`,
 					gsrnamespace: 6,
 					gsrlimit: 40,
 					gsroffset: 0,
@@ -113,7 +113,7 @@ describe( 'performNewSearch', () => {
 					action: 'query',
 					format: 'json',
 					generator: 'search',
-					gsrsearch: `filetype:multimedia|office|archive|3d ${context.getters.currentSearchTerm}`,
+					gsrsearch: `filetype:multimedia|office|archive|3d -fileres:0 ${context.getters.currentSearchTerm}`,
 					gsrnamespace: 6,
 					gsrlimit: 40,
 					gsroffset: 0,
@@ -137,7 +137,7 @@ describe( 'performNewSearch', () => {
 					action: 'query',
 					format: 'json',
 					generator: 'search',
-					gsrsearch: `filetype:video ${context.getters.currentSearchTerm}`,
+					gsrsearch: `filetype:video -fileres:0 ${context.getters.currentSearchTerm}`,
 					gsrnamespace: 6,
 					gsrlimit: 40,
 					gsroffset: 0,
@@ -159,7 +159,7 @@ describe( 'performNewSearch', () => {
 			actions.performNewSearch( context );
 			expect( global.mw.Api.prototype.get ).toHaveBeenCalledWith(
 				expect.objectContaining( {
-					gsrsearch: `filetype:bitmap|drawing ${context.getters.currentSearchTerm}`
+					gsrsearch: `filetype:bitmap|drawing -fileres:0 ${context.getters.currentSearchTerm}`
 				} )
 			);
 		} );
