@@ -417,7 +417,15 @@ module.exports = {
 		 */
 		scrollIntoViewIfNeeded: function ( title ) {
 			// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
-			var element = ( this.$refs[ title ][ 0 ] || this.$refs[ title ] ).$el,
+			var ref = Array.isArray( this.$refs[ title ] ) ?
+				this.$refs[ title ][ 0 ] :
+				this.$refs[ title ];
+
+			if ( !ref ) {
+				return;
+			}
+
+			var element = ref.$el,
 				bounds = element.getBoundingClientRect(),
 				viewportHeight = window.innerHeight || document.documentElement.clientHeight,
 				isAboveViewport = bounds.top < 0 || bounds.bottom < 0,
