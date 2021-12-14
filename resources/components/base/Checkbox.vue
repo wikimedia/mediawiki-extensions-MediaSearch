@@ -4,7 +4,7 @@
 		class="sd-checkbox"
 		:aria-disabled="disabled"
 		@click="onClick"
-		@keydown.prevent.enter="$refs.label.click"
+		@keydown.prevent.enter="onEnter"
 	>
 		<input
 			ref="input"
@@ -33,6 +33,12 @@ var binaryInput = require( './mixins/binaryInput.js' );
 module.exports = {
 	name: 'SdCheckbox',
 
-	mixins: [ binaryInput ]
+	mixins: [ binaryInput ],
+
+	methods: {
+		onEnter: function () {
+			this.$refs.label.click();
+		}
+	}
 };
 </script>

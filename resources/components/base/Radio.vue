@@ -4,7 +4,7 @@
 		class="sd-radio"
 		:aria-disabled="disabled"
 		@click="onClick"
-		@keydown.prevent.enter="$refs.label.click"
+		@keydown.prevent.enter="onEnter"
 	>
 		<input
 			ref="input"
@@ -43,6 +43,12 @@ module.exports = {
 		name: {
 			type: String,
 			default: ''
+		}
+	},
+
+	methods: {
+		onEnter: function () {
+			this.$refs.label.click();
 		}
 	}
 };
