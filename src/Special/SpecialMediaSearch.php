@@ -465,12 +465,18 @@ class SpecialMediaSearch extends SpecialPage {
 					$width = null;
 			}
 
+			// We need to filter out media result with images that have 0 height or width.
+			// This break the API response.
+			$fileres = '';
+			if ( $type !== SearchOptions::TYPE_AUDIO ) {
+				$fileres = '-fileres:0 ';
+			}
 			$request = new FauxRequest( [
 				'format' => 'json',
 				'uselang' => $langCode,
 				'action' => 'query',
 				'generator' => 'search',
-				'gsrsearch' => ( $filetype ? "filetype:$filetype " : '' ) . $term,
+				'gsrsearch' => ( $filetype ? "filetype:$filetype " : '' ) . $fileres . $term,
 				'gsrnamespace' => implode( '|', $namespaces ),
 				'gsrlimit' => $limit,
 				'gsroffset' => $continue ?: 0,
@@ -764,7 +770,7 @@ class SpecialMediaSearch extends SpecialPage {
 	}
 
 	/**
-	 * @param string $suggestion filetype:bitmap|drawing haswbstatement:P6731=Q63348049 cat
+	 * @param string $suggestion filetype:bitmap|drawing -fileres:0 haswbstatement:P6731=Q63348049 cat
 	 * @param array $activeFilters ["assessment" => "featured-image"]
 	 * @return string
 	 */
@@ -779,6 +785,12 @@ class SpecialMediaSearch extends SpecialPage {
 		$assessments = $this->getAssessments( $activeFilters );
 		$suggestion = str_replace(
 			$assessments,
+			'',
+			$suggestion
+		);
+
+		$suggestion = str_replace(
+			'-fileres:0',
 			'',
 			$suggestion
 		);

@@ -41,6 +41,11 @@ function getMediaFilters( mediaType, filterValues ) {
 		return '';
 	}
 
+	// We need to filter out media result with 0 width and height
+	if ( mediaType !== 'audio' ) {
+		raw += ' -fileres:0';
+	}
+
 	raw += addFilter( 'filemime' );
 	raw += addFilter( 'fileres' );
 	raw += addFilter( 'assessment' );
