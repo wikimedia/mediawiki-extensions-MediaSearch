@@ -62,6 +62,9 @@
 							{{#isSort}}
 								<input type="hidden" name="{{key}}" value="{{value}}" />
 							{{/isSort}}
+							{{#isTitle}}
+								<input type="hidden" name="{{key}}" value="{{value}}" />
+							{{/isTitle}}
 						{{/queryParams}}
 						<input type="hidden" name="search" value="{{term}}" />
 
