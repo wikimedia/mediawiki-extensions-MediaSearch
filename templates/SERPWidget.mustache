@@ -1,11 +1,11 @@
 <form method="get" action="{{page}}">
-	{{#querystring}}
+	{{#queryParams}}
 		{{^isSearch}}
 			{{^isType}}
 				<input type="hidden" name="{{key}}" value="{{value}}" />
 			{{/isType}}
 		{{/isSearch}}
-	{{/querystring}}
+	{{/queryParams}}
 
 	<div class="sd-input sdms-search-input sd-input--button">
 		<div class="sd-input__wrapper">
@@ -58,11 +58,11 @@
 				>
 					{{! below form is a bit of a hack to mimick tabs without JS, where tab label is submit button }}
 					<form method="get" action="{{page}}">
-						{{#querystring}}
+						{{#queryParams}}
 							{{#isSort}}
 								<input type="hidden" name="{{key}}" value="{{value}}" />
 							{{/isSort}}
-						{{/querystring}}
+						{{/queryParams}}
 						<input type="hidden" name="search" value="{{term}}" />
 
 						<label>
@@ -306,13 +306,13 @@
 
 							{{#hasMore}}
 								<form method="get" action="{{page}}">
-									{{#querystring}}
+									{{#queryParams}}
 										{{^isType}}
 											{{^isContinue}}
 												<input type="hidden" name="{{key}}" value="{{value}}" />
 											{{/isContinue}}
 										{{/isType}}
-									{{/querystring}}
+									{{/queryParams}}
 									<input type="hidden" name="type" value="{{activeType}}" />
 									<input type="hidden" name="continue" value="{{continue}}" />
 									<button type="submit" class="sd-button sdms-load-more sd-button--framed sd-button--progressive">
