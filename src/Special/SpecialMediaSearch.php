@@ -128,7 +128,11 @@ class SpecialMediaSearch extends SpecialPage {
 
 		// url & querystring params of this page
 		$url = $this->getRequest()->getRequestURL();
-		parse_str( parse_url( $url, PHP_URL_QUERY ), $querystring );
+
+		// Discard query param keys or values that are not strings to sanitize before using
+		$queryParams = array_filter( $this->getRequest()->getValues(), static function ( $v, $k ) {
+			return is_string( $k ) && is_string( $v );
+		}, ARRAY_FILTER_USE_BOTH );
 
 		$term = str_replace( "\n", ' ', $this->getRequest()->getText( 'search' ) );
 		$redirectUrl = $this->findExactMatchRedirectUrl( $term );
@@ -137,15 +141,14 @@ class SpecialMediaSearch extends SpecialPage {
 			return;
 		}
 
-		$type = $this->getType( $term, $querystring );
+		$type = $this->getType( $term, $queryParams );
 		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
-
 		$error = [];
 		$results = [];
 		$searchinfo = [];
 		$continue = null;
 		$filtersForDisplay = [];
-		$activeFilters = $this->getActiveFilters( $querystring );
+		$activeFilters = $this->getActiveFilters( $queryParams );
 
 		try {
 			// Validate filters
@@ -184,17 +187,19 @@ class SpecialMediaSearch extends SpecialPage {
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
 			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ], $activeFilters );
-			$didYouMeanLink = $this->generateDidYouMeanLink( $querystring, $didYouMean );
+			$didYouMeanLink = $this->generateDidYouMeanLink( $queryParams, $didYouMean );
 		}
 
+		$mappedQueryParams = array_map( static function ( $key, $value ) {
+			return [
+				'key' => $key,
+				'value' => $value,
+				'is' . ucfirst( $key ) => true,
+			];
+		}, array_keys( $queryParams ), array_values( $queryParams ) );
+
 		$data = [
-			'querystring' => array_map( static function ( $key, $value ) {
-				return [
-					'key' => $key,
-					'value' => $value,
-					'is' . ucfirst( $key ) => true,
-				];
-			}, array_keys( $querystring ), array_values( $querystring ) ),
+			'queryParams' => $mappedQueryParams,
 			'page' => $url,
 			'path' => parse_url( $url, PHP_URL_PATH ),
 			'term' => $term,
@@ -244,7 +249,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'hasFilters' => count( $activeFilters ) > 0,
 			'activeFilters' => array_values( $activeFilters ),
 			'filtersForDisplay' => array_values( $filtersForDisplay ),
-			'clearFiltersUrl' => $this->getPageTitle()->getLinkURL( array_diff( $querystring, $activeFilters ) ),
+			'clearFiltersUrl' => $this->getPageTitle()->getLinkURL( array_diff( $queryParams, $activeFilters ) ),
 			'clearFiltersText' => $this->msg( 'mediasearch-clear-filters' )->text(),
 			'hasMore' => $continue !== null,
 			'endOfResults' => count( $results ) > 0 && $continue === null,
@@ -375,18 +380,18 @@ class SpecialMediaSearch extends SpecialPage {
 	 * Get media type.
 	 *
 	 * @param string $term
-	 * @param array $querystring
+	 * @param array $queryParams
 	 * @return string
 	 */
-	private function getType( string $term, array $querystring ): string {
+	private function getType( string $term, array $queryParams ): string {
 		$title = Title::newFromText( $term );
 		if ( $title !== null && !in_array( $title->getNamespace(), [ NS_FILE, NS_MAIN ] ) ) {
 			return SearchOptions::TYPE_PAGE;
 		}
 
-		if ( isset( $querystring['type'] ) && in_array( $querystring['type'], SearchOptions::ALL_TYPES ) ) {
+		if ( isset( $queryParams['type'] ) && in_array( $queryParams['type'], SearchOptions::ALL_TYPES ) ) {
 			// If type is specified AND matches one of the supported types, use it
-			return $querystring['type'];
+			return $queryParams['type'];
 		} else {
 			// Otherwise, default to the Image tab
 			return SearchOptions::TYPE_IMAGE;
