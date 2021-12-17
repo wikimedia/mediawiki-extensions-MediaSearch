@@ -187,7 +187,7 @@ describe( 'AutocompleteLookupHandler', () => {
 				} );
 				wrapper.vm.doLookupRequest = mockDoLockupRequest;
 
-				const mockGetFilteredLookupResults = jest.fn().mockRejectedValue( [] );
+				const mockGetFilteredLookupResults = jest.fn().mockReturnValue( [] );
 				wrapper.vm.getFilteredLookupResults = mockGetFilteredLookupResults;
 
 				wrapper.vm.getLookupResults( input );

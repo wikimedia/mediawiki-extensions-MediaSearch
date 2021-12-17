@@ -94,9 +94,10 @@ function extractSuggestedTerm( suggestion, filters, assessment ) {
  * @return {jQuery.Deferred}
  */
 function searchCurrentTermAndType( context ) {
+
 	// Don't make API requests if the search term is empty or is in error
 	if ( context.getters.currentSearchTerm === '' ) {
-		return;
+		return $.Deferred().resolve().promise( { abort: function () {} } );
 	}
 
 	// common request params for all requests
