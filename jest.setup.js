@@ -58,6 +58,13 @@ mw = {
 		remove: jest.fn()
 	},
 	notify: jest.fn(),
+	OgvJsSupport: {
+		basePath: jest.fn(),
+		loadIfNeeded: jest.fn()
+	},
+	loader: {
+		using: jest.fn()
+	},
 	user: {
 		options: {
 			get: jest.fn().mockReturnValue( 0 ),
