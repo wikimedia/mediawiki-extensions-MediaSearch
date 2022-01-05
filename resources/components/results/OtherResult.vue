@@ -6,15 +6,16 @@
 			:href="canonicalurl"
 			:title="title"
 			:style="style"
-			@click="$emit('click')"
+			@click="$emit( 'click' )"
 		>
 			<sdms-image :source="thumbnail" :alt="displayName"></sdms-image>
 		</a>
 		<div class="sdms-other-result__text">
 			<h3 v-if="displayName">
-				<a :href="canonicalurl"
+				<a
+					:href="canonicalurl"
 					:title="title"
-					@click="$emit('click')"
+					@click="$emit( 'click' )"
 				>
 					{{ displayName }}
 				</a>
