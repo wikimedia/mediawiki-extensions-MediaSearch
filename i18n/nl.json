@@ -77,8 +77,6 @@
 	"mediasearch-did-you-mean": "Bedoelde u: $1",
 	"mediasearch-error-message": "Ongeldige zoekopdracht",
 	"mediasearch-error-text": "Voer hierboven een nieuwe zoekopdracht in en probeer het opnieuw",
-	"mediasearch-specialsearch-default": "Toon zoekresultaten in de Special:Search-interface",
-	"mediasearch-specialsearch-default-help": "Selecteer om zoekresultaten te tonen vanuit de hoofdzoekbalk in de oudere Special:Search interface in plaats van Special:MediaSearch",
 	"mediasearch-filter-assessment-picture-of-the-day": "Afbeelding van de dag",
 	"mediasearch-filter-assessment-picture-of-the-year": "Afbeelding van het jaar",
 	"mediasearch-filter-assessment-featured-image": "Uitgelichte afbeelding",

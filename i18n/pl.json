@@ -71,8 +71,6 @@
 	"mediasearch-did-you-mean": "Czy chodziło Ci o: $1",
 	"mediasearch-error-message": "Nieprawidłowe wyszukiwanie",
 	"mediasearch-error-text": "Wpisz nowe wyszukiwanie powyżej i spróbuj ponownie",
-	"mediasearch-specialsearch-default": "Pokaż wyniki wyszukiwania w interfejsie {{#special:Search}}",
-	"mediasearch-specialsearch-default-help": "Zaznacz, aby wyświetlić wyniki wyszukiwania z głównego paska wyszukiwania w starszym interfejsie {{#special:Search}} zamiast {{#special:MediaSearch}}",
 	"mediasearch-filter-assessment-any-assessment": "Wszystkie wyróżnione pliki",
 	"mediasearch-filter-assessment-picture-of-the-day": "Grafika na dziś",
 	"mediasearch-filter-assessment-picture-of-the-year": "Grafika Roku",

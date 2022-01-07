@@ -65,8 +65,6 @@
 	"mediasearch-did-you-mean": "Menade du: $1",
 	"mediasearch-error-message": "Ogiltig sökning",
 	"mediasearch-error-text": "Skriv en ny sökning och försök igen",
-	"mediasearch-specialsearch-default": "Visa sökresultat i gränssnittet Special:Search",
-	"mediasearch-specialsearch-default-help": "Välj för att visa sökresultat från huvudsökfältet i det äldre gränssnittet Special:Search istället för Special:MediaSearch",
 	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bild",
 	"mediasearch-filter-assessment-picture-of-the-year": "Årets bild",
 	"mediasearch-filter-assessment-featured-image": "Utvald bild",

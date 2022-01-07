@@ -73,8 +73,6 @@
 	"mediasearch-did-you-mean": "您是不是指：$1",
 	"mediasearch-error-message": "無效搜尋",
 	"mediasearch-error-text": "在上方輸入新搜尋並重試",
-	"mediasearch-specialsearch-default": "顯示在 Special:Search 介面的搜尋結果",
-	"mediasearch-specialsearch-default-help": "選擇顯示來自舊版 Special:Search 介面（而非 Special:MediaSearch）之主搜尋欄的搜尋結果",
 	"mediasearch-filter-assessment-any-assessment": "任何評估",
 	"mediasearch-filter-assessment-picture-of-the-day": "每日圖片",
 	"mediasearch-filter-assessment-picture-of-the-year": "年度圖片",

@@ -73,8 +73,6 @@
 	"mediasearch-did-you-mean": "هل تعني: $1",
 	"mediasearch-error-message": "بحث غير صالح",
 	"mediasearch-error-text": "أدخِل كلمات جديدة في الأعلى وابحث مجدداً",
-	"mediasearch-specialsearch-default": "أظهر نتائج البحث في خاص:واجهة البحث",
-	"mediasearch-specialsearch-default-help": "اختر من أجل عرض نتائج البحث في شريط البحث الرئيس باستعمال خاص:واجهة البحث بدلا عن خاص:البحث عن وسائط",
 	"mediasearch-filter-assessment-any-assessment": "أي تقييم",
 	"mediasearch-filter-assessment-picture-of-the-day": "صورة اليوم",
 	"mediasearch-filter-assessment-picture-of-the-year": "صورة السنة",

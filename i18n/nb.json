@@ -63,7 +63,5 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|ord}})",
 	"mediasearch-did-you-mean": "Mente du: $1",
 	"mediasearch-error-message": "Ugyldig søk",
-	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen",
-	"mediasearch-specialsearch-default": "Vis søkeresultater i Special:Search-grensesnittet",
-	"mediasearch-specialsearch-default-help": "Velg for å vise søkeresultater fra hovedsøkefeltet i det eldre Special:Search-grensesnittet istedenfor Special:MediaSearch"
+	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen"
 }

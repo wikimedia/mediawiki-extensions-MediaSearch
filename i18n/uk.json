@@ -72,8 +72,6 @@
 	"mediasearch-did-you-mean": "Чи мали ви на увазі: $1",
 	"mediasearch-error-message": "Недійсний пошук",
 	"mediasearch-error-text": "Введіть новий пошук вище та повторіть спробу",
-	"mediasearch-specialsearch-default": "Показувати результати пошуку в інтерфейсі Special:Search",
-	"mediasearch-specialsearch-default-help": "Виберіть, щоб відобразити результати пошуку на головній панелі пошуку у старій версії Special:Search замість Special:MediaSearch",
 	"mediasearch-filter-assessment-any-assessment": "Будь-яка оцінка",
 	"mediasearch-filter-assessment-picture-of-the-day": "Зображення дня",
 	"mediasearch-filter-assessment-picture-of-the-year": "Зображення року",

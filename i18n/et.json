@@ -57,8 +57,6 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|tulemus|tulemust}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|sõna}})",
 	"mediasearch-did-you-mean": "Kas mõtlesid: $1",
-	"mediasearch-specialsearch-default": "Näita otsitulemusi leheküljel Special:Search",
-	"mediasearch-specialsearch-default-help": "Selle valikuga näidatakse peamise otsiriba tulemusi vanema lehekülje Special:Search vahendusel, lehekülje Special:MediaSearch asemel.",
 	"mediasearch-filter-assessment-any-assessment": "Iga hinnang",
 	"mediasearch-filter-assessment-picture-of-the-day": "Päeva pilt",
 	"mediasearch-filter-assessment-featured-image": "Eeskujulik pilt",

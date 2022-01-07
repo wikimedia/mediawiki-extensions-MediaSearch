@@ -63,7 +63,5 @@
 	"mediasearch-wordcount": "($1 từ)",
 	"mediasearch-did-you-mean": "Có phải bạn muốn: $1",
 	"mediasearch-error-message": "Truy vấn không hợp lệ",
-	"mediasearch-error-text": "Hãy nhập truy vấn mới bên trên và thử lại",
-	"mediasearch-specialsearch-default": "Trình bày kết quả tìm kiếm trong giao diện Special:Search",
-	"mediasearch-specialsearch-default-help": "Chọn để trình bày các kết quả tìm kiếm trong giao diện Special:Search cũ thay vì Special:MediaSearch khi sử dụng thanh tìm kiếm chính."
+	"mediasearch-error-text": "Hãy nhập truy vấn mới bên trên và thử lại"
 }

@@ -71,8 +71,6 @@
 	"mediasearch-did-you-mean": "আপনি কি বোঝাতে চেয়েছেন: $1",
 	"mediasearch-error-message": "অবৈধ অনুসন্ধান",
 	"mediasearch-error-text": "উপরে একটি নতুন অনুসন্ধান লিখুন এবং আবার চেষ্টা করুন",
-	"mediasearch-specialsearch-default": "বিশেষ:অনুসন্ধান ইন্টারফেসে অনুসন্ধানের ফলাফলগুলি দেখান",
-	"mediasearch-specialsearch-default-help": "Special:MediaSearch-এর পরিবর্তে পুরানো বিশেষ:অনুসন্ধান ইন্টারফেসের প্রধান অনুসন্ধান দণ্ড থেকে অনুসন্ধান ফলাফলগুলি দেখতে চাইলে নির্বাচন করুন",
 	"mediasearch-filter-assessment-any-assessment": "যেকোন মূল্যায়ন",
 	"mediasearch-filter-assessment-picture-of-the-day": "আজকের নির্বাচিত ছবি",
 	"mediasearch-filter-assessment-picture-of-the-year": "বছরের নির্বাচিত ছবি",

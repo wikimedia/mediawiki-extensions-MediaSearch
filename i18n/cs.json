@@ -70,8 +70,6 @@
 	"mediasearch-did-you-mean": "Měli jste na mysli: $1",
 	"mediasearch-error-message": "Neplatné hledání",
 	"mediasearch-error-text": "Zadejte výše nové hledání a zkuste to znovu",
-	"mediasearch-specialsearch-default": "Zobrazovat výsledky hledání v rozhraní Special:Search",
-	"mediasearch-specialsearch-default-help": "Zaškrtněte, pokud chce výsledky hledání z hlavního vyhledávacího rámečku zobrazovat ve starším rozhraní Special:Search namísto novějšího Special:MediaSearch",
 	"mediasearch-filter-assessment-any-assessment": "Jakékoli hodnocení",
 	"mediasearch-filter-assessment-picture-of-the-day": "Obrázek dne",
 	"mediasearch-filter-assessment-picture-of-the-year": "Obrázek roku",

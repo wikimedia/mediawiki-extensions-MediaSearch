@@ -80,8 +80,6 @@
 	"mediasearch-did-you-mean": "Vouliez-vous dire : $1",
 	"mediasearch-error-message": "Recherche incorrecte",
 	"mediasearch-error-text": "Entrez une nouvelle recherche ci-dessus et essayez à nouveau",
-	"mediasearch-specialsearch-default": "Afficher les résultats de recherche dans l’interface Spécial:Recherche",
-	"mediasearch-specialsearch-default-help": "Sélectionner ceci pour afficher les résultats de recherche depuis la barre principale de recherche dans l’ancienne interface Spécial:Recherche au lieu de Spécial:RechercheMédia",
 	"mediasearch-filter-assessment-any-assessment": "Toute évaluation",
 	"mediasearch-filter-assessment-picture-of-the-day": "Image du jour",
 	"mediasearch-filter-assessment-picture-of-the-year": "Image de l’année",

@@ -63,8 +63,6 @@
 	"mediasearch-did-you-mean": "Jeste li mislili: $1",
 	"mediasearch-error-message": "Nevaljala pretraga",
 	"mediasearch-error-text": "Unesite iznad novu pretragu i pokušajte ponovo",
-	"mediasearch-specialsearch-default": "Prikaži rezultate pretrage kao na sučelju Special:Search",
-	"mediasearch-specialsearch-default-help": "Odaberite za prikaz rezultata pretraživanja s glavne trake za pretraživanje na starijem sučelju Special:Search umjesto Special: MediaSearch",
 	"mediasearch-filter-assessment-picture-of-the-day": "Slika dana",
 	"mediasearch-filter-assessment-picture-of-the-year": "Slika godine",
 	"mediasearch-filter-assessment-featured-image": "Izabrana slika",
