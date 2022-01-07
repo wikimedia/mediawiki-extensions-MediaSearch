@@ -127,7 +127,9 @@ module.exports = {
 		 * @return {boolean}
 		 */
 		isSelectedItem: function ( index ) {
-			return index === this.selectedItemIndex;
+			// If selectedItem is unset (-1), we select the first item of the list.
+			var itemToSelect = this.selectedItemIndex === -1 ? 0 : this.selectedItemIndex;
+			return index === itemToSelect;
 		},
 
 		getItemClasses: function ( index ) {
