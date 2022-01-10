@@ -63,40 +63,40 @@ class MigrateSearchPagePrefs extends Maintenance {
 
 	public function execute() {
 		$this->init();
-		$results = $this->dbr->select(
+
+		$userIds = $this->dbr->selectFieldValues(
 			'user_properties',
-			[ 'up_user' ],
+			'up_user',
 			[
 				'up_property' => 'sdms-specialsearch-default',
 				'up_value' => 1,
-			]
+			],
+			__METHOD__
 		);
+		if ( !$userIds ) {
+			return;
+		}
+
 		$this->beginTransaction( $this->dbw, __METHOD__ );
-		foreach ( $results as $result ) {
-			$this->dbw->delete(
-				'user_properties',
-				[
-					'up_user' => $result->up_user,
-					'up_property' => 'search-special-page',
-				]
-			);
-			$this->dbw->insert(
-				'user_properties',
-				[
-					'up_user' => $result->up_user,
+		$this->dbw->insert(
+			'user_properties',
+			array_map( static function ( $userId ) {
+				return [
+					'up_user' => $userId,
 					'up_property' => 'search-special-page',
 					'up_value' => 'Search',
-				],
-				__METHOD__
-			);
-			$this->dbw->delete(
-				'user_properties',
-				[
-					'up_user' => $result->up_user,
-					'up_property' => 'sdms-specialsearch-default',
-				]
-			);
-		}
+				];
+			}, $userIds ),
+			__METHOD__
+		);
+		$this->dbw->delete(
+			'user_properties',
+			[
+				'up_user' => $userIds,
+				'up_property' => [ 'sdms-specialsearch-default' ],
+			],
+			__METHOD__
+		);
 		$this->commitTransaction( $this->dbw, __METHOD__ );
 	}
 }
