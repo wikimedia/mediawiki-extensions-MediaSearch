@@ -60,5 +60,6 @@
 	"mediasearch-wordcount": "$1 ({{PLURAL:$1|parolla|$1 parolle}})",
 	"mediasearch-did-you-mean": "Te vorevet dì: $1",
 	"mediasearch-error-message": "Ricerca minga bona",
-	"mediasearch-error-text": "Met denter un altra ricerca e provegh anmò."
+	"mediasearch-error-text": "Met denter un altra ricerca e provegh anmò.",
+	"mediasearch-preference": "Cata foeura la toa interfacia de ricerca"
 }

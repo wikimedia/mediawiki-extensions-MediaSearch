@@ -21,6 +21,7 @@
 	"mediasearch-category-info": "$1 {{PLURAL:$1|mèmmiru|mèmmiri}} ($2 {{PLURAL:$2|suttacatigurìa|suttacatigurìi}}, $3 {{PLURAL:$3|file}})",
 	"mediasearch-results-count": "{{PLURAL:$1|risurtatu|risurtati}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|palora|palori}}",
+	"mediasearch-preference-specialsearch-label": "Spiciali:Arriscedi",
 	"mediasearch-filter-assessment-picture-of-the-day": "Mmàggini dû jornu",
 	"mediasearch-filter-assessment-picture-of-the-year": "Mmàggini di l'annu",
 	"mediasearch-filter-assessment-unset": "Tutti",
