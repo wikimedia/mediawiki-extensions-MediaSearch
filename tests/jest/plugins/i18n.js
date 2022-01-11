@@ -77,7 +77,7 @@ module.exports = {
 				}
 				// v-i18n-html:messageKey="[ ...params ]"
 				message = mw.message( binding.arg ).params( binding.value );
-			} else if ( binding.value instanceof mw.Message ) {
+			} else if ( mw.Message && binding.value instanceof mw.Message ) {
 				// v-i18n-html="mw.message( '...' ).params( [ ... ] )"
 				message = binding.value;
 			} else {

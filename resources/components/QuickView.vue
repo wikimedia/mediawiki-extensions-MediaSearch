@@ -92,14 +92,14 @@
 				<bdi v-html="description"></bdi>
 			</p>
 
-			<p v-if="artist" class="sdms-quick-view__list-item sdms-quick-view__list-item--user">
+			<p v-if="artist" class="sdms-quick-view__list-item sdms-quick-view__list-item--user sdms-quick-view__artist">
 				<sd-icon :icon="icons.sdIconUserAvatar"></sd-icon>
 				<bdi><span v-html="artist"></span></bdi>
 			</p>
 
 			<!-- Attempt to show license text, an appropriate icon, and an
 			optional link to external license URL -->
-			<p v-if="licenseText" class="sdms-quick-view__list-item">
+			<p v-if="licenseText" class="sdms-quick-view__list-item sdms-quick-view__license">
 				<sd-icon v-if="licenseIcon" :icon="licenseIcon"></sd-icon>
 				<a v-if="licenseUrl"
 					:href="licenseUrl"
@@ -109,12 +109,12 @@
 				<span v-else v-html="licenseText"></span>
 			</p>
 
-			<p v-if="assessmentList" class="sdms-quick-view__list-item">
+			<p v-if="assessmentList" class="sdms-quick-view__list-item sdms-quick-view__assessment">
 				<sd-icon :icon="icons.sdIconUnstar"></sd-icon>
 				<span>{{ assessmentList }}</span>
 			</p>
 
-			<p v-if="displayName" class="sdms-quick-view__list-item">
+			<p v-if="displayName" class="sdms-quick-view__list-item sdms-quick-view__copy-full-name">
 				<sd-icon :icon="filenameIcon"></sd-icon>
 				<sd-copy-text-layout
 					:copy-text="displayName"
@@ -123,7 +123,7 @@
 				></sd-copy-text-layout>
 			</p>
 
-			<p v-if="displayNameWithoutExtension" class="sdms-quick-view__list-item">
+			<p v-if="displayNameWithoutExtension" class="sdms-quick-view__list-item sdms-quick-view__copy-name-no-extension">
 				<sd-icon :icon="icons.sdIconWikiText"></sd-icon>
 				<sd-copy-text-layout
 					:copy-text="'[[' + title + '|' + displayNameWithoutExtension + ']]'"
@@ -135,18 +135,18 @@
 
 			<!-- Sometimes this is free text, sometimes it is formatted. Can
 			we make things semi-consistent? -->
-			<p v-if="creationDate" class="sdms-quick-view__list-item">
+			<p v-if="creationDate" class="sdms-quick-view__list-item sdms-quick-view__creation-date">
 				<sd-icon :icon="icons.sdIconClock"></sd-icon>
 				<span v-html="creationDate"></span>
 			</p>
 
-			<p v-if="resolution" class="sdms-quick-view__list-item">
+			<p v-if="resolution" class="sdms-quick-view__list-item sdms-quick-view__resolution">
 				<sd-icon :icon="icons.sdIconCamera"></sd-icon>
 				<!-- Resolution should never flip. -->
 				<span dir="ltr">{{ resolution }}</span>
 			</p>
 
-			<p v-if="mimeType" class="sdms-quick-view__list-item">
+			<p v-if="mimeType" class="sdms-quick-view__list-item  sdms-quick-view__mine-type">
 				<sd-icon :icon="icons.sdIconPageSettings"></sd-icon>
 				<span>{{ mimeType }}</span>
 			</p>
@@ -629,7 +629,6 @@ module.exports = {
 			imgWidth = this.imageinfo[ 0 ].width;
 			imgHeight = this.imageinfo[ 0 ].height;
 			elWidth = this.$refs.header.offsetWidth;
-
 			if ( imgWidth >= imgHeight ) {
 				// For landscape-oriented images, calculate the height
 				// based on the aspect ratio and the width of the container.
@@ -683,7 +682,7 @@ module.exports = {
 			/*  action: 'quickview_more_details_click',
 			/*  search_result_page_id: this.title
 			/*} );
-			*/
+			 */
 		},
 
 		onPlay: function () {

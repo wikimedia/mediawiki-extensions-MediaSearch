@@ -1,0 +1,135 @@
+{
+    "batchcomplete": "",
+    "query": {
+        "pages": {
+            "9809267": {
+                "pageid": 9809267,
+                "ns": 6,
+                "title": "File:Tired 20-year-old cat.jpg",
+                "contentmodel": "wikitext",
+                "pagelanguage": "en",
+                "pagelanguagehtmlcode": "en",
+                "pagelanguagedir": "ltr",
+                "touched": "2021-11-30T12:38:08Z",
+                "lastrevid": 446819003,
+                "length": 2176,
+                "fullurl": "https://commons.wikimedia.org/wiki/File:Tired_20-year-old_cat.jpg",
+                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Tired_20-year-old_cat.jpg&action=edit",
+                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Tired_20-year-old_cat.jpg",
+                "imagerepository": "local",
+                "imageinfo": [
+                    {
+                        "size": 3017217,
+                        "width": 2484,
+                        "height": 1870,
+                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tired_20-year-old_cat.jpg/239px-Tired_20-year-old_cat.jpg",
+                        "thumbwidth": 239,
+                        "thumbheight": 180,
+                        "responsiveUrls": {
+                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tired_20-year-old_cat.jpg/478px-Tired_20-year-old_cat.jpg",
+                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tired_20-year-old_cat.jpg/359px-Tired_20-year-old_cat.jpg"
+                        },
+                        "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Tired_20-year-old_cat.jpg",
+                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tired_20-year-old_cat.jpg",
+                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=9809267",
+                        "extmetadata": {
+                            "DateTime": {
+                                "value": "2010-03-22 22:46:11",
+                                "source": "mediawiki-metadata",
+                                "hidden": ""
+                            },
+                            "ObjectName": {
+                                "value": "Tired 20-year-old cat",
+                                "source": "mediawiki-metadata",
+                                "hidden": ""
+                            },
+                            "CommonsMetadataExtension": {
+                                "value": 1.2,
+                                "source": "extension",
+                                "hidden": ""
+                            },
+                            "Categories": {
+                                "value": "Aging cats|Assessment tagged pages marked as POTY candidates|Bokeh photos of cats|Domestic cats|Fatigue in animals|Featured pictures of cats|Files by Dimitri Torterat|Files with derivative versions|Portrait photographs of cats|Sad-looking cats|Self-published work",
+                                "source": "commons-categories",
+                                "hidden": ""
+                            },
+                            "Assessments": {
+                                "value": "featured|poty|potd",
+                                "source": "commons-categories",
+                                "hidden": ""
+                            },
+                            "ImageDescription": {
+                                "value": "A 20-year-old cat that looks tired because of its advanced age.",
+                                "source": "commons-desc-page"
+                            },
+                            "DateTimeOriginal": {
+                                "value": "18 January 2009",
+                                "source": "commons-desc-page"
+                            },
+                            "Credit": {
+                                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span> • <a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/ditipenguin/5027476810/\">Flickr</a>",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "Artist": {
+                                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Diti\" title=\"User:Diti\">Dimitri “Diti” Torterat</a>",
+                                "source": "commons-desc-page"
+                            },
+                            "Permission": {
+                                "value": "<span class=\"licensetpl_aut\"><a href=\"//commons.wikimedia.org/wiki/User:Diti\" title=\"User:Diti\">Dimitri Torterat</a></span>, the copyright holder of this work, hereby publishes it under the following license:",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "LicenseShortName": {
+                                "value": "CC BY 2.0 fr",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "UsageTerms": {
+                                "value": "Creative Commons Attribution 2.0 fr",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "AttributionRequired": {
+                                "value": "true",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "Attribution": {
+                                "value": "<a href=\"//commons.wikimedia.org/wiki/User:Diti\" title=\"User:Diti\">Dimitri Torterat</a>",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "LicenseUrl": {
+                                "value": "https://creativecommons.org/licenses/by/2.0/fr/deed.en",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "Copyrighted": {
+                                "value": "True",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "Restrictions": {
+                                "value": "",
+                                "source": "commons-desc-page",
+                                "hidden": ""
+                            },
+                            "License": {
+                                "value": "cc-by-2.0-fr",
+                                "source": "commons-templates",
+                                "hidden": ""
+                            }
+                        },
+                        "mime": "image/jpeg"
+                    }
+                ],
+                "entityterms": {
+                    "label": [
+                        "An image of a 20-year-old cat that looks tired because of its advanced age."
+                    ]
+                }
+            }
+        }
+    }
+}
