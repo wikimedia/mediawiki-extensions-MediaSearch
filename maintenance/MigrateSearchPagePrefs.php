@@ -49,8 +49,6 @@ class MigrateSearchPagePrefs extends Maintenance {
 
 		$this->addDescription( 'Migrates the sdms-specialsearch-default preferenc to '
 			. 'search-special-page ' );
-		$this->addOption( 'undo', 'Undo migration',
-			false, false, 'u' );
 	}
 
 	public function init() {
@@ -65,83 +63,40 @@ class MigrateSearchPagePrefs extends Maintenance {
 
 	public function execute() {
 		$this->init();
-
-		if ( $this->getOption( 'undo', false ) ) {
-			$this->undoMigration();
-		} else {
-			$this->migrate();
-		}
-	}
-
-	private function migrate() {
-		$userIds = $this->dbr->selectFieldValues(
+		$results = $this->dbr->select(
 			'user_properties',
-			'up_user',
+			[ 'up_user' ],
 			[
 				'up_property' => 'sdms-specialsearch-default',
 				'up_value' => 1,
-			],
-			__METHOD__
+			]
 		);
-		if ( !$userIds ) {
-			return;
-		}
-
 		$this->beginTransaction( $this->dbw, __METHOD__ );
-		$this->dbw->insert(
-			'user_properties',
-			array_map( static function ( $userId ) {
-				return [
-					'up_user' => $userId,
+		foreach ( $results as $result ) {
+			$this->dbw->delete(
+				'user_properties',
+				[
+					'up_user' => $result->up_user,
+					'up_property' => 'search-special-page',
+				]
+			);
+			$this->dbw->insert(
+				'user_properties',
+				[
+					'up_user' => $result->up_user,
 					'up_property' => 'search-special-page',
 					'up_value' => 'Search',
-				];
-			}, $userIds ),
-			__METHOD__
-		);
-		$this->dbw->delete(
-			'user_properties',
-			[
-				'up_property' => [ 'sdms-specialsearch-default' ],
-			],
-			__METHOD__
-		);
-		$this->commitTransaction( $this->dbw, __METHOD__ );
-	}
-
-	private function undoMigration() {
-		$userIds = $this->dbr->selectFieldValues(
-			'user_properties',
-			'up_user',
-			[
-				'up_property' => 'search-special-page',
-				'up_value' => 'Search',
-			],
-			__METHOD__
-		);
-		if ( !$userIds ) {
-			return;
-		}
-
-		$this->beginTransaction( $this->dbw, __METHOD__ );
-		$this->dbw->insert(
-			'user_properties',
-			array_map( static function ( $userId ) {
-				return [
-					'up_user' => $userId,
+				],
+				__METHOD__
+			);
+			$this->dbw->delete(
+				'user_properties',
+				[
+					'up_user' => $result->up_user,
 					'up_property' => 'sdms-specialsearch-default',
-					'up_value' => '1',
-				];
-			}, $userIds ),
-			__METHOD__
-		);
-		$this->dbw->delete(
-			'user_properties',
-			[
-				'up_property' => [ 'search-special-page' ],
-			],
-			__METHOD__
-		);
+				]
+			);
+		}
 		$this->commitTransaction( $this->dbw, __METHOD__ );
 	}
 }
