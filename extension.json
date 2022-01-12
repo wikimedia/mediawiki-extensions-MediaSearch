@@ -52,6 +52,7 @@
 		}
 	},
 	"Hooks": {
+		"BeforePageDisplay": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks::onBeforePageDisplay",
 		"GetPreferences": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks::onGetPreferences"
 	},
 	"ResourceFileModulePaths": {
