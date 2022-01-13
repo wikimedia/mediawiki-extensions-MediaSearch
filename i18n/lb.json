@@ -48,6 +48,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|Resultat|Resultater}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|Wuert|Wierder}})",
 	"mediasearch-did-you-mean": "Mengt Dir: $1",
+	"mediasearch-preference-specialsearch-label": "Spezial:Sichen",
 	"mediasearch-filter-assessment-picture-of-the-day": "Bild vum Dag",
 	"mediasearch-filter-assessment-picture-of-the-year": "Bild vum Joer",
 	"mediasearch-filter-assessment-featured-image": "Ausgewielt Bild",
