@@ -117,7 +117,7 @@ module.exports = {
 		 */
 		initialRadio: function () {
 			return this.initialValue in this.namespaceGroups ?
-				this.initialValue : 'custom';
+				this.initialValue : 'all';
 		},
 
 		/**
@@ -127,7 +127,7 @@ module.exports = {
 		 */
 		initialCustom: function () {
 			return this.initialValue in this.namespaceGroups ?
-				[ '0' ] : this.initialValue.split( '|' );
+				Object.keys( this.namespaceGroups.custom ) : this.initialValue.split( '|' );
 		},
 
 		/**

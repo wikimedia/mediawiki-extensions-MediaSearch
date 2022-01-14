@@ -50,7 +50,7 @@
 			v-if="namespaceFilter"
 			ref="namespace"
 			:items="namespaceFilter.items"
-			:namespaces="namespaceFilter.data.namespaceGroups.all"
+			:namespaces="namespaceFilter.data.namespaceGroups.all_incl_file"
 			:namespace-groups="namespaceFilter.data.namespaceGroups"
 			:active="namespaceFilterDialogActive"
 			:initial-value="namespaceFilterValue"
