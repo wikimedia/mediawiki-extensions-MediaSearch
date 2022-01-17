@@ -21,7 +21,7 @@
 			</div>
 
 			<!-- Loading indicator if results are still pending -->
-			<spinner v-if="pending[ mediaType ]"></spinner>
+			<spinner v-if="pending[ mediaType ]" class="sdms-search-results__pending"></spinner>
 
 			<!-- When the autoload counter for a given tab reaches zero,
 			don't load more results until user explicitly clicks on a
@@ -235,7 +235,7 @@ module.exports = {
 		hasNoResults: function () {
 			return this.currentSearchTerm.length > 0 && // user has entered a search term
 				this.results[ this.mediaType ].length === 0 && // tab has no results
-				this.continue[ this.mediaType ] === null; // query cannot be continued
+				( this.continue[ this.mediaType ] === null ); // query cannot be continued
 		},
 
 		/**
@@ -244,7 +244,7 @@ module.exports = {
 		endOfResults: function () {
 			return this.currentSearchTerm.length > 0 && // user has entered a search term
 				this.results[ this.mediaType ].length > 0 && // tab has some results
-				this.continue[ this.mediaType ] === null; // query cannot be continued
+				( this.continue[ this.mediaType ] === null ); // query cannot be continued
 		},
 
 		/**
