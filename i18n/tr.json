@@ -3,6 +3,7 @@
 		"authors": [
 			"Arbormedi",
 			"BaRaN6161 TURK",
+			"Can",
 			"Cobija",
 			"Hedda",
 			"Joseph",
@@ -75,6 +76,7 @@
 	"mediasearch-did-you-mean": "Bunu mu demek istediniz: $1",
 	"mediasearch-error-message": "Geçersiz arama",
 	"mediasearch-error-text": "Yukarıya yeni bir arama girin ve tekrar deneyin",
+	"mediasearch-preference": "Arama arayüzünüzü seçiniz",
 	"mediasearch-filter-assessment-picture-of-the-day": "Günün resmi",
 	"mediasearch-filter-assessment-picture-of-the-year": "Yılın resmi",
 	"mediasearch-filter-assessment-featured-image": "Seçkin resim",

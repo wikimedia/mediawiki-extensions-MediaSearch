@@ -71,6 +71,7 @@
 	"mediasearch-did-you-mean": "আপনি কি বোঝাতে চেয়েছেন: $1",
 	"mediasearch-error-message": "অবৈধ অনুসন্ধান",
 	"mediasearch-error-text": "উপরে একটি নতুন অনুসন্ধান লিখুন এবং আবার চেষ্টা করুন",
+	"mediasearch-preference-mediasearch-label": "বিশেষ:মিডিয়া অনুসন্ধান",
 	"mediasearch-preference-specialsearch-label": "বিশেষ:অনুসন্ধান",
 	"mediasearch-filter-assessment-any-assessment": "যেকোন মূল্যায়ন",
 	"mediasearch-filter-assessment-picture-of-the-day": "আজকের নির্বাচিত ছবি",
