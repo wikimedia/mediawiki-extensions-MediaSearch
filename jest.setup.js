@@ -8,6 +8,7 @@ Api.prototype.get = jest.fn().mockReturnValue( $.Deferred().resolve().promise() 
 Api.prototype.post = jest.fn().mockResolvedValue( {} );
 Api.prototype.getToken = jest.fn().mockResolvedValue( {} );
 Api.prototype.postWithToken = jest.fn().mockResolvedValue( {} );
+Api.prototype.saveOption = jest.fn();
 
 function Title() {}
 Title.prototype.getMainText = jest.fn().mockReturnValue( '' );
@@ -56,7 +57,14 @@ mw = {
 		getObject: jest.fn(),
 		remove: jest.fn()
 	},
-	notify: jest.fn()
+	notify: jest.fn(),
+	user: {
+		options: {
+			get: jest.fn().mockReturnValue( 0 ),
+			set: jest.fn(),
+		},
+		isAnon: jest.fn().mockReturnValue( false )
+	}
 };
 /*
  * MW front-end code expects certain global variables to exist in the
