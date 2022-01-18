@@ -1,11 +1,10 @@
 <template>
 	<div class="sd-select" :class="rootClasses">
-		<div
+		<button
 			class="sd-select__content"
-			role="combobox"
 			tabindex="0"
 			aria-autocomplete="list"
-			aria-haspopup="true"
+			aria-haspopup="listbox"
 			:aria-owns="listboxId"
 			:aria-labelledby="textboxId"
 			:aria-expanded="isExpanded"
@@ -13,6 +12,7 @@
 			:aria-disabled="disabled"
 			@click="onClick"
 			@blur="toggleMenu(false)"
+			@keydown.enter.prevent
 			@keyup.enter="onEnter"
 			@keydown.up.prevent="onArrowUp"
 			@keydown.down.prevent="onArrowDown"
@@ -30,7 +30,7 @@
 			</span>
 			<sd-icon class="sd-select__handle" :icon="icons.sdIconExpand">
 			</sd-icon>
-		</div>
+		</button>
 		<sd-select-menu
 			v-if="showMenu"
 			:items="items"
