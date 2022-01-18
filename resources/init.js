@@ -14,7 +14,7 @@
 	Vue.createMwApp( $.extend( { store: store }, App ) )
 		.use( logger, {
 			stream: 'mediawiki.mediasearch_interaction',
-			schema: '/analytics/mediawiki/mediasearch_interaction/1.3.0'
+			schema: '/analytics/mediawiki/mediasearch_interaction/1.4.0'
 		} )
 		.mount( $vue.get( 0 ) );
 }() );
