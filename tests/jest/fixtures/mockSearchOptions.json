@@ -362,6 +362,36 @@
 						"710": "TimedText",
 						"711": "TimedText_talk"
 					},
+					"all_incl_file": {
+						"0": "",
+						"1": "Talk",
+						"2": "User",
+						"3": "User_talk",
+						"4": "Project",
+						"5": "Project_talk",
+						"6": "File",
+						"7": "File_talk",
+						"8": "MediaWiki",
+						"9": "MediaWiki_talk",
+						"10": "Template",
+						"11": "Template_talk",
+						"12": "Help",
+						"13": "Help_talk",
+						"14": "Category",
+						"15": "Category_talk",
+						"120": "Item",
+						"121": "Item_talk",
+						"122": "Property",
+						"123": "Property_talk",
+						"460": "Campaign",
+						"461": "Campaign_talk",
+						"828": "Module",
+						"829": "Module_talk"
+					},
+					"custom": {
+						"0": "",
+						"120": "Item"
+					},
 					"discussion": {
 						"1": "Talk",
 						"3": "User_talk",
