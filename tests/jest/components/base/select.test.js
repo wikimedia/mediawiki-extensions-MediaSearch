@@ -1,6 +1,6 @@
 const Vue = require( 'vue' );
 const VueTestUtils = require( '@vue/test-utils' );
-const Select = require( '../../resources/components/base/Select.vue' );
+const Select = require( '../../../../resources/components/base/Select.vue' );
 
 const FRUITS = [ {
 	label: 'Apple',
@@ -93,6 +93,18 @@ describe( 'Select', () => {
 			expect( () => {
 				wrapper.vm.select( selection );
 			} ).toThrow();
+		} );
+
+		it( 'computes valid item length', () => {
+			const defaultLabel = 'select a fruit';
+			const wrapper = VueTestUtils.mount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: defaultLabel,
+					items: FRUITS
+				}
+			} );
+			expect( wrapper.vm.itemsLength ).toBe( FRUITS.length );
 		} );
 	} );
 
@@ -302,6 +314,64 @@ describe( 'Select', () => {
 			expect( wrapper.vm.activeItemIndex ).toBe( initialSelectionIndex );
 
 		} );
+
+		it( 'it toggle menu off when activeItemIndex is empty and showMenu is true', () => {
+
+			const initialSelectionIndex = -1;
+			const wrapper = VueTestUtils.shallowMount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: initialSelectionIndex
+				},
+				data: function () {
+					return {
+						showMenu: true
+					};
+				}
+			} );
+
+			const mockToggleMenu = jest.spyOn( wrapper.vm, 'toggleMenu' );
+			mockToggleMenu.mockImplementation( function () {
+				return jest.fn();
+			} );
+
+			const element = wrapper.find( '.sd-select__content' );
+
+			element.trigger( 'keyup.enter' );
+
+			expect( mockToggleMenu ).toHaveBeenCalled();
+
+		} );
+
+		it( 'emits "select" when activeItemIndex is empty and showMenu is true', ( done ) => {
+
+			const initialSelectionIndex = 2;
+			const wrapper = VueTestUtils.shallowMount( Select, {
+				propsData: {
+					name: 'fruits',
+					label: 'select a fruit',
+					items: FRUITS,
+					initialSelectedItemIndex: initialSelectionIndex
+				},
+				data: function () {
+					return {
+						showMenu: true
+					};
+				}
+			} );
+			const element = wrapper.find( '.sd-select__content' );
+
+			element.trigger( 'keyup.enter' );
+
+			Vue.nextTick().then( () => {
+				expect( wrapper.emitted().select ).toHaveLength( 1 );
+				done();
+			} );
+
+		} );
+
 	} );
 
 } );
