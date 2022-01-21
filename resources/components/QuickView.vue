@@ -676,13 +676,13 @@ module.exports = {
 		},
 
 		onMoreDetailsClick: function () {
-			/* Temp disabled for T297400 */
-
-			/** this.$log( {
-			/*  action: 'quickview_more_details_click',
-			/*  search_result_page_id: this.title
-			/*} );
-			 */
+			// T297400 updated from ID to Title for new schema
+			/* eslint-disable camelcase */
+			this.$log( {
+				action: 'quickview_more_details_click',
+				search_result_page_title: this.title
+			} );
+			/* eslint-enable camelcase */
 		},
 
 		onPlay: function () {

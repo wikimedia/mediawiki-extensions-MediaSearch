@@ -275,9 +275,7 @@ module.exports = {
 		 *
 		 * @param {string} title
 		 * @param {number} index
-		 * @todo reimplement logging once an updated event schema is available
 		 */
-		// eslint-disable-next-line no-unused-vars
 		showDetails: function ( title, index ) {
 			var detailsTimeout;
 
@@ -336,8 +334,16 @@ module.exports = {
 						}.bind( this )
 					);
 
-					// Logging code temporariliy removed due to T297400
-					// Restore when an updated event schema is available
+					// Updated from ID to Title for new schema T297400
+					/* eslint-disable camelcase */
+					this.$log( {
+						action: 'result_click',
+						search_media_type: this.mediaType,
+						search_result_page_title: title,
+						search_result_position: index,
+						search_result_has_quickview: true
+					} );
+					/* eslint-enable camelcase */
 				}.bind( this )
 			);
 		},
