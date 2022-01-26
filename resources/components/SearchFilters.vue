@@ -9,40 +9,39 @@
 			tabindex="0"
 			@scroll.passive="onScroll"
 		>
-			<template v-for="( filter, index ) in searchFilters">
-				<div :key="'filter-' + index">
-					<!-- Namespace filter requires special treatment; see below. -->
-					<!-- Sort filter has slightly different behavior from other
-					non-namespace filters because one of the two options
-					(relevance or recency) must always be selected. For other
-					filters, a generic label must be shown whenever their value
-					is un-set. See T285349 for more context. -->
-					<sd-select
-						v-if="filter.type !== 'namespace'"
-						:ref="filter.type"
-						:class="getFilterClasses( filter.type )"
-						:name="filter.type"
-						:items="filter.items"
-						:label="getFilterDefaultLabel( filter.type )"
-						:initial-selected-item-index="filter.type === 'sort' ? 0 : -1"
-						:prefix="getFilterPrefix( filter.type )"
-						@select="onSelect( $event, filter.type )"
-					>
-					</sd-select>
+			<div v-for="( filter, index ) in searchFilters" :key="'filter-' + index">
+				<!-- Namespace filter requires special treatment; see below. -->
+				<!-- Sort filter has slightly different behavior from other
+				non-namespace filters because one of the two options
+				(relevance or recency) must always be selected. For other
+				filters, a generic label must be shown whenever their value
+				is un-set. See T285349 for more context. -->
+				<sd-select
+					v-if="filter.type !== 'namespace'"
+					:ref="filter.type"
+					:class="getFilterClasses( filter.type )"
+					:name="filter.type"
+					:items="filter.items"
+					:label="getFilterDefaultLabel( filter.type )"
+					:initial-selected-item-index="filter.type === 'sort' ? 0 : -1"
+					:prefix="getFilterPrefix( filter.type )"
+					@select="onSelect( $event, filter.type )"
+				>
+				</sd-select>
 
-					<!-- Namespace filter is represented as a button that
-					launches a modal -->
-					<sd-button
-						v-else
-						:key="'filter-namespace-' + index"
-						class="sdms-search-filters__namespace"
-						:class="namespaceFilterClasses"
-						@click="namespaceFilterDialogActive = true"
-					>
-						{{ namespaceFilterLabel }}
-					</sd-button>
-				</div>
-			</template>
+				<!-- Namespace filter is represented as a button that
+				launches a modal -->
+				<sd-button
+					v-else
+					:key="'filter-namespace-' + index"
+					class="sdms-search-filters__namespace"
+					:class="namespaceFilterClasses"
+					@click="namespaceFilterDialogActive = true"
+				>
+					{{ namespaceFilterLabel }}
+				</sd-button>
+			</div>
+
 			<div class="sdms-search-results-count">
 				<span v-if="showResultsCount" :id="searchCountId">
 					{{ resultsCount }}

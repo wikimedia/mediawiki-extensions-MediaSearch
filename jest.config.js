@@ -70,7 +70,8 @@ module.exports = {
 	],
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
 	moduleNameMapper: {
-		"data/searchOptions.json": "<rootDir>/tests/jest/fixtures/mockSearchOptions.json"
+		"data/searchOptions.json": "<rootDir>/tests/jest/fixtures/mockSearchOptions.json",
+		"^vue$": "@vue/compat"
 	},
 	// An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
 	// modulePathIgnorePatterns: [],
@@ -111,7 +112,7 @@ module.exports = {
 	// A list of paths to snapshot serializer modules Jest should use for snapshot testing
 	// snapshotSerializers: [],
 	// The test environment that will be used for testing
-	// testEnvironment: "jest-environment-jsdom",
+	testEnvironment: "jsdom",
 	// Options that will be passed to the testEnvironment
 	// testEnvironmentOptions: {},
 	// Adds a location field to test results
@@ -122,9 +123,10 @@ module.exports = {
 	//   "**/?(*.)+(spec|test).[tj]s?(x)"
 	// ],
 	// An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-	// testPathIgnorePatterns: [
-	//   "/node_modules/"
-	// ],
+	testPathIgnorePatterns: [
+	  "/node_modules/",
+	  "<rootDir>/tests/jest/ignore/"
+	],
 	// The regexp pattern or array of patterns that Jest uses to detect test files
 	// testRegex: [],
 	// This option allows the use of a custom results processor
@@ -137,7 +139,7 @@ module.exports = {
 	// timers: "real",
 	// A map from regular expressions to paths to transformers
 	transform: {
-	  ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+	  ".*\\.(vue)$": "<rootDir>/node_modules/@vue/vue3-jest"
 	},
 	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
 	// transformIgnorePatterns: [
