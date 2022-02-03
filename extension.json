@@ -229,7 +229,8 @@
 				"vue",
 				"@vue/composition-api",
 				"vuex",
-				"es6-polyfills"
+				"es6-polyfills",
+				"intersectionObserver-polyfill"
 			],
 			"targets": [
 				"desktop",
