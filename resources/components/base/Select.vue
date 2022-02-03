@@ -257,12 +257,22 @@ module.exports = {
 		},
 
 		/**
-		 * Move to the next item. If we're at the end, go back to the
-		 * first item.
+		 * Move to the next item.
+		 * If we're at the end go back to the first item.
+		 * if activeItem is -1 go to second item (this is because we pre-select the first item )
 		 */
 		onArrowDown: function () {
-			var index = this.activeItemIndex;
-			this.activeItemIndex = this.itemsLength > index + 1 ? index + 1 : 0;
+			var index = this.activeItemIndex,
+				isNotLastItem = this.itemsLength > index + 1,
+				isUnselectedMenu = index === -1;
+
+			if ( isUnselectedMenu ) {
+				this.activeItemIndex = 1;
+			} else if ( isNotLastItem ) {
+				this.activeItemIndex = index + 1;
+			} else {
+				this.activeItemIndex = 0;
+			}
 		},
 
 		/**
