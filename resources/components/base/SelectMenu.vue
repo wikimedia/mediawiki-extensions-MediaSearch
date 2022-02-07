@@ -117,7 +117,9 @@ module.exports = {
 		 * @return {boolean}
 		 */
 		isActiveItem: function ( index ) {
-			return index === this.activeItemIndex;
+			// If activeItemIndex is unset (-1), we select the first item of the list.
+			var activeItem = this.activeItemIndex === -1 ? 0 : this.activeItemIndex;
+			return index === activeItem;
 		},
 
 		/**
