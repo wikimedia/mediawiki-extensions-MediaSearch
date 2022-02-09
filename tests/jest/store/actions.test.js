@@ -1,19 +1,19 @@
-const initialState = require( './fixtures/initialVuexState.js' ),
-	namespaceGroups = require( './fixtures/namespaceGroups.js' ),
-	mockImageSearchApiResponse = require( './fixtures/mockImageSearchApiResponse.json' ),
-	mockEmptyImageSearchApiWithSuggestionResponse = require( './fixtures/mockEmptyImageSearchApiWithSuggestion.json' ),
-	mockImageDetailsApiResponse = require( './fixtures/mockImageDetailsApiResponse.json' ),
+const initialState = require( '../fixtures/initialVuexState.js' ),
+	namespaceGroups = require( '../fixtures/namespaceGroups.js' ),
+	mockImageSearchApiResponse = require( '../fixtures/mockImageSearchApiResponse.json' ),
+	mockEmptyImageSearchApiWithSuggestionResponse = require( '../fixtures/mockEmptyImageSearchApiWithSuggestion.json' ),
+	mockImageDetailsApiResponse = require( '../fixtures/mockImageDetailsApiResponse.json' ),
 	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	when = require( 'jest-when' ).when;
 
-require( './mocks/history.js' );
+require( '../mocks/history.js' );
 
 let context;
 let actions;
 
 beforeEach( () => {
 	jest.resetModules();
-	actions = require( '../../resources/store/actions.js' );
+	actions = require( '../../../resources/store/actions.js' );
 
 	// Fake Vuex context object
 	// (see: https://vuex.vuejs.org/api/#actions)

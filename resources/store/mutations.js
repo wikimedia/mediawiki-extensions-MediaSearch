@@ -1,15 +1,14 @@
 var AUTOLOAD_COUNT = 2,
-	Vue = require( 'vue' ),
 	STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY;
 
 module.exports = {
 
 	setSearchTerm: function ( state, newTerm ) {
-		Vue.set( state.uriQuery, 'search', newTerm );
+		state.uriQuery.search = newTerm;
 	},
 
 	clearTerm: function ( state ) {
-		Vue.set( state.uriQuery, 'search', '' );
+		state.uriQuery.search = '';
 	},
 
 	/**
@@ -126,7 +125,7 @@ module.exports = {
 	 * @param {string} payload.filterType Which filter this is for
 	 */
 	addFilterValue: function ( state, payload ) {
-		Vue.set( state.filterValues[ payload.mediaType ], payload.filterType, payload.value );
+		state.filterValues[ payload.mediaType ][ payload.filterType ] = payload.value;
 	},
 
 	/**
@@ -138,7 +137,7 @@ module.exports = {
 	 * @param {string} payload.filterType Which filter this is for
 	 */
 	removeFilterValue: function ( state, payload ) {
-		Vue.delete( state.filterValues[ payload.mediaType ], payload.filterType );
+		delete state.filterValues[ payload.mediaType ][ payload.filterType ];
 	},
 
 	/**
@@ -153,7 +152,7 @@ module.exports = {
 			var activeFiltersForMediaType = Object.keys( state.filterValues[ mediaType ] );
 
 			activeFiltersForMediaType.forEach( function ( filterType ) {
-				Vue.delete( state.filterValues[ mediaType ], filterType );
+				delete state.filterValues[ mediaType ][ filterType ];
 			} );
 		} );
 	},
@@ -241,7 +240,7 @@ module.exports = {
 	clearFilterQueryParams: function ( state ) {
 		Object.keys( state.filterValues ).forEach( function ( type ) {
 			Object.keys( state.filterValues[ type ] ).forEach( function ( filter ) {
-				Vue.delete( state.uriQuery, filter );
+				delete state.uriQuery[ filter ];
 			} );
 		} );
 	},
@@ -253,7 +252,7 @@ module.exports = {
 	 */
 	updateFilterQueryParams: function ( state, currentFilterValues ) {
 		Object.keys( currentFilterValues ).forEach( function ( filter ) {
-			Vue.set( state.uriQuery, filter, currentFilterValues[ filter ] );
+			state.uriQuery[ filter ] = currentFilterValues[ filter ];
 		} );
 	},
 
@@ -269,7 +268,7 @@ module.exports = {
 		var allowedTypes = Object.keys( state.results );
 
 		if ( allowedTypes.indexOf( newType ) !== -1 ) {
-			Vue.set( state.uriQuery, 'type', newType );
+			state.uriQuery.type = newType;
 		}
 	},
 	/**
@@ -283,9 +282,9 @@ module.exports = {
 	 */
 	updateOrDeleteQueryParam: function ( state, payload ) {
 		if ( payload.value ) {
-			Vue.set( state.uriQuery, payload.key, payload.value );
+			state.uriQuery[ payload.key ] = payload.value;
 		} else {
-			Vue.delete( state.uriQuery, payload.key );
+			delete state.uriQuery[ payload.key ];
 		}
 	},
 	/**
@@ -296,7 +295,7 @@ module.exports = {
 	 */
 	resetAutoLoadForAllMediaType: function ( state ) {
 		Object.keys( state.autoloadCounter ).forEach( function ( mediaType ) {
-			Vue.set( state.autoloadCounter, mediaType, AUTOLOAD_COUNT );
+			state.autoloadCounter[ mediaType ] = AUTOLOAD_COUNT;
 		} );
 	},
 	/**
@@ -307,7 +306,7 @@ module.exports = {
 	 * @param {string} mediaType
 	 */
 	resetAutoLoadForMediaType: function ( state, mediaType ) {
-		Vue.set( state.autoloadCounter, mediaType, AUTOLOAD_COUNT );
+		state.autoloadCounter[ mediaType ] = AUTOLOAD_COUNT;
 	},
 	/**
 	 * Decrease the number of autoload for a specific MediaType by 1
@@ -318,7 +317,7 @@ module.exports = {
 	decreaseAutoloadCounterForMediaType: function ( state, mediaType ) {
 		var currentValue = state.autoloadCounter[ mediaType ];
 		if ( currentValue >= 1 ) {
-			Vue.set( state.autoloadCounter, mediaType, currentValue - 1 );
+			state.autoloadCounter[ mediaType ] = currentValue - 1;
 		}
 	}
 };

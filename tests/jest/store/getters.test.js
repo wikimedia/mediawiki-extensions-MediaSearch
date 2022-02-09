@@ -7,7 +7,7 @@
 
 'use strict';
 
-var getters = require( '../../resources/store/getters.js' );
+var getters = require( '../../../resources/store/getters.js' );
 
 describe( 'Vuex root getters', () => {
 	describe( 'checkForMore', () => {
