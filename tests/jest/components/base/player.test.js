@@ -86,7 +86,7 @@ describe( 'Player Component', () => {
 
 		wrapper.vm.player.dispose = mockPlayerDispose;
 
-		wrapper.destroy();
+		wrapper.unmount();
 
 		expect( mockPlayerDispose ).toHaveBeenCalled();
 	} );

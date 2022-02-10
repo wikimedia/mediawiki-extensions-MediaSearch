@@ -36,7 +36,8 @@ describe( 'Radio Component', () => {
 		} );
 
 		const element = wrapper.find( '.sd-radio__input' );
-		expect( element.attributes().disabled ).toBe( 'disabled' );
+
+		expect( element.attributes() ).toHaveProperty( 'disabled' );
 	} );
 
 	it( 'keydown causes a "click" event to be called', () => {

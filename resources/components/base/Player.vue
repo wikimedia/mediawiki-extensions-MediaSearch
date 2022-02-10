@@ -10,8 +10,12 @@
 
 <script>
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdPlayer',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	props: {
 		options: {
@@ -61,7 +65,7 @@ module.exports = {
 			}.bind( this ) );
 	},
 
-	destroyed: function () {
+	unmounted: function () {
 		if ( this.player ) {
 			this.player.dispose();
 		}

@@ -1,12 +1,8 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const i18n = require( '../../plugins/i18n.js' );
 const Image = require( '../../../../resources/components/base/Image.vue' );
 const Observer = require( '../../../../resources/components/base/mixins/observer.js' );
-require( '../../mocks/IntersectionObserver.js' );
-
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+require( '../../ignore/mocks/IntersectionObserver.js' );
 
 // Sample test image props
 const samplePropsData = {
@@ -21,7 +17,6 @@ describe( 'Image Component', () => {
 
 	it( 'Renders successfully', () => {
 		const wrapper = VueTestUtils.shallowMount( Image, {
-			localVue,
 			propsData: samplePropsData
 		} );
 
@@ -34,23 +29,21 @@ describe( 'Image Component', () => {
 
 		const propsData = { source: samplePropsData.source, alt: samplePropsData.alt, originalWidth: 200, originalHeight: 200 };
 		const wrapper = VueTestUtils.shallowMount( Image, {
-			localVue,
 			propsData
 		} );
 
 		expect( wrapper.attributes().style ).toContain(
-			propsData.originalWidth
+			propsData.originalWidth.toString()
 		);
 
 		expect( wrapper.attributes().style ).toContain(
-			propsData.originalHeight
+			propsData.originalHeight.toString()
 		);
 
 	} );
 
 	it( 'source is set immediately if observer is not supported', () => {
 		const wrapper = VueTestUtils.shallowMount( Image, {
-			localVue,
 			propsData: samplePropsData
 		} );
 
@@ -66,7 +59,6 @@ describe( 'Image Component', () => {
 		observerInstance.methods.defineObserverElement = jest.fn().mockReturnValue( 'mock-element-selector' );
 
 		const wrapper = VueTestUtils.mount( Image, {
-			localVue,
 			propsData: samplePropsData,
 			mixins: [ observerInstance ]
 		} );
@@ -84,7 +76,6 @@ describe( 'Image Component', () => {
 
 	it( 'source is set when observerIntersecting is true', () => {
 		const wrapper = VueTestUtils.shallowMount( Image, {
-			localVue,
 			propsData: samplePropsData
 		} );
 

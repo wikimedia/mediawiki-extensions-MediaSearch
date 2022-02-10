@@ -20,7 +20,7 @@
 				aria-autocomplete="list"
 				:aria-owns="lookupResultsElementId"
 				:aria-expanded="isExpanded"
-				:aria-activedescendant="activeLookupItemId"
+				:aria-activedescendant="activeLookupItemId || null"
 				:placeholder="placeholder"
 				@input="onInput"
 				@focus="onFocus"

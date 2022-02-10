@@ -1,6 +1,6 @@
 <template>
 	<img
-		:src="observerSupported ? false : source"
+		:src="observerSupported ? null : source"
 		:data-src="source"
 		:alt="alt"
 		class="sd-image"
@@ -13,8 +13,13 @@
 var observer = require( './mixins/observer.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdImage',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
+
 	mixins: [ observer ],
 	props: {
 		source: {

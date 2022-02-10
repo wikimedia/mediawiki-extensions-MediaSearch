@@ -26,7 +26,7 @@ describe( 'Checkbox Component', () => {
 		} );
 
 		const element = wrapper.find( '.sd-checkbox__input' );
-		expect( element.attributes().disabled ).toBe( 'disabled' );
+		expect( element.attributes() ).toHaveProperty( 'disabled' );
 	} );
 
 	it( 'check if element is checked if value is passed as true', ( done ) => {
