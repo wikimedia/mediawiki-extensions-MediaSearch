@@ -12,9 +12,9 @@ const Vuex = require( 'vuex' ),
 	DidYouMean = require( '../../../resources/components/DidYouMean.vue' ),
 	Observer = require( '../../../resources/components/base/Observer.vue' );
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( Vuex );
-localVue.use( i18n );
+window.performance.navigation = {
+	type: jest.fn()
+};
 
 when( global.mw.config.get )
 	.calledWith( 'sdmsInitialSearchResults' )
@@ -24,6 +24,7 @@ when( global.mw.config.get )
 			{ type: 'dummyTab2' }
 		]
 	} );
+
 const initialState = {
 	autoloadCounter: {
 		dummyTab1: 2
@@ -36,26 +37,29 @@ const initialState = {
 	dummyAllFilter: 'dummyAllFilter'
 };
 
-jest.mock( '../../../resources/mixins/restoreHistoryHandler.js' );
-jest.mock( '../../../resources/mixins/autocompleteLookupHandler.js' );
-
 const App = require( '../../../resources/components/App.vue' );
+
 const renderComponent = ( store ) => {
-	return VueTestUtils.shallowMount( App, {
-		store: store,
-		localVue: localVue,
-		stubs: {
-			'sd-tabs': true,
-			'sd-tab': true,
-			'sd-autocomplete-search-input': true,
-			'search-results': true,
-			'search-filters': true,
-			'did-you-mean': true,
-			'search-user-notice': true,
-			observer: true
-		},
-		mocks: {
-			$log: jest.fn()
+	return VueTestUtils.mount( App, {
+		global: {
+			plugins: [ store, i18n ],
+			stubs: {
+				'sd-tabs': {
+					template: '<div><slot></slot></div>'
+				},
+				'sd-tab': {
+					template: '<div><slot></slot></div>'
+				},
+				'sd-autocomplete-search-input': true,
+				'search-results': true,
+				'search-filters': true,
+				'did-you-mean': true,
+				'search-user-notice': true,
+				observer: true
+			},
+			mocks: {
+				$log: jest.fn()
+			}
 		}
 	} );
 };
@@ -68,16 +72,17 @@ describe( 'App', () => {
 		mutations;
 
 	beforeEach( () => {
+		jest.resetModules();
 		state = JSON.parse( JSON.stringify( initialState ) );
 		getters = {
-			allActiveFilters: jest.fn( () => {
-				return state.dummyAllFilter;
+			allActiveFilters: jest.fn( function ( localState ) {
+				return localState.dummyAllFilter;
 			} ),
-			currentType: jest.fn( () => {
-				return state.dummyCurrentType;
+			currentType: jest.fn( function ( localState ) {
+				return localState.dummyCurrentType;
 			} ),
-			currentSearchTerm: jest.fn( () => {
-				return state.dummySearchTerm;
+			currentSearchTerm: jest.fn( function ( localState ) {
+				return localState.dummySearchTerm;
 			} )
 		};
 		mutations = {
@@ -87,7 +92,8 @@ describe( 'App', () => {
 			setHasError: jest.fn(),
 			setPending: jest.fn(),
 			setSearchTerm: jest.fn(),
-			updateOrDeleteQueryParam: jest.fn()
+			updateOrDeleteQueryParam: jest.fn(),
+			clearStoredPageState: jest.fn()
 		};
 		actions = {
 			clear: jest.fn(),
@@ -95,15 +101,19 @@ describe( 'App', () => {
 			pushQueryToHistoryState: jest.fn(),
 			performNewSearch: jest.fn(),
 			searchMore: jest.fn(),
-			updateCurrentType: jest.fn()
+			updateCurrentType: jest.fn(),
+			replaceQueryToHistoryState: jest.fn(),
+			ready: jest.fn()
 		};
-		store = new Vuex.Store( {
-			state,
+		store = Vuex.createStore( {
+			state() {
+				return state;
+			},
 			getters,
 			mutations,
 			actions
 		} );
-
+		jest.clearAllMocks();
 	} );
 
 	afterEach( () => {
@@ -235,7 +245,7 @@ describe( 'App', () => {
 
 		beforeEach( () => {
 			const wrapper = renderComponent( store );
-			wrapper.vm.$refs.dummyTab1[ 0 ].hideDetails = hideDetailsMock;
+			wrapper.vm.$refs.dummyTab1.hideDetails = hideDetailsMock;
 			wrapper.vm.onFilterChange( { mediaType: 'dummyTab1', filterType: 'dummyFilterType', value: 'dummyValue' } );
 		} );
 
@@ -394,7 +404,7 @@ describe( 'App', () => {
 			it( 'triggers a new search if tab is set', ( done ) => {
 				store.state.dummyCurrentType = 'changedType';
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( wrapper.vm.getMoreResultsForTabIfAvailable ).toHaveBeenCalled();
 					done();
 				} );
@@ -403,7 +413,7 @@ describe( 'App', () => {
 			it( 'perform no action if old and new type are the same', ( done ) => {
 				store.state.dummyCurrentType = 'dummyTab1';
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( wrapper.vm.getMoreResultsForTabIfAvailable ).not.toHaveBeenCalled();
 					done();
 				} );

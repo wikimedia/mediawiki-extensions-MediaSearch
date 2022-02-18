@@ -1,7 +1,7 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
 const CopyTextLayout = require( '../../../../resources/components/base/CopyTextLayout.vue' );
-require( '../../ignore/mocks/ExecCommand.js' );
+require( '../../mocks/ExecCommand.js' );
 
 // Sample test message
 const sampleTest = 'sample test';

@@ -1,12 +1,9 @@
-const Vuex = require( 'vuex' ),
-	VueTestUtils = require( '@vue/test-utils' ),
+const VueTestUtils = require( '@vue/test-utils' ),
 	when = require( 'jest-when' ).when,
 	i18n = require( '../plugins/i18n.js' );
 
-const localVue = VueTestUtils.createLocalVue();
 let component = null;
-localVue.use( Vuex );
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
 
 const defineComponent = ( totalResult ) => {
 	jest.resetModules();

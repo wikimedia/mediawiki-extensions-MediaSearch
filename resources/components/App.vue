@@ -94,7 +94,7 @@ var MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	restoreHistoryHandler = require( './../mixins/restoreHistoryHandler.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'MediaSearch',
 
 	components: {

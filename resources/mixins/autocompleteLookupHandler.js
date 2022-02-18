@@ -12,7 +12,8 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
  * - Trims the list of results to a predetermined limit
  * - Returns an array of these filtered and trimmed results
  */
-module.exports = {
+module.exports = exports = {
+
 	data: function () {
 		return {
 			debounceTimeoutId: null,

@@ -49,7 +49,7 @@ var sdDialog = require( './base/Dialog.vue' ),
  * handled via v-model and emitted up to the SearchFilters component.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'NamespaceFilterDialog',
 
 	components: {

@@ -6,7 +6,7 @@
 
 <script>
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'Spinner'
 };
 </script>

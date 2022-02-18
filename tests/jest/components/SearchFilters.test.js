@@ -2,11 +2,7 @@ const Vuex = require( 'vuex' ),
 	VueTestUtils = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/SearchFilters.vue' ),
 	NamespaceFilterDialogComponent = require( '../../../resources/components/NamespaceFilterDialog.vue' ),
-	i18n = require( '../plugins/i18n.js' ),
-	localVue = VueTestUtils.createLocalVue();
-
-localVue.use( Vuex );
-localVue.use( i18n );
+	i18n = require( '../plugins/i18n.js' );
 
 const defaultMediaType = 'image';
 const initialState = {
@@ -27,13 +23,14 @@ const initialState = {
 };
 const renderComponent = ( store, mediaType ) => {
 	return VueTestUtils.mount( Component, {
-		store: store,
-		localVue: localVue,
-		propsData: {
+		props: {
 			mediaType: mediaType || defaultMediaType
 		},
-		mocks: {
-			$log: jest.fn()
+		global: {
+			plugins: [ store, i18n ],
+			mocks: {
+				$log: jest.fn()
+			}
 		}
 	} );
 };

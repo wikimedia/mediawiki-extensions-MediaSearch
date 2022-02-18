@@ -12,7 +12,7 @@ var mapState = require( 'vuex' ).mapState;
  * Search suggestion.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'DidYouMean',
 
 	computed: $.extend( {}, mapState( [

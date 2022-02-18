@@ -182,7 +182,7 @@ var SdIcon = require( './base/Icon.vue' ),
  * v-html use: all instances of v-html output trusted API/parser content.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'QuickView',
 
 	components: {

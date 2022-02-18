@@ -10,31 +10,10 @@ module.exports = {
 		/**
 		 * @class Vue
 		 */
-
-		/**
-		 * Adds an `$i18n()` instance method that can be used in all components. This method is a
-		 * proxy to mw.message.
-		 *
-		 * Usage:
-		 *     `<p>{{ $i18n( 'my-message-keys', param1, param2 ) }}</p>`
-		 *     or
-		 *     `<p>{{ $i18n( 'my-message-keys' ).params( [ param1, param2 ] ) }}</p>`
-		 *
-		 * Note that this method only works for messages that return text. For messages that
-		 * need to be parsed to HTML, use the v-i18n-html directive.
-		 *
-		 * @param {string} key Key of message to get
-		 * @param {...Mixed} parameters Values for $N replacements
-		 * @param message
-		 * @return {mw.Message}
-		 */
-		Vue.prototype.$i18n = function ( message ) {
-			return {
-				text: jest.fn().mockReturnValue( message ),
-				parse: jest.fn().mockReturnValue( message )
-			};
-		};
-
+		// check if $i18n is already added to vue
+		if ( Vue.config.globalProperties.$i18n ) {
+			return;
+		}
 		/*
 		 * Add a custom v-i18n-html directive. This is used to inject parsed i18n message contents.
 		 *
@@ -88,5 +67,29 @@ module.exports = {
 
 			el.innerHTML = message.parse();
 		} );
+
+		/**
+		 * Adds an `$i18n()` instance method that can be used in all components. This method is a
+		 * proxy to mw.message.
+		 *
+		 * Usage:
+		 *     `<p>{{ $i18n( 'my-message-keys', param1, param2 ) }}</p>`
+		 *     or
+		 *     `<p>{{ $i18n( 'my-message-keys' ).params( [ param1, param2 ] ) }}</p>`
+		 *
+		 * Note that this method only works for messages that return text. For messages that
+		 * need to be parsed to HTML, use the v-i18n-html directive.
+		 *
+		 * @param {string} key Key of message to get
+		 * @param {...Mixed} parameters Values for $N replacements
+		 * @param message
+		 * @return {mw.Message}
+		 */
+		Vue.config.globalProperties.$i18n = function ( message ) {
+			return {
+				text: jest.fn().mockReturnValue( message ),
+				parse: jest.fn().mockReturnValue( message )
+			};
+		};
 	}
 };

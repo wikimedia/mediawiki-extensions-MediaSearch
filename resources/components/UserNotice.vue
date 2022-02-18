@@ -29,7 +29,7 @@ var Button = require( './base/Button.vue' ),
 	specialSearchLink = 'https://meta.wikimedia.org/wiki/Special:Search';
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'UserNotice',
 
 	components: {

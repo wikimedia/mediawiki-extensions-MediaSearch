@@ -48,7 +48,7 @@ var Vue = require( 'vue' ), // Vue is imported here for type definition
  * active prop passed to the Tabs component.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdTabs',
 
 	mixins: [ observer ],

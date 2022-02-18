@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ( function () {
+module.exports = exports = ( function () {
 	/**
 	 * @param {string} url
 	 * @return {string}
