@@ -5,6 +5,13 @@
 	max-width: @sd-max-width-input-base;
 	position: relative;
 
+	&__sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
 	// Expand indicator.
 	&__handle {
 		.transition( color 100ms );

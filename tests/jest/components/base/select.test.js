@@ -40,7 +40,8 @@ describe( 'Select', () => {
 					initialSelectedItemIndex: index
 				}
 			} );
-			expect( wrapper.text() ).toBe( FRUITS[ index ].label );
+
+			expect( wrapper.find( 'button' ).text() ).toBe( FRUITS[ index ].label );
 		} );
 
 		it( 'displays an optional prefix with the selected value if one is provided', () => {
@@ -73,7 +74,7 @@ describe( 'Select', () => {
 
 			wrapper.vm.select( selection );
 			Vue.nextTick().then( () => {
-				expect( wrapper.text() ).toBe( 'Strawberry' );
+				expect( wrapper.find( 'button' ).text() ).toBe( 'Strawberry' );
 				done();
 			} );
 		} );
