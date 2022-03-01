@@ -49,6 +49,7 @@
 	"mediasearch-filter-namespace-dialog-progressive-action": "Verzenden",
 	"mediasearch-no-results": "We hebben geen resultaten gevonden",
 	"mediasearch-no-results-tips": "Probeer meer algemene termen of controleer je spelling",
+	"mediasearch-end-of-results": "Geen resultaten meer gevonden",
 	"mediasearch-empty-state": "Zoeken in meer dan $1 gratis te hergebruiken mediabestand{{PLURAL:$1||en}}",
 	"mediasearch-clear-title": "Verwijder",
 	"mediasearch-input-label": "Zoeken naar media",
