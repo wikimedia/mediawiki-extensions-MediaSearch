@@ -6,7 +6,6 @@
 			:href="canonicalurl"
 			:title="title"
 			:style="style"
-			@click="$emit( 'click' )"
 		>
 			<sdms-image :source="thumbnail" :alt="displayName"></sdms-image>
 		</a>
@@ -15,7 +14,6 @@
 				<a
 					:href="canonicalurl"
 					:title="title"
-					@click="$emit( 'click' )"
 				>
 					{{ displayName }}
 				</a>
@@ -50,7 +48,7 @@ var SdImage = require( './../base/Image.vue' );
 var searchResult = require( '../../mixins/searchResult.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'OtherResult',
 
 	components: {

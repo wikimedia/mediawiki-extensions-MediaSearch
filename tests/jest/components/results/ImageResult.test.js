@@ -1,12 +1,12 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const ImageResult = require( '../../../resources/components/results/ImageResult.vue' );
-const ImageComponent = require( '../../../resources/components/base/Image.vue' );
+const ImageResult = require( '../../../../resources/components/results/ImageResult.vue' );
+const ImageComponent = require( '../../../../resources/components/base/Image.vue' );
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on pageid, not a straight array
-const sampleResults = require( '../fixtures/mockImageSearchApiResponse.json' ).query.pages;
+const sampleResults = require( '../../fixtures/mockImageSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
@@ -29,7 +29,7 @@ describe( 'ImageResult', () => {
 
 	it( 'Renders successfully', () => {
 		const wrapper = VueTestUtils.mount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -44,7 +44,7 @@ describe( 'ImageResult', () => {
 
 	it( 'contains an Image component', () => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -60,7 +60,7 @@ describe( 'ImageResult', () => {
 
 	it( 'calculates its own "width" style rule based on result thumbnail dimensions', () => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -76,7 +76,7 @@ describe( 'ImageResult', () => {
 
 	it( 'applies a portrait class if the aspect ratio is greater than one', () => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -95,7 +95,7 @@ describe( 'ImageResult', () => {
 
 	it( 'contains a link element', () => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -110,7 +110,7 @@ describe( 'ImageResult', () => {
 
 	it( 'clicking the link element causes a "show-details" event to be fired', done => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -129,7 +129,7 @@ describe( 'ImageResult', () => {
 
 	it( 'the "show-details" event includes the result title in its payload', done => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,

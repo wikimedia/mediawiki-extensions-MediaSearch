@@ -1,11 +1,11 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const VideoResult = require( '../../../resources/components/results/VideoResult.vue' );
+const AudioResult = require( '../../../../resources/components/results/AudioResult.vue' );
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on title, not a straight array
-const sampleResults = require( '../fixtures/mockVideoSearchApiResponse.json' ).query.pages;
+const sampleResults = require( '../../fixtures/mockAudioSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
@@ -18,7 +18,7 @@ const thumbLimits = [
 	500, 600, 800
 ];
 
-describe( 'VideoResult', () => {
+describe( 'AudioResult', () => {
 	beforeEach( () => {
 		// Mock some pre-defined thumbnail values or else this component doesn't work
 		when( global.mw.config.get )
@@ -27,8 +27,8 @@ describe( 'VideoResult', () => {
 	} );
 
 	it( 'Renders successfully', () => {
-		const wrapper = VueTestUtils.mount( VideoResult, {
-			propsData: {
+		const wrapper = VueTestUtils.mount( AudioResult, {
+			props: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo,
@@ -38,12 +38,12 @@ describe( 'VideoResult', () => {
 			}
 		} );
 
-		const element = wrapper.find( '.sdms-video-result' );
+		const element = wrapper.find( '.sdms-audio-result' );
 		expect( element.exists() ).toBe( true );
 	} );
 
 	it( 'contains an element displaying a formattedDuration', () => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
+		const wrapper = VueTestUtils.shallowMount( AudioResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -53,27 +53,12 @@ describe( 'VideoResult', () => {
 				entityterms: sampleResult.entityterms
 			}
 		} );
-		const durationElement = wrapper.find( '.sdms-video-result__duration__text' );
+		const durationElement = wrapper.find( '.sdms-audio-result__duration__text' );
 		expect( durationElement.exists() ).toBe( true );
 	} );
 
-	it( 'contains an image element', () => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
-			propsData: {
-				title: sampleResult.title,
-				canonicalurl: sampleResult.canonicalurl,
-				imageinfo: sampleResult.imageinfo,
-				index: sampleResult.index,
-				name: sampleResult.name,
-				entityterms: sampleResult.entityterms
-			}
-		} );
-		const imageElement = wrapper.find( '.sdms-video-result__thumbnail' );
-		expect( imageElement.exists() ).toBe( true );
-	} );
-
 	it( 'contains an element containing a mime type', () => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
+		const wrapper = VueTestUtils.shallowMount( AudioResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -83,12 +68,12 @@ describe( 'VideoResult', () => {
 				entityterms: sampleResult.entityterms
 			}
 		} );
-		const mimeElement = wrapper.find( '.sdms-video-result__mime' );
+		const mimeElement = wrapper.find( '.sdms-audio-result__mime' );
 		expect( mimeElement.exists() ).toBe( true );
 	} );
 
 	it( 'contains a link element', () => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
+		const wrapper = VueTestUtils.shallowMount( AudioResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -103,7 +88,7 @@ describe( 'VideoResult', () => {
 	} );
 
 	it( 'clicking the link element causes a "show-details" event to be fired', done => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
+		const wrapper = VueTestUtils.shallowMount( AudioResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,
@@ -122,7 +107,7 @@ describe( 'VideoResult', () => {
 	} );
 
 	it( 'the "show-details" event includes the result title in its payload', done => {
-		const wrapper = VueTestUtils.shallowMount( VideoResult, {
+		const wrapper = VueTestUtils.shallowMount( AudioResult, {
 			propsData: {
 				title: sampleResult.title,
 				canonicalurl: sampleResult.canonicalurl,

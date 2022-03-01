@@ -6,8 +6,7 @@
 			</span>
 			<h3 v-if="displayName">
 				<a :href="canonicalurl"
-					:title="title"
-					@click="$emit('click')">
+					:title="title">
 					{{ displayName }}
 				</a>
 			</h3>
@@ -61,7 +60,7 @@ var searchResult = require( '../../mixins/searchResult.js' ),
 	userLanguage = mw.config.get( 'wgUserLanguage' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'PageResult',
 
 	mixins: [ searchResult ],

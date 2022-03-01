@@ -43,7 +43,7 @@ var searchResult = require( '../../mixins/searchResult.js' ),
 	icons = require( '../../../lib/icons.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'AudioResult',
 
 	components: {
