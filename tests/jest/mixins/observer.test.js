@@ -52,7 +52,7 @@ describe( 'Observer', () => {
 			observerInstance.methods.disconnectObserver = jest.fn();
 
 			const wrapper = VueTestUtils.shallowMount( Component );
-			wrapper.destroy();
+			wrapper.unmount();
 
 			expect( observerInstance.methods.disconnectObserver ).toHaveBeenCalled();
 		} );
@@ -64,7 +64,7 @@ describe( 'Observer', () => {
 			};
 
 			const wrapper = VueTestUtils.shallowMount( Component );
-			wrapper.destroy();
+			wrapper.unmount();
 
 			expect( IntersectionObserverSpies.disconnect ).not.toHaveBeenCalled();
 		} );
@@ -149,7 +149,7 @@ describe( 'Observer', () => {
 			const wrapper = VueTestUtils.shallowMount( Component );
 
 			Vue.nextTick().then( () => {
-				wrapper.destroy();
+				wrapper.unmount();
 
 				expect( wrapper.vm.observerSupported ).toBe( true );
 				expect( observerInstance.methods.disconnectObserver ).toHaveBeenCalled();

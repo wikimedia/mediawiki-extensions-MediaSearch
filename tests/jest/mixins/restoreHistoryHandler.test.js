@@ -341,7 +341,7 @@ describe( 'RestoreHistoryHandler', () => {
 		} );
 	} );
 
-	describe( 'on beforeDestroy', () => {
+	describe( 'on unmount ', () => {
 		it( 'remove the popstate event listener', () => {
 			mixinsInstance.methods.restorePageStateIfNecessary = jest.fn();
 			const Component = {
@@ -360,7 +360,7 @@ describe( 'RestoreHistoryHandler', () => {
 				}
 			} );
 
-			wrapper.destroy();
+			wrapper.unmount();
 
 			expect( window.removeEventListener ).toHaveBeenCalled();
 			expect( window.removeEventListener ).toHaveBeenCalledTimes( 1 );
