@@ -57,8 +57,8 @@ class MigrateSearchPagePrefs extends Maintenance {
 
 		$loadBalancer = $this->loadBalancerFactory->getMainLB();
 
-		$this->dbw = $loadBalancer->getLazyConnectionRef( DB_PRIMARY );
-		$this->dbr = $loadBalancer->getLazyConnectionRef( DB_REPLICA );
+		$this->dbw = $loadBalancer->getConnectionRef( DB_PRIMARY );
+		$this->dbr = $loadBalancer->getConnectionRef( DB_REPLICA );
 	}
 
 	public function execute() {
