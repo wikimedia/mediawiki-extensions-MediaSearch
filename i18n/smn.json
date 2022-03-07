@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Seipinne",
 			"Yupik"
 		]
 	},
@@ -10,7 +11,11 @@
 	"mediasearch-tab-page": "Luokah já Siijđoh",
 	"mediasearch-tab-other": "Eres media",
 	"mediasearch-filter-size": "Kove stuárudâh",
+	"mediasearch-filter-size-unset": "Puoh",
+	"mediasearch-filter-file-type-unset": "Puoh",
 	"mediasearch-filter-license-other": "Eres",
 	"mediasearch-clear-title": "Siho",
-	"mediasearch-copytextlayout-copy": "Kopijist"
+	"mediasearch-copytextlayout-copy": "Kopijist",
+	"mediasearch-filter-assessment-unset": "Puoh",
+	"mediasearch-filter-license-unset": "Puoh"
 }
