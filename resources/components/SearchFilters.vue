@@ -3,6 +3,10 @@
 		<div
 			ref="filters"
 			class="sdms-search-filters"
+			role="group"
+			:aria-label="filtersLabel"
+			:aria-describedby="searchCountId"
+			tabindex="0"
 			@scroll.passive="onScroll"
 		>
 			<template v-for="( filter, index ) in searchFilters">
@@ -40,7 +44,7 @@
 				</div>
 			</template>
 			<div class="sdms-search-results-count">
-				<span v-if="showResultsCount">
+				<span v-if="showResultsCount" :id="searchCountId">
 					{{ resultsCount }}
 				</span>
 			</div>
@@ -114,6 +118,22 @@ module.exports = {
 		'totalHits',
 		'filterValues'
 	] ), {
+		/**
+		 * Due to this component being used multiple times,
+		 * we need to ensure the ID is unique
+		 * @return {string}
+		 */
+		searchCountId: function () {
+			return this.mediaType + '-count';
+		},
+
+		/**
+		 * @return {string}
+		 */
+		filtersLabel: function () {
+			return this.mediaType + ' filters';
+		},
+
 		/**
 		 * @return {Object}
 		 */

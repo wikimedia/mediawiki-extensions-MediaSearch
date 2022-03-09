@@ -4,6 +4,7 @@
 			<div
 				class="sd-tabs__tabs-list"
 				role="tablist"
+				aria-label="Media type"
 				tabindex="0"
 				:aria-activedescendant="currentTabId"
 				@keydown.left.prevent="prev"
@@ -13,11 +14,11 @@
 			>
 				<div
 					v-for="(tab, index) in tabs"
-					:id="tab.id + '-label'"
+					:id="tab.name + '-label'"
 					:key="tab.title"
 					:class="getLabelClasses(tab, index)"
 					:aria-selected="tab.name === currentTabName"
-					:aria-controls="tab.id"
+					:aria-controls="tab.name + '-control'"
 					class="sd-tabs__tabs-list__item"
 					role="tab"
 					tabindex="-1"

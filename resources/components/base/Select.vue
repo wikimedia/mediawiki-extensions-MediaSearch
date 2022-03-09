@@ -1,12 +1,13 @@
 <template>
 	<div class="sd-select" :class="rootClasses">
+		<label :id="listboxId" class="sd-select__sr-only">{{ selectLabel }}</label>
 		<button
 			class="sd-select__content"
 			tabindex="0"
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
 			:aria-owns="listboxId"
-			:aria-labelledby="textboxId"
+			:aria-labelledby="listboxId + ' ' + textboxId"
 			:aria-expanded="isExpanded"
 			:aria-activedescendant="activeItemId"
 			:aria-disabled="disabled"
@@ -23,7 +24,7 @@
 				role="textbox"
 				aria-readonly="true"
 			>
-				<template v-if="selectedItemIndex > -1">
+				<template v-if="isListItemSelected">
 					{{ prefix }}
 				</template>
 				{{ currentSelection }}
@@ -128,6 +129,32 @@ module.exports = {
 
 	computed: {
 		/**
+		 * @return {boolean}
+		 */
+		isListItemSelected: function () {
+			return this.selectedItemIndex > -1;
+		},
+
+		/**
+		 * This helps to figure out what text to show as label for accessibility
+		 *
+		 * @return {string}
+		 */
+		selectLabel: function () {
+			// We show the label, if an item is selected,
+			// because it would be label will removed from the button
+			if ( this.isListItemSelected ) {
+				return this.label;
+			} else if ( !this.label ) {
+				// We show the prefix as the label,
+				// if no label is passed and no item is selected
+				return this.prefix;
+			}
+
+			return '';
+		},
+
+		/**
 		 * @return {string} The user-visible label for the current selection
 		 */
 		currentSelection: function () {
@@ -162,6 +189,13 @@ module.exports = {
 		 */
 		isExpanded: function () {
 			return this.showMenu ? 'true' : 'false';
+		},
+
+		/**
+		 * @return {string}
+		 */
+		labelId: function () {
+			return this.name + '__labelbox';
 		},
 
 		/**
