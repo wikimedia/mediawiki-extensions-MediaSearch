@@ -3,6 +3,7 @@
 		<label :id="listboxId" class="sd-select__sr-only">{{ selectLabel }}</label>
 		<button
 			class="sd-select__content"
+			ref="sdSelectButton"
 			tabindex="0"
 			aria-autocomplete="list"
 			aria-haspopup="listbox"
@@ -238,6 +239,10 @@ module.exports = {
 		onClick: function () {
 			this.toggleMenu( !this.showMenu );
 			this.restoreActiveItemIndex();
+
+			if ( this.showMenu ) {
+				this.$refs.sdSelectButton.focus();
+			}
 		},
 
 		/**
