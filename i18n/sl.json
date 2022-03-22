@@ -6,5 +6,23 @@
 			"Janezdrilc"
 		]
 	},
-	"mediasearch-tab-audio": "Zvok"
+	"mediasearch-title": "Išči vsebine",
+	"mediasearch-tab-audio": "Zvok",
+	"mediasearch-tab-other": "Druga vsebina",
+	"mediasearch-filter-size": "Velikost datoteke",
+	"mediasearch-filter-size-small": "Majhna",
+	"mediasearch-filter-size-medium": "Srednja",
+	"mediasearch-filter-size-large": "Velika",
+	"mediasearch-filter-sort-label": "Sortiraj po:",
+	"mediasearch-filter-sort-default": "Relevantnosti",
+	"mediasearch-filter-sort-recency": "Nedavnosti",
+	"mediasearch-filter-license-any": "Vse licence",
+	"mediasearch-filter-license-attribution": "Uporaba s pripisom",
+	"mediasearch-filter-license-attribution-same-license": "Uporaba s pripisom in isto licenco",
+	"mediasearch-filter-license-unrestricted": "Brez omejitev",
+	"mediasearch-filter-namespace-all": "Vsi",
+	"mediasearch-end-of-results": "Ni drugih najdenih zadetkov",
+	"mediasearch-empty-state": "Iščite po več kot $1 {{PLURAL:$1|prosti datoteki za ponovno uporabo|prostih datotekah za ponovno uporabo}}",
+	"mediasearch-input-label": "Išči vsebine",
+	"mediasearch-input-placeholder": "Išči slike, avdio, video in drugo"
 }
