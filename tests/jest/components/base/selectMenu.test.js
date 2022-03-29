@@ -30,12 +30,10 @@ describe( 'SelectMenu', () => {
 					selectedItemIndex
 				}
 			} );
-			const mockEmitFunction = jest.fn();
-			wrapper.vm.$emit = mockEmitFunction;
 
 			wrapper.find( '#' + LISTBOXID + '-item-' + selectedItemIndex ).trigger( 'mousedown' );
 
-			expect( mockEmitFunction ).not.toHaveBeenCalled();
+			expect( wrapper.emitted().select ).toBeUndefined();
 		} );
 
 		it( 'if item is not currently selected emit select event with formatted items', () => {

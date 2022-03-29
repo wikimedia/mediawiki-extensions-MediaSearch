@@ -2,7 +2,7 @@
 	<label
 		ref="label"
 		class="sd-checkbox"
-		:aria-disabled="disabled"
+		:aria-disabled="disabled || null"
 		@click="onClick"
 		@keydown.prevent.enter="onEnter"
 	>
@@ -12,10 +12,10 @@
 			class="sd-checkbox__input"
 			type="checkbox"
 			:value="inputValue"
-			:aria-disabled="disabled"
-			:disabled="disabled"
+			:aria-disabled="disabled || null"
+			:disabled="disabled || null"
 		>
-		<span class="sd-checkbox__icon" :aria-disabled="disabled"></span>
+		<span class="sd-checkbox__icon" :aria-disabled="disabled || null"></span>
 		<span class="sd-checkbox__spacer"></span>
 		<span class="sd-checkbox__label-text">
 			<slot></slot>
@@ -30,8 +30,12 @@ var binaryInput = require( './mixins/binaryInput.js' );
  * Checkbox input.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdCheckbox',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	mixins: [ binaryInput ],
 

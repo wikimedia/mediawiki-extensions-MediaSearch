@@ -10,8 +10,8 @@
 			:aria-owns="listboxId"
 			:aria-labelledby="listboxId + ' ' + textboxId"
 			:aria-expanded="isExpanded"
-			:aria-activedescendant="activeItemId"
-			:aria-disabled="disabled"
+			:aria-activedescendant="activeItemId || null"
+			:aria-disabled="disabled || null"
 			@click="onClick"
 			@blur="toggleMenu(false)"
 			@keydown.enter.prevent
@@ -62,8 +62,12 @@ var Icon = require( './Icon.vue' ),
  * value to the parent.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdSelect',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-icon': Icon,

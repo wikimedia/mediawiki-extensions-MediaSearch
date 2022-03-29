@@ -2,7 +2,7 @@
 	<label
 		ref="label"
 		class="sd-radio"
-		:aria-disabled="disabled"
+		:aria-disabled="disabled || null"
 		@click="onClick"
 		@keydown.prevent.enter="onEnter"
 	>
@@ -13,10 +13,10 @@
 			type="radio"
 			:name="name"
 			:value="inputValue"
-			:aria-disabled="disabled"
-			:disabled="disabled"
+			:aria-disabled="disabled || null"
+			:disabled="disabled || null"
 		>
-		<span class="sd-radio__icon" :aria-disabled="disabled"></span>
+		<span class="sd-radio__icon" :aria-disabled="disabled || null"></span>
 		<span class="sd-radio__spacer"></span>
 		<span class="sd-radio__label-text">
 			<slot></slot>
@@ -31,8 +31,12 @@ var binaryInput = require( './mixins/binaryInput.js' );
  * Radio input.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdRadio',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	mixins: [ binaryInput ],
 

@@ -62,7 +62,7 @@ describe( 'Button Component', () => {
 			}
 		} );
 
-		expect( wrapper.attributes() ).toHaveProperty( 'disabled', 'disabled' );
+		expect( wrapper.attributes() ).toHaveProperty( 'disabled' );
 
 	} );
 

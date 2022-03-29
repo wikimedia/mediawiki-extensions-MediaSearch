@@ -21,8 +21,12 @@ var SdButton = require( './Button.vue' );
  * Text with a button that copies the text to the user's clipboard.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdCopyTextLayout',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-button': SdButton

@@ -104,7 +104,7 @@ module.exports = {
 	/**
 	 * Disconnect the observer when the component is destroyed
 	 */
-	destroyed: function () {
+	unmounted: function () {
 		this.disconnectObserver();
 	}
 };

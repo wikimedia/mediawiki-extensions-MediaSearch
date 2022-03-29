@@ -90,8 +90,12 @@ var SdButton = require( './Button.vue' ),
  *   action has not yet been implemented.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdDialog',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-button': SdButton
@@ -223,7 +227,7 @@ module.exports = {
 		document.body.appendChild( this.$el );
 	},
 
-	beforeDestroy: function () {
+	beforeUnmount: function () {
 		// Remove lingering body class and the element itself.
 		document.body.classList.remove( 'sd-body--open-dialog' );
 		document.body.removeChild( this.$el );

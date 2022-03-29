@@ -1,11 +1,7 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const i18n = require( '../../plugins/i18n.js' );
 const CopyTextLayout = require( '../../../../resources/components/base/CopyTextLayout.vue' );
-require( '../../mocks/ExecCommand.js' );
-
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+require( '../../ignore/mocks/ExecCommand.js' );
 
 // Sample test message
 const sampleTest = 'sample test';
@@ -13,7 +9,6 @@ const sampleTest = 'sample test';
 describe( 'SdCopyTextLayout Component', () => {
 	it( 'renders successfully', () => {
 		const wrapper = VueTestUtils.shallowMount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest
 			}
@@ -25,7 +20,6 @@ describe( 'SdCopyTextLayout Component', () => {
 
 	it( 'text is same as text passed', () => {
 		const wrapper = VueTestUtils.shallowMount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest
 			}
@@ -37,7 +31,6 @@ describe( 'SdCopyTextLayout Component', () => {
 
 	it( 'text copied successfully', ( done ) => {
 		const wrapper = VueTestUtils.mount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest
 			}
@@ -61,7 +54,6 @@ describe( 'SdCopyTextLayout Component', () => {
 	it( 'correct success message is shown if copied text successfully', ( done ) => {
 		const successMessage = 'Copied link successfully';
 		const wrapper = VueTestUtils.mount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest,
 				successMessage
@@ -81,7 +73,6 @@ describe( 'SdCopyTextLayout Component', () => {
 	it( 'user is notified if copy fails', ( done ) => {
 		const failMessage = 'Copied link successfully';
 		const wrapper = VueTestUtils.mount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest,
 				failMessage
@@ -108,7 +99,6 @@ describe( 'SdCopyTextLayout Component', () => {
 
 	it( 'overflow is hidden if hideOverflow is passed as true', () => {
 		const wrapper = VueTestUtils.shallowMount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest,
 				hideOverflow: true
@@ -120,7 +110,6 @@ describe( 'SdCopyTextLayout Component', () => {
 
 	it( 'is inline if inline is passed as true', () => {
 		const wrapper = VueTestUtils.shallowMount( CopyTextLayout, {
-			localVue,
 			propsData: {
 				copyText: sampleTest,
 				inline: true

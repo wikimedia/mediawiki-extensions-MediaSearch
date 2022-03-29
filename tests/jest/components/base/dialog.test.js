@@ -77,7 +77,7 @@ describe( 'Dialog Component', () => {
 			}
 		} );
 
-		wrapper.destroy();
+		wrapper.unmount();
 
 		Vue.nextTick().then( () => {
 			expect( document.body.classList.remove ).toHaveBeenCalled();

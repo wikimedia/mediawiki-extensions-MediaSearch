@@ -13,7 +13,7 @@
 				class="sd-select-menu__list-item"
 				:class="getItemClasses(index)"
 				role="option"
-				:aria-selected="isActiveItem(index)"
+				:aria-selected="isActiveItem(index) || null"
 				@mousedown="onMousedown(index, item)"
 				@mouseover="$emit( 'active-item-change', index)"
 				@mouseleave="$emit( 'active-item-change', -1)"

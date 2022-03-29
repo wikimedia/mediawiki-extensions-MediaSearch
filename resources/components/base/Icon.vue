@@ -5,7 +5,7 @@
 			width="1em"
 			height="1em"
 			viewBox="0 0 20 20"
-			:aria-hidden="lacksTitle"
+			:aria-hidden="lacksTitle || null"
 		>
 			<title v-if="iconTitle">{{ iconTitle }}</title>
 			<g :fill="iconColor">

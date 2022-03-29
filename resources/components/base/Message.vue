@@ -2,8 +2,8 @@
 	<div
 		class="sd-message"
 		:class="builtInClasses"
-		:aria-live="type !== 'error' ? 'polite' : false"
-		:role="type === 'error' ? 'alert' : false"
+		:aria-live="type !== 'error' ? 'polite' : null"
+		:role="type === 'error' ? 'alert' : null"
 	>
 		<sd-icon :icon="icon"></sd-icon>
 		<div class="sd-message__content">
@@ -28,8 +28,12 @@ var SdIcon = require( './Icon.vue' ),
  * See CardStack for usage example.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdMessage',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-icon': SdIcon
