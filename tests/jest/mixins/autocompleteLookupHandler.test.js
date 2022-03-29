@@ -60,7 +60,7 @@ describe( 'AutocompleteLookupHandler', () => {
 
 			wrapper.vm.getDebouncedLookupResults( input );
 
-			jest.runTimersToTime( 250 );
+			jest.advanceTimersByTime( 250 );
 
 			expect( mockGetLookupResults ).toHaveBeenCalled();
 
