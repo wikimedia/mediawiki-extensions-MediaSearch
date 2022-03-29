@@ -19,7 +19,7 @@
  */
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'NoResults'
 };
 </script>

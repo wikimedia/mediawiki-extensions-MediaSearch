@@ -4,14 +4,12 @@ const VueTestUtils = require( '@vue/test-utils' ),
 	Radio = require( '../../../resources/components/base/Radio.vue' ),
 	Checkbox = require( '../../../resources/components/base/Checkbox.vue' );
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'EndOfResults', () => {
 	it( 'render the component', () => {
 		const wrapper = VueTestUtils.shallowMount( Component, {
-			localVue: localVue,
-			propsData: {
+			props: {
 				items: [],
 				namespaces: {},
 				namespaceGroups: {},
@@ -25,9 +23,9 @@ describe( 'EndOfResults', () => {
 
 	describe( 'when items are set', () => {
 		it( 'render an sd-radio', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+			const wrapper = VueTestUtils.mount( Component, {
+				props: {
+					active: true,
 					items: [ { value: 'test' } ],
 					namespaces: {},
 					namespaceGroups: {},
@@ -41,9 +39,9 @@ describe( 'EndOfResults', () => {
 
 	describe( 'when formattedNamespaces are set', () => {
 		it( 'render an sd-checkbox', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+			const wrapper = VueTestUtils.mount( Component, {
+				props: {
+					active: true,
 					items: [],
 					namespaces: { value: 'test' },
 					namespaceGroups: {},
@@ -58,8 +56,7 @@ describe( 'EndOfResults', () => {
 	describe( 'initialRadio', () => {
 		it( 'returns initial value if valid', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: { test: { value: 'test' } },
@@ -71,8 +68,7 @@ describe( 'EndOfResults', () => {
 		} );
 		it( 'returns custom if no initial value is provided', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: { test: { value: 'test' } },
@@ -87,8 +83,7 @@ describe( 'EndOfResults', () => {
 	describe( 'initialCustom', () => {
 		it( 'returns initialValue if is a custom value (number)', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: { test: { value: 'test' } },
@@ -100,8 +95,7 @@ describe( 'EndOfResults', () => {
 		} );
 		it( 'returns array with formatted InitialValue', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: { test: { value: 'test' } },
@@ -118,8 +112,7 @@ describe( 'EndOfResults', () => {
 	describe( 'formattedNamespaces', () => {
 		it( 'generates label and value for namespaces', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {
 						10: 'test10'
@@ -137,8 +130,7 @@ describe( 'EndOfResults', () => {
 		it( 'default the label for a namespace with a value of 0 (blanknamespace)', () => {
 			global.mw.msg.mockReturnValueOnce( 'blanknamespace' );
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {
 						0: 0
@@ -158,8 +150,7 @@ describe( 'EndOfResults', () => {
 	describe( 'isCustom', () => {
 		it( 'return true if selectedRadio is equal to "custom" ', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: {},
@@ -174,8 +165,7 @@ describe( 'EndOfResults', () => {
 	describe( 'disableDialogAction', () => {
 		it( 'return false if not custom" ', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: {},
@@ -187,8 +177,7 @@ describe( 'EndOfResults', () => {
 		} );
 		it( 'return false if custom and with selected values" ', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: {},
@@ -200,8 +189,7 @@ describe( 'EndOfResults', () => {
 		} );
 		it( 'return true if custom but without selected custom" ', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue,
-				propsData: {
+				props: {
 					items: [],
 					namespaces: {},
 					namespaceGroups: {},
@@ -217,8 +205,7 @@ describe( 'EndOfResults', () => {
 		describe( 'cancel', () => {
 			it( 'emit a "close" event', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -232,8 +219,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'reset selectedRadio to initialRadio', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -247,8 +233,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'reset selectedRadio to initialRadio', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -258,14 +243,13 @@ describe( 'EndOfResults', () => {
 				const initialCustom = wrapper.vm.initialCustom;
 				wrapper.vm.cancel();
 
-				expect( wrapper.vm.selectedCustom ).toBe( initialCustom );
+				expect( wrapper.vm.selectedCustom ).toEqual( initialCustom );
 			} );
 		} );
 		describe( 'onProgress', () => {
 			it( 'emit a "close" event', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -279,8 +263,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'emit a "submit" event', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -294,8 +277,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'emit a "submit" event with selectedRadio if namespace is not custom', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -310,8 +292,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'emit a "submit" event with selectedCustom if namespace is custom', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -329,8 +310,7 @@ describe( 'EndOfResults', () => {
 			describe( 'when value provided is part of namespaceGroups', () => {
 				it( 'set seletedRadio as the value provided', () => {
 					const wrapper = VueTestUtils.shallowMount( Component, {
-						localVue: localVue,
-						propsData: {
+						props: {
 							items: [],
 							namespaces: {},
 							namespaceGroups: { test: { test: 'test' }, custom: { test: 'test' } },
@@ -344,8 +324,7 @@ describe( 'EndOfResults', () => {
 				} );
 				it( 'set reset selectedCustom to initialCustom', () => {
 					const wrapper = VueTestUtils.shallowMount( Component, {
-						localVue: localVue,
-						propsData: {
+						props: {
 							items: [],
 							namespaces: {},
 							namespaceGroups: { test: { test: 'test' }, custom: { test: 'test' } },
@@ -361,8 +340,7 @@ describe( 'EndOfResults', () => {
 			describe( 'when value provided is not part of namespaceGroups', () => {
 				it( 'set seletedRadio as "custom"', () => {
 					const wrapper = VueTestUtils.shallowMount( Component, {
-						localVue: localVue,
-						propsData: {
+						props: {
 							items: [],
 							namespaces: {},
 							namespaceGroups: {},
@@ -376,8 +354,7 @@ describe( 'EndOfResults', () => {
 				} );
 				it( 'set reset selectedCustom to the formatted value provided', () => {
 					const wrapper = VueTestUtils.shallowMount( Component, {
-						localVue: localVue,
-						propsData: {
+						props: {
 							items: [],
 							namespaces: {},
 							namespaceGroups: {},
@@ -397,8 +374,7 @@ describe( 'EndOfResults', () => {
 		describe( 'reset', () => {
 			it( 'reset the value of selectedRadio to initialRadio', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -412,8 +388,7 @@ describe( 'EndOfResults', () => {
 			} );
 			it( 'reset the value of selectedCustom to initialCustom', () => {
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					localVue: localVue,
-					propsData: {
+					props: {
 						items: [],
 						namespaces: {},
 						namespaceGroups: {},
@@ -423,7 +398,7 @@ describe( 'EndOfResults', () => {
 
 				wrapper.vm.reset();
 
-				expect( wrapper.vm.selectedCustom ).toBe( wrapper.vm.initialCustom );
+				expect( wrapper.vm.selectedCustom ).toEqual( wrapper.vm.initialCustom );
 			} );
 		} );
 	} );

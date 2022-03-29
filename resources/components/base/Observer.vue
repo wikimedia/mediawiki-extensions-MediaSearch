@@ -20,8 +20,13 @@
  */
 var observer = require( './mixins/observer.js' );
 
-module.exports = {
+module.exports = exports = {
 	name: 'SdObserver',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
+
 	mixins: [ observer ],
 	props: {
 		// IntersectObserver Options object used to overrride the Observer mixins options

@@ -3,9 +3,7 @@ const Vuex = require( 'vuex' ),
 	i18n = require( '../plugins/i18n.js' ),
 	Component = require( '../../../resources/components/DidYouMean.vue' );
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( Vuex );
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'DidYoumean', () => {
 	let store,
@@ -41,8 +39,9 @@ describe( 'DidYoumean', () => {
 
 	it( 'Does not render DidYouMean component if state if empty', () => {
 		const wrapper = VueTestUtils.shallowMount( Component, {
-			store: store,
-			localVue: localVue
+			global: {
+				plugins: [ store ]
+			}
 		} );
 
 		const element = wrapper.find( '.sdms-did-you-mean' );
@@ -52,9 +51,10 @@ describe( 'DidYoumean', () => {
 	describe( 'When DidYouMean is present in the store', () => {
 		it( 'Renders DidYouMean component', () => {
 			store.replaceState( { didYouMean: 'test' } );
-			const wrapper = VueTestUtils.shallowMount( Component, {
-				store: store,
-				localVue: localVue
+			const wrapper = VueTestUtils.mount( Component, {
+				global: {
+					plugins: [ store ]
+				}
 			} );
 
 			const element = wrapper.find( '.sdms-did-you-mean' );
@@ -64,10 +64,10 @@ describe( 'DidYoumean', () => {
 		it( 'Creates an anchor tag', () => {
 			store.replaceState( { didYouMean: 'test' } );
 			const wrapper = VueTestUtils.mount( Component, {
-				store: store,
-				localVue: localVue
+				global: {
+					plugins: [ store ]
+				}
 			} );
-
 			expect( wrapper.vm.didYouMeanLink.tagName ).toBe( 'A' );
 		} );
 	} );

@@ -5,14 +5,44 @@ const VueTestUtils = require( '@vue/test-utils' ),
 	Button = require( '../../../resources/components/base/Button.vue' ),
 	Message = require( '../../../resources/components/base/Message.vue' );
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
-
 describe( 'UserNotice', () => {
 	beforeEach( () => {
 		when( global.mw.config.get )
 			.calledWith( 'skin' )
 			.mockReturnValue( 'fake' );
+	} );
+	describe( 'renders ', () => {
+		it( 'the parent component', () => {
+			const wrapper = VueTestUtils.shallowMount( Component, {
+				global: {
+					plugins: [ i18n ]
+				}
+			} );
+
+			const element = wrapper.find( '.sdms-user-notice__message' );
+
+			expect( element.exists() ).toBe( true );
+		} );
+		it( 'a button component', () => {
+			const wrapper = VueTestUtils.mount( Component, {
+				global: {
+					plugins: [ i18n ]
+				}
+			} );
+
+			const innerComponent = wrapper.findComponent( Button );
+			expect( innerComponent.exists() ).toBe( true );
+		} );
+		it( 'a message component', () => {
+			const wrapper = VueTestUtils.shallowMount( Component, {
+				global: {
+					plugins: [ i18n ]
+				}
+			} );
+
+			const innerComponent = wrapper.findComponent( Message );
+			expect( innerComponent.exists() ).toBe( true );
+		} );
 	} );
 	describe( 'does not render the component', () => {
 		it( 'when user is on mobile skin', () => {
@@ -21,7 +51,9 @@ describe( 'UserNotice', () => {
 				.mockReturnValueOnce( 'minerva' );
 
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			const element = wrapper.find( '.sdms-user-notice__message' );
@@ -31,7 +63,9 @@ describe( 'UserNotice', () => {
 			global.mw.user.isAnon.mockReturnValueOnce( true );
 
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			const element = wrapper.find( '.sdms-user-notice__message' );
@@ -43,7 +77,9 @@ describe( 'UserNotice', () => {
 				.mockReturnValueOnce( 1 );
 
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			const element = wrapper.find( '.sdms-user-notice__message' );
@@ -52,7 +88,9 @@ describe( 'UserNotice', () => {
 		it( 'when notice dismissed', ( done ) => {
 
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			wrapper.setData( { dismissed: true } );
@@ -64,37 +102,12 @@ describe( 'UserNotice', () => {
 			} );
 		} );
 	} );
-	it( 'render the component', () => {
-
-		const wrapper = VueTestUtils.shallowMount( Component, {
-			localVue: localVue
-		} );
-
-		const element = wrapper.find( '.sdms-user-notice__message' );
-		expect( element.exists() ).toBe( true );
-	} );
-	it( 'render a button component', () => {
-
-		const wrapper = VueTestUtils.shallowMount( Component, {
-			localVue: localVue
-		} );
-
-		const innerComponent = wrapper.findComponent( Button );
-		expect( innerComponent.exists() ).toBe( true );
-	} );
-	it( 'render a message component', () => {
-
-		const wrapper = VueTestUtils.shallowMount( Component, {
-			localVue: localVue
-		} );
-
-		const innerComponent = wrapper.findComponent( Message );
-		expect( innerComponent.exists() ).toBe( true );
-	} );
 	describe( 'on dismiss button click', () => {
 		it( 'send saveOption to the api', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			wrapper.vm.dismiss();
@@ -103,7 +116,9 @@ describe( 'UserNotice', () => {
 		} );
 		it( 'save options to user object', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			wrapper.vm.dismiss();
@@ -112,7 +127,9 @@ describe( 'UserNotice', () => {
 		} );
 		it( 'change dismissed data', () => {
 			const wrapper = VueTestUtils.shallowMount( Component, {
-				localVue: localVue
+				global: {
+					plugins: [ i18n ]
+				}
 			} );
 
 			wrapper.vm.dismiss();

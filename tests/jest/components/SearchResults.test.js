@@ -1,5 +1,4 @@
 const Vuex = require( 'vuex' ),
-	Vue = require( 'vue' ),
 	VueTestUtils = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/SearchResults.vue' ),
 	SearchErrorComponent = require( '../../../resources/components/SearchError.vue' ),
@@ -7,12 +6,8 @@ const Vuex = require( 'vuex' ),
 	EndOfResultsComponent = require( '../../../resources/components/EndOfResults.vue' ),
 	EmptyStateComponent = require( '../../../resources/components/EmptyState.vue' ),
 	ImageComponent = require( '../../../resources/components/results/ImageResult.vue' ),
-	i18n = require( '../plugins/i18n.js' ),
-	localVue = VueTestUtils.createLocalVue();
+	i18n = require( '../plugins/i18n.js' );
 require( '../mocks/EventListener.js' );
-
-localVue.use( Vuex );
-localVue.use( i18n );
 
 const initialState = {
 	continue: {
@@ -56,15 +51,18 @@ const initialState = {
 	dummySearchTerm: 'dummyText'
 };
 const defaultMediaType = 'image';
+const mockFocus = jest.fn();
 const renderComponent = ( store, mediaType ) => {
 	return VueTestUtils.shallowMount( Component, {
-		store: store,
-		localVue: localVue,
-		propsData: {
+		props: {
 			mediaType: mediaType || defaultMediaType
 		},
-		mocks: {
-			$log: jest.fn()
+		global: {
+			plugins: [ store, i18n ],
+			mocks: {
+				$log: jest.fn(),
+				focus: mockFocus
+			}
 		}
 	} );
 };
@@ -75,7 +73,6 @@ describe( 'SearchResults', () => {
 		getters,
 		actions,
 		mutations,
-		quickviewFocusMock = jest.fn(),
 		fetchDetailsMock = jest.fn().mockReturnValue( {
 			then: function ( params ) {
 				return params( {
@@ -89,15 +86,15 @@ describe( 'SearchResults', () => {
 		} );
 
 	beforeEach( () => {
-		// jest.resetModules();
+		jest.resetModules();
 		state = JSON.parse( JSON.stringify( initialState ) );
 		getters = {
-			allActiveDetails: function () {
-				return state.details;
+			allActiveDetails: function ( localState ) {
+				return localState.details;
 			},
-			currentSearchTerm: jest.fn( () => {
-				return state.dummySearchTerm;
-			} )
+			currentSearchTerm: function ( localState ) {
+				return localState.dummySearchTerm;
+			}
 		};
 		mutations = {
 			setDetails: jest.fn(),
@@ -106,13 +103,15 @@ describe( 'SearchResults', () => {
 		actions = {
 			fetchDetails: fetchDetailsMock
 		};
-		store = new Vuex.Store( {
-			state,
+		store = Vuex.createStore( {
+			state() {
+				return state;
+			},
 			getters,
 			mutations,
 			actions
 		} );
-
+		jest.clearAllMocks();
 	} );
 
 	afterEach( () => {
@@ -190,14 +189,8 @@ describe( 'SearchResults', () => {
 
 			it( 'and hasNoResults is false, and endOfResults is true render EndOfResults Component', () => {
 				// The api request will set the continue object to NULL (instead than undefined)
-				state.continue.image = null;
-				const wrapper = VueTestUtils.shallowMount( Component, {
-					store: store,
-					localVue: localVue,
-					propsData: {
-						mediaType: defaultMediaType
-					}
-				} );
+				store.state.continue.image = null;
+				const wrapper = renderComponent( store, defaultMediaType );
 
 				const element = wrapper.findComponent( EndOfResultsComponent );
 				expect( element.exists() ).toBe( true );
@@ -209,18 +202,11 @@ describe( 'SearchResults', () => {
 				store.state.results = {
 					image: []
 				};
-
-				getters.currentSearchTerm.mockReturnValueOnce( '' );
-
-				const wrapper = VueTestUtils.shallowMount( Component, {
-					store: store,
-					localVue: localVue,
-					propsData: {
-						mediaType: defaultMediaType
-					}
-				} );
+				store.state.dummySearchTerm = '';
+				const wrapper = renderComponent( store, defaultMediaType );
 
 				const element = wrapper.findComponent( EmptyStateComponent );
+
 				expect( element.exists() ).toBe( true );
 
 			} );
@@ -266,10 +252,14 @@ describe( 'SearchResults', () => {
 			it( 'when media type is not image', () => {
 
 				const wrapper = VueTestUtils.shallowMount( Component, {
-					store: store,
-					localVue: localVue,
-					propsData: {
+					props: {
 						mediaType: 'video'
+					},
+					global: {
+						plugins: [ store, i18n ],
+						mocks: {
+							$log: jest.fn()
+						}
 					}
 				} );
 
@@ -288,12 +278,15 @@ describe( 'SearchResults', () => {
 			let dummyScrollIntoView = jest.fn();
 			let wrapper;
 			beforeEach( () => {
+				store.state.details.image = {
+					title: 'DummyTitle',
+					canonicalurl: 'DummyUrl',
+					index: 0
+				};
 				wrapper = renderComponent( store );
 				wrapper.vm.$refs.aside.scrollIntoView = dummyScrollIntoView;
 				wrapper.vm.scrollIntoViewIfNeeded = dummyscrollIntoViewIfNeeded;
-				wrapper.vm.$refs.quickview = {
-					focus: quickviewFocusMock
-				};
+
 				// Call showDetails
 				wrapper.vm.showDetails( state.results[ defaultMediaType ][ 0 ].title, 0 );
 
@@ -301,7 +294,7 @@ describe( 'SearchResults', () => {
 
 			it( 'scroll to view', ( done ) => {
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( dummyscrollIntoViewIfNeeded ).toHaveBeenCalled();
 					expect( dummyScrollIntoView ).toHaveBeenCalled();
 					done();
@@ -348,13 +341,6 @@ describe( 'SearchResults', () => {
 				const wrapper = renderComponent( store );
 				wrapper.vm.scrollIntoViewIfNeeded = dummyscrollIntoViewIfNeeded;
 
-				let mockFocus = jest.fn();
-				wrapper.vm.$refs = {
-					[ state.results[ defaultMediaType ][ 0 ].title ]: {
-						focus: mockFocus
-					}
-				};
-
 				wrapper.vm.hideDetails( true );
 
 				expect( mockFocus ).toHaveBeenCalled();
@@ -370,13 +356,6 @@ describe( 'SearchResults', () => {
 
 				let dummyscrollIntoViewIfNeeded = jest.fn();
 				wrapper.vm.scrollIntoViewIfNeeded = dummyscrollIntoViewIfNeeded;
-
-				let mockFocus = jest.fn();
-				wrapper.vm.$refs = {
-					[ state.results[ defaultMediaType ][ 0 ].title ]: {
-						focus: mockFocus
-					}
-				};
 
 				wrapper.vm.hideDetails( false );
 
@@ -442,19 +421,14 @@ describe( 'SearchResults', () => {
 		} );
 
 		describe( 'scrollIntoViewIfNeeded', () => {
-			let boundsMock = jest.fn();
-			let scrollIntoViewMock = jest.fn();
-			let refMock = {
-				$el: {
-					getBoundingClientRect: boundsMock,
-					scrollIntoView: scrollIntoViewMock
-				}
-			};
+
+			const getBoundingClientRectMock = jest.fn();
+			const scrollIntoViewMock = jest.fn();
 
 			it( 'return if no ref', () => {
 				const wrapper = renderComponent( store );
 
-				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ] = '';
+				// wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ] = '';
 
 				wrapper.vm.scrollIntoViewIfNeeded( state.results[ defaultMediaType ][ 0 ].title );
 
@@ -463,13 +437,12 @@ describe( 'SearchResults', () => {
 
 			it( 'if bounds top or bounds bottom is < 0, scroll into view', () => {
 				const wrapper = renderComponent( store );
-
-				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ] = refMock;
-
-				boundsMock.mockReturnValue( {
+				getBoundingClientRectMock.mockReturnValue( {
 					top: -1,
 					bottom: -1
 				} );
+				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ].$el.getBoundingClientRect = getBoundingClientRectMock;
+				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ].$el.scrollIntoView = scrollIntoViewMock;
 				wrapper.vm.scrollIntoViewIfNeeded( state.results[ defaultMediaType ][ 0 ].title );
 
 				expect( scrollIntoViewMock ).toHaveBeenCalledWith();
@@ -480,13 +453,12 @@ describe( 'SearchResults', () => {
 
 				window.innerHeight = 0;
 
-				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ] = refMock;
-
-				boundsMock.mockReturnValue( {
+				getBoundingClientRectMock.mockReturnValue( {
 					top: 1,
 					bottom: 1
 				} );
-
+				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ].$el.getBoundingClientRect = getBoundingClientRectMock;
+				wrapper.vm.$refs[ state.results[ defaultMediaType ][ 0 ].title ].$el.scrollIntoView = scrollIntoViewMock;
 				wrapper.vm.scrollIntoViewIfNeeded( state.results[ defaultMediaType ][ 0 ].title );
 
 				expect( scrollIntoViewMock ).toHaveBeenCalledWith( false );
@@ -552,34 +524,12 @@ describe( 'SearchResults', () => {
 
 				const wrapper = renderComponent( store, 'video' );
 
-				wrapper.vm.$refs.list = {
-					offsetWidth: 0
-				};
-
 				wrapper.vm.getResultStyle();
 
 				expect( wrapper.vm.resultStyle ).toBeFalsy();
 
 			} );
 
-			it( 'if mediaType is video and initialized is true, resultStyle is not false', () => {
-
-				store.state.initialized = true;
-				store.state.details = {
-					[ defaultMediaType ]: state.results[ defaultMediaType ][ 0 ]
-				};
-
-				const wrapper = renderComponent( store, 'video' );
-
-				wrapper.vm.$refs.list = {
-					offsetWidth: 5
-				};
-
-				wrapper.vm.getResultStyle();
-
-				expect( wrapper.vm.resultStyle ).not.toBeFalsy();
-
-			} );
 		} );
 
 		describe( 'getDebouncedResultStyle', () => {
@@ -609,7 +559,7 @@ describe( 'SearchResults', () => {
 				const wrapper = renderComponent( store );
 				store.state.dummySearchTerm = 'dummySearchTermChanged';
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( wrapper.vm.showQuickView ).toBe( false );
 					expect( mutations.clearDetails ).toHaveBeenCalled();
 					done();
@@ -626,7 +576,7 @@ describe( 'SearchResults', () => {
 				const dummyGetResultStyleMock = jest.fn();
 				wrapper.vm.getResultStyle = dummyGetResultStyleMock;
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( dummyGetResultStyleMock ).toHaveBeenCalled();
 					done();
 				} );
@@ -648,7 +598,7 @@ describe( 'SearchResults', () => {
 				const dummyGetResultStyleMock = jest.fn();
 				wrapper.vm.getResultStyle.bind = dummyGetResultStyleMock;
 
-				Vue.nextTick().then( () => {
+				wrapper.vm.$nextTick().then( () => {
 					expect( dummyGetResultStyleMock ).toHaveBeenCalled();
 					expect( wrapper.vm.showQuickView ).toBe( true );
 					done();
@@ -674,7 +624,7 @@ describe( 'SearchResults', () => {
 
 		it( 'remove resize event listener', () => {
 			const wrapper = renderComponent( store );
-			wrapper.destroy();
+			wrapper.unmount();
 
 			expect( window.removeEventListener ).toHaveBeenCalled();
 			expect( window.removeEventListener.mock.calls[ 0 ][ 0 ] ).toBe( 'resize' );

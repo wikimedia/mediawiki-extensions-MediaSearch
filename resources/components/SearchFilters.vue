@@ -83,7 +83,7 @@ var mapState = require( 'vuex' ).mapState,
 	observer = require( './base/mixins/observer.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SearchFilters',
 
 	components: {

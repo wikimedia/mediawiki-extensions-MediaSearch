@@ -14,7 +14,7 @@
  */
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'EndOfResults'
 };
 </script>

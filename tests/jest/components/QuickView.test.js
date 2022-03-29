@@ -20,8 +20,10 @@ when( global.mw.config.get )
 // the above mocking need to be implemented before the component is required
 const QuickView = require( '../../../resources/components/QuickView.vue' );
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
+VueTestUtils.config.global.mocks = {
+	$log: jest.fn()
+};
 
 describe( 'QuickView', () => {
 	let imageSampleResult, videoSampleResult;
@@ -37,8 +39,7 @@ describe( 'QuickView', () => {
 	describe( 'when image data is provided', () => {
 		it( 'Renders successfully', () => {
 			const wrapper = VueTestUtils.mount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -52,8 +53,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays a header image', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -68,8 +68,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays close, next, and previous buttons', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -78,12 +77,9 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			// Apparently using "find" with "ref" option is deprecated;
-			// we need to use findComponent here, even though the refs
-			// live on plain elements in the template
-			const close = wrapper.findComponent( { ref: 'close' } );
-			const next = wrapper.findComponent( { ref: 'next' } );
-			const prev = wrapper.findComponent( { ref: 'previous' } );
+			const close = wrapper.find( { ref: 'close' } );
+			const next = wrapper.find( { ref: 'next' } );
+			const prev = wrapper.find( { ref: 'previous' } );
 
 			expect( close.exists() ).toBe( true );
 			expect( next.exists() ).toBe( true );
@@ -92,8 +88,7 @@ describe( 'QuickView', () => {
 
 		it( 'emits a "close" event when the close button is clicked', done => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -102,7 +97,7 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			const close = wrapper.findComponent( { ref: 'close' } );
+			const close = wrapper.find( { ref: 'close' } );
 			close.trigger( 'click' );
 
 			Vue.nextTick().then( () => {
@@ -113,8 +108,7 @@ describe( 'QuickView', () => {
 
 		it( 'emits a "next" event when the next button is clicked', done => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -123,7 +117,7 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			const next = wrapper.findComponent( { ref: 'next' } );
+			const next = wrapper.find( { ref: 'next' } );
 			next.trigger( 'click' );
 
 			Vue.nextTick().then( () => {
@@ -134,8 +128,7 @@ describe( 'QuickView', () => {
 
 		it( 'emits a "previous" event when the previous button is clicked', done => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -144,7 +137,7 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			const prev = wrapper.findComponent( { ref: 'previous' } );
+			const prev = wrapper.find( { ref: 'previous' } );
 			prev.trigger( 'click' );
 
 			Vue.nextTick().then( () => {
@@ -155,8 +148,7 @@ describe( 'QuickView', () => {
 
 		it( 'applies the appropriate class to the base element', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -165,13 +157,13 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			expect( wrapper.classes() ).toContain( 'sdms-quick-view--image' );
+			const img = wrapper.find( '.sdms-quick-view--image' );
+			expect( img.exists() ).toBe( true );
 		} );
 
 		it( 'displays an image title', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -186,8 +178,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays an image description', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -202,8 +193,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image artist', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -218,8 +208,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image license information', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -234,8 +223,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image assessment', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -253,8 +241,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays a copy text section', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -269,8 +256,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image name without extension', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -285,8 +271,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image creation date', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -301,8 +286,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image resolution', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -317,8 +301,7 @@ describe( 'QuickView', () => {
 
 		it( 'displays the image mine-type', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -333,8 +316,7 @@ describe( 'QuickView', () => {
 
 		it( 'contains a "more details" call-to-action button', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -353,8 +335,7 @@ describe( 'QuickView', () => {
 	describe( 'when video data is provided', () => {
 		it( 'Renders and sd-player component', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: videoSampleResult.title,
 					canonicalurl: videoSampleResult.canonicalurl,
 					videoinfo: videoSampleResult.videoinfo,
@@ -368,8 +349,7 @@ describe( 'QuickView', () => {
 
 		it( 'applies the appropriate class to the base element', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -378,13 +358,12 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			expect( wrapper.classes() ).toContain( 'sdms-quick-view--video' );
+			expect( wrapper.find( '.sdms-quick-view--video' ).exists() ).toBeTruthy();
 		} );
 
 		it( 'applies the appropriate class for dialog', () => {
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,
@@ -393,7 +372,7 @@ describe( 'QuickView', () => {
 				}
 			} );
 
-			expect( wrapper.classes() ).toContain( 'sdms-quick-view--dialog' );
+			expect( wrapper.find( '.sdms-quick-view--dialog' ).exists() ).toBeTruthy();
 		} );
 	} );
 
@@ -401,8 +380,7 @@ describe( 'QuickView', () => {
 		describe( 'imageClasses', () => {
 			it( 'Returns the correct class when image is Extra small', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -422,8 +400,7 @@ describe( 'QuickView', () => {
 
 			it( 'Returns the correct class when image is not thumbnail Wrapper Style', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -455,8 +432,7 @@ describe( 'QuickView', () => {
 				} );
 
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -469,10 +445,9 @@ describe( 'QuickView', () => {
 			} );
 
 			it( 'include the just first PREVIEW_SIZE in string return', () => {
-				const PREVIEW_SIZES = [ 640, 800, 1200, 1600 ];
+				const PREVIEW_SIZES = [ '640', '800', '1200', '1600' ];
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -490,10 +465,9 @@ describe( 'QuickView', () => {
 			describe( 'When it is a dialog', () => {
 
 				it( 'include each PREVIEW_SIZE in string return', () => {
-					const PREVIEW_SIZES = [ 640, 800, 1200, 1600 ];
+					const PREVIEW_SIZES = [ '640', '800', '1200', '1600' ];
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -509,10 +483,9 @@ describe( 'QuickView', () => {
 				} );
 
 				it( 'include each MAX_SIZE in string return', () => {
-					const MAX_SIZE = 2000;
+					const MAX_SIZE = '2000';
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -533,10 +506,9 @@ describe( 'QuickView', () => {
 			} );
 
 			it( 'include the just first PREVIEW_SIZE in string return', () => {
-				const PREVIEW_SIZES = [ 640, 800, 1200, 1600 ];
+				const PREVIEW_SIZES = [ '640', '800', '1200', '1600' ];
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -554,10 +526,9 @@ describe( 'QuickView', () => {
 			describe( 'When it is a dialog', () => {
 
 				it( 'include each PREVIEW_SIZE in string return', () => {
-					const PREVIEW_SIZES = [ 640, 800, 1200, 1600 ];
+					const PREVIEW_SIZES = [ '640', '800', '1200', '1600' ];
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -573,10 +544,9 @@ describe( 'QuickView', () => {
 				} );
 
 				it( 'include each MAX_SIZE in string return', () => {
-					const MAX_SIZE = 2000;
+					const MAX_SIZE = '2000';
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -593,8 +563,7 @@ describe( 'QuickView', () => {
 			describe( 'when it is of type image', () => {
 				it( 'Returns the sample extmetadata', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -610,8 +579,7 @@ describe( 'QuickView', () => {
 			describe( 'when it is of type audio', () => {
 				it( 'Returns the sample extmetadata', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: videoSampleResult.title,
 							canonicalurl: videoSampleResult.canonicalurl,
 							videoinfo: videoSampleResult.videoinfo,
@@ -627,8 +595,7 @@ describe( 'QuickView', () => {
 			describe( 'when it is of type video', () => {
 				it( 'Returns the sample extmetadata', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: videoSampleResult.title,
 							canonicalurl: videoSampleResult.canonicalurl,
 							videoinfo: videoSampleResult.videoinfo,
@@ -646,8 +613,7 @@ describe( 'QuickView', () => {
 			describe( 'when metadata is not set', () => {
 				it( 'Returns null', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							mediaType: 'image',
@@ -662,8 +628,7 @@ describe( 'QuickView', () => {
 			describe( 'when metadata includes UsageTerms', () => {
 				it( 'Returns UsageTerms value', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -685,8 +650,7 @@ describe( 'QuickView', () => {
 					};
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -703,8 +667,7 @@ describe( 'QuickView', () => {
 			describe( 'when metadata is not set', () => {
 				it( 'Returns null', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							mediaType: 'image',
@@ -720,8 +683,7 @@ describe( 'QuickView', () => {
 				it( 'Returns UsageTerms value', () => {
 					const getLicenseIconSpy = jest.spyOn( QuickView.methods, 'getLicenseIcon' );
 					VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -746,8 +708,7 @@ describe( 'QuickView', () => {
 					};
 
 					VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -766,8 +727,7 @@ describe( 'QuickView', () => {
 			describe( 'when metadata is not set', () => {
 				it( 'Returns null', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							mediaType: 'image',
@@ -782,8 +742,7 @@ describe( 'QuickView', () => {
 			describe( 'when metadata is set', () => {
 				it( 'Returns LicenseUrl value', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -802,8 +761,7 @@ describe( 'QuickView', () => {
 			describe( 'when assessment is not set', () => {
 				it( 'return false', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							mediaType: 'image',
@@ -822,8 +780,7 @@ describe( 'QuickView', () => {
 					};
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -845,8 +802,7 @@ describe( 'QuickView', () => {
 				it( 'Returns the original Date string', () => {
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -867,8 +823,7 @@ describe( 'QuickView', () => {
 					};
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -887,8 +842,7 @@ describe( 'QuickView', () => {
 					imageSampleResult.imageinfo[ 0 ].width = null;
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -905,8 +859,7 @@ describe( 'QuickView', () => {
 					imageSampleResult.imageinfo[ 0 ].height = null;
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -922,8 +875,7 @@ describe( 'QuickView', () => {
 				it( 'Returns a formatted value', () => {
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -939,8 +891,7 @@ describe( 'QuickView', () => {
 		describe( 'mimeType', () => {
 			it( 'Returns mime property of provided info', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -955,8 +906,7 @@ describe( 'QuickView', () => {
 		describe( 'mimeType', () => {
 			it( 'Returns empty object if mediatype is image', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -969,8 +919,7 @@ describe( 'QuickView', () => {
 			} );
 			it( 'Returns object if mediatype is audio', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: videoSampleResult.title,
 						canonicalurl: videoSampleResult.canonicalurl,
 						videoinfo: videoSampleResult.videoinfo,
@@ -991,8 +940,7 @@ describe( 'QuickView', () => {
 			} );
 			it( 'Returns object if mediatype is video', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: videoSampleResult.title,
 						canonicalurl: videoSampleResult.canonicalurl,
 						videoinfo: videoSampleResult.videoinfo,
@@ -1019,8 +967,7 @@ describe( 'QuickView', () => {
 			describe( 'When triggered by keyboard', () => {
 				it( 'emit a "close" event', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1039,8 +986,7 @@ describe( 'QuickView', () => {
 				} );
 				it( 'provide a boolean argument with emitted value', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1061,8 +1007,7 @@ describe( 'QuickView', () => {
 			describe( 'When triggered by mouse', () => {
 				it( 'emit a "close" event', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1079,8 +1024,7 @@ describe( 'QuickView', () => {
 			describe( 'Returns logoCC icon', () => {
 				it( 'when licence name starts with "cc"', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1093,8 +1037,7 @@ describe( 'QuickView', () => {
 				} );
 				it( 'when licence name starts with "attribution"', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1109,8 +1052,7 @@ describe( 'QuickView', () => {
 			describe( 'Returns sdIconUnLock icon', () => {
 				it( 'when licence name starts with "pd"', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1123,8 +1065,7 @@ describe( 'QuickView', () => {
 				} );
 				it( 'when licence name starts with "no restrictions"', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1139,8 +1080,7 @@ describe( 'QuickView', () => {
 			describe( 'Returns sdIconReference icon', () => {
 				it( 'when licence name is uknown"', () => {
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1161,8 +1101,7 @@ describe( 'QuickView', () => {
 					imageSampleResult.imageinfo[ 0 ].height = 500;
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1186,8 +1125,7 @@ describe( 'QuickView', () => {
 					imageSampleResult.imageinfo[ 0 ].height = 1000;
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1210,8 +1148,7 @@ describe( 'QuickView', () => {
 					imageSampleResult.imageinfo[ 0 ].height = 1000;
 
 					const wrapper = VueTestUtils.shallowMount( QuickView, {
-						localVue,
-						propsData: {
+						props: {
 							title: imageSampleResult.title,
 							canonicalurl: imageSampleResult.canonicalurl,
 							imageinfo: imageSampleResult.imageinfo,
@@ -1227,8 +1164,7 @@ describe( 'QuickView', () => {
 		describe( 'onThumbnailLoad', () => {
 			it( 'sets thumbnailWrapperStyle to false', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -1243,8 +1179,7 @@ describe( 'QuickView', () => {
 		describe( 'onPlay', () => {
 			it( 'logs a quickview_media_play action', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -1257,14 +1192,13 @@ describe( 'QuickView', () => {
 				} );
 
 				wrapper.vm.onPlay();
-				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toBe( 'quickview_media_play' );
+				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toEqual( 'quickview_media_play' );
 			} );
 		} );
 		describe( 'handleFilenameCopy', () => {
 			it( 'logs a quickview_filename_copy action', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -1277,14 +1211,13 @@ describe( 'QuickView', () => {
 				} );
 
 				wrapper.vm.handleFilenameCopy();
-				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toBe( 'quickview_filename_copy' );
+				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toEqual( 'quickview_filename_copy' );
 			} );
 		} );
 		describe( 'handleWikitextCopy', () => {
 			it( 'logs a quickview_wikitext_link_copy action', () => {
 				const wrapper = VueTestUtils.shallowMount( QuickView, {
-					localVue,
-					propsData: {
+					props: {
 						title: imageSampleResult.title,
 						canonicalurl: imageSampleResult.canonicalurl,
 						imageinfo: imageSampleResult.imageinfo,
@@ -1297,7 +1230,7 @@ describe( 'QuickView', () => {
 				} );
 
 				wrapper.vm.handleWikitextCopy();
-				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toBe( 'quickview_wikitext_link_copy' );
+				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toEqual( 'quickview_wikitext_link_copy' );
 			} );
 		} );
 	} );
@@ -1306,8 +1239,7 @@ describe( 'QuickView', () => {
 			jest.useFakeTimers();
 
 			const wrapper = VueTestUtils.shallowMount( QuickView, {
-				localVue,
-				propsData: {
+				props: {
 					title: imageSampleResult.title,
 					canonicalurl: imageSampleResult.canonicalurl,
 					imageinfo: imageSampleResult.imageinfo,

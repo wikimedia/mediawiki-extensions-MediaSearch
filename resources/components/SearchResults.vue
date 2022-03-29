@@ -129,7 +129,7 @@ var mapState = require( 'vuex' ).mapState,
 	SearchError = require( './SearchError.vue' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SearchResults',
 
 	components: {
@@ -571,7 +571,7 @@ module.exports = {
 		window.addEventListener( 'resize', this.getDebouncedResultStyle );
 	},
 
-	destroyed: function () {
+	unmounted: function () {
 		window.removeEventListener( 'resize', this.getDebouncedResultStyle );
 	}
 };

@@ -2,7 +2,7 @@ const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
 const Image = require( '../../../../resources/components/base/Image.vue' );
 const Observer = require( '../../../../resources/components/base/mixins/observer.js' );
-require( '../../ignore/mocks/IntersectionObserver.js' );
+require( '../../mocks/IntersectionObserver.js' );
 
 // Sample test image props
 const samplePropsData = {

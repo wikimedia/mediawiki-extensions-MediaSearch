@@ -19,7 +19,7 @@
 var fileCount = mw.config.get( 'sdmsTotalSiteImages' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'EmptyState',
 
 	data: function () {
