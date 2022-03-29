@@ -19,8 +19,8 @@ const initializeMocks = ( options => {
 	for ( let key in options ) {
 		when( global.mw.config.get ).calledWith( key ).mockReturnValue( options[ key ] );
 	}
-	jest.mock( '../../resources/ensureArray.js', () => ensureArrayMock );
-	state = require( '../../resources/store/state.js' );
+	jest.mock( '../../../resources/ensureArray.js', () => ensureArrayMock );
+	state = require( '../../../resources/store/state.js' );
 
 } );
 

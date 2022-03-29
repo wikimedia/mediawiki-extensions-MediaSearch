@@ -1,5 +1,5 @@
-const mutations = require( '../../resources/store/mutations.js' ),
-	initialState = require( './fixtures/initialVuexState.js' );
+const mutations = require( '../../../resources/store/mutations.js' ),
+	initialState = require( '../fixtures/initialVuexState.js' );
 
 describe( 'mutations', () => {
 	let state;
