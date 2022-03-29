@@ -8,7 +8,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 	it( 'renders successfully if name and label is passed', () => {
 
 		const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-			propsData: {
+			props: {
 				name: 'tab',
 				label: 'actions'
 			}
@@ -25,7 +25,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 		it( 'emit input event', () => {
 
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions'
 				}
@@ -46,7 +46,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 
 			const lookupResults = [];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -72,7 +72,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 
 			const lookupResults = [];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -102,12 +102,13 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
 				}
 			} );
+
 			wrapper.setData( {
 				activeLookupItemIndex: 0,
 				showLookupResults: true
@@ -116,14 +117,14 @@ describe( 'AutocompleteSearchInput Component', () => {
 			const element = wrapper.find( '.sd-input__input' );
 			element.trigger( 'keyup.enter' );
 
-			expect( wrapper.vm.value ).toBe( lookupResults[ wrapper.vm.activeLookupItemIndex ] );
+			expect( wrapper.vm.value ).toEqual( lookupResults[ wrapper.vm.activeLookupItemIndex ] );
 
 		} );
 
 		it( 'emit submit event', () => {
 
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults: []
@@ -140,7 +141,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 		it( 'clear lookup results', () => {
 
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults: []
@@ -160,7 +161,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 		it( 'Remove keyboard focus from input', () => {
 
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults: []
@@ -192,7 +193,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const initialActiveLookupItemIndex = 0;
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -221,7 +222,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const initialActiveLookupItemIndex = 1;
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -253,7 +254,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const initialActiveLookupItemIndex = 0;
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -282,7 +283,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const initialActiveLookupItemIndex = 1;
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -311,7 +312,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -342,7 +343,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const mockClearLookupResults = jest.fn();
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -377,7 +378,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 			];
 			const testLookupItemIndex = 1;
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -400,16 +401,16 @@ describe( 'AutocompleteSearchInput Component', () => {
 
 	describe( 'onIconClick', () => {
 
-		it( 'call nextTick', () => {
+		it( 'focus on input', ( done ) => {
 
 			const lookupResults = [
 				{
 					value: 'active'
 				}
 			];
-			const mockClearLookupResults = jest.fn();
+			const mockFocusInput = jest.fn();
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults
@@ -421,12 +422,15 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			} );
 
-			wrapper.vm.$nextTick = mockClearLookupResults;
+			wrapper.vm.$refs.input.focus = mockFocusInput;
 
 			const element = wrapper.find( '.sd-input__icon' );
 			element.trigger( 'click' );
 
-			expect( mockClearLookupResults ).toHaveBeenCalled();
+			Vue.nextTick().then( () => {
+				expect( mockFocusInput ).toHaveBeenCalled();
+				done();
+			} );
 
 		} );
 
@@ -442,7 +446,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					initialValue: 'active',
@@ -474,7 +478,7 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			];
 			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				propsData: {
+				props: {
 					name: 'tab',
 					label: 'actions',
 					lookupResults

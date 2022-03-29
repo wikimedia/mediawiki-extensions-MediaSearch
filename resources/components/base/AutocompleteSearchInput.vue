@@ -83,8 +83,12 @@ var SdButton = require( './Button.vue' ),
  * general for wider usage.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdAutocompleteSearchInput',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-button': SdButton,
@@ -149,6 +153,15 @@ module.exports = {
 			type: Boolean
 		}
 	},
+
+	emits: [
+		'input',
+		'focus',
+		'blur',
+		'submit',
+		'clear',
+		'clear-lookup-results'
+	],
 
 	data: function () {
 		return {
@@ -298,6 +311,7 @@ module.exports = {
 				// We also want to update the input text.
 				this.value = this.activeLookupItem;
 			}
+
 			this.$emit( 'submit', this.value );
 			this.clearLookupResults();
 			this.$refs.input.blur();
@@ -349,8 +363,8 @@ module.exports = {
 		},
 
 		/*
-		 * Set focus to input if icon is clicked.
-		 */
+		* Set focus to input if icon is clicked.
+		*/
 		onIconClick: function () {
 			var $input;
 

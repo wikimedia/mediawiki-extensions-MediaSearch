@@ -1,4 +1,9 @@
-var $ = require( 'jquery' );
+const Vue = require( 'vue' );
+const $ = require( 'jquery' );
+
+Vue.configureCompat( {
+	MODE: 3
+} );
 
 /* global jest:false */
 var mw;

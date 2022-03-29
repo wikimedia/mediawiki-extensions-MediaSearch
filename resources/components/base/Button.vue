@@ -19,8 +19,12 @@ var SdIcon = require( './Icon.vue' );
  * Button with optional icon.
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SdButton',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	components: {
 		'sd-icon': SdIcon
@@ -62,6 +66,10 @@ module.exports = {
 			type: Boolean
 		}
 	},
+
+	emits: [
+		'click'
+	],
 
 	computed: {
 		builtInClasses: function () {

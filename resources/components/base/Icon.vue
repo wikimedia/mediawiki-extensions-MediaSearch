@@ -57,8 +57,12 @@
  *        default: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z'
  *    }
  */
-module.exports = {
+module.exports = exports = {
 	name: 'SdIcon',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	props: {
 		/** The SVG path or an object containing that path plus other data. */

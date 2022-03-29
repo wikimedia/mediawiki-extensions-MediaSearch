@@ -36,8 +36,12 @@
  * index is reset to -1 (i.e. no active item).
  */
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'SelectMenu',
+
+	compatConfig: {
+		ATTR_FALSE_VALUE: true
+	},
 
 	props: {
 		/**
@@ -83,6 +87,11 @@ module.exports = {
 			default: null
 		}
 	},
+
+	emits: [
+		'active-item-change',
+		'select'
+	],
 
 	computed: {
 		/**
