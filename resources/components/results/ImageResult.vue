@@ -30,7 +30,7 @@ var searchResult = require( '../../mixins/searchResult.js' ),
 	SdImage = require( './../base/Image.vue' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = {
 	name: 'ImageResult',
 
 	components: {

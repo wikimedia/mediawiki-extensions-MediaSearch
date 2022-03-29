@@ -1,12 +1,12 @@
 const VueTestUtils = require( '@vue/test-utils' );
-const Vue = require( 'vue' );
-const i18n = require( '../plugins/i18n.js' );
-const OtherResult = require( '../../../resources/components/results/OtherResult.vue' );
+const i18n = require( '../../plugins/i18n.js' );
+const OtherResult = require( '../../../../resources/components/results/OtherResult.vue' );
+const SdImage = require( '../../../../resources/components/base/Image.vue' );
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on title, not a straight array
-const sampleResults = require( '../fixtures/mockOtherSearchApiResponse.json' ).query.pages;
+const sampleResults = require( '../../fixtures/mockOtherSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
@@ -19,8 +19,7 @@ const thumbLimits = [
 	500, 600, 800
 ];
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'OtherResult', () => {
 	beforeEach( () => {
@@ -32,8 +31,7 @@ describe( 'OtherResult', () => {
 
 	it( 'Renders successfully', () => {
 		const wrapper = VueTestUtils.mount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -47,8 +45,7 @@ describe( 'OtherResult', () => {
 
 	it( 'renders two link elements', () => {
 		const wrapper = VueTestUtils.shallowMount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -62,54 +59,46 @@ describe( 'OtherResult', () => {
 
 	it( 'renders a sdms-image component', () => {
 		const wrapper = VueTestUtils.shallowMount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
 		} );
-		const sdImageComponent = wrapper.findComponent( { name: 'SdImage' } );
+		const sdImageComponent = wrapper.findComponent( SdImage );
 		expect( sdImageComponent.exists() ).toBe( true );
 	} );
 
-	it( 'clicking the thumbnail wrapper link element causes a "click" event to be fired', done => {
+	it( 'clicking the thumbnail wrapper link element causes a "click" event to be fired', () => {
 		const wrapper = VueTestUtils.shallowMount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
 		} );
-
 		wrapper.find( '.sdms-other-result__thumbnail-wrapper' ).trigger( 'click' );
-		Vue.nextTick().then( () => {
-			expect( wrapper.emitted().click ).toHaveLength( 1 );
-			done();
-		} );
+		expect( wrapper.emitted().click ).toHaveLength( 1 );
 	} );
 
 	it( 'renders an heading element', () => {
 		const wrapper = VueTestUtils.shallowMount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
 				imageinfo: sampleResult.imageinfo
 			}
 		} );
-		const headingElements = wrapper.findAll( 'h3' );
+		const headingElements = wrapper.find( 'h3' );
 		expect( headingElements.exists() ).toBe( true );
 	} );
 
-	it( 'clicking the heading link element causes a "click" event to be fired', done => {
+	it( 'clicking the heading link element causes a "click" event to be fired', () => {
 		const wrapper = VueTestUtils.shallowMount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -118,16 +107,12 @@ describe( 'OtherResult', () => {
 		} );
 
 		wrapper.find( 'h3 a' ).trigger( 'click' );
-		Vue.nextTick().then( () => {
-			expect( wrapper.emitted().click ).toHaveLength( 1 );
-			done();
-		} );
+		expect( wrapper.emitted().click ).toHaveLength( 1 );
 	} );
 
 	it( 'Contains the sample formatted extension', () => {
 		const wrapper = VueTestUtils.mount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -141,8 +126,7 @@ describe( 'OtherResult', () => {
 
 	it( 'Contains the sample formatted resolution', () => {
 		const wrapper = VueTestUtils.mount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -156,8 +140,7 @@ describe( 'OtherResult', () => {
 
 	it( 'Contains the sample image size', () => {
 		const wrapper = VueTestUtils.mount( OtherResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,

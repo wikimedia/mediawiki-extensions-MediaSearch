@@ -1,12 +1,11 @@
 const VueTestUtils = require( '@vue/test-utils' );
-const Vue = require( 'vue' );
-const i18n = require( '../plugins/i18n.js' );
-const PageResult = require( '../../../resources/components/results/PageResult.vue' );
+const i18n = require( '../../plugins/i18n.js' );
+const PageResult = require( '../../../../resources/components/results/PageResult.vue' );
 const when = require( 'jest-when' ).when;
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on pageid, not a straight array
-const sampleResults = require( '../fixtures/mockPageSearchApiResponse.json' ).query.pages;
+const sampleResults = require( '../../fixtures/mockPageSearchApiResponse.json' ).query.pages;
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
@@ -24,8 +23,7 @@ const thumbLimits = [
 	500, 600, 800
 ];
 
-const localVue = VueTestUtils.createLocalVue();
-localVue.use( i18n );
+VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'PageResult', () => {
 	beforeEach( () => {
@@ -37,7 +35,7 @@ describe( 'PageResult', () => {
 
 	it( 'Renders successfully', () => {
 		const wrapper = VueTestUtils.mount( PageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl
@@ -49,10 +47,23 @@ describe( 'PageResult', () => {
 		expect( element.exists() ).toBe( true );
 	} );
 
+	it( 'renders an heading with displayName', () => {
+		const wrapper = VueTestUtils.shallowMount( PageResult, {
+			props: {
+				title: sampleResult.title,
+				index: sampleResult.index,
+				canonicalurl: sampleResult.canonicalurl
+			}
+		} );
+		const displayNameElement = wrapper.find( '.sdms-page-result__title h3' );
+		expect( displayNameElement.exists() ).toBe( true );
+		expect( displayNameElement.text() ).toContain( 'mock' ); // This is defined in the jest config
+	} );
+
 	it( 'renders a snippets as HTML', () => {
 		const dummyHtmlSnippet = '<div class="dummy_snippet"></div>';
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -65,8 +76,7 @@ describe( 'PageResult', () => {
 
 	it( 'renders category text when categoryInfo is available', () => {
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResultWithCategoryInfo.title,
 				index: sampleResultWithCategoryInfo.index,
 				canonicalurl: sampleResultWithCategoryInfo.canonicalurl,
@@ -79,7 +89,7 @@ describe( 'PageResult', () => {
 
 	it( 'renders size text when value available', () => {
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -92,8 +102,7 @@ describe( 'PageResult', () => {
 
 	it( 'renders wordcount text when value available', () => {
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			localVue,
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl,
@@ -106,7 +115,7 @@ describe( 'PageResult', () => {
 
 	it( 'contains a link element', () => {
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl
@@ -116,9 +125,9 @@ describe( 'PageResult', () => {
 		expect( link.exists() ).toBe( true );
 	} );
 
-	it( 'clicking the link element causes a "click" event to be fired', done => {
+	it( 'clicking the link element causes a "click" event to be fired', () => {
 		const wrapper = VueTestUtils.shallowMount( PageResult, {
-			propsData: {
+			props: {
 				title: sampleResult.title,
 				index: sampleResult.index,
 				canonicalurl: sampleResult.canonicalurl
@@ -126,9 +135,6 @@ describe( 'PageResult', () => {
 		} );
 
 		wrapper.find( 'a' ).trigger( 'click' );
-		Vue.nextTick().then( () => {
-			expect( wrapper.emitted().click ).toHaveLength( 1 );
-			done();
-		} );
+		expect( wrapper.emitted().click ).toHaveLength( 1 );
 	} );
 } );
