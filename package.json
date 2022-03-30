@@ -10,9 +10,9 @@
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.11",
-		"@vue/compat": "^3.2.27",
-		"@vue/compiler-sfc": "^3.2.27",
-		"@vue/test-utils": "^2.0.0",
+		"@vue/compat": "3.2.37",
+		"@vue/compiler-sfc": "3.2.37",
+		"@vue/test-utils": "2.1.0",
 		"@vue/vue3-jest": "27.0.0-alpha.4",
 		"babel-core": "^6.26.3",
 		"eslint-config-wikimedia": "0.25.0",
@@ -24,7 +24,7 @@
 		"jest-when": "^3.2.1",
 		"jquery": "^3.6.0",
 		"stylelint-config-wikimedia": "0.14.0",
-		"vue": "3.2.27",
+		"vue": "3.2.37",
 		"vuex": "4.0.2"
 	},
 	"eslintIgnore": [
