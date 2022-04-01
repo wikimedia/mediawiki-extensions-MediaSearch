@@ -34,7 +34,7 @@
 	"mediasearch-input-label": "Išči vsebine",
 	"mediasearch-input-placeholder": "Išči slike, avdio, video in drugo",
 	"mediasearch-user-notice-title": "Iščete [[Special:Search|Posebno:Iskanje]]?",
-	"mediasearch-user-notice-body": "Zdaj lahko v [[Special:Preferences#mw-pref-section-searchoptions|nastavitvah]] določite želeni način iskanja.",
+	"mediasearch-user-notice-body": "Zdaj lahko v [[Special:Preferences#mw-prefsection-searchoptions|nastavitvah]] določite želeni način iskanja.",
 	"mediasearch-switch-special-search": "Preklopi na Posebno:Iskanje",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|zadetek|zadetka|zadetki|zadetkov}}",
 	"mediasearch-did-you-mean": "Ste mislili: $1",
