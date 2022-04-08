@@ -52,6 +52,10 @@ var sdDialog = require( './base/Dialog.vue' ),
 module.exports = exports = {
 	name: 'NamespaceFilterDialog',
 
+	compatConfig: {
+		COMPONENT_V_MODEL: false
+	},
+
 	components: {
 		'sd-dialog': sdDialog,
 		'sd-radio': sdRadio,

@@ -6,14 +6,17 @@
 				class="sdms-search-results__list"
 				:class="listClasses"
 			>
+				<!-- Appending 'parent-' to class and style so we can access
+				them in the component and prevent vue from throwing a warning,
+				when migration to vue 3 is completed we can safely remove 'parent-' from this file and all the -results.vue files -->
 				<component
 					:is="resultComponent"
 					v-for="(result, index) in results[ mediaType ]"
+					v-bind="result"
 					:ref="result.title"
 					:key="index"
-					:class="getResultClass( result.title )"
-					:style="resultStyle"
-					v-bind="result"
+					:parent-class="getResultClass( result.title )"
+					:parent-style="resultStyle"
 					@click="onResultClick( result.title, index )"
 					@show-details="showDetails( $event, index )"
 				>
@@ -60,9 +63,9 @@
 			>
 				<quick-view
 					v-if="details[ mediaType ]"
+					v-bind="details[ mediaType ]"
 					ref="quickview"
 					:key="details[ mediaType ].title"
-					v-bind="details[ mediaType ]"
 					:media-type="mediaType"
 					:is-dialog="true"
 					@close="hideDetails"
@@ -82,9 +85,9 @@
 		>
 			<quick-view
 				v-if="details[ mediaType ]"
+				v-bind="details[ mediaType ]"
 				ref="quickview"
 				:key="details[ mediaType ].title"
-				v-bind="details[ mediaType ]"
 				:media-type="mediaType"
 				@close="hideDetails"
 				@previous="changeQuickViewResult($event, -1)"
@@ -162,7 +165,7 @@ module.exports = exports = {
 			// Which quickview control to focus on when the panel opens.
 			focusOn: 'close',
 			// Computed style attribute for results.
-			resultStyle: false
+			resultStyle: null
 		};
 	},
 

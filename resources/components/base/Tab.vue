@@ -3,7 +3,7 @@
 		<div
 			v-show="isActive"
 			:id="id"
-			:aria-hidden="!isActive"
+			:aria-hidden="!isActive || null"
 			:aria-labeledby="id + '-label'"
 			class="sd-tab"
 			role="tabpanel"

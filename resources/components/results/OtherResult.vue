@@ -1,5 +1,10 @@
 <template>
-	<div v-if="imageinfo" class="sdms-other-result">
+	<div
+		v-if="imageinfo"
+		class="sdms-other-result"
+		:class="$attrs[ 'parent-class' ]"
+		:style="$attrs[ 'parent-style' ]"
+	>
 		<a
 			v-if="thumbnail"
 			class="sdms-other-result__thumbnail-wrapper"

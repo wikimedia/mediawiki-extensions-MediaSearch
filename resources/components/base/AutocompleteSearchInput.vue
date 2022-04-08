@@ -406,10 +406,13 @@ module.exports = exports = {
 		 * When new lookup results are received, remove pending state and reset
 		 * the active item index.
 		 */
-		lookupResults: function () {
-			this.pending = false;
-			this.activeLookupItemIndex = -1;
-			this.toggleLookupResults( this.lookupResults.length > 0 );
+		lookupResults: {
+			handler: function () {
+				this.pending = false;
+				this.activeLookupItemIndex = -1;
+				this.toggleLookupResults( this.lookupResults.length > 0 );
+			},
+			deep: true
 		},
 
 		/**

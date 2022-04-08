@@ -3,10 +3,10 @@
 		v-if="imageinfo"
 		ref="link"
 		class="sdms-image-result"
-		:class="rootClasses"
 		:href="canonicalurl"
 		:title="title"
-		:style="style"
+		:class="[ rootClasses, $attrs[ 'parent-class' ] ]"
+		:style="[ style, $attrs[ 'parent-style' ] ]"
 		@click="showDetails"
 	>
 		<sdms-image
@@ -40,6 +40,10 @@ module.exports = exports = {
 	mixins: [ searchResult ],
 
 	inheritAttrs: false,
+
+	configureCompat: {
+		MODE: 3
+	},
 
 	computed: {
 		/**

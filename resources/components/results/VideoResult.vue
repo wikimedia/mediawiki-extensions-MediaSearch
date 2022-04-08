@@ -4,6 +4,8 @@
 		class="sdms-video-result"
 		:href="canonicalurl"
 		:title="title"
+		:class="$attrs[ 'parent-class' ]"
+		:style="$attrs[ 'parent-style' ]"
 		@click="showDetails"
 	>
 		<img

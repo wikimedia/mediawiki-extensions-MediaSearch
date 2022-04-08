@@ -12,7 +12,7 @@ module.exports = {
 		 * v-model to bind a string, number, or boolean value (for a single
 		 * input) or an array of values (for multiple inputs).
 		 */
-		value: {
+		modelValue: {
 			type: [ String, Number, Boolean, Array ],
 			default: false
 		},
@@ -40,10 +40,10 @@ module.exports = {
 		 */
 		computedValue: {
 			get: function () {
-				return this.value;
+				return this.modelValue;
 			},
 			set: function ( newValue ) {
-				this.$emit( 'input', newValue );
+				this.$emit( 'update:modelValue', newValue );
 			}
 		}
 	},
