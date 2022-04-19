@@ -17,7 +17,7 @@
 					:id="tab.name + '-label'"
 					:key="tab.title"
 					:class="getLabelClasses(tab, index)"
-					:aria-selected="tab.name === currentTabName"
+					:aria-selected="tab.name === currentTabName || null"
 					:aria-controls="tab.name + '-control'"
 					class="sd-tabs__tabs-list__item"
 					role="tab"
@@ -95,7 +95,7 @@ module.exports = exports = {
 
 			return tabs[ currentTabName.value ] ?
 				'sd-tab-' + tabs[ currentTabName.value ].name + '-label' :
-				false;
+				null;
 		} );
 
 		/**
@@ -111,10 +111,11 @@ module.exports = exports = {
 				tabNodes = defaultSlot[ 0 ] && defaultSlot[ 0 ].children || defaultSlot;
 
 			/**
-			 * @todo Once migrated to Vue 3, use tab.props instead
+			 * @todo Once migrated to Vue 3, remove 'tab.componentOptions.propsData'
 			 */
 			tabNodes.forEach( function ( tab ) {
-				tabs[ tab.componentOptions.propsData.name ] = tab.componentOptions.propsData;
+				var componentProps = tab.componentOptions ? tab.componentOptions.propsData : tab.props;
+				tabs[ componentProps.name ] = componentProps;
 			} );
 
 			// Set the current tab value, either to the active prop if it's

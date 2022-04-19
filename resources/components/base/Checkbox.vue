@@ -34,7 +34,7 @@ module.exports = exports = {
 	name: 'SdCheckbox',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		COMPONENT_V_MODEL: false
 	},
 
 	mixins: [ binaryInput ],

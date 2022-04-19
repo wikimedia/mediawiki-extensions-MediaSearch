@@ -1,5 +1,9 @@
 <template>
-	<div class="sdms-audio-result">
+	<div
+		class="sdms-audio-result"
+		:class="$attrs[ 'parent-class' ]"
+		:style="$attrs[ 'parent-style' ]"
+	>
 		<h3 v-if="displayName" class="sdms-audio-result__title">
 			<a
 				ref="link"

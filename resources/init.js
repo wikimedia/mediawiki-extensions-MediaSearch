@@ -11,7 +11,11 @@
 	/* eslint-disable no-jquery/no-global-selector */
 	$( '#mw-content-text' ).append( $container.hide() );
 
-	Vue.createMwApp( $.extend( { store: store }, App ) )
+	// Use this to prevent vue 3 default space trim
+	Vue.config.compilerOptions.whitespace = 'preserve';
+
+	Vue.createMwApp( App )
+		.use( store )
 		.use( logger, {
 			stream: 'mediawiki.mediasearch_interaction',
 			schema: '/analytics/mediawiki/mediasearch_interaction/1.4.0'

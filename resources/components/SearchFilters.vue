@@ -464,8 +464,11 @@ module.exports = exports = {
 		 * reasons other than the user setting filters manually (clicking the
 		 * clear button, URL filter params, popstate, etc)
 		 */
-		currentActiveFilters: function () {
-			this.synchronizeFilters();
+		currentActiveFilters: {
+			handler: function () {
+				this.synchronizeFilters();
+			},
+			deep: true
 		},
 
 		observerIntersecting: {

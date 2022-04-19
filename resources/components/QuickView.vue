@@ -92,7 +92,10 @@
 				<bdi v-html="description"></bdi>
 			</p>
 
-			<p v-if="artist" class="sdms-quick-view__list-item sdms-quick-view__list-item--user sdms-quick-view__artist">
+			<p
+				v-if="artist"
+				class="sdms-quick-view__list-item sdms-quick-view__list-item--user sdms-quick-view__artist"
+			>
 				<sd-icon :icon="icons.sdIconUserAvatar"></sd-icon>
 				<bdi><span v-html="artist"></span></bdi>
 			</p>

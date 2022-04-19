@@ -1,5 +1,8 @@
 <template>
-	<div class="sdms-page-result">
+	<div class="sdms-page-result"
+		:class="$attrs[ 'parent-class' ]"
+		:style="$attrs[ 'parent-style' ]"
+	>
 		<div class="sdms-page-result__title">
 			<span v-if="namespacePrefix" class="sdms-page-result__namespace">
 				{{ namespacePrefix }}

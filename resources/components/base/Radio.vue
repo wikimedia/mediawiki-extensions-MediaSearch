@@ -35,7 +35,7 @@ module.exports = exports = {
 	name: 'SdRadio',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		COMPONENT_V_MODEL: false
 	},
 
 	mixins: [ binaryInput ],

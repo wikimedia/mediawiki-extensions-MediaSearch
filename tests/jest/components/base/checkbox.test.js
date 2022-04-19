@@ -9,7 +9,7 @@ describe( 'Checkbox Component', () => {
 		const wrapper = VueTestUtils.shallowMount( Checkbox, {
 			propsData: {
 				disabled: false,
-				value: true
+				modelValue: true
 			}
 		} );
 
@@ -21,7 +21,7 @@ describe( 'Checkbox Component', () => {
 		const wrapper = VueTestUtils.shallowMount( Checkbox, {
 			propsData: {
 				disabled: true,
-				value: true
+				modelValue: true
 			}
 		} );
 
@@ -32,7 +32,7 @@ describe( 'Checkbox Component', () => {
 	it( 'check if element is checked if value is passed as true', ( done ) => {
 		const wrapper = VueTestUtils.mount( Checkbox, {
 			propsData: {
-				value: true
+				modelValue: true
 			}
 		} );
 
@@ -47,7 +47,7 @@ describe( 'Checkbox Component', () => {
 	it( 'element is unchecked if value is passed as false', ( done ) => {
 		const wrapper = VueTestUtils.mount( Checkbox, {
 			propsData: {
-				value: false
+				modelValue: false
 			}
 		} );
 
@@ -62,7 +62,7 @@ describe( 'Checkbox Component', () => {
 	it( 'element gets unchecked if value is passed as true and label is clicked', ( done ) => {
 		const wrapper = VueTestUtils.mount( Checkbox, {
 			propsData: {
-				value: true
+				modelValue: true
 			}
 		} );
 
