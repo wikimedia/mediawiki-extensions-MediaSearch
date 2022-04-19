@@ -23,9 +23,17 @@
 	"mediasearch-filter-sort-popularity": "woblubowanosći",
 	"mediasearch-filter-license-any": "Wšě licency",
 	"mediasearch-filter-license-cc-by": "Wužiwanje z mjenowanjom awtora",
+	"mediasearch-filter-license-attribution": "Wužiwanje z mjenowanjom awtora",
 	"mediasearch-filter-license-cc-by-sa": "Wužiwanje z mjenowanjom awtora a samsnej licencu",
+	"mediasearch-filter-license-attribution-same-license": "Wužiwanje z mjenowanjom awtora a samsnej licencu",
 	"mediasearch-filter-license-unrestricted": "Bjez wobmjezowanjow",
 	"mediasearch-filter-license-other": "Druhe",
+	"mediasearch-filter-namespace-all": "Wšě",
+	"mediasearch-filter-namespace-discussion": "Diskusija",
+	"mediasearch-filter-namespace-help": "Powšitkowna pomoc",
+	"mediasearch-filter-namespace-label": "Mjenowy rum: $1",
+	"mediasearch-filter-namespace-dialog-title": "Wubranje mjenoweho ruma",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Wotpósłać",
 	"mediasearch-no-results": "Njejsmy žane wuslědki namakali",
 	"mediasearch-no-results-tips": "Spytaj bóle powšitkowne zapřijeća abo přepruwuj twój prawopis",
 	"mediasearch-end-of-results": "Žane dalše wuslědki namakane",
@@ -45,5 +53,8 @@
 	"mediasearch-clear-filters": "Filtry wotstronić",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|wuslědk|wuslědkaj|wuslědki|wuslědkow}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|słowo|słowje|słowa|słowow}})",
-	"mediasearch-image-size": "($1)"
+	"mediasearch-image-size": "($1)",
+	"mediasearch-error-message": "Njepłaćiwe pytanje",
+	"mediasearch-error-text": "Zapodaj horjeka nowe pytanje a spytaj znowa",
+	"mediasearch-user-notice-title": "Pytaš za [[Special:Search]]?"
 }
