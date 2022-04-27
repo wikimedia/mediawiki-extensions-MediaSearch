@@ -8,7 +8,8 @@
 			"Physicsch",
 			"Reza1615",
 			"درفش کاویانی",
-			"Jeeputer"
+			"Jeeputer",
+			"Beginneruser"
 		]
 	},
 	"mediasearch-title": "جستجوی رسانه‌ها",
@@ -41,7 +42,7 @@
 	"mediasearch-filter-namespace-label": "فضای نام: $1",
 	"mediasearch-filter-namespace-dialog-title": "گزینش‌گر فضای نام",
 	"mediasearch-filter-namespace-dialog-progressive-action": "تأیید",
-	"mediasearch-no-results": "نتوانستیم نتیجه‌ای پیدا کنیم",
+	"mediasearch-no-results": "هیچ نتیجه‌ای پیدا نکردیم",
 	"mediasearch-no-results-tips": "استفاده از اصطلاحات کلی‌تر را بیازمایید یا املای خود را بررسی کنید",
 	"mediasearch-end-of-results": "نتیجهٔ بیشتری یافت نشد",
 	"mediasearch-empty-state": "جستجو در میان بیش از $1 {{PLURAL:$1|رسانهٔ}} قابل استفادهٔ مجدد",
