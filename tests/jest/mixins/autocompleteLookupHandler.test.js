@@ -270,7 +270,7 @@ describe( 'AutocompleteLookupHandler', () => {
 
 		} );
 
-		it( 'with multiple input passed as comma seperated string; getLookupRequestForTerm is called', () => {
+		it( 'with multiple input passed as comma separated string; getLookupRequestForTerm is called', () => {
 
 			const input = 'dogs, cat';
 
