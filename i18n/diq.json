@@ -7,5 +7,9 @@
 			"Orbot707"
 		]
 	},
-	"mediasearch-tab-audio": "Veng"
+	"mediasearch-tab-audio": "Veng",
+	"mediasearch-filter-size-unset": "Pêro",
+	"mediasearch-filter-file-type-unset": "Pêro",
+	"mediasearch-filter-assessment-unset": "Pêro",
+	"mediasearch-filter-license-unset": "Pêro"
 }
