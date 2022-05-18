@@ -766,7 +766,7 @@ class SpecialMediaSearch extends SpecialPage {
 
 	/**
 	 * Gather a list of thumbnail widths that are frequently requested & are
-	 * likely to be warm in that; this is the configured thumnail limits, and
+	 * likely to be warm in that; this is the configured thumbnail limits, and
 	 * their responsive 1.5x & 2x versions.
 	 *
 	 * @return array
