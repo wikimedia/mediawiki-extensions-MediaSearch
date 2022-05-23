@@ -120,6 +120,7 @@ module.exports = exports = {
 		/**
 		 * Due to this component being used multiple times,
 		 * we need to ensure the ID is unique
+		 *
 		 * @return {string}
 		 */
 		searchCountId: function () {

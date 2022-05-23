@@ -13,7 +13,9 @@
 			:aria-activedescendant="activeItemId || null"
 			:aria-disabled="disabled || null"
 			@click="onClick"
-			@blur="toggleMenu(false)"
+			@blur="onBlur"
+			@mousedown="isMouseDown = true"
+			@mouseup="isMouseDown = false"
 			@keydown.enter.prevent
 			@keyup.enter="onEnter"
 			@keydown.up.prevent="onArrowUp"
@@ -126,6 +128,7 @@ module.exports = exports = {
 	data: function () {
 		return {
 			showMenu: false,
+			isMouseDown: false,
 			icons: icons,
 			activeItemIndex: this.initialSelectedItemIndex,
 			selectedItemIndex: this.initialSelectedItemIndex
@@ -243,9 +246,17 @@ module.exports = exports = {
 		onClick: function () {
 			this.toggleMenu( !this.showMenu );
 			this.restoreActiveItemIndex();
-
 			if ( this.showMenu ) {
 				this.$refs.sdSelectButton.focus();
+			}
+		},
+
+		onBlur: function () {
+			/**
+			 * Check if the blur event isn't triggered by a click on the menu, because it breaks on Safari
+			 */
+			if ( !this.isMouseDown ) {
+				this.toggleMenu( false );
 			}
 		},
 
