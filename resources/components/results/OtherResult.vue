@@ -72,7 +72,11 @@ module.exports = exports = {
 		 */
 		extension: function () {
 			var title = mw.Title.newFromText( this.title );
-			return title ? title.getExtension().toUpperCase() : null;
+			if ( title && title.getExtension() ) {
+				return title.getExtension().toUpperCase();
+			} else {
+				return null;
+			}
 		},
 
 		/**
