@@ -51,13 +51,12 @@ module.exports = {
 		 */
 		thumbnail: function () {
 			var commonWidths = mw.config.get( 'sdmsThumbLimits' ),
-				oldWidth, newWidth, i;
+				oldWidth,
+				newWidth,
+				i;
 
 			// Do nothing if we have no imageinfo or thumbnail data.
-			if (
-				Object.keys( this.imageinfo ).length === 0 ||
-				!( 'thumburl' in this.imageinfo[ 0 ] )
-			) {
+			if ( !this.imageinfo || !( 'thumburl' in this.imageinfo[ 0 ] ) ) {
 				return;
 			}
 
@@ -72,7 +71,10 @@ module.exports = {
 				}
 			}
 
-			return this.imageinfo[ 0 ].thumburl.replace( '/' + oldWidth + 'px-', '/' + newWidth + 'px-' );
+			return this.imageinfo[ 0 ].thumburl.replace(
+				'/' + oldWidth + 'px-',
+				'/' + newWidth + 'px-'
+			);
 		},
 
 		label: function () {
@@ -137,7 +139,12 @@ module.exports = {
 		 */
 		formatSize: function ( size ) {
 			var decimalPlace = 1,
-				sizeMsgs = [ 'size-bytes', 'size-kilobytes', 'size-megabytes', 'size-gigabytes' ],
+				sizeMsgs = [
+					'size-bytes',
+					'size-kilobytes',
+					'size-megabytes',
+					'size-gigabytes'
+				],
 				sizeDigitsInLanguage;
 
 			while ( size >= 1024 && sizeMsgs.length > 1 ) {
