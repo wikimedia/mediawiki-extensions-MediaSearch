@@ -8,7 +8,8 @@
 			"Raymond",
 			"Robby",
 			"Shirayuki",
-			"Umherirrender"
+			"Umherirrender",
+			"Verdy p"
 		]
 	},
 	"mediasearch-desc": "{{desc|name=MediaSearch|url=https://www.mediawiki.org/wiki/Extension:MediaSearch}}",
@@ -42,7 +43,7 @@
 	"mediasearch-filter-namespace-discussion": "Label text for option to filter by discussion namespaces\n{{identical|Discussion}}",
 	"mediasearch-filter-namespace-help": "Label text for option to filter by general help namespaces",
 	"mediasearch-filter-namespace-custom": "Label text for option to filter by a custom list of namespaces",
-	"mediasearch-filter-namespace-label": "Label for the button that triggers the namespace filter dialog. Parameters:\n* $1 - Current selected filter value message",
+	"mediasearch-filter-namespace-label": "Label for the button that triggers the namespace filter dialog. Parameters:\n* $1 - Current selected filter value message\n{{Identical|Namespace}}",
 	"mediasearch-filter-namespace-dialog-title": "Title for the namespace filter dialog",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Label for the submit action in the namespace filter dialog",
 	"mediasearch-no-results": "Message informing the user that no results were found",

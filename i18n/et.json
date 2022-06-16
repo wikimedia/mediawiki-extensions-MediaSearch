@@ -57,6 +57,8 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|tulemus|tulemust}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|sõna}})",
 	"mediasearch-did-you-mean": "Kas mõtlesid: $1",
+	"mediasearch-preference": "Vali otsiliides",
+	"mediasearch-preference-help": "Otsitulemuste kuvamiseks on saadaval mitu liidest. Vali liides, mida eelistad.",
 	"mediasearch-filter-assessment-any-assessment": "Iga hinnang",
 	"mediasearch-filter-assessment-picture-of-the-day": "Päeva pilt",
 	"mediasearch-filter-assessment-featured-image": "Eeskujulik pilt",
