@@ -1,6 +1,28 @@
 <template>
 	<div class="sdms-search-results">
 		<div class="sdms-search-results__list-wrapper" :class="listWrapperClasses">
+			<div
+				ref="list"
+				class="sdms-search-results__list"
+				:class="listClasses"
+			>
+				<!-- Appending 'parent-' to class and style so we can access
+				them in the component and prevent vue from throwing a warning,
+				when migration to vue 3 is completed we can safely remove 'parent-' from this file and all the -results.vue files -->
+				<component
+					:is="resultComponent"
+					v-for="(result, index) in results[ mediaType ]"
+					v-bind="result"
+					:ref="result.title"
+					:key="index"
+					:parent-class="getResultClass( result.title )"
+					:parent-style="resultStyle"
+					@click="onResultClick( result.title, index )"
+					@show-details="showDetails( $event, index )"
+				>
+				</component>
+			</div>
+
 			<!-- Loading indicator if results are still pending -->
 			<spinner v-if="pending[ mediaType ]" class="sdms-search-results__pending"></spinner>
 
@@ -28,28 +50,6 @@
 
 			<!-- Empty-state encouraging user to search if they have not done so yet -->
 			<empty-state v-else-if="shouldShowEmptyState"></empty-state>
-
-			<div
-				ref="list"
-				class="sdms-search-results__list"
-				:class="listClasses"
-			>
-				<!-- Appending 'parent-' to class and style so we can access
-				them in the component and prevent vue from throwing a warning,
-				when migration to vue 3 is completed we can safely remove 'parent-' from this file and all the -results.vue files -->
-				<component
-					:is="resultComponent"
-					v-for="(result, index) in results[ mediaType ]"
-					v-bind="result"
-					:ref="result.title"
-					:key="index"
-					:parent-class="getResultClass( result.title )"
-					:parent-style="resultStyle"
-					@click="onResultClick( result.title, index )"
-					@show-details="showDetails( $event, index )"
-				>
-				</component>
-			</div>
 		</div>
 
 		<!-- QuickView dialog for mobile skin. -->
