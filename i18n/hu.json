@@ -41,6 +41,7 @@
 	"mediasearch-clear-title": "Törlés",
 	"mediasearch-input-label": "Média keresése",
 	"mediasearch-input-placeholder": "Keress képeket, hangfájlokat, videókat és még többet",
+	"mediasearch-load-more-results": "Továbbiak betöltése",
 	"mediasearch-quickview-button-text": "További részletek",
 	"mediasearch-quickview-close-button-text": "Fájladatok bezárása",
 	"mediasearch-quickview-previous-button-text": "Korábbi eredmények megtekintése",
@@ -55,7 +56,13 @@
 	"mediasearch-clear-filters": "Szűrők törlése",
 	"mediasearch-results-count": "$1 találat",
 	"mediasearch-wordcount": "($1 szó)",
-	"mediasearch-did-you-mean": "Erre gondoltál: $1 ?",
+	"mediasearch-did-you-mean": "Erre gondoltál: $1?",
 	"mediasearch-error-message": "Érvénytelen keresés",
-	"mediasearch-error-text": "Írj be egy új keresést és próbáld ismét"
+	"mediasearch-error-text": "Írj be egy új keresést és próbáld ismét",
+	"mediasearch-filter-assessment-picture-of-the-day": "A nap képe",
+	"mediasearch-filter-assessment-picture-of-the-year": "Az év képe",
+	"mediasearch-filter-assessment-featured-image": "Kiemelt kép",
+	"mediasearch-filter-assessment-valued-image": "Értékes kép",
+	"mediasearch-filter-assessment-quality-image": "Minőségi kép",
+	"mediasearch-filter-assessment-menu-label": "Közösségi értékelések"
 }
