@@ -9,6 +9,7 @@
 			"Strayblues"
 		]
 	},
+	"mediasearch-desc": "שיטה ממוקדת־מדיה להציג תוצאות חיפוש דרך דף [[Special:MediaSearch|חיפוש המדיה]].",
 	"mediasearch-title": "חיפוש מדיה",
 	"mediasearch-continue": "הבא",
 	"mediasearch-tab-image": "תמונות",
@@ -17,11 +18,13 @@
 	"mediasearch-tab-page": "קטגוריות ודפים",
 	"mediasearch-tab-other": "מדיה אחרת",
 	"mediasearch-filter-size": "גודל התמונה",
+	"mediasearch-filter-size-unset": "הכול",
 	"mediasearch-filter-size-any": "תמונות בכל גודל",
 	"mediasearch-filter-size-small": "קטן",
 	"mediasearch-filter-size-medium": "בינוני",
 	"mediasearch-filter-size-large": "גדול",
 	"mediasearch-filter-file-type-any": "סוג קובץ",
+	"mediasearch-filter-file-type-unset": "הכול",
 	"mediasearch-filter-sort-label": "למיין לפי:",
 	"mediasearch-filter-sort-default": "רלוונטיוּת",
 	"mediasearch-filter-sort-recency": "אחרונוּת",
@@ -65,5 +68,19 @@
 	"mediasearch-wordcount": "({{PLURAL:$1|מילה אחת|$1 מילים}})",
 	"mediasearch-did-you-mean": "האם התכוונת לכתוב: $1",
 	"mediasearch-error-message": "חיפוש בלתי־תקין",
-	"mediasearch-error-text": "נא להזין חיפוש חדש לעיל ולנסות שוב"
+	"mediasearch-error-text": "נא להזין חיפוש חדש לעיל ולנסות שוב",
+	"mediasearch-preference": "בחירת ממשק החיפוש שלך",
+	"mediasearch-preference-help": "יש כמה ממשקים זמינים להצגת תוצאות חיפוש. נא לבחור את מה שמתאים לך.",
+	"mediasearch-filter-assessment-any-assessment": "כל הערכה",
+	"mediasearch-filter-assessment-picture-of-the-day": "תמונת היום",
+	"mediasearch-filter-assessment-picture-of-the-year": "תמונת השנה",
+	"mediasearch-filter-assessment-featured-image": "תמונה מומלצת",
+	"mediasearch-filter-assessment-valued-image": "תמונה מוערכת",
+	"mediasearch-filter-assessment-quality-image": "תמונה איכותית",
+	"mediasearch-filter-assessment-menu-label": "הערכות קהילה",
+	"mediasearch-filter-assessment-unset": "הכול",
+	"mediasearch-filter-file-type": "סוג קובץ",
+	"mediasearch-filter-assessment": "הערכות קהילה",
+	"mediasearch-filter-license": "רישיון",
+	"mediasearch-filter-license-unset": "הכול"
 }
