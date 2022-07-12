@@ -9,6 +9,7 @@
 			"Strayblues"
 		]
 	},
+	"mediasearch-desc": "שיטה ממוקדת־מדיה להציג תוצאות חיפוש דרך דף [[Special:MediaSearch|חיפוש המדיה]].",
 	"mediasearch-title": "חיפוש מדיה",
 	"mediasearch-continue": "הבא",
 	"mediasearch-tab-image": "תמונות",
@@ -67,5 +68,11 @@
 	"mediasearch-error-message": "חיפוש בלתי־תקין",
 	"mediasearch-error-text": "נא להזין חיפוש חדש לעיל ולנסות שוב",
 	"mediasearch-specialsearch-default": "להציג את תוצאות החיפוש בממשק Special:Search",
-	"mediasearch-specialsearch-default-help": "יש לבחור את זה כדי להציג תוצאות מסרגל החיפוש הראשי בממשק Special:Search  הישן ולא ב־Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "יש לבחור את זה כדי להציג תוצאות מסרגל החיפוש הראשי בממשק Special:Search  הישן ולא ב־Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "תמונת היום",
+	"mediasearch-filter-assessment-picture-of-the-year": "תמונת השנה",
+	"mediasearch-filter-assessment-featured-image": "תמונה מומלצת",
+	"mediasearch-filter-assessment-valued-image": "תמונה מוערכת",
+	"mediasearch-filter-assessment-quality-image": "תמונה איכותית",
+	"mediasearch-filter-assessment-menu-label": "הערכות קהילה"
 }
