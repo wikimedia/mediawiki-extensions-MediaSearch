@@ -70,6 +70,8 @@
 	"mediasearch-error-message": "חיפוש בלתי־תקין",
 	"mediasearch-error-text": "נא להזין חיפוש חדש לעיל ולנסות שוב",
 	"mediasearch-preference": "בחירת ממשק החיפוש שלך",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "יש כמה ממשקים זמינים להצגת תוצאות חיפוש. נא לבחור את מה שמתאים לך.",
 	"mediasearch-filter-assessment-any-assessment": "כל הערכה",
 	"mediasearch-filter-assessment-picture-of-the-day": "תמונת היום",
