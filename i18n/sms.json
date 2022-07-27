@@ -7,5 +7,6 @@
 	"mediasearch-tab-page": "Kategoria da seeid",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Vuõlttâd",
 	"mediasearch-copytextlayout-copy": "Kopiââʹst",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|sääʹnn|sääʹn|sääʹnned}})",
 	"mediasearch-filter-license": "Liseʹnss"
 }
