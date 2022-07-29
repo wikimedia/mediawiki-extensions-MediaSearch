@@ -106,7 +106,9 @@ module.exports = exports = {
 
 	data: function () {
 		return {
+			// eslint-disable-next-line vue/no-computed-properties-in-data
 			selectedRadio: this.initialRadio,
+			// eslint-disable-next-line vue/no-computed-properties-in-data
 			selectedCustom: this.initialCustom,
 			dialogTitle: this.$i18n( 'mediasearch-filter-namespace-dialog-title' ).text(),
 			dialogAction: this.$i18n( 'mediasearch-filter-namespace-dialog-progressive-action' ).text()
@@ -201,6 +203,7 @@ module.exports = exports = {
 		 *
 		 * @param {string} selection
 		 */
+		// eslint-disable-next-line vue/no-unused-properties
 		select: function ( selection ) {
 			if ( this.namespaceGroups[ selection ] ) {
 				// selection matches one of the pre-defined namespace groups
@@ -217,6 +220,7 @@ module.exports = exports = {
 		/**
 		 * Reset to the default values.
 		 */
+		// eslint-disable-next-line vue/no-unused-properties
 		reset: function () {
 			this.selectedRadio = this.initialRadio;
 			this.selectedCustom = this.initialCustom;

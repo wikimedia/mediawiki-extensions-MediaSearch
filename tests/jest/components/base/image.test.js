@@ -83,7 +83,7 @@ describe( 'Image Component', () => {
 
 		Vue.nextTick().then( () => {
 
-			jest.runTimersToTime( 300 );
+			jest.advanceTimersByTime( 300 );
 
 			expect( wrapper.attributes().src ).toBe( samplePropsData.source );
 

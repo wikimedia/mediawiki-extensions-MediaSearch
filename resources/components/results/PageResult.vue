@@ -1,5 +1,6 @@
 <template>
-	<div class="sdms-page-result"
+	<div
+		class="sdms-page-result"
 		:class="$attrs[ 'parent-class' ]"
 		:style="$attrs[ 'parent-style' ]"
 	>
@@ -8,17 +9,16 @@
 				{{ namespacePrefix }}
 			</span>
 			<h3 v-if="displayName">
-				<a :href="canonicalurl"
+				<a
+					:href="canonicalurl"
 					:title="title">
 					{{ displayName }}
 				</a>
 			</h3>
 		</div>
 
-		<div
-			v-if="snippet"
-			v-html="snippet">
-		</div>
+		<!-- eslint-disable-next-line vue/no-v-html -->
+		<div v-if="snippet" v-html="snippet"></div>
 
 		<p
 			v-if="hasCategoryText"
@@ -37,7 +37,8 @@
 				{{ formatSize( size ) }}
 			</p>
 
-			<p v-if="wordcount"
+			<p
+				v-if="wordcount"
 				v-i18n-html:mediasearch-wordcount="[
 					formatNumber( wordcount )
 				]"

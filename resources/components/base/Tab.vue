@@ -22,6 +22,7 @@ var VueCompositionAPI = require( '@vue/composition-api' );
 module.exports = exports = {
 	name: 'SdTab',
 
+	/* eslint-disable vue/no-unused-properties */
 	props: {
 		name: {
 			type: String,

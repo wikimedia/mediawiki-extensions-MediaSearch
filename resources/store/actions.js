@@ -64,7 +64,7 @@ function extractSuggestedTerm( suggestion, filters, assessment ) {
 	var filteredSuggestion = suggestion;
 
 	if ( filters ) {
-		filteredSuggestion = filteredSuggestion.substring( filters.length ).trim();
+		filteredSuggestion = filteredSuggestion.slice( filters.length ).trim();
 	}
 
 	if ( assessment ) {

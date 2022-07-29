@@ -12,36 +12,8 @@
 		"max-len": "off",
 		"no-jquery/variable-pattern": "off",
 		"no-jquery/no-event-shorthand": "off",
-		"compat/compat": "warn"
-	},
-	"overrides": [
-		{
-			"files": "**/*.vue",
-			"extends": "wikimedia/vue-es5",
-			"rules": {
-				"vue/html-self-closing": [
-					"error",
-					{
-						"html": {
-							"void": "never",
-							"normal": "never",
-							"component": "never"
-						}
-					}
-				],
-				"vue/v-bind-style": [
-					"warn",
-					"shorthand"
-				],
-				"vue/v-on-style": [
-					"warn",
-					"shorthand"
-				],
-				"vue/v-slot-style": [
-					"warn",
-					"shorthand"
-				]
-			}
-		}
-	]
+		"compat/compat": "warn",
+		"vue/no-undef-properties": "off",
+		"vue/no-unused-refs": "off"
+	}
 }

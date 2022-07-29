@@ -24,7 +24,7 @@ module.exports = exports = ( function () {
 	 *
 	 * @param {string} apiEndpoint
 	 * @param {Object} [options]
-	 * @return {mediaWiki.Api}
+	 * @return {mw.Api}
 	 */
 	return function getLocationAgnosticMwApi( apiEndpoint, options ) {
 		var mwApiOptions = $.extend( {}, options, { ajax: { url: apiEndpoint } } );

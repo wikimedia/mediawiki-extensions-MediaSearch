@@ -46,6 +46,7 @@ module.exports = exports = {
 	data: function () {
 		return {
 			debounceTimeoutId: null,
+			// eslint-disable-next-line vue/no-unused-properties
 			observerOptions: {
 				// Set the detection area to extend past the bottom of the
 				// viewport by 50% (a figure that comes from MobileFrontEnd) so

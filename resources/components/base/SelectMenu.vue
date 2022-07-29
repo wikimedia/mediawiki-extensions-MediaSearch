@@ -7,16 +7,16 @@
 			:aria-labelledby="labelledBy"
 		>
 			<li
-				v-for="(item, index) in formattedItems"
+				v-for="( item, index ) in formattedItems"
 				:id="listboxId + '-item-' + index"
 				:key="listboxId + '-item-' + index"
 				class="sd-select-menu__list-item"
-				:class="getItemClasses(index)"
+				:class="getItemClasses( index )"
 				role="option"
-				:aria-selected="isActiveItem(index) || null"
-				@mousedown="onMousedown(index, item)"
-				@mouseover="$emit( 'active-item-change', index)"
-				@mouseleave="$emit( 'active-item-change', -1)"
+				:aria-selected="isActiveItem( index ) || null"
+				@mousedown="onMousedown( index, item )"
+				@mouseover="$emit( 'active-item-change', index )"
+				@mouseleave="$emit( 'active-item-change', -1 )"
 			>
 				{{ item.label }}
 			</li>

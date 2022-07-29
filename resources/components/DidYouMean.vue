@@ -1,5 +1,6 @@
 <template>
-	<div v-if="didYouMean"
+	<div
+		v-if="didYouMean"
 		v-i18n-html:mediasearch-did-you-mean="[ didYouMeanLink ]"
 		class="sdms-did-you-mean">
 	</div>

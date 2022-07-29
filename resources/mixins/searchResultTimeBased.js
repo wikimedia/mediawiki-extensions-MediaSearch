@@ -28,7 +28,7 @@ module.exports = {
 			if ( this.duration ) {
 				minutes = '0' + Math.floor( this.duration / 60 );
 				seconds = '0' + this.duration % 60;
-				return minutes.substr( -2 ) + ':' + seconds.substr( -2 );
+				return minutes.slice( -2 ) + ':' + seconds.slice( -2 );
 			} else {
 				return null;
 			}

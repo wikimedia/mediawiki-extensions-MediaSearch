@@ -20,6 +20,7 @@
  */
 var observer = require( './mixins/observer.js' );
 
+// @vue/component
 module.exports = exports = {
 	name: 'SdObserver',
 
@@ -30,10 +31,12 @@ module.exports = exports = {
 	mixins: [ observer ],
 	props: {
 		// IntersectObserver Options object used to overrride the Observer mixins options
+		// eslint-disable-next-line vue/require-default-prop
 		options: Object
 	},
 	data: function () {
 		return {
+			// eslint-disable-next-line vue/no-unused-properties
 			observerOptions: this.options
 		};
 	}

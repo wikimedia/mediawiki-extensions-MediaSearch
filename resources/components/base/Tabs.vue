@@ -13,17 +13,17 @@
 				@keydown.down.prevent="next"
 			>
 				<div
-					v-for="(tab, index) in tabs"
+					v-for="( tab, index ) in tabs"
 					:id="tab.name + '-label'"
 					:key="tab.title"
-					:class="getLabelClasses(tab, index)"
+					:class="getLabelClasses( tab, index )"
 					:aria-selected="tab.name === currentTabName || null"
 					:aria-controls="tab.name + '-control'"
 					class="sd-tabs__tabs-list__item"
 					role="tab"
 					tabindex="-1"
-					@click="selectTab(tab.name)"
-					@keyup.enter="selectTab(tab.name)"
+					@click="selectTab( tab.name )"
+					@keyup.enter="selectTab( tab.name )"
 				>
 					{{ tab.title }}
 				</div>
@@ -135,7 +135,9 @@ module.exports = exports = {
 			currentTabId: currentTabId,
 			headerClasses: headerClasses,
 			hasGradient: hasGradient,
+			// eslint-disable-next-line vue/no-unused-properties
 			observerElement: observerElement,
+			// eslint-disable-next-line vue/no-unused-properties
 			observerOptions: observerOptions
 		};
 	},
