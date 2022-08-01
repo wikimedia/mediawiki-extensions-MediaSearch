@@ -38,6 +38,8 @@
 	"mediasearch-switch-special-search": "Preklopi na Posebno:Iskanje",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|zadetek|zadetka|zadetki|zadetkov}}",
 	"mediasearch-did-you-mean": "Ste mislili: $1",
+	"mediasearch-preference": "Izberite svoj iskalni vmesnik",
+	"mediasearch-preference-help": "Za prikaz iskalnih zadetkov je na voljo več različnih vmesnikov. Izberite želenega.",
 	"mediasearch-filter-assessment-any-assessment": "Katera koli ocena",
 	"mediasearch-filter-assessment-picture-of-the-day": "Slika dneva",
 	"mediasearch-filter-assessment-featured-image": "Izbrana slika",
