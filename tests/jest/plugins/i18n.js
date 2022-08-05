@@ -80,9 +80,8 @@ module.exports = {
 		 * Note that this method only works for messages that return text. For messages that
 		 * need to be parsed to HTML, use the v-i18n-html directive.
 		 *
-		 * @param {string} key Key of message to get
+		 * @param {string} message Key of message to get
 		 * @param {...Mixed} parameters Values for $N replacements
-		 * @param message
 		 * @return {mw.Message}
 		 */
 		Vue.config.globalProperties.$i18n = function ( message ) {

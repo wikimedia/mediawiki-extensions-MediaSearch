@@ -11,7 +11,7 @@
 				when migration to vue 3 is completed we can safely remove 'parent-' from this file and all the -results.vue files -->
 				<component
 					:is="resultComponent"
-					v-for="(result, index) in results[ mediaType ]"
+					v-for="( result, index ) in results[ mediaType ]"
 					v-bind="result"
 					:ref="result.title"
 					:key="index"
@@ -69,8 +69,8 @@
 					:media-type="mediaType"
 					:is-dialog="true"
 					@close="hideDetails"
-					@previous="changeQuickViewResult($event, -1)"
-					@next="changeQuickViewResult($event, 1)"
+					@previous="changeQuickViewResult( $event, -1 )"
+					@next="changeQuickViewResult( $event, 1 )"
 				></quick-view>
 			</sd-dialog>
 		</template>
@@ -90,8 +90,8 @@
 				:key="details[ mediaType ].title"
 				:media-type="mediaType"
 				@close="hideDetails"
-				@previous="changeQuickViewResult($event, -1)"
-				@next="changeQuickViewResult($event, 1)"
+				@previous="changeQuickViewResult( $event, -1 )"
+				@next="changeQuickViewResult( $event, 1 )"
 			>
 			</quick-view>
 

@@ -106,9 +106,11 @@ module.exports = exports = {
 			hasOverflow: false,
 			isScrolledToEnd: false,
 			namespaceFilterDialogActive: false,
+			// eslint-disable-next-line vue/no-unused-properties
 			observerOptions: {
 				threshold: 1
 			},
+			// eslint-disable-next-line vue/no-unused-properties
 			observerElement: '.sdms-search-results-count'
 		};
 	},

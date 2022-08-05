@@ -25,8 +25,7 @@
 <script>
 var Button = require( './base/Button.vue' ),
 	closeIcon = require( '../../lib/icons.js' ).sdIconClose,
-	Message = require( './base/Message.vue' ),
-	specialSearchLink = 'https://meta.wikimedia.org/wiki/Special:Search';
+	Message = require( './base/Message.vue' );
 
 // @vue/component
 module.exports = exports = {
@@ -41,7 +40,6 @@ module.exports = exports = {
 		return {
 			prefKey: 'sdms-search-user-notice-dismissed',
 			closeIcon: closeIcon,
-			specialSearchLink: specialSearchLink,
 			dismissed: false
 		};
 	},

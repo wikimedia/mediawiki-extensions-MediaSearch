@@ -202,13 +202,6 @@ module.exports = exports = {
 		/**
 		 * @return {string}
 		 */
-		labelId: function () {
-			return this.name + '__labelbox';
-		},
-
-		/**
-		 * @return {string}
-		 */
 		textboxId: function () {
 			return this.name + '__textbox';
 		},
@@ -372,6 +365,7 @@ module.exports = exports = {
 		 * @param {string} selection value of the item to be selected
 		 * @throws error if specified value does not exist
 		 */
+		// eslint-disable-next-line vue/no-unused-properties
 		select: function ( selection ) {
 			var selectionIndex;
 
@@ -392,6 +386,7 @@ module.exports = exports = {
 		 * Reset the component to initial values for selection index and
 		 * user-visible label
 		 */
+		// eslint-disable-next-line vue/no-unused-properties
 		reset: function () {
 			this.selectedItemIndex = this.initialSelectedItemIndex;
 			this.activeItemIndex = this.initialSelectedItemIndex;
