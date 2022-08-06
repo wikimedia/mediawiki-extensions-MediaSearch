@@ -7,6 +7,7 @@ use ApiMain;
 use CirrusSearch\Parser\FullTextKeywordRegistry;
 use CirrusSearch\SearchConfig;
 use Config;
+use ConfigException;
 use DerivativeContext;
 use Exception;
 use FauxRequest;
@@ -98,9 +99,13 @@ class SpecialMediaSearch extends SpecialPage {
 		$this->templateParser = $templateParser ?: new TemplateParser(
 			__DIR__ . '/../../templates'
 		);
-		$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
-			->getConfigFactory()
-			->makeConfig( 'CirrusSearch' );
+		try {
+			$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
+				->getConfigFactory()
+				->makeConfig( 'CirrusSearch' );
+		} catch ( ConfigException $e ) {
+			// CirrusSearch not installed
+		}
 
 		$this->mainConfig = $mainConfig ?? MediaWikiServices::getInstance()
 			->getConfigFactory()
@@ -741,6 +746,9 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @return array
 	 */
 	protected function getSearchKeywords(): array {
+		if ( !$this->searchConfig ) {
+			throw new MWException( 'CirrusSearch required for search keyword prefixes' );
+		}
 		$features = ( new FullTextKeywordRegistry( $this->searchConfig ) )->getKeywords();
 
 		$keywords = [];
