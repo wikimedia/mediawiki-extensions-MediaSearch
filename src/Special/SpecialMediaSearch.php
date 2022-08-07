@@ -492,11 +492,11 @@ class SpecialMediaSearch extends SpecialPage {
 					break;
 
 				case SearchOptions::TYPE_OTHER:
-					// generating thumbnails from many of these file types is very
+					// Generating thumbnails from many of these file types is very
 					// expensive and slow, enough so that we're better off using a
 					// larger (takes longer to transfer) pre-generated (but readily
 					// available) size
-					$width = min( $this->getConfig()->get( 'UploadThumbnailRenderMap' ) );
+					$width = min( $this->getThumbLimits() );
 					break;
 
 				default:
