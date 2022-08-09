@@ -4,6 +4,7 @@
 			"Njardarlogar"
 		]
 	},
+	"mediasearch-tab-image": "Bilete",
 	"mediasearch-tab-video": "Video",
 	"mediasearch-tab-page": "Kategoriar og sider",
 	"mediasearch-tab-other": "Andre medium",
@@ -15,13 +16,23 @@
 	"mediasearch-filter-sort-popularity": "Popularitet",
 	"mediasearch-filter-license-any": "Alle lisensar",
 	"mediasearch-filter-license-cc-by": "Bruk med namngjeving",
+	"mediasearch-filter-license-attribution": "Bruk med namngjeving",
 	"mediasearch-filter-license-cc-by-sa": "Bruk med namngjeving og same lisensen",
+	"mediasearch-filter-license-attribution-same-license": "Bruk med namngjeving og same lisensen",
 	"mediasearch-filter-license-unrestricted": "Ingen avgrensingar",
 	"mediasearch-filter-license-other": "Andre",
+	"mediasearch-filter-namespace-all": "Alle",
+	"mediasearch-filter-namespace-custom": "Eigendefinert",
+	"mediasearch-filter-namespace-label": "Namnerom: $1",
+	"mediasearch-filter-namespace-dialog-title": "Vel namnerom",
+	"mediasearch-filter-namespace-dialog-progressive-action": "Send",
 	"mediasearch-no-results": "Ingen resultat vart funne",
 	"mediasearch-no-results-tips": "Prøv meir gjengse ord eller sjekk stavinga du har brukt",
 	"mediasearch-end-of-results": "Det vart ikkje funne fleire resultat",
+	"mediasearch-empty-state": "Søk i meir enn $1 {{PLURAL:$1|mediefil|mediefiler}} som kan brukast fritt",
 	"mediasearch-quickview-button-text": "Fleire detaljar",
 	"mediasearch-user-notice-title": "Ser du etter [[Special:Search]]?",
-	"mediasearch-user-notice-body": "Du kan no endra [[Special:Preferences#mw-prefsection-searchoptions|innstillingane]] dine for å velja søkjeopplevinga du likar best."
+	"mediasearch-user-notice-body": "Du kan no endra [[Special:Preferences#mw-prefsection-searchoptions|innstillingane]] dine for å velja søkjeopplevinga du likar best.",
+	"mediasearch-filter-assessment-featured-image": "Utvalt bilete",
+	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilete"
 }
