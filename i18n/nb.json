@@ -7,6 +7,7 @@
 			"Nettrom"
 		]
 	},
+	"mediasearch-desc": "Mediefokusert måte å vise søkeresultater på via [[Special:MediaSearch|mediesøksiden]].",
 	"mediasearch-title": "Mediesøk",
 	"mediasearch-continue": "Neste",
 	"mediasearch-tab-image": "Bilder",
@@ -15,11 +16,13 @@
 	"mediasearch-tab-page": "Kategorier og sider",
 	"mediasearch-tab-other": "Andre medier",
 	"mediasearch-filter-size": "Bildestørrelse",
+	"mediasearch-filter-size-unset": "Alle",
 	"mediasearch-filter-size-any": "Alle bildestørrelser",
 	"mediasearch-filter-size-small": "Liten",
 	"mediasearch-filter-size-medium": "Medium",
 	"mediasearch-filter-size-large": "Stor",
-	"mediasearch-filter-file-type-any": "Alle filtyper",
+	"mediasearch-filter-file-type-any": "Filtype",
+	"mediasearch-filter-file-type-unset": "Alle",
 	"mediasearch-filter-sort-label": "Sorter etter:",
 	"mediasearch-filter-sort-default": "Relevans",
 	"mediasearch-filter-sort-recency": "Nylighet",
@@ -63,5 +66,17 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|ord}})",
 	"mediasearch-did-you-mean": "Mente du: $1",
 	"mediasearch-error-message": "Ugyldig søk",
-	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen"
+	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen",
+	"mediasearch-preference": "Velg søkegrensesnitt",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
+	"mediasearch-preference-help": "Det er flere tilgjengelige grensesnitt for å vise søkeresultater. Velg hvilken du foretrekker.",
+	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bilde",
+	"mediasearch-filter-assessment-picture-of-the-year": "Årets bilde",
+	"mediasearch-filter-assessment-featured-image": "Utvalgt bilde",
+	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilde",
+	"mediasearch-filter-assessment-unset": "Alle",
+	"mediasearch-filter-file-type": "Filtype",
+	"mediasearch-filter-license": "Lisens",
+	"mediasearch-filter-license-unset": "Alle"
 }
