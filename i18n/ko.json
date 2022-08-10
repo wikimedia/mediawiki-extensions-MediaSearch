@@ -69,6 +69,8 @@
 	"mediasearch-did-you-mean": "이것을 찾으셨나요: $1",
 	"mediasearch-error-message": "잘못된 검색",
 	"mediasearch-error-text": "위에 새 검색을 입력하고 다시 시도하십시오",
+	"mediasearch-preference": "검색 인터페이스 선택",
+	"mediasearch-preference-help": "검색 결과를 표시하는 여러 인터페이스가 있습니다. 당신이 선호하는 것을 선택하십시오.",
 	"mediasearch-filter-assessment-picture-of-the-day": "오늘의 사진",
 	"mediasearch-filter-assessment-picture-of-the-year": "올해의 사진",
 	"mediasearch-filter-assessment-featured-image": "알찬 사진",
