@@ -24,6 +24,7 @@
 	"mediasearch-filter-license-unrestricted": "Brez omejitev",
 	"mediasearch-filter-license-other": "Drugo",
 	"mediasearch-filter-namespace-all": "Vsi",
+	"mediasearch-filter-namespace-label": "Imenski prostor: $1",
 	"mediasearch-no-results": "Našli nismo nobenega zadetka",
 	"mediasearch-no-results-tips": "Poskusite z bolj splošnimi izrazi ali preverite črkovanje",
 	"mediasearch-end-of-results": "Ni drugih najdenih zadetkov",

@@ -7,6 +7,7 @@
 			"Nettrom"
 		]
 	},
+	"mediasearch-desc": "Mediefokusert måte å vise søkeresultater på via [[Special:MediaSearch|mediesøksiden]].",
 	"mediasearch-title": "Mediesøk",
 	"mediasearch-continue": "Neste",
 	"mediasearch-tab-image": "Bilder",
@@ -65,5 +66,9 @@
 	"mediasearch-error-message": "Ugyldig søk",
 	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen",
 	"mediasearch-specialsearch-default": "Vis søkeresultater i Special:Search-grensesnittet",
-	"mediasearch-specialsearch-default-help": "Velg for å vise søkeresultater fra hovedsøkefeltet i det eldre Special:Search-grensesnittet istedenfor Special:MediaSearch"
+	"mediasearch-specialsearch-default-help": "Velg for å vise søkeresultater fra hovedsøkefeltet i det eldre Special:Search-grensesnittet istedenfor Special:MediaSearch",
+	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bilde",
+	"mediasearch-filter-assessment-picture-of-the-year": "Årets bilde",
+	"mediasearch-filter-assessment-featured-image": "Utvalgt bilde",
+	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilde"
 }
