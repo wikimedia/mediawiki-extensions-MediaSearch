@@ -55,7 +55,7 @@
 	"mediasearch-copytextlayout-copy": "Copia",
 	"mediasearch-copytextlayout-copy-fail": "Copia in di apont fallada",
 	"mediasearch-copytextlayout-copy-success": "Copiad in di apont",
-	"mediasearch-clear-filters": "Scancela i filter",
+	"mediasearch-clear-filters": "Scancella i filter",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|risultad}}",
 	"mediasearch-wordcount": "$1 ({{PLURAL:$1|parolla|$1 parolle}})",
 	"mediasearch-did-you-mean": "Te vorevet dì: $1",
