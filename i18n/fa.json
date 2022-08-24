@@ -71,6 +71,8 @@
 	"mediasearch-did-you-mean": "منظورتان $1 بود؟",
 	"mediasearch-error-message": "جستجوی نامعتبر",
 	"mediasearch-error-text": "یک عبارت جستجوی تازه در بالا وارد کنید و دوباره تلاش کنید",
+	"mediasearch-preference": "رابط جستجو خود را انتخاب کنید",
+	"mediasearch-preference-specialsearch-label": "ویژه:جستجو",
 	"mediasearch-filter-assessment-any-assessment": "هرگونه ارزیابی",
 	"mediasearch-filter-assessment-picture-of-the-day": "نگارهٔ روز",
 	"mediasearch-filter-assessment-picture-of-the-year": "نگارهٔ سال",
