@@ -1,16 +1,14 @@
 <template>
-	<transition name="sd-tab-fade-in">
-		<div
-			v-show="isActive"
-			:id="id"
-			:aria-hidden="!isActive || null"
-			:aria-labeledby="id + '-label'"
-			class="sd-tab"
-			role="tabpanel"
-		>
-			<slot></slot>
-		</div>
-	</transition>
+	<div
+		v-show="isActive"
+		:id="id"
+		:aria-hidden="!isActive || null"
+		:aria-labeledby="id + '-label'"
+		class="sd-tab"
+		role="tabpanel"
+	>
+		<slot></slot>
+	</div>
 </template>
 
 <script>

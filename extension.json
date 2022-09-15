@@ -72,7 +72,6 @@
 				"resources/components/base/Radio.less",
 				"resources/components/base/Select.less",
 				"resources/components/base/SelectMenu.less",
-				"resources/components/base/Tab.less",
 				"resources/components/base/Tabs.less",
 				"resources/components/base/Image.less",
 				"resources/components/base/mixins/BinaryInput.less",
