@@ -62,7 +62,7 @@
 	"mediasearch-quickview-close-button-text": "Dosya ayrıntıları kapat",
 	"mediasearch-quickview-previous-button-text": "Önceki sonucu görüntüle",
 	"mediasearch-quickview-next-button-text": "Sonraki sonucu görüntüle",
-	"mediasearch-user-notice-title": "[[Special:Search]] için mi arıyorsunuz?",
+	"mediasearch-user-notice-title": "[[Special:Search]] sayfasını mı arıyorsunuz?",
 	"mediasearch-user-notice-body": "Tercih ettiğiniz arama deneyimi için [[Special:Preferences#mw-prefsection-searchoptions|tercihlerinizi]] ayarlayabilirsiniz.",
 	"mediasearch-user-notice-dismiss": "Bu bildirimi kapat",
 	"mediasearch-switch-special-search": "Special:Search ile değiştir",
