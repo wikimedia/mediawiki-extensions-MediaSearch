@@ -3,9 +3,6 @@
 namespace MediaWiki\Extension\MediaSearch\Maintenance;
 
 use Maintenance;
-use MediaWiki\MediaWikiServices;
-use Wikimedia\Rdbms\DBConnRef;
-use Wikimedia\Rdbms\LBFactory;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -14,43 +11,25 @@ if ( $IP === false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 /**
- * Users used to indicate that they want to use Special:Search instead of MediaSearch using the
- * preference sdms-specialsearch-default. There is now a new preference in core called
- * search-special-page, this script is to migrate the old to the new
+ * Migrate users from sdms-specialsearch-default to the core search-special-page preference.
+ *
+ * Users used to indicate their preference for Special:Search instead of Special:MediaSearch
+ * via the extension-owned `sdms-specialsearch-default` preference. There is now a core
+ * preference for this, called `search-special-page`.
  */
 class MigrateSearchPagePrefs extends Maintenance {
 
-	/** @var DBConnRef */
-	private $dbw;
-
-	/** @var DBConnRef */
-	private $dbr;
-
-	/** @var LBFactory */
-	private $loadBalancerFactory;
-
 	public function __construct() {
 		parent::__construct();
+		$this->addDescription( 'Migrate users from sdms-specialsearch-default to the core '
+			. 'search-special-page preference' );
+
 		$this->requireExtension( 'MediaSearch' );
-
-		$this->addDescription( 'Migrates the sdms-specialsearch-default preferenc to '
-			. 'search-special-page ' );
-	}
-
-	public function init() {
-		$services = MediaWikiServices::getInstance();
-		$this->loadBalancerFactory = $services->getDBLoadBalancerFactory();
-
-		$loadBalancer = $this->loadBalancerFactory->getMainLB();
-
-		$this->dbw = $loadBalancer->getConnectionRef( DB_PRIMARY );
-		$this->dbr = $loadBalancer->getConnectionRef( DB_REPLICA );
 	}
 
 	public function execute() {
-		$this->init();
-
-		$userIds = $this->dbr->selectFieldValues(
+		$dbr = $this->getDB( DB_REPLICA );
+		$userIds = $dbr->selectFieldValues(
 			'user_properties',
 			'up_user',
 			[
@@ -63,8 +42,9 @@ class MigrateSearchPagePrefs extends Maintenance {
 			return;
 		}
 
-		$this->beginTransaction( $this->dbw, __METHOD__ );
-		$this->dbw->insert(
+		$dbw = $this->getDB( DB_PRIMARY );
+		$this->beginTransaction( $dbw, __METHOD__ );
+		$dbw->insert(
 			'user_properties',
 			array_map( static function ( $userId ) {
 				return [
@@ -75,7 +55,7 @@ class MigrateSearchPagePrefs extends Maintenance {
 			}, $userIds ),
 			__METHOD__
 		);
-		$this->dbw->delete(
+		$dbw->delete(
 			'user_properties',
 			[
 				'up_user' => $userIds,
@@ -83,7 +63,7 @@ class MigrateSearchPagePrefs extends Maintenance {
 			],
 			__METHOD__
 		);
-		$this->commitTransaction( $this->dbw, __METHOD__ );
+		$this->commitTransaction( $dbw, __METHOD__ );
 	}
 }
 
