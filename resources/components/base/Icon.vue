@@ -19,13 +19,17 @@
 /**
  * SVG icon.
  *
- * This is a copy of the WVUI Icon component and can only be used if icon paths
- * are available in this codebase. To use a new icon, find the icon in
- * src/themes/icons.ts in the WVUI library, copy the icon data, and paste it
- * info lib/icons.js in this extension. Import the icon into the Vue component
- * where it is to be used, assign it to a variable in the component's data
- * option, then use v-bind to set the icon attribute of the <wvui-icon> element
- * to that name.
+ * This is a copy of the WVUI Icon component. Note that WVUI is deprecated and
+ * will be replaced by Codex. If this feature is migrated to Codex, the cdx-icon
+ * component[1] should replace this one, and works slightly differently (see
+ * docs on mw.org[2])
+ *
+ * This can only be used if icon paths are available in this codebase. To use a
+ * new icon, find the icon in src/themes/icons.ts[3] in the WVUI library, copy
+ * the icon data, and paste it info lib/icons.js in this extension. Import the
+ * icon into the Vue component where it is to be used, assign it to a variable
+ * in the component's data option, then use v-bind to set the icon attribute of
+ * the <wvui-icon> element to that name.
  *
  * Icon data can follow the following formats:
  * 1. For icons with a single path that don't flip for RTL languages:
@@ -56,6 +60,10 @@
  *        // Default SVG path.
  *        default: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z'
  *    }
+ *
+ * [1] https://doc.wikimedia.org/codex/main/components/demos/icon.html
+ * [2] https://www.mediawiki.org/wiki/Codex#Using_Codex_icons_in_MediaWiki_and_extensions
+ * [3] https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/refs/tags/v0.4.0/src/themes/icons.ts
  */
 // @vue/component
 module.exports = exports = {
