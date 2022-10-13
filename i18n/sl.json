@@ -31,7 +31,7 @@
 	"mediasearch-no-results": "Našli nismo nobenega zadetka",
 	"mediasearch-no-results-tips": "Poskusite z bolj splošnimi izrazi ali preverite črkovanje",
 	"mediasearch-end-of-results": "Ni drugih najdenih zadetkov",
-	"mediasearch-empty-state": "Iščite po več kot $1 {{PLURAL:$1|prosti datoteki za ponovno uporabo|prostih datotekah za ponovno uporabo}}",
+	"mediasearch-empty-state": "Iščite po več kot $1 {{PLURAL:$1|prosti predstavnostni datoteki za ponovno uporabo|prostih predstavnostnih datotekah za ponovno uporabo}}",
 	"mediasearch-input-label": "Išči vsebine",
 	"mediasearch-input-placeholder": "Išči slike, avdio, video in drugo",
 	"mediasearch-user-notice-title": "Iščete [[Special:Search|Posebno:Iskanje]]?",
