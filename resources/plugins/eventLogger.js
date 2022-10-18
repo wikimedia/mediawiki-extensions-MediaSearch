@@ -4,13 +4,13 @@
  */
 
 module.exports = {
-	install: function ( Vue, options ) {
+	install: function ( app, options ) {
 		var stream = options.stream,
 			schema = options.schema,
 			token = mw.user.getPageviewToken();
 
 		/* eslint-disable camelcase */
-		Vue.prototype.$log = function ( event ) {
+		app.config.globalProperties.$log = function ( event ) {
 			// if eventlogging is available, log this event (otherwise
 			// this becomes a no-op)
 			mw.loader.using( [ 'ext.eventLogging' ] ).then( function () {
