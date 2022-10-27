@@ -71,12 +71,16 @@
 	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
 	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Det er flere tilgjengelige grensesnitt for å vise søkeresultater. Velg hvilken du foretrekker.",
+	"mediasearch-filter-assessment-any-assessment": "Enhver vurdering",
 	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bilde",
 	"mediasearch-filter-assessment-picture-of-the-year": "Årets bilde",
 	"mediasearch-filter-assessment-featured-image": "Utvalgt bilde",
+	"mediasearch-filter-assessment-valued-image": "Verdifullt bilde",
 	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilde",
+	"mediasearch-filter-assessment-menu-label": "Fellesskapsvurderinger",
 	"mediasearch-filter-assessment-unset": "Alle",
 	"mediasearch-filter-file-type": "Filtype",
+	"mediasearch-filter-assessment": "Fellesskapsvurderinger",
 	"mediasearch-filter-license": "Lisens",
 	"mediasearch-filter-license-unset": "Alle"
 }
