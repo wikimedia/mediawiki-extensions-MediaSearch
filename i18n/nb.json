@@ -70,5 +70,7 @@
 	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bilde",
 	"mediasearch-filter-assessment-picture-of-the-year": "Årets bilde",
 	"mediasearch-filter-assessment-featured-image": "Utvalgt bilde",
-	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilde"
+	"mediasearch-filter-assessment-valued-image": "Verdifullt bilde",
+	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilde",
+	"mediasearch-filter-assessment-menu-label": "Fellesskapsvurderinger"
 }
