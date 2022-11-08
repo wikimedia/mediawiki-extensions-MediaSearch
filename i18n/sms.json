@@ -4,10 +4,21 @@
 			"Yupik"
 		]
 	},
+	"mediasearch-tab-image": "Kaart da snimldõõǥǥ",
+	"mediasearch-tab-audio": "Jiõnn",
 	"mediasearch-tab-video": "Video",
 	"mediasearch-tab-page": "Kategoria da seeid",
+	"mediasearch-filter-size": "Kaart leʹbe snimldõõǥǥ šorradvuõtt",
+	"mediasearch-filter-size-any": "Puk kaart leʹbe snimldõõǥǥ šorradvuõđ",
+	"mediasearch-filter-license-any": "Puk liseeʹns",
+	"mediasearch-filter-license-other": "Jeeʹres",
+	"mediasearch-filter-namespace-all": "Puk",
 	"mediasearch-filter-namespace-discussion": "Saǥstõõllmõš",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Vuõlttâd",
+	"mediasearch-no-results": "Ni mâiʹd ij käunnʼjam",
 	"mediasearch-copytextlayout-copy": "Kopiââʹst",
-	"mediasearch-wordcount": "($1 {{PLURAL:$1|sääʹnn|sääʹn|sääʹnned}})"
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|sääʹnn|sääʹn|sääʹnned}})",
+	"mediasearch-did-you-mean": "Juʹrddiǩ-a ton: $1",
+	"mediasearch-filter-assessment-picture-of-the-day": "Peeiʹv snimldõk",
+	"mediasearch-filter-assessment-picture-of-the-year": "Eeʹjj snimldõk"
 }
