@@ -12,7 +12,9 @@
 			"Shirayuki",
 			"Tamaki Wakita",
 			"Tmv",
-			"おはぐろ蜻蛉"
+			"おはぐろ蜻蛉",
+			"Kokage si",
+			"RYOUMA1117"
 		]
 	},
 	"mediasearch-title": "メディアを検索",
@@ -52,6 +54,8 @@
 	"mediasearch-load-more-results": "続きを表示",
 	"mediasearch-quickview-button-text": "詳細",
 	"mediasearch-quickview-close-button-text": "閉じる",
+	"mediasearch-user-notice-title": "[[Special:Search]]をお探しですか？",
+	"mediasearch-user-notice-body": "[[Special:Preferences#mw-prefsection-searchoptions|個人設定]]を調整して、お好きな検索エクスペリエンスを選択できるようになりました。",
 	"mediasearch-copytextlayout-copy": "コピー",
 	"mediasearch-copytextlayout-copy-fail": "クリップボードにコピーできませんでした。",
 	"mediasearch-copytextlayout-copy-success": "クリップボードにコピーされました。",
