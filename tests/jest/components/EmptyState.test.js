@@ -1,9 +1,7 @@
-const VueTestUtils = require( '@vue/test-utils' ),
-	when = require( 'jest-when' ).when,
-	i18n = require( '../plugins/i18n.js' );
+const { shallowMount } = require( '@vue/test-utils' ),
+	when = require( 'jest-when' ).when;
 
 let component = null;
-VueTestUtils.config.global.plugins = [ i18n ];
 
 const defineComponent = ( totalResult ) => {
 	jest.resetModules();
@@ -18,7 +16,7 @@ describe( 'EmptyState', () => {
 
 	it( 'Does not render the component if sdmsTotalSiteImages is 0', () => {
 		defineComponent( 0 );
-		const wrapper = VueTestUtils.shallowMount( component );
+		const wrapper = shallowMount( component );
 		const element = wrapper.find( '.sdms-empty-state' );
 		expect( element.exists() ).toBe( false );
 	} );
@@ -27,21 +25,21 @@ describe( 'EmptyState', () => {
 
 		it( 'render the component', () => {
 			defineComponent( 1 );
-			const wrapper = VueTestUtils.shallowMount( component );
+			const wrapper = shallowMount( component );
 			const element = wrapper.find( '.sdms-empty-state' );
 			expect( element.exists() ).toBe( true );
 		} );
 
 		it( 'render empty state icon', () => {
 			defineComponent( 1 );
-			const wrapper = VueTestUtils.shallowMount( component );
+			const wrapper = shallowMount( component );
 			const element = wrapper.find( '.sdms-empty-state__icon' );
 			expect( element.exists() ).toBe( true );
 		} );
 
 		it( 'render message paragraph', () => {
 			defineComponent( 1 );
-			const wrapper = VueTestUtils.shallowMount( component );
+			const wrapper = shallowMount( component );
 			const element = wrapper.find( '.sdms-empty-state p' );
 			expect( element.exists() ).toBe( true );
 		} );

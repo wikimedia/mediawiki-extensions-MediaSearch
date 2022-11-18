@@ -1,12 +1,11 @@
 const Vuex = require( 'vuex' ),
-	VueTestUtils = require( '@vue/test-utils' ),
+	{ shallowMount } = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/SearchResults.vue' ),
 	SearchErrorComponent = require( '../../../resources/components/SearchError.vue' ),
 	NoResultsComponent = require( '../../../resources/components/NoResults.vue' ),
 	EndOfResultsComponent = require( '../../../resources/components/EndOfResults.vue' ),
 	EmptyStateComponent = require( '../../../resources/components/EmptyState.vue' ),
-	ImageComponent = require( '../../../resources/components/results/ImageResult.vue' ),
-	i18n = require( '../plugins/i18n.js' );
+	ImageComponent = require( '../../../resources/components/results/ImageResult.vue' );
 require( '../mocks/EventListener.js' );
 
 const initialState = {
@@ -53,12 +52,12 @@ const initialState = {
 const defaultMediaType = 'image';
 const mockFocus = jest.fn();
 const renderComponent = ( store, mediaType ) => {
-	return VueTestUtils.shallowMount( Component, {
+	return shallowMount( Component, {
 		props: {
 			mediaType: mediaType || defaultMediaType
 		},
 		global: {
-			plugins: [ store, i18n ],
+			plugins: [ store ],
 			mocks: {
 				$log: jest.fn(),
 				focus: mockFocus
@@ -251,12 +250,12 @@ describe( 'SearchResults', () => {
 
 			it( 'when media type is not image', () => {
 
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						mediaType: 'video'
 					},
 					global: {
-						plugins: [ store, i18n ],
+						plugins: [ store ],
 						mocks: {
 							$log: jest.fn()
 						}

@@ -1,5 +1,4 @@
 const VueTestUtils = require( '@vue/test-utils' );
-const i18n = require( '../../plugins/i18n.js' );
 const OtherResult = require( '../../../../resources/components/results/OtherResult.vue' );
 const SdImage = require( '../../../../resources/components/base/Image.vue' );
 const when = require( 'jest-when' ).when;
@@ -18,8 +17,6 @@ const thumbLimits = [
 	375, 400, 440, 450,
 	500, 600, 800
 ];
-
-VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'OtherResult', () => {
 	beforeEach( () => {

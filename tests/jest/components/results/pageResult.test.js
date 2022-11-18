@@ -1,5 +1,4 @@
 const VueTestUtils = require( '@vue/test-utils' );
-const i18n = require( '../../plugins/i18n.js' );
 const PageResult = require( '../../../../resources/components/results/PageResult.vue' );
 const when = require( 'jest-when' ).when;
 
@@ -22,8 +21,6 @@ const thumbLimits = [
 	375, 400, 440, 450,
 	500, 600, 800
 ];
-
-VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'PageResult', () => {
 	beforeEach( () => {

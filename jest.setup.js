@@ -1,13 +1,29 @@
 const Vue = require( 'vue' );
 const $ = require( 'jquery' );
 
+const { config } = require( '@vue/test-utils' );
+
+// Mock Vue plugins in test suites
+config.global.mocks = {
+	$i18n: ( str ) => {
+		return {
+			text: () => str,
+			parse: () => str
+		};
+	}
+};
+
+config.global.directives = {
+	'i18n-html': ( el, binding ) => {
+		el.innerHTML = `${binding.arg} (${binding.value})`;
+	}
+};
+
 Vue.configureCompat( {
 	MODE: 3
 } );
 
 /* global jest:false */
-var mw;
-
 function Api() {}
 Api.prototype.get = jest.fn().mockReturnValue( $.Deferred().resolve().promise() );
 Api.prototype.post = jest.fn().mockResolvedValue( {} );
@@ -30,7 +46,7 @@ Title.newFromText = jest.fn().mockReturnValue( {
 	getNamespaceId: jest.fn().mockReturnValue( 0 )
 } );
 
-mw = {
+const mw = {
 	Api: Api,
 	config: {
 		get: jest.fn()
@@ -73,7 +89,7 @@ mw = {
 	user: {
 		options: {
 			get: jest.fn().mockReturnValue( 0 ),
-			set: jest.fn(),
+			set: jest.fn()
 		},
 		isAnon: jest.fn().mockReturnValue( false )
 	}

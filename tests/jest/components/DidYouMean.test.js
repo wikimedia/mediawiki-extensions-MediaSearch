@@ -1,9 +1,6 @@
 const Vuex = require( 'vuex' ),
-	VueTestUtils = require( '@vue/test-utils' ),
-	i18n = require( '../plugins/i18n.js' ),
+	{ mount, shallowMount } = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/DidYouMean.vue' );
-
-VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'DidYoumean', () => {
 	let store,
@@ -38,7 +35,7 @@ describe( 'DidYoumean', () => {
 	} );
 
 	it( 'Does not render DidYouMean component if state if empty', () => {
-		const wrapper = VueTestUtils.shallowMount( Component, {
+		const wrapper = shallowMount( Component, {
 			global: {
 				plugins: [ store ]
 			}
@@ -51,7 +48,7 @@ describe( 'DidYoumean', () => {
 	describe( 'When DidYouMean is present in the store', () => {
 		it( 'Renders DidYouMean component', () => {
 			store.replaceState( { didYouMean: 'test' } );
-			const wrapper = VueTestUtils.mount( Component, {
+			const wrapper = mount( Component, {
 				global: {
 					plugins: [ store ]
 				}
@@ -63,7 +60,7 @@ describe( 'DidYoumean', () => {
 
 		it( 'Creates an anchor tag', () => {
 			store.replaceState( { didYouMean: 'test' } );
-			const wrapper = VueTestUtils.mount( Component, {
+			const wrapper = mount( Component, {
 				global: {
 					plugins: [ store ]
 				}

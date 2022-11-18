@@ -15,5 +15,13 @@
 		"compat/compat": "warn",
 		"vue/no-undef-properties": "off",
 		"vue/no-unused-refs": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": [ "jest.setup.js" ],
+			"extends": [
+				"wikimedia/language/es6"
+			]
+		}
+	]
 }

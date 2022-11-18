@@ -1,11 +1,8 @@
-const VueTestUtils = require( '@vue/test-utils' ),
-	i18n = require( '../plugins/i18n.js' ),
+const { shallowMount } = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/EndOfResults.vue' );
 
-VueTestUtils.config.global.plugins = [ i18n ];
-
 describe( 'EndOfResults', () => {
-	const wrapper = VueTestUtils.shallowMount( Component );
+	const wrapper = shallowMount( Component );
 
 	it( 'render the component', () => {
 		const element = wrapper.find( '.sdms-end-of-results' );

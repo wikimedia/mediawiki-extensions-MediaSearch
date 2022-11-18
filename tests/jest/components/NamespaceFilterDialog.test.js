@@ -1,14 +1,11 @@
-const VueTestUtils = require( '@vue/test-utils' ),
-	i18n = require( '../plugins/i18n.js' ),
+const { mount, shallowMount } = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/NamespaceFilterDialog.vue' ),
 	Radio = require( '../../../resources/components/base/Radio.vue' ),
 	Checkbox = require( '../../../resources/components/base/Checkbox.vue' );
 
-VueTestUtils.config.global.plugins = [ i18n ];
-
 describe( 'EndOfResults', () => {
 	it( 'render the component', () => {
-		const wrapper = VueTestUtils.shallowMount( Component, {
+		const wrapper = shallowMount( Component, {
 			props: {
 				items: [],
 				namespaces: {},
@@ -23,7 +20,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'when items are set', () => {
 		it( 'render an sd-radio', () => {
-			const wrapper = VueTestUtils.mount( Component, {
+			const wrapper = mount( Component, {
 				props: {
 					active: true,
 					items: [ { value: 'test' } ],
@@ -39,7 +36,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'when formattedNamespaces are set', () => {
 		it( 'render an sd-checkbox', () => {
-			const wrapper = VueTestUtils.mount( Component, {
+			const wrapper = mount( Component, {
 				props: {
 					active: true,
 					items: [],
@@ -55,7 +52,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'initialRadio', () => {
 		it( 'returns initial value if valid', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -67,7 +64,7 @@ describe( 'EndOfResults', () => {
 			expect( wrapper.vm.initialRadio ).toBe( 'test' );
 		} );
 		it( 'returns custom if no initial value is provided', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -82,7 +79,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'initialCustom', () => {
 		it( 'returns initialValue if is a custom value (number)', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -94,7 +91,7 @@ describe( 'EndOfResults', () => {
 			expect( wrapper.vm.initialCustom ).toContain( '10' );
 		} );
 		it( 'returns array with formatted InitialValue', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -111,7 +108,7 @@ describe( 'EndOfResults', () => {
 	} );
 	describe( 'formattedNamespaces', () => {
 		it( 'generates label and value for namespaces', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {
@@ -129,7 +126,7 @@ describe( 'EndOfResults', () => {
 		} );
 		it( 'default the label for a namespace with a value of 0 (blanknamespace)', () => {
 			global.mw.msg.mockReturnValueOnce( 'blanknamespace' );
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {
@@ -149,7 +146,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'isCustom', () => {
 		it( 'return true if selectedRadio is equal to "custom" ', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -164,7 +161,7 @@ describe( 'EndOfResults', () => {
 
 	describe( 'disableDialogAction', () => {
 		it( 'return false if not custom" ', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -176,7 +173,7 @@ describe( 'EndOfResults', () => {
 			expect( wrapper.vm.disableDialogAction ).toBe( false );
 		} );
 		it( 'return false if custom and with selected values" ', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -188,7 +185,7 @@ describe( 'EndOfResults', () => {
 			expect( wrapper.vm.disableDialogAction ).toBe( false );
 		} );
 		it( 'return true if custom but without selected custom" ', () => {
-			const wrapper = VueTestUtils.shallowMount( Component, {
+			const wrapper = shallowMount( Component, {
 				props: {
 					items: [],
 					namespaces: {},
@@ -204,7 +201,7 @@ describe( 'EndOfResults', () => {
 	describe( 'methods', () => {
 		describe( 'cancel', () => {
 			it( 'emit a "close" event', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -218,7 +215,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.emitted().close ).toBeTruthy();
 			} );
 			it( 'reset selectedRadio to initialRadio', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -232,7 +229,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.vm.selectedRadio ).toBe( initialRadio );
 			} );
 			it( 'reset selectedRadio to initialRadio', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -248,7 +245,7 @@ describe( 'EndOfResults', () => {
 		} );
 		describe( 'onProgress', () => {
 			it( 'emit a "close" event', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -262,7 +259,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.emitted().close ).toBeTruthy();
 			} );
 			it( 'emit a "submit" event', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -276,7 +273,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.emitted().submit ).toBeTruthy();
 			} );
 			it( 'emit a "submit" event with selectedRadio if namespace is not custom', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -291,7 +288,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.emitted().submit[ 0 ] ).toEqual( [ 'notCustom' ] );
 			} );
 			it( 'emit a "submit" event with selectedCustom if namespace is custom', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -309,7 +306,7 @@ describe( 'EndOfResults', () => {
 		describe( 'select', () => {
 			describe( 'when value provided is part of namespaceGroups', () => {
 				it( 'set seletedRadio as the value provided', () => {
-					const wrapper = VueTestUtils.shallowMount( Component, {
+					const wrapper = shallowMount( Component, {
 						props: {
 							items: [],
 							namespaces: {},
@@ -323,7 +320,7 @@ describe( 'EndOfResults', () => {
 					expect( wrapper.vm.selectedRadio ).toEqual( 'test' );
 				} );
 				it( 'set reset selectedCustom to initialCustom', () => {
-					const wrapper = VueTestUtils.shallowMount( Component, {
+					const wrapper = shallowMount( Component, {
 						props: {
 							items: [],
 							namespaces: {},
@@ -339,7 +336,7 @@ describe( 'EndOfResults', () => {
 			} );
 			describe( 'when value provided is not part of namespaceGroups', () => {
 				it( 'set seletedRadio as "custom"', () => {
-					const wrapper = VueTestUtils.shallowMount( Component, {
+					const wrapper = shallowMount( Component, {
 						props: {
 							items: [],
 							namespaces: {},
@@ -353,7 +350,7 @@ describe( 'EndOfResults', () => {
 					expect( wrapper.vm.selectedRadio ).toEqual( 'custom' );
 				} );
 				it( 'set reset selectedCustom to the formatted value provided', () => {
-					const wrapper = VueTestUtils.shallowMount( Component, {
+					const wrapper = shallowMount( Component, {
 						props: {
 							items: [],
 							namespaces: {},
@@ -373,7 +370,7 @@ describe( 'EndOfResults', () => {
 
 		describe( 'reset', () => {
 			it( 'reset the value of selectedRadio to initialRadio', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},
@@ -387,7 +384,7 @@ describe( 'EndOfResults', () => {
 				expect( wrapper.vm.selectedRadio ).toBe( wrapper.vm.initialRadio );
 			} );
 			it( 'reset the value of selectedCustom to initialCustom', () => {
-				const wrapper = VueTestUtils.shallowMount( Component, {
+				const wrapper = shallowMount( Component, {
 					props: {
 						items: [],
 						namespaces: {},

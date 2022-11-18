@@ -1,8 +1,7 @@
 const Vuex = require( 'vuex' ),
-	VueTestUtils = require( '@vue/test-utils' ),
+	{ mount } = require( '@vue/test-utils' ),
 	Vue = require( 'vue' ),
 	when = require( 'jest-when' ).when,
-	i18n = require( '../plugins/i18n.js' ),
 	UserNotice = require( '../../../resources/components/UserNotice.vue' ),
 	SdAutocompleteSearchInput = require( '../../../resources/components/base/AutocompleteSearchInput.vue' ),
 	SdTab = require( '../../../resources/components/base/Tab.vue' ),
@@ -40,9 +39,9 @@ const initialState = {
 const App = require( '../../../resources/components/App.vue' );
 
 const renderComponent = ( store ) => {
-	return VueTestUtils.mount( App, {
+	return mount( App, {
 		global: {
-			plugins: [ store, i18n ],
+			plugins: [ store ],
 			stubs: {
 				'sd-tabs': {
 					template: '<div><slot></slot></div>'

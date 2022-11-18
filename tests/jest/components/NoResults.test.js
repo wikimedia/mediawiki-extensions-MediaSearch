@@ -1,8 +1,5 @@
 const VueTestUtils = require( '@vue/test-utils' ),
-	i18n = require( '../plugins/i18n.js' ),
 	Component = require( '../../../resources/components/NoResults.vue' );
-
-VueTestUtils.config.global.plugins = [ i18n ];
 
 describe( 'NoResults', () => {
 	const wrapper = VueTestUtils.shallowMount( Component );
