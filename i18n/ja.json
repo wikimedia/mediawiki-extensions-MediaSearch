@@ -13,7 +13,8 @@
 			"Shirayuki",
 			"Tamaki Wakita",
 			"Tmv",
-			"おはぐろ蜻蛉"
+			"おはぐろ蜻蛉",
+			"Kokage si"
 		]
 	},
 	"mediasearch-title": "メディアを検索",
@@ -53,12 +54,17 @@
 	"mediasearch-load-more-results": "続きを表示",
 	"mediasearch-quickview-button-text": "詳細",
 	"mediasearch-quickview-close-button-text": "閉じる",
+	"mediasearch-user-notice-title": "[[Special:Search]]をお探しですか？",
+	"mediasearch-user-notice-body": "[[Special:Preferences#mw-prefsection-searchoptions|個人設定]]を調整して、お好きな検索エクスペリエンスを選択できるようになりました。",
+	"mediasearch-switch-special-search": "Special:Search に切り替える",
 	"mediasearch-copytextlayout-copy": "コピー",
 	"mediasearch-copytextlayout-copy-fail": "クリップボードにコピーできませんでした。",
 	"mediasearch-copytextlayout-copy-success": "クリップボードにコピーされました。",
 	"mediasearch-clear-filters": "フィルターをクリア",
 	"mediasearch-did-you-mean": "もしかして: $1",
 	"mediasearch-error-message": "不正な検索",
+	"mediasearch-preference": "検索インターフェースを選択",
+	"mediasearch-preference-help": "検索結果の表示に利用可能なインターフェースが複数あります。お好きなものを選択してください。",
 	"mediasearch-filter-assessment-picture-of-the-day": "今日の一枚",
 	"mediasearch-filter-assessment-picture-of-the-year": "今年の一枚",
 	"mediasearch-filter-assessment-featured-image": "注目の写真",
