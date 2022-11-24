@@ -56,6 +56,7 @@
 	"mediasearch-quickview-close-button-text": "閉じる",
 	"mediasearch-user-notice-title": "[[Special:Search]]をお探しですか？",
 	"mediasearch-user-notice-body": "[[Special:Preferences#mw-prefsection-searchoptions|個人設定]]を調整して、お好きな検索エクスペリエンスを選択できるようになりました。",
+	"mediasearch-switch-special-search": "Special:Search に切り替える",
 	"mediasearch-copytextlayout-copy": "コピー",
 	"mediasearch-copytextlayout-copy-fail": "クリップボードにコピーできませんでした。",
 	"mediasearch-copytextlayout-copy-success": "クリップボードにコピーされました。",
