@@ -58,7 +58,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// verify that there are no image sizes for page
 		$sizes = $options->getImageSizes( SearchOptions::TYPE_PAGE );
-		$this->assertEmpty( $sizes );
+		$this->assertSame( [], $sizes );
 	}
 
 	public function testGetImageSizesForInvalidTypesThrows() {
@@ -108,7 +108,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// verify that there are no mime types for page
 		$mimes = $options->getMimeTypes( SearchOptions::TYPE_PAGE );
-		$this->assertEmpty( $mimes );
+		$this->assertSame( [], $mimes );
 	}
 
 	public function testGetMimeTypesForInvalidTypesThrows() {
@@ -215,7 +215,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// verify that there are no licenses for page
 		$licenses = $options->getLicenseGroups( SearchOptions::TYPE_PAGE );
-		$this->assertEmpty( $licenses );
+		$this->assertSame( [], $licenses );
 	}
 
 	public function testGetLicenseGroupsForInvalidTypesThrows() {
@@ -255,7 +255,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// verify that there are no namespaces for image
 		$namespaceData = $options->getNamespaces( SearchOptions::TYPE_IMAGE );
-		$this->assertEmpty( $namespaceData );
+		$this->assertSame( [], $namespaceData );
 	}
 
 	public function testGetNamespacesForPage() {
@@ -338,6 +338,6 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that there are not assessment filter options for page
 		$assessmentOptions = $options->getAssessments( SearchOptions::TYPE_PAGE );
-		$this->assertEmpty( $assessmentOptions );
+		$this->assertSame( [], $assessmentOptions );
 	}
 }
