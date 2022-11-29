@@ -8,7 +8,6 @@
 		$container = $( '<div>' ).attr( 'id', 'sdms-app' ),
 		$vue = $( '<div>' ).appendTo( $container );
 
-	/* eslint-disable no-jquery/no-global-selector */
 	$( '#mw-content-text' ).append( $container.hide() );
 
 	var vueApp = Vue.createMwApp( App )

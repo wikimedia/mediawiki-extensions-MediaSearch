@@ -23,9 +23,9 @@
 </template>
 
 <script>
-var Button = require( './base/Button.vue' ),
-	closeIcon = require( '../../lib/icons.js' ).sdIconClose,
-	Message = require( './base/Message.vue' );
+const Button = require( './base/Button.vue' );
+const closeIcon = require( '../../lib/icons.js' ).sdIconClose;
+const Message = require( './base/Message.vue' );
 
 // @vue/component
 module.exports = exports = {
@@ -46,7 +46,7 @@ module.exports = exports = {
 
 	computed: {
 		previouslyDismissed: function () {
-			var numVal = Number( mw.user.options.get( this.prefKey ) );
+			const numVal = Number( mw.user.options.get( this.prefKey ) );
 			return Boolean( numVal );
 		},
 

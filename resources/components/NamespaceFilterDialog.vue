@@ -37,9 +37,9 @@
 </template>
 
 <script>
-var sdDialog = require( './base/Dialog.vue' ),
-	sdRadio = require( './base/Radio.vue' ),
-	sdCheckbox = require( './base/Checkbox.vue' );
+const sdDialog = require( './base/Dialog.vue' );
+const sdRadio = require( './base/Radio.vue' );
+const sdCheckbox = require( './base/Checkbox.vue' );
 
 /**
  * @file NamespaceFilterDialog.vue
@@ -193,7 +193,7 @@ module.exports = exports = {
 		 * namespace IDs.
 		 */
 		onProgress: function () {
-			var value = this.isCustom ? this.selectedCustom.join( '|' ) : this.selectedRadio;
+			const value = this.isCustom ? this.selectedCustom.join( '|' ) : this.selectedRadio;
 			this.$emit( 'submit', value );
 			this.$emit( 'close' );
 		},

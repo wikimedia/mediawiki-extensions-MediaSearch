@@ -101,7 +101,7 @@ describe( 'Observer', () => {
 			expect( window.IntersectionObserver ).toHaveBeenCalled();
 		} );
 
-		it( 'define the observerElement', done => {
+		it( 'define the observerElement', ( done ) => {
 			const Component = {
 				render() {},
 				mixins: [ observerInstance ]
@@ -118,7 +118,7 @@ describe( 'Observer', () => {
 			} );
 		} );
 
-		it( 'triggers the observation with the defined element', done => {
+		it( 'triggers the observation with the defined element', ( done ) => {
 			const Component = {
 				render() {},
 				mixins: [ observerInstance ]
@@ -137,7 +137,7 @@ describe( 'Observer', () => {
 			} );
 		} );
 
-		it( 'trigger the observer.disconnect method when destroyed', done => {
+		it( 'trigger the observer.disconnect method when destroyed', ( done ) => {
 			const Component = {
 				render() {},
 				mixins: [ observerInstance ]

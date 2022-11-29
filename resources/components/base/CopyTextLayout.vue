@@ -15,7 +15,7 @@
 </template>
 
 <script>
-var SdButton = require( './Button.vue' );
+const SdButton = require( './Button.vue' );
 
 /**
  * Text with a button that copies the text to the user's clipboard.

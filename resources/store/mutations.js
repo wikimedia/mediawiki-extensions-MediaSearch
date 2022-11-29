@@ -1,5 +1,5 @@
-var AUTOLOAD_COUNT = 2,
-	STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY;
+const AUTOLOAD_COUNT = 2;
+const STORAGE_KEY = require( '../constants.js' ).STORAGE_KEY;
 
 module.exports = {
 

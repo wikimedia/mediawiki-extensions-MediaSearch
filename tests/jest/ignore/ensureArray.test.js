@@ -24,6 +24,7 @@ describe( 'ensureArray helper function', () => {
 		// but it's fine in tests
 		/* eslint-disable es-x/no-object-values, compat/compat */
 		expect( ensureArray( dict ) ).toEqual( Object.values( dict ) );
+		// eslint-disable-next-line compat/compat, es-x/no-object-values
 		expect( ensureArray( searchResultData ) ).toEqual( Object.values( searchResultData ) );
 		/* eslint-enable es-x/no-object-values, compat/compat */
 	} );

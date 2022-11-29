@@ -66,8 +66,8 @@
 </template>
 
 <script>
-var SdButton = require( './Button.vue' ),
-	closeIcon = require( '../../../lib/icons.js' ).sdIconClose;
+const SdButton = require( './Button.vue' );
+const closeIcon = require( '../../../lib/icons.js' ).sdIconClose;
 
 /**
  * Dialog component.

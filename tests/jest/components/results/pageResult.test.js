@@ -10,7 +10,7 @@ const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * samp
 const sampleResult = sampleResults[ randomlyChosenResultID ];
 
 // We create a list of ID that have the cateory info. this is used in some of the conditional render ofthe component
-const sampleResultWithCategoryInfoIDs = sampleResultIDs.filter( id => sampleResults[ id ].categoryinfo && Object.keys( sampleResults[ id ].categoryinfo ).length > 0 );
+const sampleResultWithCategoryInfoIDs = sampleResultIDs.filter( ( id ) => sampleResults[ id ].categoryinfo && Object.keys( sampleResults[ id ].categoryinfo ).length > 0 );
 const randomlyChosenResultIDWithCategoryInfo = sampleResultWithCategoryInfoIDs[ Math.floor( Math.random() * sampleResultWithCategoryInfoIDs.length ) ];
 const sampleResultWithCategoryInfo = sampleResults[ randomlyChosenResultIDWithCategoryInfo ];
 

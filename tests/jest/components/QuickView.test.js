@@ -82,7 +82,7 @@ describe( 'QuickView', () => {
 			expect( prev.exists() ).toBe( true );
 		} );
 
-		it( 'emits a "close" event when the close button is clicked', done => {
+		it( 'emits a "close" event when the close button is clicked', ( done ) => {
 			const wrapper = shallowMount( QuickView, {
 				props: {
 					title: imageSampleResult.title,
@@ -102,7 +102,7 @@ describe( 'QuickView', () => {
 			} );
 		} );
 
-		it( 'emits a "next" event when the next button is clicked', done => {
+		it( 'emits a "next" event when the next button is clicked', ( done ) => {
 			const wrapper = shallowMount( QuickView, {
 				props: {
 					title: imageSampleResult.title,
@@ -122,7 +122,7 @@ describe( 'QuickView', () => {
 			} );
 		} );
 
-		it( 'emits a "previous" event when the previous button is clicked', done => {
+		it( 'emits a "previous" event when the previous button is clicked', ( done ) => {
 			const wrapper = shallowMount( QuickView, {
 				props: {
 					title: imageSampleResult.title,

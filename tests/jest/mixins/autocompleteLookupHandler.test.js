@@ -407,7 +407,7 @@ describe( 'AutocompleteLookupHandler', () => {
 				mixins: [ mixinsInstance ]
 			};
 
-			let mockJqueryDeferred = jest.fn().mockReturnValue( '' );
+			const mockJqueryDeferred = jest.fn().mockReturnValue( '' );
 			$.Deferred = jest.fn().mockReturnValue( {
 				resolve: jest.fn().mockReturnValue( {
 					promise: mockJqueryDeferred

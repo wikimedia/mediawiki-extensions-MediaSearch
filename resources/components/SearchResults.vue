@@ -8,7 +8,8 @@
 			>
 				<!-- Appending 'parent-' to class and style so we can access
 				them in the component and prevent vue from throwing a warning,
-				when migration to vue 3 is completed we can safely remove 'parent-' from this file and all the -results.vue files -->
+				when migration to vue 3 is completed we can safely remove
+				'parent-' from this file and all the -results.vue files -->
 				<component
 					:is="resultComponent"
 					v-for="( result, index ) in results[ mediaType ]"

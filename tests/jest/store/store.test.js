@@ -7,16 +7,15 @@
 
 'use strict';
 
-var when = require( 'jest-when' ).when;
+const when = require( 'jest-when' ).when;
+const activeType = 'audio';
+const ensureArrayMock = jest.fn();
+let state;
 
-let state,
-	activeType = 'audio',
-	ensureArrayMock = jest.fn();
-
-const initializeMocks = ( options => {
+const initializeMocks = ( ( options ) => {
 	// we set the return of ensureArray to the result if available
 	ensureArrayMock.mockReturnValue( options.sdmsInitialSearchResults.results || [] );
-	for ( let key in options ) {
+	for ( const key in options ) {
 		when( global.mw.config.get ).calledWith( key ).mockReturnValue( options[ key ] );
 	}
 	jest.mock( '../../../resources/ensureArray.js', () => ensureArrayMock );

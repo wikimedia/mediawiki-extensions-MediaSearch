@@ -1,6 +1,6 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const RestoreHistoryHandler = require( '../../../resources/mixins/restoreHistoryHandler.js' );
-const Performance = require( '../mocks/Performance.js' );
+const PerformanceMock = require( '../mocks/Performance.js' );
 require( '../mocks/EventListener.js' );
 
 describe( 'RestoreHistoryHandler', () => {
@@ -11,7 +11,7 @@ describe( 'RestoreHistoryHandler', () => {
 	} );
 
 	afterEach( () => {
-		Performance.restorePerformance();
+		PerformanceMock.restorePerformance();
 		mixinsInstance.methods.replaceQueryToHistoryState = null;
 	} );
 
@@ -25,7 +25,7 @@ describe( 'RestoreHistoryHandler', () => {
 				mixins: [ mixinsInstance ]
 			};
 
-			Performance.mockPerformanceNavigation();
+			PerformanceMock.mockPerformanceNavigation();
 
 			VueTestUtils.shallowMount( Component );
 
@@ -36,7 +36,7 @@ describe( 'RestoreHistoryHandler', () => {
 
 			mixinsInstance.methods.clearStoredPageState = jest.fn();
 			mixinsInstance.methods.restorePageState = jest.fn();
-			Performance.mockPerformanceNavigation();
+			PerformanceMock.mockPerformanceNavigation();
 
 			const Component = {
 				render() {},
@@ -53,7 +53,7 @@ describe( 'RestoreHistoryHandler', () => {
 		it( 'does not restore data if it does not have stashed data', () => {
 
 			mixinsInstance.methods.clearStoredPageState = jest.fn();
-			Performance.mockPerformanceNavigation( 'back_forward' );
+			PerformanceMock.mockPerformanceNavigation( 'back_forward' );
 			mw.storage.getObject.mockReturnValueOnce( false );
 
 			const Component = {
@@ -72,7 +72,7 @@ describe( 'RestoreHistoryHandler', () => {
 
 				mixinsInstance.methods.clearStoredPageState = jest.fn();
 				mw.storage.getObject.mockReturnValueOnce( { dummy: 'fake result' } );
-				Performance.mockPerformanceNavigation( 'back_forward' );
+				PerformanceMock.mockPerformanceNavigation( 'back_forward' );
 
 				const Component = {
 					render() {},
@@ -91,7 +91,7 @@ describe( 'RestoreHistoryHandler', () => {
 
 				mixinsInstance.methods.clearStoredPageState = jest.fn();
 				mw.storage.getObject.mockReturnValueOnce( { dummy: 'fake result' } );
-				Performance.mockDeprecatedPerformanceNavigation( 2 );
+				PerformanceMock.mockDeprecatedPerformanceNavigation( 2 );
 
 				const Component = {
 					render() {},

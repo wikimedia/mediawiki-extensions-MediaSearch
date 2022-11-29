@@ -1,11 +1,11 @@
 'use strict';
 
-var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
-	externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' ),
-	LIMIT = 40,
-	activeSearchRequest = null,
-	mwUri = new mw.Uri(),
-	searchOptions = require( '../data/searchOptions.json' );
+const getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' );
+const externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' );
+const LIMIT = 40;
+const mwUri = new mw.Uri();
+const searchOptions = require( '../data/searchOptions.json' );
+let activeSearchRequest = null;
 
 /**
  * Generate additional (non-term) search keywords for filters.
@@ -14,8 +14,8 @@ var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
  * @param {Object} filterValues Filter values for this media type
  * @return {string}
  */
-function getMediaFilters( mediaType, filterValues ) {
-	var raw;
+const getMediaFilters = function ( mediaType, filterValues ) {
+	let raw;
 
 	// Start with a filter based on media type(s).
 	switch ( mediaType ) {
@@ -52,7 +52,7 @@ function getMediaFilters( mediaType, filterValues ) {
 	raw += addFilter( 'haslicense' );
 
 	return raw;
-}
+};
 
 /**
  * @param {string} suggestion suggested search term pre-pended with active search keywords
@@ -60,7 +60,7 @@ function getMediaFilters( mediaType, filterValues ) {
  * @param {string|undefined} assessment ex: haswbstatement:P6731=Q63348049
  * @return {string} string containing *only* the suggested new query, no keywords
  */
-function extractSuggestedTerm( suggestion, filters, assessment ) {
+const extractSuggestedTerm = function ( suggestion, filters, assessment ) {
 	var filteredSuggestion = suggestion;
 
 	if ( filters ) {
@@ -72,7 +72,8 @@ function extractSuggestedTerm( suggestion, filters, assessment ) {
 	}
 
 	return filteredSuggestion;
-}
+};
+
 /**
  * Perform a search via API request. Should return a promise.
  * There are a few different ways that searches should behave.
@@ -93,7 +94,7 @@ function extractSuggestedTerm( suggestion, filters, assessment ) {
  * @param {boolean} forceSearch
  * @return {jQuery.Deferred}
  */
-function searchCurrentTermAndType( context ) {
+const searchCurrentTermAndType = function ( context ) {
 
 	// Don't make API requests if the search term is empty or is in error
 	if ( context.getters.currentSearchTerm === '' ) {
@@ -305,7 +306,7 @@ function searchCurrentTermAndType( context ) {
 		context.commit( 'setHasError', true );
 		throw details;
 	} );
-}
+};
 
 module.exports = {
 

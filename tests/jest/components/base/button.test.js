@@ -23,7 +23,7 @@ describe( 'Button Component', () => {
 
 	} );
 
-	it( 'click causes a "click" event to be fired', done => {
+	it( 'click causes a "click" event to be fired', ( done ) => {
 
 		const wrapper = VueTestUtils.shallowMount( Button, {
 			propsData: {

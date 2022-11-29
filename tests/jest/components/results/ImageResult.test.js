@@ -108,7 +108,7 @@ describe( 'ImageResult', () => {
 		expect( link.exists() ).toBe( true );
 	} );
 
-	it( 'clicking the link element causes a "show-details" event to be fired', done => {
+	it( 'clicking the link element causes a "show-details" event to be fired', ( done ) => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
 			props: {
 				title: sampleResult.title,
@@ -127,7 +127,7 @@ describe( 'ImageResult', () => {
 		} );
 	} );
 
-	it( 'the "show-details" event includes the result title in its payload', done => {
+	it( 'the "show-details" event includes the result title in its payload', ( done ) => {
 		const wrapper = VueTestUtils.shallowMount( ImageResult, {
 			props: {
 				title: sampleResult.title,

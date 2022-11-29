@@ -16,7 +16,7 @@
  *
  * v-html use: this is a message whose param comes from trusted API content.
  */
-var fileCount = mw.config.get( 'sdmsTotalSiteImages' );
+const fileCount = mw.config.get( 'sdmsTotalSiteImages' );
 
 // @vue/component
 module.exports = exports = {

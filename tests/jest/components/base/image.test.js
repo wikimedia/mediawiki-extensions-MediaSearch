@@ -1,6 +1,6 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
-const Image = require( '../../../../resources/components/base/Image.vue' );
+const ImageComponent = require( '../../../../resources/components/base/Image.vue' );
 const Observer = require( '../../../../resources/components/base/mixins/observer.js' );
 require( '../../mocks/IntersectionObserver.js' );
 
@@ -16,7 +16,7 @@ describe( 'Image Component', () => {
 	jest.useFakeTimers();
 
 	it( 'Renders successfully', () => {
-		const wrapper = VueTestUtils.shallowMount( Image, {
+		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
 			propsData: samplePropsData
 		} );
 
@@ -28,7 +28,7 @@ describe( 'Image Component', () => {
 	it( 'width and height style match props', () => {
 
 		const propsData = { source: samplePropsData.source, alt: samplePropsData.alt, originalWidth: 200, originalHeight: 200 };
-		const wrapper = VueTestUtils.shallowMount( Image, {
+		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
 			propsData
 		} );
 
@@ -43,7 +43,7 @@ describe( 'Image Component', () => {
 	} );
 
 	it( 'source is set immediately if observer is not supported', () => {
-		const wrapper = VueTestUtils.shallowMount( Image, {
+		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
 			propsData: samplePropsData
 		} );
 
@@ -52,13 +52,12 @@ describe( 'Image Component', () => {
 	} );
 
 	it( 'source is not set if observer is supported', ( done ) => {
-
-		let observerInstance = Observer;
+		const observerInstance = Observer;
 
 		observerInstance.methods.supportsObserverCheck = jest.fn().mockReturnValue( true );
 		observerInstance.methods.defineObserverElement = jest.fn().mockReturnValue( 'mock-element-selector' );
 
-		const wrapper = VueTestUtils.mount( Image, {
+		const wrapper = VueTestUtils.mount( ImageComponent, {
 			propsData: samplePropsData,
 			mixins: [ observerInstance ]
 		} );
@@ -75,7 +74,7 @@ describe( 'Image Component', () => {
 	} );
 
 	it( 'source is set when observerIntersecting is true', () => {
-		const wrapper = VueTestUtils.shallowMount( Image, {
+		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
 			propsData: samplePropsData
 		} );
 

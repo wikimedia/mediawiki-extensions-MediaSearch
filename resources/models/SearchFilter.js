@@ -7,7 +7,7 @@
  * @param {Array} items Item objects (with label and value properties)
  * @param {Object} data Additional data needed for a filter
  */
-var SdmsSearchFilter = function (
+const SdmsSearchFilter = function (
 	type,
 	items,
 	data

@@ -11,7 +11,7 @@
  * @param {Array|Object} obj The object to validate
  * @return {Array}
  */
-function ensureArray( obj ) {
+const ensureArray = function ( obj ) {
 	if ( Array.isArray( obj ) ) {
 		return obj;
 	} else {
@@ -19,6 +19,6 @@ function ensureArray( obj ) {
 			return obj[ key ];
 		} );
 	}
-}
+};
 
 module.exports = ensureArray;

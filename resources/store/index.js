@@ -1,10 +1,10 @@
 'use strict';
 
-var Vuex = require( 'vuex' ),
-	state = require( './state.js' ),
-	getters = require( './getters.js' ),
-	mutations = require( './mutations.js' ),
-	actions = require( './actions.js' );
+const Vuex = require( 'vuex' );
+const state = require( './state.js' );
+const getters = require( './getters.js' );
+const mutations = require( './mutations.js' );
+const actions = require( './actions.js' );
 
 /**
  * Vuex Store: shared application state lives here

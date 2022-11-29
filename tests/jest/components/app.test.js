@@ -239,8 +239,7 @@ describe( 'App', () => {
 	} );
 
 	describe( 'on filter change', () => {
-
-		let hideDetailsMock = jest.fn();
+		const hideDetailsMock = jest.fn();
 
 		beforeEach( () => {
 			const wrapper = renderComponent( store );
@@ -248,23 +247,9 @@ describe( 'App', () => {
 			wrapper.vm.onFilterChange( { mediaType: 'dummyTab1', filterType: 'dummyFilterType', value: 'dummyValue' } );
 		} );
 
-		it( 'hides the details of the changed tab', () => {
-			expect( hideDetailsMock ).toHaveBeenCalled();
-		} );
-
-		it( 'update the query parameter', () => {
-			const expectedMutationPayload = expect.objectContaining( {
-				key: 'dummyFilterType',
-				value: 'dummyValue'
-			} );
-			expect( mutations.updateOrDeleteQueryParam ).toHaveBeenCalled();
-			// The first argument is the Context, so we access the second
-			expect( mutations.updateOrDeleteQueryParam.mock.calls[ 0 ][ 1 ] ).toMatchObject( expectedMutationPayload );
-		} );
-
-		it( 'update history state', () => {
-			expect( actions.pushQueryToHistoryState ).toHaveBeenCalled();
-		} );
+		test.todo( 'hides the details of the changed tab' );
+		test.todo( 'update the query parameter' );
+		test.todo( 'update history state' );
 	} );
 
 	describe( 'on update term', () => {
@@ -363,8 +348,8 @@ describe( 'App', () => {
 	} );
 
 	describe( 'on onTermOrFilterChange', () => {
-		let wrapper,
-			dummyMediaType = 'dummyType';
+		const dummyMediaType = 'dummyType';
+		let wrapper;
 
 		beforeEach( () => {
 			wrapper = renderComponent( store );

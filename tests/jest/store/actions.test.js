@@ -86,7 +86,7 @@ describe( 'performNewSearch', () => {
 		} );
 
 		it( 'with the correct params for "page" type searches', () => {
-			let allNamespaces = Object.keys( namespaceGroups.all ).join( '|' );
+			const allNamespaces = Object.keys( namespaceGroups.all ).join( '|' );
 			context.getters.currentType = 'page';
 			actions.performNewSearch( context );
 			expect( global.mw.Api.prototype.get ).toHaveBeenCalledWith(
@@ -206,7 +206,7 @@ describe( 'performNewSearch', () => {
 		expect( context.commit ).toHaveBeenCalledWith( 'setHasError', false );
 	} );
 
-	it( 'sets the pending state to false when the request is complete', done => {
+	it( 'sets the pending state to false when the request is complete', ( done ) => {
 		actions.performNewSearch( context ).then( () => {
 			expect( context.commit ).toHaveBeenCalledWith( 'setPending', {
 				pending: false,
@@ -217,9 +217,9 @@ describe( 'performNewSearch', () => {
 		} );
 	} );
 
-	it( 'commits an "addResult" mutation for every result returned from the API', done => {
+	it( 'commits an "addResult" mutation for every result returned from the API', ( done ) => {
 		actions.performNewSearch( context ).then( () => {
-			let addResultCalls = context.commit.mock.calls.filter( call => call[ 0 ] === 'addResult' );
+			const addResultCalls = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'addResult' );
 			expect(
 				addResultCalls.length
 			).toEqual(
@@ -229,7 +229,7 @@ describe( 'performNewSearch', () => {
 		} );
 	} );
 
-	it( 'prevent API request when there are no more result', done => {
+	it( 'prevent API request when there are no more result', ( done ) => {
 		context.state.continue[ context.getters.currentType ] = null;
 
 		actions.performNewSearch( context ).then( () => {
@@ -239,7 +239,7 @@ describe( 'performNewSearch', () => {
 	} );
 
 	describe( 'when response inludes suggestionInfo', () => {
-		it( 'commits an "setDidYouMean" mutations', done => {
+		it( 'commits an "setDidYouMean" mutations', ( done ) => {
 
 			context.getters.currentType = 'image';
 			global.mw.Api.prototype.get.mockReturnValue(
@@ -247,13 +247,13 @@ describe( 'performNewSearch', () => {
 			);
 
 			actions.performNewSearch( context ).then( () => {
-				let setDidYouMean = context.commit.mock.calls.filter( call => call[ 0 ] === 'setDidYouMean' );
+				const setDidYouMean = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'setDidYouMean' );
 				expect( setDidYouMean.length ).toEqual( 1 );
 				done();
 			} );
 		} );
 
-		it( 'suggested term does not include filters', done => {
+		it( 'suggested term does not include filters', ( done ) => {
 
 			context.getters.currentType = 'image';
 			global.mw.Api.prototype.get.mockReturnValue(
@@ -265,7 +265,7 @@ describe( 'performNewSearch', () => {
 			};
 
 			actions.performNewSearch( context ).then( () => {
-				let setDidYouMean = context.commit.mock.calls.find( call => call[ 0 ] === 'setDidYouMean' );
+				const setDidYouMean = context.commit.mock.calls.find( ( call ) => call[ 0 ] === 'setDidYouMean' );
 				const suggestedTerm = setDidYouMean[ 1 ];
 				expect( suggestedTerm ).not.toContain( 'jpeg' );
 				expect( suggestedTerm ).not.toContain( 'filemime' );
@@ -273,7 +273,7 @@ describe( 'performNewSearch', () => {
 			} );
 		} );
 
-		it( 'Handles errors successfully', done => {
+		it( 'Handles errors successfully', ( done ) => {
 			const deferred = $.Deferred(),
 				promise = deferred.promise(),
 				pendingRequestType = 'video';
@@ -299,7 +299,7 @@ describe( 'performNewSearch', () => {
 			deferred.reject( {} );
 		} );
 
-		it( 'suggested term does not include assessments', done => {
+		it( 'suggested term does not include assessments', ( done ) => {
 
 			context.getters.currentType = 'image';
 			global.mw.Api.prototype.get.mockReturnValue(
@@ -311,7 +311,7 @@ describe( 'performNewSearch', () => {
 			};
 
 			actions.performNewSearch( context ).then( () => {
-				let setDidYouMean = context.commit.mock.calls.find( call => call[ 0 ] === 'setDidYouMean' );
+				const setDidYouMean = context.commit.mock.calls.find( ( call ) => call[ 0 ] === 'setDidYouMean' );
 				const suggestedTerm = setDidYouMean[ 1 ];
 				expect( suggestedTerm ).not.toContain( 'assessment' );
 				expect( suggestedTerm ).not.toContain( 'any-assessment' );
@@ -388,7 +388,7 @@ describe( 'searchMore', () => {
 		expect( global.mw.Api.prototype.get ).toHaveBeenCalled();
 	} );
 
-	it( 'will decreate autocounter', done => {
+	it( 'will decreate autocounter', ( done ) => {
 		expect.hasAssertions();
 		context.getters.currentType = 'image';
 		context.getters.allResultsEmpty = false;
@@ -421,7 +421,7 @@ describe( 'searchMore', () => {
 			expect( context.commit ).toHaveBeenCalled();
 			expect( context.commit ).toHaveBeenCalledWith( 'resetAutoLoadForMediaType', context.getters.currentType );
 		} );
-		it( 'will not decrease autocounter, if resetCounter argument is true', done => {
+		it( 'will not decrease autocounter, if resetCounter argument is true', ( done ) => {
 			context.getters.currentType = 'image';
 			context.getters.allResultsEmpty = false;
 			context.getters.checkForMore = {
@@ -432,7 +432,7 @@ describe( 'searchMore', () => {
 			};
 
 			actions.searchMore( context, true ).then( () => {
-				const decreaseAutoloadCounterForMediaTypeCalls = context.commit.mock.calls.filter( call => call[ 0 ] === 'decreaseAutoloadCounterForMediaType' );
+				const decreaseAutoloadCounterForMediaTypeCalls = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'decreaseAutoloadCounterForMediaType' );
 				expect( decreaseAutoloadCounterForMediaTypeCalls.length ).toBe( 0 );
 				done();
 			} );
@@ -676,7 +676,7 @@ describe( 'syncActiveTypeAndQueryType', () => {
 	it( 'fetch active type from sdmsInitialSearchResults', () => {
 		actions.syncActiveTypeAndQueryType( context );
 
-		let sdmsInitialSearchResultsCall = global.mw.config.get.mock.calls.filter( call => call[ 0 ] === 'sdmsInitialSearchResults' );
+		const sdmsInitialSearchResultsCall = global.mw.config.get.mock.calls.filter( ( call ) => call[ 0 ] === 'sdmsInitialSearchResults' );
 		expect( sdmsInitialSearchResultsCall.length ).toEqual( 1 );
 	} );
 
@@ -685,14 +685,14 @@ describe( 'syncActiveTypeAndQueryType', () => {
 		it( 'commit a setCurrentType mutation', () => {
 			actions.syncActiveTypeAndQueryType( context );
 
-			let setCurrentTypeCall = context.commit.mock.calls.filter( call => call[ 0 ] === 'setCurrentType' );
+			const setCurrentTypeCall = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'setCurrentType' );
 			expect( setCurrentTypeCall.length ).toEqual( 1 );
 		} );
 
 		it( 'update type with sdmsInitialSearchResults value', () => {
 			actions.syncActiveTypeAndQueryType( context );
 
-			let setCurrentTypeCall = context.commit.mock.calls.filter( call => call[ 0 ] === 'setCurrentType' );
+			const setCurrentTypeCall = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'setCurrentType' );
 			expect( setCurrentTypeCall[ 0 ][ 1 ] ).toEqual( dummySdmsInitialSearchResultsType );
 		} );
 	} );
@@ -707,7 +707,7 @@ describe( 'syncActiveTypeAndQueryType', () => {
 
 			actions.syncActiveTypeAndQueryType( context );
 
-			let setCurrentTypeCall = context.commit.mock.calls.filter( call => call[ 0 ] === 'setCurrentType' );
+			const setCurrentTypeCall = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'setCurrentType' );
 			expect( setCurrentTypeCall.length ).toEqual( 0 );
 		} );
 	} );

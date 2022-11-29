@@ -7,7 +7,7 @@
 </template>
 
 <script>
-var mapState = require( 'vuex' ).mapState;
+const { mapState } = require( 'vuex' );
 
 /**
  * Search suggestion.
@@ -26,11 +26,13 @@ module.exports = exports = {
 		 * @return {HTMLElement}
 		 */
 		didYouMeanLink: function () {
-			var linkNode = document.createElement( 'a' ),
-				url = new mw.Uri();
+			const linkNode = document.createElement( 'a' );
+			const url = new mw.Uri();
+
 			url.query.search = this.didYouMean;
 			linkNode.href = url.toString();
 			linkNode.appendChild( document.createTextNode( this.didYouMean ) );
+
 			return linkNode;
 		}
 	} )

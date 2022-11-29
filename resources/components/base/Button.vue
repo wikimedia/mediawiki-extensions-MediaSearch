@@ -13,7 +13,7 @@
 </template>
 
 <script>
-var SdIcon = require( './Icon.vue' );
+const SdIcon = require( './Icon.vue' );
 
 /**
  * Button with optional icon.

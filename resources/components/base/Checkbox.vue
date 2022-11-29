@@ -24,7 +24,7 @@
 </template>
 
 <script>
-var binaryInput = require( './mixins/binaryInput.js' );
+const binaryInput = require( './mixins/binaryInput.js' );
 
 /**
  * Checkbox input.

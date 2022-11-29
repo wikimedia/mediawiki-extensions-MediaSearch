@@ -75,10 +75,8 @@ describe( 'SearchFilters', () => {
 		describe( 'onSelect', () => {
 
 			it( 'if value is passed and is not empty, addFilterValue', () => {
-
 				const wrapper = renderComponent( store );
-
-				let addFilterValueMock = jest.fn();
+				const addFilterValueMock = jest.fn();
 				wrapper.vm.addFilterValue = addFilterValueMock;
 
 				wrapper.vm.onSelect( 'gif', 'filemime' );
@@ -88,13 +86,11 @@ describe( 'SearchFilters', () => {
 			} );
 
 			it( 'if value is not passed or is empty, removeFilterValue and reset value', () => {
-
 				const wrapper = renderComponent( store );
-
-				let removeFilterValueMock = jest.fn();
+				const removeFilterValueMock = jest.fn();
 				wrapper.vm.removeFilterValue = removeFilterValueMock;
 
-				let resetSelectValueMock = jest.fn();
+				const resetSelectValueMock = jest.fn();
 				wrapper.vm.getRef = function () {
 					return { reset: resetSelectValueMock };
 				};
@@ -145,10 +141,8 @@ describe( 'SearchFilters', () => {
 		describe( 'resetAllFilters', () => {
 
 			it( 'reset all search filters', () => {
-
 				const wrapper = renderComponent( store );
-
-				let resetSelectValueMock = jest.fn();
+				const resetSelectValueMock = jest.fn();
 				wrapper.vm.getRef = function () {
 					return { reset: resetSelectValueMock };
 				};
@@ -180,7 +174,7 @@ describe( 'SearchFilters', () => {
 					page: null,
 					other: null
 				};
-				let resetSelectValueMock = jest.fn();
+				const resetSelectValueMock = jest.fn();
 				wrapper.vm.getRef = function () {
 					return { reset: resetSelectValueMock };
 				};
@@ -224,7 +218,7 @@ describe( 'SearchFilters', () => {
 					other: null
 				};
 
-				let setSelectValueMock = jest.fn();
+				const setSelectValueMock = jest.fn();
 				wrapper.vm.getRef = function () {
 					return { select: setSelectValueMock };
 				};
@@ -268,7 +262,7 @@ describe( 'SearchFilters', () => {
 					other: null
 				};
 
-				let removeFilterValueMock = jest.fn();
+				const removeFilterValueMock = jest.fn();
 				wrapper.vm.removeFilterValue = removeFilterValueMock;
 
 				wrapper.vm.synchronizeFilters();

@@ -358,7 +358,6 @@ module.exports = exports = {
 	},
 
 	mounted: function () {
-		// eslint-disable-next-line no-jquery/no-global-selector
 		var $container = $( '#sdms-app' );
 		this.$nextTick( function () {
 			var readyDeferred = $.Deferred(),

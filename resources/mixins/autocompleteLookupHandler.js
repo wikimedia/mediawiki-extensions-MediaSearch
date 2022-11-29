@@ -1,5 +1,5 @@
-var getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' ),
-	apiUri = mw.config.get( 'sdmsExternalEntitySearchBaseUri' );
+const getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' );
+const apiUri = mw.config.get( 'sdmsExternalEntitySearchBaseUri' );
 
 /**
  * @file searchAutocomplete.js
@@ -60,7 +60,7 @@ module.exports = exports = {
 
 			try {
 				// below could be a regex literal, but eslint fails to parse the `u` flag...
-				// eslint-disable-next-line prefer-regex-literals
+				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
 				words = trimmedInput.match( new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+', 'gu' ) ) || [];
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[\\p{L}\\p{M}\\p{N}\\p{S}]+.*?' ), 'iu' );
 			} catch ( e ) {
@@ -104,7 +104,7 @@ module.exports = exports = {
 				lastWordPromise;
 
 			try {
-				// eslint-disable-next-line prefer-regex-literals
+				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
 				lastWordRegex = new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+$', 'u' );
 				lastWord = input.match( lastWordRegex );
 			} catch ( e ) {
