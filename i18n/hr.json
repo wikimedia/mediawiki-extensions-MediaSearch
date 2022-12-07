@@ -7,6 +7,7 @@
 			"Ponor"
 		]
 	},
+	"mediasearch-desc": "Prikaz rezultata pretrage fokusiran na medijske datoteke preko stranice [[Special:MediaSearch|za pretragu medijskih datoteka]].",
 	"mediasearch-title": "Pretraga medijskih datoteka",
 	"mediasearch-continue": "Dalje",
 	"mediasearch-tab-image": "Slike",
@@ -15,11 +16,13 @@
 	"mediasearch-tab-page": "Kategorije i stranice",
 	"mediasearch-tab-other": "Druge medijske datoteke",
 	"mediasearch-filter-size": "Veličina slike",
+	"mediasearch-filter-size-unset": "Sve",
 	"mediasearch-filter-size-any": "Sve veličine slika",
 	"mediasearch-filter-size-small": "Mala",
 	"mediasearch-filter-size-medium": "Srednja",
 	"mediasearch-filter-size-large": "Velika",
 	"mediasearch-filter-file-type-any": "Vrsta datoteke",
+	"mediasearch-filter-file-type-unset": "Sve",
 	"mediasearch-filter-sort-label": "Razvrstaj po:",
 	"mediasearch-filter-sort-default": "Važnosti",
 	"mediasearch-filter-sort-recency": "Skorašnjosti",
@@ -64,10 +67,20 @@
 	"mediasearch-did-you-mean": "Jeste li mislili: $1",
 	"mediasearch-error-message": "Nevaljala pretraga",
 	"mediasearch-error-text": "Unesite iznad novu pretragu i pokušajte ponovo",
+	"mediasearch-preference": "Odaberite sučelje pretrage",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
+	"mediasearch-preference-help": "Dostupno je više sučelja za prikaz rezultata pretraživanja. Odaberite željeno.",
+	"mediasearch-filter-assessment-any-assessment": "Bilo koja",
 	"mediasearch-filter-assessment-picture-of-the-day": "Slika dana",
 	"mediasearch-filter-assessment-picture-of-the-year": "Slika godine",
 	"mediasearch-filter-assessment-featured-image": "Izabrana slika",
 	"mediasearch-filter-assessment-valued-image": "Cijenjena slika",
 	"mediasearch-filter-assessment-quality-image": "Kvalitetna slika",
-	"mediasearch-filter-assessment-menu-label": "Ocjene zajednice"
+	"mediasearch-filter-assessment-menu-label": "Ocjene zajednice",
+	"mediasearch-filter-assessment-unset": "Sve",
+	"mediasearch-filter-file-type": "Vrsta datoteke",
+	"mediasearch-filter-assessment": "Ocjene zajednice",
+	"mediasearch-filter-license": "Licencija",
+	"mediasearch-filter-license-unset": "Sve"
 }
