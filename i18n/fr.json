@@ -57,7 +57,7 @@
 	"mediasearch-no-results-tips": "Essayez des termes plus généraux ou vérifiez votre orthographe",
 	"mediasearch-end-of-results": "Aucun autre résultat trouvé",
 	"mediasearch-empty-state": "Rechercher parmi plus de $1 fichier{{PLURAL:$1||s}} de média librement réutilisable{{PLURAL:$1||s}}",
-	"mediasearch-clear-title": "Enlever",
+	"mediasearch-clear-title": "Retirer",
 	"mediasearch-input-label": "Rechercher un média",
 	"mediasearch-input-placeholder": "Rechercher des images, de l’audio, des vidéos et plus",
 	"mediasearch-load-more-results": "Charger davantage",
