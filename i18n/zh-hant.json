@@ -9,6 +9,7 @@
 			"Xiplus",
 			"予弦",
 			"列维劳德",
+			"捍粵者",
 			"神樂坂秀吉",
 			"蘭斯特"
 		]
@@ -47,7 +48,7 @@
 	"mediasearch-filter-namespace-label": "命名空間：$1",
 	"mediasearch-filter-namespace-dialog-title": "命名空間選擇器",
 	"mediasearch-filter-namespace-dialog-progressive-action": "提交",
-	"mediasearch-no-results": "我們找不到任何結果",
+	"mediasearch-no-results": "找不到結果",
 	"mediasearch-no-results-tips": "請嘗試更通用的檢索詞或者檢查您的字法",
 	"mediasearch-end-of-results": "查無更多結果",
 	"mediasearch-empty-state": "搜尋超過 $1 個免費重複使用的多媒體{{PLURAL:$1|檔案}}",
@@ -69,7 +70,7 @@
 	"mediasearch-copytextlayout-copy-success": "已複製到剪貼簿",
 	"mediasearch-clear-filters": "清除篩選",
 	"mediasearch-results-count": "$1個結果",
-	"mediasearch-wordcount": "（$1個字）",
+	"mediasearch-wordcount": "（$1字）",
 	"mediasearch-did-you-mean": "您是不是指：$1",
 	"mediasearch-error-message": "無效搜尋",
 	"mediasearch-error-text": "在上方輸入新搜尋並重試",
