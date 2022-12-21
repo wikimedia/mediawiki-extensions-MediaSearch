@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"mediasearch-tab-image": "Slike",
+	"mediasearch-tab-audio": "Audio",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-tab-page": "Kategorije i stranice",
+	"mediasearch-filter-size": "Veličina slike",
+	"mediasearch-filter-size-any": "Sve veličine slika",
+	"mediasearch-filter-size-small": "Mala",
+	"mediasearch-filter-size-medium": "Srednja",
+	"mediasearch-filter-size-large": "Velika",
+	"mediasearch-filter-file-type-any": "Vrsta datoteke"
+}
