@@ -18,7 +18,7 @@
 	}
 
 	&__thumbnail {
-		.transition( opacity 200ms );
+		transition: opacity 200ms;
 		height: auto;
 		max-height: 60vh; // Ensure that portrait-orientation images don't become huge
 		max-width: 100%;
@@ -83,7 +83,7 @@
 	// Style CTA link to look like a button. See https://phabricator.wikimedia.org/T258110
 	// for details of this design decision.
 	&__cta {
-		.transition( ~'background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms' );
+		transition: background-color 100ms, color 100ms, border-color 100ms, box-shadow 100ms;
 		background-color: @background-color-framed;
 		border: @border-width-base @border-style-base @border-color-base;
 		border-radius: 2px;

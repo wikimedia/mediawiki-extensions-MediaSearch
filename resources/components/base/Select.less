@@ -14,7 +14,7 @@
 
 	// Expand indicator.
 	&__handle {
-		.transition( color 100ms );
+		transition: color 100ms;
 		color: @color-base;
 		// Icon size is based on font size, so we'll set it here to make the
 		// indicator smaller than the default font size.
@@ -27,7 +27,7 @@
 	}
 
 	&__content {
-		.transition( ~'background-color 100ms, border-color 100ms, box-shadow 100ms' );
+		transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
 		background-color: @background-color-framed;
 		border: @border-base;
 		border-radius: @border-radius-base;

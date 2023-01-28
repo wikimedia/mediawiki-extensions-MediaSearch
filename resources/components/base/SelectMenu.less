@@ -1,4 +1,3 @@
-@import 'mediawiki.mixins';
 @import './../../sd-base-variables.less';
 
 .sd-select-menu {
@@ -27,7 +26,7 @@
 	}
 
 	&__list-item {
-		.transition( ~'background-color 100ms, color 100ms' );
+		transition: background-color 100ms, color 100ms;
 		color: @color-base;
 		cursor: pointer;
 		list-style: none;
