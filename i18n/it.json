@@ -23,6 +23,8 @@
 	"mediasearch-filter-size-large": "Grande",
 	"mediasearch-filter-file-type-any": "Tipo file",
 	"mediasearch-filter-sort-label": "Ordina per:",
+	"mediasearch-filter-sort-default": "Rilevanza",
+	"mediasearch-filter-sort-recency": "Recente",
 	"mediasearch-filter-license-any": "Tutte le licenze",
 	"mediasearch-filter-license-cc-by": "Usa con attribuzione",
 	"mediasearch-filter-license-cc-by-sa": "Usa con attribuzione e stessa licenza",
