@@ -70,7 +70,7 @@
 	"mediasearch-copytextlayout-copy-success": "已複製到剪貼簿",
 	"mediasearch-clear-filters": "清除篩選",
 	"mediasearch-results-count": "$1個結果",
-	"mediasearch-wordcount": "（$1字）",
+	"mediasearch-wordcount": "（$1 {{PLURAL:$1|個字}}）",
 	"mediasearch-did-you-mean": "您是不是指：$1",
 	"mediasearch-error-message": "無效搜尋",
 	"mediasearch-error-text": "在上方輸入新搜尋並重試",
