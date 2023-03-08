@@ -6,6 +6,7 @@
 	},
 	"mediasearch-filter-size-unset": "אַלע",
 	"mediasearch-filter-file-type-unset": "אַלע",
+	"mediasearch-filter-namespace-label": "נאָמענטייל: $1",
 	"mediasearch-filter-assessment-unset": "אַלע",
 	"mediasearch-filter-license-unset": "אלע"
 }
