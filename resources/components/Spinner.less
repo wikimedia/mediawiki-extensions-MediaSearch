@@ -23,8 +23,8 @@
 	white-space: nowrap;
 
 	& .sdms-spinner-bounce,
-	&:before,
-	&:after {
+	&::before,
+	&::after {
 		animation: spinnerBounceDelay 1600ms ease-in-out -160ms infinite both;
 		background-color: @color-base--subtle;
 		border-radius: 100%;
@@ -35,12 +35,12 @@
 		width: 12px;
 	}
 
-	&:before {
+	&::before {
 		animation-delay: -330ms;
 		margin-right: 4px;
 	}
 
-	&:after {
+	&::after {
 		animation-delay: 0s;
 		margin-left: 4px;
 	}
