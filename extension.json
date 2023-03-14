@@ -12,7 +12,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "wikibase",
 	"requires": {
-		"MediaWiki": ">= 1.37.0"
+		"MediaWiki": ">= 1.39.0"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\MediaSearch\\": "src/"
@@ -241,14 +241,21 @@
 	"SpecialPages": {
 		"MediaSearch": {
 			"class": "MediaWiki\\Extension\\MediaSearch\\Special\\SpecialMediaSearch",
-			"services": [ "SearchEngineFactory", "NamespaceInfo", "UserOptionsManager", "LinkRenderer" ]
+			"services": [
+				"SearchEngineFactory",
+				"NamespaceInfo",
+				"UserOptionsManager",
+				"LinkRenderer"
+			]
 		}
 	},
 	"ExtensionMessagesFiles": {
 		"MediaSearchAlias": "MediaSearch.i18n.alias.php"
 	},
 	"MessagesDirs": {
-		"MediaSearch": [ "i18n" ]
+		"MediaSearch": [
+			"i18n"
+		]
 	},
 	"manifest_version": 2
 }
