@@ -22,9 +22,9 @@ describe( 'ensureArray helper function', () => {
 	it( 'returns an array of values when given an object', () => {
 		// We can't use Object.values in the code we ship due to compatibility
 		// but it's fine in tests
-		/* eslint-disable es/no-object-values, compat/compat */
+		/* eslint-disable es-x/no-object-values, compat/compat */
 		expect( ensureArray( dict ) ).toEqual( Object.values( dict ) );
 		expect( ensureArray( searchResultData ) ).toEqual( Object.values( searchResultData ) );
-		/* eslint-enable es/no-object-values, compat/compat */
+		/* eslint-enable es-x/no-object-values, compat/compat */
 	} );
 } );

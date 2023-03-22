@@ -159,7 +159,6 @@ function searchCurrentTermAndType( context ) {
 			var assessmentValue = filterValues.assessment;
 			var assessmentStatements = searchOptions[ context.getters.currentType ].assessment.data.statementData;
 
-			// eslint-disable-next-line no-restricted-syntax
 			var assessment = assessmentStatements.find( function ( i ) {
 				return i.value === assessmentValue;
 			} );
