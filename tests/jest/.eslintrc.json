@@ -1,20 +1,22 @@
 {
 	"root": true,
 	"extends": [
-		"../../.eslintrc.json"
+		"wikimedia/client-es6",
+		"../../.eslintshared.json"
 	],
-	"parserOptions": {
-		"ecmaVersion": 6
-	},
 	"globals": {
 		"OO": "readonly"
 	},
 	"rules": {
 		"no-implicit-globals": "off",
+		"prefer-const": "off",
+		"arrow-parens": "off",
+		"no-var": "off",
+		"no-undef": "off",
+		"no-redeclare": "off",
 		"max-len": "off"
 	},
 	"env": {
-		"es6": true,
 		"jest": true
 	}
 }

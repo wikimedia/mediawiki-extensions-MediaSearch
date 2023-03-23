@@ -369,7 +369,6 @@ module.exports = exports = {
 		select: function ( selection ) {
 			var selectionIndex;
 
-			// eslint-disable-next-line no-restricted-properties
 			selectionIndex = this.items.findIndex( function ( item ) {
 				return item.value === selection;
 			} );

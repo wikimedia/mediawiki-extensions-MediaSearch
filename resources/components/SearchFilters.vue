@@ -263,7 +263,6 @@ module.exports = exports = {
 			// Array.prototype.find is polyfilled so we can use this
 			// ES6 array method here
 
-			// eslint-disable-next-line no-restricted-syntax
 			return this.searchFilters.find( function ( filter ) {
 				return filter.type === 'namespace';
 			} );
@@ -283,7 +282,6 @@ module.exports = exports = {
 		 */
 		onSelect: function ( value, filterType ) {
 			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
-				// eslint-disable-next-line no-restricted-syntax
 				currentFilter = this.searchFilters.find( function ( filter ) {
 					return filter.type === filterType;
 				} );
