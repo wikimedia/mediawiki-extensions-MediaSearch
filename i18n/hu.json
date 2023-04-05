@@ -5,7 +5,8 @@
 			"Hanna Tardos",
 			"Luckylukee81",
 			"Tacsipacsi",
-			"Worrida"
+			"Worrida",
+			"Einstein2"
 		]
 	},
 	"mediasearch-title": "Médiakeresés",
@@ -49,7 +50,7 @@
 	"mediasearch-quickview-previous-button-text": "Korábbi eredmények megtekintése",
 	"mediasearch-quickview-next-button-text": "Következő eredmények megtekintése",
 	"mediasearch-user-notice-title": "A [[Special:Search]] lapot keresed?",
-	"mediasearch-user-notice-body": "Mostantól kiválaszthatod a [[Special:Preferences#mw-prefsection-searchoptions|beállításaidban]] az preferált keresődet.",
+	"mediasearch-user-notice-body": "Mostantól kiválaszthatod a [[Special:Preferences#mw-prefsection-searchoptions|beállításaidban]] a preferált keresődet.",
 	"mediasearch-user-notice-dismiss": "Értesítés elvetése",
 	"mediasearch-category-info": "$1 tag ($2 alkategória, $3 fájl)",
 	"mediasearch-copytextlayout-copy": "Másolás",
