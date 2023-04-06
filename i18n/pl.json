@@ -71,6 +71,8 @@
 	"mediasearch-did-you-mean": "Czy chodziło Ci o: $1",
 	"mediasearch-error-message": "Nieprawidłowe wyszukiwanie",
 	"mediasearch-error-text": "Wpisz nowe wyszukiwanie powyżej i spróbuj ponownie",
+	"mediasearch-preference": "Wybierz swój interfejs wyszukiwania",
+	"mediasearch-preference-help": "Dostępnych jest kilka interfejsów do wyświetlania wyników wyszukiwania. Wybierz który preferujesz.",
 	"mediasearch-filter-assessment-any-assessment": "Wszystkie wyróżnione pliki",
 	"mediasearch-filter-assessment-picture-of-the-day": "Grafika na dziś",
 	"mediasearch-filter-assessment-picture-of-the-year": "Grafika Roku",
