@@ -44,7 +44,7 @@ module.exports = exports = {
 		buttonText: {
 			type: [ String, Object ],
 			default: function () {
-				return mw.message( 'mediasearch-copytextlayout-copy' ).text();
+				return mw.msg( 'mediasearch-copytextlayout-copy' );
 			}
 		},
 
@@ -66,14 +66,14 @@ module.exports = exports = {
 		successMessage: {
 			type: [ String, Object ],
 			default: function () {
-				return mw.message( 'mediasearch-copytextlayout-copy-success' ).text();
+				return mw.msg( 'mediasearch-copytextlayout-copy-success' );
 			}
 		},
 
 		failMessage: {
 			type: [ String, Object ],
 			default: function () {
-				return mw.message( 'mediasearch-copytextlayout-copy-fail' ).text();
+				return mw.msg( 'mediasearch-copytextlayout-copy-fail' );
 			}
 		}
 	},

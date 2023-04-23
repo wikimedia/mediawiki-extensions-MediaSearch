@@ -30,7 +30,7 @@ module.exports = exports = {
 
 	computed: {
 		message: function () {
-			return mw.message( 'mediasearch-empty-state', this.fileCount ).text();
+			return mw.msg( 'mediasearch-empty-state', this.fileCount );
 		}
 	}
 };
