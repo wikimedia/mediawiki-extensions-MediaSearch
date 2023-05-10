@@ -73,7 +73,7 @@
 	"mediasearch-results-count": "$1 {{PLURAL:$1|件の結果}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|単語}})",
 	"mediasearch-did-you-mean": "もしかして: $1",
-	"mediasearch-error-message": "不正な検索",
+	"mediasearch-error-message": "無効な検索",
 	"mediasearch-error-text": "上に新しい検索を入力して、もう一度お試しください",
 	"mediasearch-preference": "検索インターフェースを選択",
 	"mediasearch-preference-help": "検索結果の表示に利用可能なインターフェースが複数あります。お好きなものを選択してください。",
