@@ -16,28 +16,30 @@
 	}
 
 	&--block {
+		border-width: @border-width-base;
+		border-style: @border-style-base;
 		color: @color-notice;
 		font-weight: normal;
 		padding: 16px 24px;
 
 		&.sd-message--notice {
-			background-color: @background-color-notice--framed;
-			border: @border-notice;
+			background-color: @background-color-notice-subtle;
+			border: @border-color-notice;
 		}
 
 		&.sd-message--error {
-			background-color: @background-color-error--framed;
-			border: @border-error;
+			background-color: @background-color-error-subtle;
+			border: @border-color-error;
 		}
 
 		&.sd-message--warning {
-			background-color: @background-color-warning--framed;
-			border: @border-warning;
+			background-color: @background-color-warning-subtle;
+			border: @border-color-warning;
 		}
 
 		&.sd-message--success {
-			background-color: @background-color-success--framed;
-			border: @border-success;
+			background-color: @background-color-success-subtle;
+			border: @border-color-success;
 		}
 	}
 

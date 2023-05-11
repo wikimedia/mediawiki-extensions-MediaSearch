@@ -14,12 +14,12 @@
 
 	// Expand indicator.
 	&__handle {
-		transition: color 100ms;
+		transition: color @transition-duration-base;
 		color: @color-base;
 		// Icon size is based on font size, so we'll set it here to make the
 		// indicator smaller than the default font size.
 		// Equal to 12px in ems.
-		font-size: unit( @min-size-indicator / @sd-font-size-browser / @sd-font-size-base, em );
+		font-size: unit( @min-size-icon-x-small / @sd-font-size-browser / @sd-font-size-base, em );
 		position: absolute;
 		right: @sd-padding-horizontal-base;
 		top: 50%;
@@ -27,14 +27,15 @@
 	}
 
 	&__content {
-		transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
-		background-color: @background-color-framed;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: @transition-duration-base;
+		background-color: @background-color-interactive-subtle;
 		border: @border-base;
 		border-radius: @border-radius-base;
 		box-sizing: border-box;
 		color: @color-base;
 		cursor: pointer;
-		min-height: @size-base;
+		min-height: @min-size-base;
 		padding: @sd-padding-vertical-mobile @sd-padding-end-dropdown
 			@sd-padding-vertical-mobile @sd-padding-horizontal-base;
 		position: relative;
@@ -50,9 +51,9 @@
 		}
 
 		&:hover {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 			color: @color-base--hover;
-			border-color: @border-color-base--hover;
+			border-color: @border-color-base;
 
 			.sd-select__handle {
 				color: @color-base--hover;
@@ -60,20 +61,20 @@
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @color-primary;
-			border-color: @sd-border-color-base--focus;
-			outline: 0;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			border-color: @border-color-progressive--focus;
+			outline: @outline-base--focus;
 		}
 
 		&:active {
-			color: @color-base--active;
-			border-color: @border-color-base--active;
+			color: @color-emphasized;
+			border-color: @border-color-interactive;
 		}
 	}
 
 	&--open {
 		.sd-select__content {
-			background-color: @background-color-framed--hover;
+			background-color: @background-color-base;
 		}
 
 		// stylelint-disable-next-line no-descending-specificity
@@ -84,28 +85,27 @@
 
 	&--disabled {
 		.sd-select__content {
-			background-color: @background-color-base--disabled;
-			border-color: @border-color-base--disabled;
-			color: @color-base--disabled;
+			background-color: @background-color-disabled-subtle;
+			border-color: @border-color-disabled;
+			color: @color-disabled;
 			cursor: auto;
-			text-shadow: @text-shadow-base--disabled;
 
 			&:hover {
 				.sd-select__handle {
-					color: @color-base--disabled;
+					color: @color-disabled;
 				}
 			}
 
 			&:focus {
 				box-shadow: none;
-				border-color: @border-color-base--disabled;
-				outline: 0;
+				border-color: @border-color-disabled;
+				outline: @outline-base--focus;
 			}
 		}
 
 		// stylelint-disable-next-line no-descending-specificity
 		.sd-select__handle {
-			color: @color-base--disabled;
+			color: @color-disabled;
 		}
 	}
 }

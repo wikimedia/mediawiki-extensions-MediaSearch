@@ -6,7 +6,7 @@
 
 	// Custom-styled checkbox that's visible to the user.
 	&__icon {
-		border-radius: 2px;
+		border-radius: @border-radius-base;
 	}
 
 	// HTML input with type=checkbox.
@@ -14,10 +14,10 @@
 		// Based on the HTML attributes of the checkbox input, we can change
 		// the style of the stylized checkbox.
 		&:focus + .sd-checkbox__icon {
-			border-color: @sd-border-color-base--focus;
-			box-shadow: @sd-box-shadow-input--focus;
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 			// In Windows high contrast mode the outline becomes visible.
-			outline: 1px solid transparent;
+			outline: @outline-base--focus;
 		}
 
 		&:hover + .sd-checkbox__icon {
@@ -25,9 +25,9 @@
 		}
 
 		&:active + .sd-checkbox__icon {
-			background-color: @color-primary--active;
+			background-color: @color-progressive--active;
 			border-color: @sd-border-color-input-binary--active;
-			box-shadow: @sd-box-shadow-input-binary--active;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 		}
 
 		// Set up check icon.
@@ -44,32 +44,32 @@
 
 		&:disabled {
 			& + .sd-checkbox__icon {
-				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
+				background-color: @background-color-disabled;
+				border-color: @border-color-disabled;
 				box-shadow: none;
 				cursor: @cursor-base--disabled;
 			}
 
 			& ~ .sd-checkbox__label-text {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 		}
 
 		&:checked:enabled:focus + .sd-checkbox__icon {
 			background-color: @sd-background-color-input-binary--checked;
 			border-color: @sd-border-color-input-binary--checked;
-			box-shadow: @sd-box-shadow-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, @box-shadow-inset-medium @box-shadow-color-inverted;
 		}
 
 		&:checked:enabled:hover + .sd-checkbox__icon {
-			background-color: @color-primary--hover;
+			background-color: @color-progressive--hover;
 			border-color: @sd-border-color-framed-progressive--hover;
 		}
 
 		&:checked:enabled:active + .sd-checkbox__icon {
 			background-color: @sd-background-color-input-binary--active;
 			border-color: @sd-border-color-input-binary--active;
-			box-shadow: @sd-box-shadow-input-binary--active;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 		}
 	}
 }

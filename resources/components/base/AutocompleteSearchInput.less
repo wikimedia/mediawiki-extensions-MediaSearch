@@ -29,7 +29,7 @@
 
 	&__icon {
 		padding-left: @sd-padding-horizontal-input-text;
-		opacity: 0.67;
+		opacity: @opacity-icon-subtle;
 	}
 
 	&__indicator {
@@ -42,18 +42,18 @@
 			// Icon size is based on font size, so we'll set it here to make the
 			// indicator smaller than the default font size.
 			// Equal to 12px in ems.
-			font-size: unit( @min-size-indicator / @sd-font-size-browser / @sd-font-size-base, em );
+			font-size: unit( @min-size-icon-x-small / @sd-font-size-browser / @sd-font-size-base, em );
 		}
 	}
 
 	&__input {
-		box-shadow: inset 0 0 0 1px transparent;
-		transition: border-color 250ms, box-shadow 250ms;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
+		transition: border-color @transition-duration-medium, box-shadow @transition-duration-medium;
 		background-color: @background-color-base;
-		border: @border-width-base @border-style-base @border-color-base;
+		border: @border-base;
 		border-radius: @border-radius-base;
 		box-sizing: border-box;
-		color: @color-base--emphasized;
+		color: @color-emphasized;
 		display: block;
 		font-size: inherit;
 		height: @sd-size-base;
@@ -75,13 +75,13 @@
 		}
 
 		&:hover {
-			border-color: @sd-border-color-input--hover;
+			border-color: @border-color-interactive;
 		}
 
 		&:focus {
-			box-shadow: @box-shadow-base--focus;
-			border-color: @wmui-color-accent50;
-			outline: 0;
+			border-color: @border-color-progressive--focus;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			outline: @outline-base--focus;
 
 			+ .sd-input__icon {
 				opacity: 1;

@@ -25,8 +25,7 @@
 		"jquery": "^3.6.0",
 		"stylelint-config-wikimedia": "0.14.0",
 		"vue": "3.2.23",
-		"vuex": "4.0.2",
-		"wikimedia-ui-base": "0.21.0"
+		"vuex": "4.0.2"
 	},
 	"eslintIgnore": [
 		"vendor/**"

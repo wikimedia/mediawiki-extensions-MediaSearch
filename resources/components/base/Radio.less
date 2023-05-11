@@ -6,12 +6,12 @@
 
 	// Custom-styled radio that's visible to the user.
 	&__icon {
-		border-radius: 100%;
+		border-radius: @border-radius-circle;
 
 		// Needed for `:focus` state's inner white circle
 		&::before {
-			border: @border-width-base @border-style-base transparent;
-			border-radius: 100%;
+			border: @border-width-base @border-style-base @border-color-transparent;
+			border-radius: @border-radius-circle;
 			// `px` unit due to pixel rounding error when using
 			// `@sd-size-input-binary / 4`
 			bottom: -4px;
@@ -45,13 +45,13 @@
 			cursor: @cursor-base--disabled;
 
 			& + .sd-radio__icon {
-				background-color: @background-color-filled--disabled;
-				border-color: @border-color-base--disabled;
+				background-color: @background-color-disabled;
+				border-color: @border-color-disabled;
 				cursor: @cursor-base--disabled;
 			}
 
 			& ~ .sd-radio__label-text {
-				color: @color-base--disabled;
+				color: @color-disabled;
 			}
 
 			&:checked + .sd-radio__icon {
@@ -74,7 +74,7 @@
 
 			&:active + .sd-radio__icon {
 				border-color: @sd-border-color-input-binary--active;
-				box-shadow: @sd-box-shadow-input-binary--active;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--active;
 
 				&::before {
 					border-color: @sd-border-color-input-binary--active;

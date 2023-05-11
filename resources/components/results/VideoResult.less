@@ -8,7 +8,7 @@
 	border-radius: @border-radius-base;
 	border: @border-width-base @border-style-base @sdms-border-color-result;
 	box-sizing: border-box;
-	color: @color-primary;
+	color: @color-progressive;
 	flex-direction: column;
 
 	// Natural max-width of this component. This is needed to ensure that, if
@@ -19,13 +19,14 @@
 	//     figure below, and we want to avoid a noticeable decrease in width
 	//     when the JS UI loads.
 	max-width: 401.5px;
-	transition: box-shadow @transition-base ease, outline @transition-base ease;
+	transition-property: box-shadow, outline;
+	transition-duration: @transition-duration-base;
 
 	// Title is a heading element inside of a link, but we want this to look
 	// and behave like link text
 	&__title {
-		color: @color-primary;
-		transition: color @transition-base ease;
+		color: @color-progressive;
+		transition: color @transition-duration-base;
 	}
 
 	&__body {
@@ -42,7 +43,7 @@
 	}
 
 	&:hover &__title {
-		color: @color-primary--active;
+		color: @color-progressive--active;
 	}
 
 	&:hover,
@@ -53,7 +54,7 @@
 
 	// Extra prominence on focus using outline, for users navigating via keyboard
 	&:focus {
-		outline: solid 2px @color-primary;
+		outline: solid 2px @border-color-progressive--focus;
 		outline-offset: -2px;
 	}
 
@@ -66,9 +67,9 @@
 
 	&__duration {
 		border-radius: @border-radius-base;
-		color: @color-base--subtle;
+		color: @color-subtle;
 		display: inline-block;
-		background-color: @background-color-tabs;
+		background-color: #eaecf0;
 		font-weight: normal;
 		padding: 0 @sdms-spacing-xs;
 		margin-right: @sdms-spacing-sm;
@@ -83,7 +84,7 @@
 	}
 
 	&__mime {
-		color: @color-base--subtle;
+		color: @color-subtle;
 		font-weight: normal;
 	}
 }

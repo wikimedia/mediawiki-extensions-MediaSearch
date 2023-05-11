@@ -1,28 +1,27 @@
-@import '../lib/wikimedia-ui-base.less';
+@import 'mediawiki.skin.variables.less';
 
 // Global MediaSearch variables
 // ---------------------------------------------------------
-// Use semantic variable names from wikimedia-ui-base in the code when it makes
+// Use design tokens from Codex in the code when it makes
 // sense to do so. Otherwise, create a new extension-specific semantic
 // variable here, with prefix sdms- (Structured Data Media Search).
 
 // Colors
 // ---------------------------------------------------------
-// https://design.wikimedia.org/style-guide/visual-style_colors.html
-@sdms-icon-color--subtle: @wmui-color-base50;
-@sdms-background-color-namespace-label: @background-color-tabs;
-@sdms-color-tool: @color-base--emphasized;
-@sdms-background-color-tool--hover: @background-color-framed;
-@sdms-background-color-tool--focus: @background-color-base--hover;
-@sdms-background-color-tool--active: @background-color-base--hover;
-@sdms-background-color-tool--selected: @background-color-primary;
+// https://doc.wikimedia.org/codex/latest/style-guide/colors.html
+// TODO: Not aN icon color used elsewhere.
+@sdms-icon-color--subtle: #a2a9b1;
+@sdms-background-color-namespace-label: #eaecf0;
+@sdms-background-color-tool--hover: @background-color-interactive-subtle;
+@sdms-background-color-tool--focus: @background-color-interactive;
+@sdms-background-color-tool--active: @background-color-interactive;
+@sdms-background-color-tool--selected: @background-color-progressive;
 
 // Border
 // ---------------------------------------------------------
-@sdms-border-color-base--focus: @color-primary--focus;
-@sdms-border-color-result: @background-color-tabs;
+@sdms-border-color-result: #eaecf0;
 @sdms-border-color-tool: transparent;
-@sdms-border-color-tool--hover: @border-color-base--active;
+@sdms-border-color-tool--hover: @border-color-interactive;
 
 // Sizes
 // ---------------------------------------------------------
@@ -38,7 +37,8 @@
 @sdms-padding-horizontal-base: 12px;
 @sdms-margin-horizontal-base: 6px;
 @sdms-margin-horizontal-mobile: 8px;
-@sdms-padding-end-dropdown: @size-indicator + ( 1.5 * @sdms-padding-horizontal-base );
+// Needs to result in px value, hence `@min-size-icon-x-small`.
+@sdms-padding-end-dropdown: @min-size-icon-x-small + ( 1.5 * @sdms-padding-horizontal-base );
 
 // Mixins
 // ---------------------------------------------------------
