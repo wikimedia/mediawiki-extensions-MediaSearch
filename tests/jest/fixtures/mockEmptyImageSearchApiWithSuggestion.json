@@ -1,10 +1,10 @@
 {
-    "batchcomplete": "",
-    "query": {
-      "searchinfo": {
-        "totalhits": 0,
-        "suggestion": "filetype:bitmap|drawing filemime:jpeg haswbstatement:P6731=Q63348049|P6731=Q63348069|P6731=Q63348040|P6731=Q6998859 portage",
-        "suggestionsnippet": "filetype:bitmap|drawing filemime:jpeg haswbstatement:P6731=Q63348049|P6731=Q63348069|P6731=Q63348040|P6731=Q6998859 <em>portage</em>"
-      }
-    }
-  }
+	"batchcomplete": "",
+	"query": {
+		"searchinfo": {
+			"totalhits": 0,
+			"suggestion": "filetype:bitmap|drawing filemime:jpeg haswbstatement:P6731=Q63348049|P6731=Q63348069|P6731=Q63348040|P6731=Q6998859 portage",
+			"suggestionsnippet": "filetype:bitmap|drawing filemime:jpeg haswbstatement:P6731=Q63348049|P6731=Q63348069|P6731=Q63348040|P6731=Q6998859 <em>portage</em>"
+		}
+	}
+}

@@ -472,6 +472,12 @@ module.exports = exports = {
 			) {
 				assessmentValues = this.metadata.Assessments.value.split( '|' );
 				assessmentValues.forEach( function ( assessment ) {
+					// Messages that can be used here:
+					// * mediasearch-filter-assessment-valued-image
+					// * mediasearch-filter-assessment-quality-image
+					// * mediasearch-filter-assessment-featured-image
+					// * mediasearch-filter-assessment-picture-of-the-day
+					// * mediasearch-filter-assessment-picture-of-the-year
 					assessmentList.push( this.$i18n( assessmentLabels[ assessment ] ).text() );
 				}.bind( this ) );
 				return assessmentList.join( this.$i18n( 'comma-separator' ).text() );
