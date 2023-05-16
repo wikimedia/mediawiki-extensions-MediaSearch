@@ -1,45 +1,38 @@
 <template>
 	<transition v-if="showNotice" name="sdms-fade-out">
-		<sd-message class="sdms-user-notice__message" type="notice">
-			<p>
-				<span
-					v-i18n-html:mediasearch-user-notice-title
-					class="sdms-user-notice__title"
-				></span>
-				<br>
-				<span v-i18n-html:mediasearch-user-notice-body></span>
-			</p>
-			<sd-button
-				class="sdms-user-notice__dismiss-button"
-				:invisible-text="true"
-				:frameless="true"
-				:icon="closeIcon"
-				@click="dismiss"
-			>
-				{{ $i18n( 'mediasearch-user-notice-dismiss' ).text() }}
-			</sd-button>
-		</sd-message>
+		<cdx-message
+			:dismiss-button-label="$i18n( 'mediasearch-user-notice-dismiss' ).text()"
+			class="sdms-user-notice__message"
+			@user-dismissed="dismiss"
+		>
+			<span
+				v-i18n-html:mediasearch-user-notice-title
+				class="sdms-user-notice__title"
+			></span>
+			<br>
+			<span v-i18n-html:mediasearch-user-notice-body></span>
+		</cdx-message>
 	</transition>
 </template>
 
 <script>
-const Button = require( './base/Button.vue' );
-const closeIcon = require( '../../lib/icons.js' ).sdIconClose;
-const Message = require( './base/Message.vue' );
+const { CdxMessage } = require( '@wikimedia/codex' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'UserNotice',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
-		'sd-button': Button,
-		'sd-message': Message
+		CdxMessage
 	},
 
 	data: function () {
 		return {
 			prefKey: 'sdms-search-user-notice-dismissed',
-			closeIcon: closeIcon,
 			dismissed: false
 		};
 	},

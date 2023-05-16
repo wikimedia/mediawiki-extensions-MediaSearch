@@ -16,10 +16,6 @@
 	&__handle {
 		transition: color @transition-duration-base;
 		color: @color-base;
-		// Icon size is based on font size, so we'll set it here to make the
-		// indicator smaller than the default font size.
-		// Equal to 12px in ems.
-		font-size: unit( @min-size-icon-x-small / @sd-font-size-browser / @sd-font-size-base, em );
 		position: absolute;
 		right: @sd-padding-horizontal-base;
 		top: 50%;

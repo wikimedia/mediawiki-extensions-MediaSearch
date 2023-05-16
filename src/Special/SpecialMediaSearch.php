@@ -328,7 +328,7 @@ class SpecialMediaSearch extends SpecialPage {
 		}
 
 		$this->getOutput()->addHTML( $this->templateParser->processTemplate( 'SERPWidget', $data ) );
-		$this->getOutput()->addModuleStyles( [ 'mediasearch.styles' ] );
+		$this->getOutput()->addModuleStyles( [ 'codex-styles', 'mediasearch.styles' ] );
 		$this->getOutput()->addModules( [ 'mediasearch' ] );
 		$this->getOutput()->addJsConfigVars( [
 			'sdmsInitialSearchResults' => $data,

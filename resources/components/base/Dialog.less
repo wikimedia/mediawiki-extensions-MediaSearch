@@ -52,8 +52,6 @@
 			// properly aligned. The auto margin-left will send this element
 			// all the way over to the right side of the flex container.
 			margin: -0.25em -0.25em -0.25em auto;
-			// Make the button square with breathing room for focus outline.
-			padding: 0.75em;
 		}
 	}
 
@@ -62,7 +60,7 @@
 		left: 0;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
-		padding: 0 @sd-padding-dialog;
+		padding: @sd-padding-dialog;
 		position: absolute;
 		right: 0;
 		top: @sd-spacing-dialog-body;
@@ -82,7 +80,7 @@
 		bottom: 0;
 		box-sizing: border-box;
 		justify-content: flex-end;
-		padding: @sd-padding-dialog / 2 @sd-padding-dialog;
+		padding: 12px @sd-padding-dialog;
 		position: absolute;
 		width: 100%;
 	}
@@ -131,7 +129,13 @@
 		}
 
 		.sd-dialog__body {
+			top: 50px;
 			bottom: 0;
+
+			&--headless {
+				padding-top: 0;
+				top: 0;
+			}
 		}
 	}
 }

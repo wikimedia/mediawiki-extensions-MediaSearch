@@ -8,7 +8,8 @@ const when = require( 'jest-when' ).when;
 const originalImageSampleResult = require( '../fixtures/mockImageQuickSearchApiResponse.json' ).query.pages[ 9809267 ];
 const originalVideoSampleResult = require( '../fixtures/mockVideoQuickSearchApiResponse.json' ).query.pages[ 96292422 ];
 
-const icons = require( '../../../lib/icons.js' );
+const icons = require( '@wikimedia/codex-icons' );
+
 when( global.mw.config.get )
 	.calledWith( 'sdmsAssessmentQuickviewLabels' )
 	.mockReturnValue( {
@@ -1029,7 +1030,7 @@ describe( 'QuickView', () => {
 						}
 					} );
 					const generatedLicense = wrapper.vm.getLicenseIcon( 'ccTest' );
-					expect( generatedLicense ).toEqual( icons.sdIconLogoCC );
+					expect( generatedLicense ).toEqual( icons.cdxIconLogoCC );
 				} );
 				it( 'when licence name starts with "attribution"', () => {
 					const wrapper = shallowMount( QuickView, {
@@ -1042,10 +1043,10 @@ describe( 'QuickView', () => {
 						}
 					} );
 					const generatedLicense = wrapper.vm.getLicenseIcon( 'attribution' );
-					expect( generatedLicense ).toEqual( icons.sdIconLogoCC );
+					expect( generatedLicense ).toEqual( icons.cdxIconLogoCC );
 				} );
 			} );
-			describe( 'Returns sdIconUnLock icon', () => {
+			describe( 'Returns cdxIconUnlock icon', () => {
 				it( 'when licence name starts with "pd"', () => {
 					const wrapper = shallowMount( QuickView, {
 						props: {
@@ -1057,7 +1058,7 @@ describe( 'QuickView', () => {
 						}
 					} );
 					const generatedLicense = wrapper.vm.getLicenseIcon( 'pdTest' );
-					expect( generatedLicense ).toEqual( icons.sdIconUnLock );
+					expect( generatedLicense ).toEqual( icons.cdxIconUnLock );
 				} );
 				it( 'when licence name starts with "no restrictions"', () => {
 					const wrapper = shallowMount( QuickView, {
@@ -1070,10 +1071,10 @@ describe( 'QuickView', () => {
 						}
 					} );
 					const generatedLicense = wrapper.vm.getLicenseIcon( 'no restrictions' );
-					expect( generatedLicense ).toEqual( icons.sdIconUnLock );
+					expect( generatedLicense ).toEqual( icons.cdxIconUnLock );
 				} );
 			} );
-			describe( 'Returns sdIconReference icon', () => {
+			describe( 'Returns cdxIconReference icon', () => {
 				it( 'when licence name is uknown"', () => {
 					const wrapper = shallowMount( QuickView, {
 						props: {
@@ -1085,7 +1086,7 @@ describe( 'QuickView', () => {
 						}
 					} );
 					const generatedLicense = wrapper.vm.getLicenseIcon( 'unknown license' );
-					expect( generatedLicense ).toEqual( icons.sdIconReference );
+					expect( generatedLicense ).toEqual( icons.cdxIconReference );
 				} );
 			} );
 		} );

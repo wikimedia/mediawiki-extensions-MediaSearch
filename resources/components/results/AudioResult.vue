@@ -17,7 +17,7 @@
 
 		<h4 class="sdms-audio-result__meta">
 			<span class="sdms-audio-result__duration">
-				<sd-icon :icon="icon"></sd-icon>
+				<cdx-icon :icon="cdxIconVolumeUp" size="small"></cdx-icon>
 				<span
 					v-if="formattedDuration"
 					class="sdms-audio-result__duration__text"
@@ -42,16 +42,21 @@
  * mixin as well as the "time-based" result mixin.
  */
 var searchResult = require( '../../mixins/searchResult.js' ),
-	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' ),
-	SdIcon = require( '../base/Icon.vue' ),
-	icons = require( '../../../lib/icons.js' );
+	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' );
+
+const { CdxIcon } = require( '@wikimedia/codex' );
+const { cdxIconVolumeUp } = require( '../icons.json' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'AudioResult',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
-		'sd-icon': SdIcon
+		CdxIcon
 	},
 
 	mixins: [ searchResult, searchResultTimeBased ],
@@ -60,7 +65,7 @@ module.exports = exports = {
 
 	data: function () {
 		return {
-			icon: icons.sdIconVolumeUp
+			cdxIconVolumeUp
 		};
 	}
 };

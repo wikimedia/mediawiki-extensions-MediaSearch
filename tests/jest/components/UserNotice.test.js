@@ -1,8 +1,7 @@
-const { shallowMount, mount } = require( '@vue/test-utils' ),
-	when = require( 'jest-when' ).when,
-	Component = require( '../../../resources/components/UserNotice.vue' ),
-	Button = require( '../../../resources/components/base/Button.vue' ),
-	Message = require( '../../../resources/components/base/Message.vue' );
+const { shallowMount, mount } = require( '@vue/test-utils' );
+const when = require( 'jest-when' ).when;
+const Component = require( '../../../resources/components/UserNotice.vue' );
+const { CdxButton, CdxMessage } = require( '@wikimedia/codex' );
 
 describe( 'UserNotice', () => {
 	beforeEach( () => {
@@ -20,13 +19,13 @@ describe( 'UserNotice', () => {
 
 		it( 'a button component', () => {
 			const wrapper = mount( Component );
-			const innerComponent = wrapper.findComponent( Button );
+			const innerComponent = wrapper.findComponent( CdxButton );
 			expect( innerComponent.exists() ).toBe( true );
 		} );
 
 		it( 'a message component', () => {
 			const wrapper = shallowMount( Component );
-			const innerComponent = wrapper.findComponent( Message );
+			const innerComponent = wrapper.findComponent( CdxMessage );
 			expect( innerComponent.exists() ).toBe( true );
 		} );
 	} );

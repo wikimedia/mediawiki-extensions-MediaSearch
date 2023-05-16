@@ -1,7 +1,7 @@
 {
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
-		"selector-class-pattern": "^(sdms|sd)-",
+		"selector-class-pattern": "^(cdx|sdms|sd)-",
 		"unit-disallowed-list": null,
 		"declaration-property-unit-disallowed-list": null
 	}

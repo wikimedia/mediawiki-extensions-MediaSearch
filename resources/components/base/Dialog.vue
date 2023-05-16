@@ -17,24 +17,25 @@
 							{{ title }}
 						</div>
 
-						<sd-button
+						<cdx-button
+							:aria-label="$i18n( 'mediasearch-dialog-close-button-label' )"
 							class="sd-dialog__header-action--safe"
-							:invisible-text="true"
-							:frameless="true"
-							:icon="closeIcon"
+							weight="quiet"
 							@click="close"
-						></sd-button>
+						>
+							<cdx-icon :icon="closeIcon"></cdx-icon>
+						</cdx-button>
 
-						<sd-button
+						<cdx-button
 							v-if="isMobileSkin && progressiveAction"
 							class="sd-dialog__header-action--progressive"
-							:primary="true"
-							:progressive="true"
+							weight="primary"
+							action="progressive"
 							:disabled="progressiveActionDisabled"
 							@click="progress"
 						>
 							{{ progressiveAction }}
-						</sd-button>
+						</cdx-button>
 					</div>
 
 					<div
@@ -48,16 +49,16 @@
 					</div>
 
 					<div class="sd-dialog__footer">
-						<sd-button
+						<cdx-button
 							v-if="!isMobileSkin && progressiveAction"
 							class="sd-dialog__footer-action--progressive"
-							:primary="true"
-							:progressive="true"
+							weight="primary"
+							action="progressive"
 							:disabled="progressiveActionDisabled"
 							@click="progress"
 						>
 							{{ progressiveAction }}
-						</sd-button>
+						</cdx-button>
 					</div>
 				</div>
 			</div>
@@ -66,8 +67,8 @@
 </template>
 
 <script>
-const SdButton = require( './Button.vue' );
-const closeIcon = require( '../../../lib/icons.js' ).sdIconClose;
+const { CdxButton, CdxIcon } = require( '@wikimedia/codex' );
+const { cdxIconClose } = require( '../icons.json' );
 
 /**
  * Dialog component.
@@ -94,11 +95,12 @@ module.exports = exports = {
 	name: 'SdDialog',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	components: {
-		'sd-button': SdButton
+		CdxButton,
+		CdxIcon
 	},
 
 	props: {
@@ -145,7 +147,7 @@ module.exports = exports = {
 
 	data: function () {
 		return {
-			closeIcon: closeIcon,
+			closeIcon: cdxIconClose,
 			fullscreen: mw.config.get( 'skin' ) === 'minerva'
 		};
 	},

@@ -19,10 +19,6 @@ config.global.directives = {
 	}
 };
 
-Vue.configureCompat( {
-	MODE: 3
-} );
-
 /* global jest:false */
 function Api() {}
 Api.prototype.get = jest.fn().mockReturnValue( $.Deferred().resolve().promise() );

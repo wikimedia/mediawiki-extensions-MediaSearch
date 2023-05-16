@@ -1,321 +1,288 @@
-const Vue = require( 'vue' ),
-	VueTestUtils = require( '@vue/test-utils' ),
-	SdSelectMenu = require( '../../../../resources/components/base/SelectMenu.vue' ),
-	AutocompleteSearchInput = require( '../../../../resources/components/base/AutocompleteSearchInput.vue' );
+const { nextTick } = require( 'vue' );
+const { mount, shallowMount } = require( '@vue/test-utils' );
+const { CdxTextInput } = require( '@wikimedia/codex' );
+const SdSelectMenu = require( '../../../../resources/components/base/SelectMenu.vue' );
+const AutocompleteSearchInput = require( '../../../../resources/components/base/AutocompleteSearchInput.vue' );
 
 describe( 'AutocompleteSearchInput Component', () => {
-
 	it( 'renders successfully if name and label is passed', () => {
-
-		const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+		const wrapper = mount( AutocompleteSearchInput, {
 			props: {
-				name: 'tab',
-				label: 'actions'
+				name: 'sdms-search-input',
+				label: 'Search',
+				initialized: true
 			}
 		} );
 
 		const element = wrapper.find( '.sd-input' );
-
 		expect( element.exists() ).toBe( true );
-
 	} );
 
-	describe( 'onInput', () => {
-
-		it( 'emit input event', () => {
-
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+	describe( 'when the input receives input', () => {
+		it( 'emits an input event', async () => {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
-					name: 'tab',
-					label: 'actions'
+					name: 'sdms-search-input',
+					label: 'Search',
+					initialized: true
 				}
 			} );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'input' );
-
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'input' );
+			await nextTick();
 			expect( wrapper.emitted().input ).toHaveLength( 1 );
-
 		} );
-
 	} );
 
-	describe( 'onBlur', () => {
-
-		it( 'emit blur event', () => {
-
+	describe( 'when the input receives blur', () => {
+		it( 'emits a blur event and toggles lookup results when CdxInput is blurred', async () => {
 			const lookupResults = [];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults,
+					initialized: true
 				}
 			} );
 
 			const mockToggleLookupResults = jest.fn();
 			wrapper.vm.toggleLookupResults = mockToggleLookupResults;
+			const component = wrapper.findComponent( CdxTextInput );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'blur' );
+			await component.trigger( 'blur' );
+			await nextTick();
 
 			expect( wrapper.emitted().blur ).toHaveLength( 1 );
 			expect( mockToggleLookupResults ).toHaveBeenCalledWith( false );
-
 		} );
-
 	} );
 
-	describe( 'onFocus', () => {
-
-		it( 'emit focus event and toggle lookup result', () => {
-
+	describe( 'when the input receives focus', () => {
+		it( 'emits focus event and toggle lookup result', async () => {
 			const lookupResults = [];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults,
+					initialized: true
 				},
 				attachTo: document.body
 			} );
 
 			const mockToggleLookupResults = jest.fn();
 			wrapper.vm.toggleLookupResults = mockToggleLookupResults;
+			const component = wrapper.findComponent( CdxTextInput );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.element.focus();
+			await component.trigger( 'focus' );
+			await nextTick();
 
 			expect( wrapper.emitted().focus ).toHaveLength( 1 );
 			expect( mockToggleLookupResults ).toHaveBeenCalledWith( false );
-
 		} );
-
 	} );
 
-	describe( 'onSubmit', () => {
+	describe( 'when "submit" event is triggered from the input', () => {
+		it( 'emits a submit event', async () => {
+			const blurStub = jest.fn();
 
-		it( 'if has lookup result and activeLookupItemIndex > 0, update value', () => {
-			const lookupResults = [
-				{
-					value: 'active'
-				}
-			];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults
-				}
-			} );
-
-			wrapper.setData( {
-				activeLookupItemIndex: 0,
-				showLookupResults: true
-			} );
-
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.enter' );
-
-			expect( wrapper.vm.value ).toEqual( lookupResults[ wrapper.vm.activeLookupItemIndex ] );
-
-		} );
-
-		it( 'emit submit event', () => {
-
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults: []
-				}
-			} );
-
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.enter' );
-
-			expect( wrapper.emitted().submit ).toHaveLength( 1 );
-
-		} );
-
-		it( 'clear lookup results', () => {
-
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults: []
-				}
-			} );
-
-			const mockClearLookupResults = jest.fn();
-			wrapper.vm.clearLookupResults = mockClearLookupResults;
-
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.enter' );
-
-			expect( mockClearLookupResults ).toHaveBeenCalled();
-
-		} );
-
-		it( 'Remove keyboard focus from input', () => {
-
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults: []
-				}
-			} );
-
-			const mockInputBlur = jest.fn();
-			wrapper.vm.$refs.input.blur = mockInputBlur;
-
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.enter' );
-
-			expect( mockInputBlur ).toHaveBeenCalled();
-
-		} );
-
-	} );
-
-	describe( 'onArrowDown', () => {
-
-		it( 'if has lookup result and active item is not last item, set active item as next item', () => {
-			const lookupResults = [
-				{
-					value: 'active'
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults: [],
+					initialized: true,
+					buttonLabel: 'Search'
 				},
-				{
-					value: 'inactive'
+				global: {
+					stubs: {
+						CdxTextInput: {
+							template: '<input>',
+							methods: {
+								blur: blurStub
+							}
+						}
+					}
 				}
+			} );
+
+			await wrapper.findComponent( CdxTextInput ).trigger( 'keydown.enter' );
+			await nextTick();
+			expect( wrapper.emitted( 'submit' ) ).toHaveLength( 1 );
+		} );
+
+		it( 'calls the "blur" method of the text input component', async () => {
+			const blurStub = jest.fn();
+			const wrapper = shallowMount( AutocompleteSearchInput, {
+				props: {
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults: [],
+					initialized: true,
+					buttonLabel: 'Search'
+				},
+				global: {
+					stubs: {
+						CdxTextInput: {
+							template: '<input>',
+							methods: {
+								blur: blurStub
+							}
+						}
+					}
+				}
+			} );
+
+			await wrapper.findComponent( CdxTextInput ).trigger( 'keydown.enter' );
+			await nextTick();
+			expect( blurStub ).toHaveBeenCalled();
+		} );
+
+		it( 'emits the "clear-lookup-results" event', async () => {
+			const blurStub = jest.fn();
+			const wrapper = shallowMount( AutocompleteSearchInput, {
+				props: {
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults: [],
+					initialized: true,
+					buttonLabel: 'Search'
+				},
+				global: {
+					stubs: {
+						CdxTextInput: {
+							template: '<input>',
+							methods: {
+								blur: blurStub
+							}
+						}
+					}
+				}
+			} );
+
+			await wrapper.findComponent( CdxTextInput ).trigger( 'keydown.enter' );
+			await nextTick();
+			expect( wrapper.emitted( 'clear-lookup-results' ) ).toHaveLength( 1 );
+		} );
+	} );
+
+	describe( 'when the "down" arrow key is pressed', () => {
+		it( 'if has lookup result and active item is not last item, set active item as next item', async () => {
+			const lookupResults = [
+				{ value: 'one' },
+				{ value: 'two' }
 			];
 			const initialActiveLookupItemIndex = 0;
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults
+					name: 'sdms-search-input',
+					label: 'Search',
+					lookupResults,
+					initialized: true,
+					buttonLabel: 'Search'
 				}
 			} );
 			wrapper.setData( {
 				activeLookupItemIndex: initialActiveLookupItemIndex
 			} );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.down' );
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'keydown.down' );
+			await nextTick();
 
 			expect( wrapper.vm.activeLookupItemIndex ).toBe( initialActiveLookupItemIndex + 1 );
-
 		} );
 
-		it( 'if has lookup result and active item is last item, set active item as initial item', () => {
-
+		it( 'if has lookup result and active item is last item, set active item as initial item', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				},
-				{
-					value: 'inactive'
-				}
+				{ value: 'one' },
+				{ value: 'two' }
 			];
 			const initialActiveLookupItemIndex = 1;
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				}
 			} );
 			wrapper.setData( {
 				activeLookupItemIndex: initialActiveLookupItemIndex
 			} );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.down' );
-
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'keydown.down' );
+			await nextTick();
 			expect( wrapper.vm.activeLookupItemIndex ).toBe( 0 );
-
 		} );
-
 	} );
 
-	describe( 'onArrowUp', () => {
-
-		it( 'if has lookup result and active item is first item, set active item as last item', () => {
+	describe( 'when the "up" arrow key is pressed', () => {
+		it( 'if has lookup result and active item is first item, set active item as last item', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				},
-				{
-					value: 'inactive'
-				}
+				{ value: 'one' },
+				{ value: 'two' }
 			];
 			const initialActiveLookupItemIndex = 0;
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				}
 			} );
 			wrapper.setData( {
 				activeLookupItemIndex: initialActiveLookupItemIndex
 			} );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.up' );
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'keydown.up' );
+			await nextTick();
 
 			expect( wrapper.vm.activeLookupItemIndex ).toBe( lookupResults.length - 1 );
-
 		} );
 
-		it( 'if has lookup result and active item is not first item, set active item as previous item', () => {
-
+		it( 'if has lookup result and active item is not first item, set active item as previous item', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				},
-				{
-					value: 'inactive'
-				}
+				{ value: 'one' },
+				{ value: 'two' }
 			];
 			const initialActiveLookupItemIndex = 1;
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				}
 			} );
 			wrapper.setData( {
 				activeLookupItemIndex: initialActiveLookupItemIndex
 			} );
 
-			const element = wrapper.find( '.sd-input__input' );
-			element.trigger( 'keyup.up' );
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'keydown.up' );
+			await nextTick();
 
 			expect( wrapper.vm.activeLookupItemIndex ).toBe( initialActiveLookupItemIndex - 1 );
-
 		} );
-
 	} );
 
-	describe( 'selectMenu', () => {
-
-		it( 'renders if hasLookupResults & showLookupResults', ( done ) => {
-
+	describe( 'menu of lookup items', () => {
+		it( 'renders if hasLookupResults & showLookupResults', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				}
+				{ value: 'active' }
 			];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				}
 			} );
 
@@ -323,30 +290,20 @@ describe( 'AutocompleteSearchInput Component', () => {
 				showLookupResults: true
 			} );
 
-			Vue.nextTick().then( () => {
-
-				const element = wrapper.findComponent( SdSelectMenu );
-
-				expect( element.exists() ).toBe( true );
-
-				done();
-			} );
-
+			await nextTick();
+			const element = wrapper.findComponent( SdSelectMenu );
+			expect( element.exists() ).toBe( true );
 		} );
 
 		it( 'on select, hasLookupResults & showLookupResults, emit submit event and clear lookup result', () => {
-
-			const lookupResults = [
-				{
-					value: 'active'
-				}
-			];
+			const lookupResults = [ { value: 'active' } ];
 			const mockClearLookupResults = jest.fn();
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = mount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				},
 				data: function () {
 					return {
@@ -356,32 +313,25 @@ describe( 'AutocompleteSearchInput Component', () => {
 			} );
 
 			wrapper.vm.clearLookupResults = mockClearLookupResults;
-
 			const element = wrapper.findComponent( SdSelectMenu );
 			element.vm.$emit( 'select', 0 );
 
 			expect( wrapper.emitted().submit ).toHaveLength( 1 );
-
 			expect( mockClearLookupResults ).toHaveBeenCalled();
-
 		} );
 
 		it( '"on active-item-change", activeLookupItemIndex is changed to given value', () => {
-
 			const lookupResults = [
-				{
-					value: 'active'
-				},
-				{
-					value: 'active'
-				}
+				{ value: 'active' },
+				{ value: 'inactive' }
 			];
 			const testLookupItemIndex = 1;
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = mount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				},
 				data: function () {
 					return {
@@ -394,63 +344,21 @@ describe( 'AutocompleteSearchInput Component', () => {
 			element.vm.$emit( 'active-item-change', testLookupItemIndex );
 
 			expect( wrapper.vm.activeLookupItemIndex ).toBe( testLookupItemIndex );
-
 		} );
-
 	} );
 
-	describe( 'onIconClick', () => {
-
-		it( 'focus on input', ( done ) => {
-
+	describe( 'When the clear icon is clicked', () => {
+		it( 'emits a clear event', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				}
+				{ value: 'active' }
 			];
-			const mockFocusInput = jest.fn();
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
-				props: {
-					name: 'tab',
-					label: 'actions',
-					lookupResults
-				},
-				data: function () {
-					return {
-						showLookupResults: true
-					};
-				}
-			} );
-
-			wrapper.vm.$refs.input.focus = mockFocusInput;
-
-			const element = wrapper.find( '.sd-input__icon' );
-			element.trigger( 'click' );
-
-			Vue.nextTick().then( () => {
-				expect( mockFocusInput ).toHaveBeenCalled();
-				done();
-			} );
-
-		} );
-
-	} );
-
-	describe( 'clear Icon', () => {
-
-		it( 'onClick emit clear event', () => {
-
-			const lookupResults = [
-				{
-					value: 'active'
-				}
-			];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
 					initialValue: 'active',
-					lookupResults
+					lookupResults,
+					initialized: true
 				},
 				data: function () {
 					return {
@@ -459,38 +367,32 @@ describe( 'AutocompleteSearchInput Component', () => {
 				}
 			} );
 
-			const element = wrapper.find( '.sd-input__indicator' );
-			element.trigger( 'click' );
+			const component = wrapper.findComponent( CdxTextInput );
+			await component.trigger( 'clear' );
+			await nextTick();
 
 			expect( wrapper.emitted().clear ).toHaveLength( 1 );
-
 		} );
-
 	} );
 
 	describe( 'Show or hide lookup results', () => {
-
-		it( 'toggleLookupResults is called with true', () => {
-
+		it( 'toggleLookupResults is called with true', async () => {
 			const lookupResults = [
-				{
-					value: 'active'
-				}
+				{ value: 'active' }
 			];
-			const wrapper = VueTestUtils.mount( AutocompleteSearchInput, {
+			const wrapper = shallowMount( AutocompleteSearchInput, {
 				props: {
 					name: 'tab',
 					label: 'actions',
-					lookupResults
+					lookupResults,
+					initialized: true
 				}
 			} );
 
 			wrapper.vm.toggleLookupResults( true );
+			await nextTick();
 
 			expect( wrapper.vm.showLookupResults ).toBeTruthy();
-
 		} );
-
 	} );
-
 } );

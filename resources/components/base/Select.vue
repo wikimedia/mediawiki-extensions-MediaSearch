@@ -32,8 +32,8 @@
 				</template>
 				{{ currentSelection }}
 			</span>
-			<sd-icon class="sd-select__handle" :icon="icons.sdIconExpand">
-			</sd-icon>
+			<cdx-icon class="sd-select__handle" :icon="cdxIconExpand" size="x-small">
+			</cdx-icon>
 		</button>
 		<sd-select-menu
 			v-if="showMenu"
@@ -49,9 +49,9 @@
 </template>
 
 <script>
-var Icon = require( './Icon.vue' ),
-	SelectMenu = require( './SelectMenu.vue' ),
-	icons = require( '../../../lib/icons.js' );
+const SelectMenu = require( './SelectMenu.vue' );
+const { CdxIcon } = require( '@wikimedia/codex' );
+const { cdxIconExpand } = require( '../icons.json' );
 
 /**
  * @file Select
@@ -68,11 +68,11 @@ module.exports = exports = {
 	name: 'SdSelect',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	components: {
-		'sd-icon': Icon,
+		CdxIcon,
 		'sd-select-menu': SelectMenu
 	},
 
@@ -129,9 +129,9 @@ module.exports = exports = {
 		return {
 			showMenu: false,
 			isMouseDown: false,
-			icons: icons,
 			activeItemIndex: this.initialSelectedItemIndex,
-			selectedItemIndex: this.initialSelectedItemIndex
+			selectedItemIndex: this.initialSelectedItemIndex,
+			cdxIconExpand
 		};
 	},
 

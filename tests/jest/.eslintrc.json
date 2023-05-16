@@ -1,22 +1,21 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client-es6",
-		"../../.eslintshared.json"
+		"wikimedia/language/es2020",
+		"wikimedia/client-common",
+		"wikimedia/mediawiki",
+		"wikimedia/jquery"
 	],
+	"plugins": [ "jest" ],
+	"env": {
+		"jest/globals": true
+	},
 	"globals": {
-		"OO": "readonly"
+		"global": false
 	},
 	"rules": {
 		"no-implicit-globals": "off",
-		"prefer-const": "off",
-		"arrow-parens": "off",
 		"no-var": "off",
-		"no-undef": "off",
-		"no-redeclare": "off",
-		"max-len": "off"
-	},
-	"env": {
-		"jest": true
+		"prefer-const": "off"
 	}
 }

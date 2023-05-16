@@ -1,36 +1,9 @@
-@import 'mediawiki.mixins';
+@import 'mediawiki.skin.variables.less';
 
 .sdms-user-notice__message {
-	.flex-display();
-	align-items: center;
-	margin-bottom: 1.65em;
-	max-width: 100%;
-
-	.sd-message__content {
-		.flex-display();
-		margin-left: 3em;
-	}
+	margin-bottom: @spacing-150;
 }
 
 .sdms-user-notice__title {
-	font-weight: bold;
-}
-
-.sdms-user-notice__dismiss-button {
-	right: 10px;
-	position: absolute;
-	top: 10px;
-
-	&:hover {
-		background-color: transparent;
-	}
-}
-
-// Transitions
-.sdms-fade-out-leave-active {
-	transition: opacity 500ms;
-}
-
-.sdms-fade-out-leave-to {
-	opacity: 0;
+	font-weight: @font-weight-bold;
 }

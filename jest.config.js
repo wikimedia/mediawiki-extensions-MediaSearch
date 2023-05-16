@@ -71,8 +71,7 @@ module.exports = {
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
 	moduleNameMapper: {
 		'data/searchOptions.json': '<rootDir>/tests/jest/fixtures/mockSearchOptions.json',
-		'^vue$': '@vue/compat',
-		'@vue/composition-api': '@vue/compat'
+		'icons.json': '@wikimedia/codex-icons'
 	},
 	// An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
 	// modulePathIgnorePatterns: [],

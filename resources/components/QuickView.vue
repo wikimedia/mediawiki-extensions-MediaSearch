@@ -41,7 +41,7 @@
 				:title="closeButtonText"
 				@click="close"
 			>
-				<sd-icon :icon="icons.sdIconClose"></sd-icon>
+				<cdx-icon :icon="cdxIconClose"></cdx-icon>
 				<span class="sdms-quick-view__button__text">
 					{{ closeButtonText }}
 				</span>
@@ -55,7 +55,7 @@
 					@keyup.enter="$emit( 'previous', true )"
 					@click="$emit( 'previous' )"
 				>
-					<sd-icon :icon="icons.sdIconPrevious"></sd-icon>
+					<cdx-icon :icon="cdxIconPrevious"></cdx-icon>
 					<span class="sdms-quick-view__button__text">
 						{{ previousButtonText }}
 					</span>
@@ -68,7 +68,7 @@
 					@keyup.enter="$emit( 'next', true )"
 					@click="$emit( 'next' )"
 				>
-					<sd-icon :icon="icons.sdIconNext"></sd-icon>
+					<cdx-icon :icon="cdxIconNext"></cdx-icon>
 					<span class="sdms-quick-view__button__text">
 						{{ nextButtonText }}
 					</span>
@@ -97,14 +97,14 @@
 				v-if="artist"
 				class="sdms-quick-view__list-item sdms-quick-view__list-item--user sdms-quick-view__artist"
 			>
-				<sd-icon :icon="icons.sdIconUserAvatar"></sd-icon>
+				<cdx-icon :icon="cdxIconUserAvatar"></cdx-icon>
 				<bdi><span v-html="artist"></span></bdi>
 			</p>
 
 			<!-- Attempt to show license text, an appropriate icon, and an
 			optional link to external license URL -->
 			<p v-if="licenseText" class="sdms-quick-view__list-item sdms-quick-view__license">
-				<sd-icon v-if="licenseIcon" :icon="licenseIcon"></sd-icon>
+				<cdx-icon v-if="licenseIcon" :icon="licenseIcon"></cdx-icon>
 				<a
 					v-if="licenseUrl"
 					:href="licenseUrl"
@@ -115,12 +115,12 @@
 			</p>
 
 			<p v-if="assessmentList" class="sdms-quick-view__list-item sdms-quick-view__assessment">
-				<sd-icon :icon="icons.sdIconUnstar"></sd-icon>
+				<cdx-icon :icon="cdxIconUnStar"></cdx-icon>
 				<span>{{ assessmentList }}</span>
 			</p>
 
 			<p v-if="displayName" class="sdms-quick-view__list-item sdms-quick-view__copy-full-name">
-				<sd-icon :icon="filenameIcon"></sd-icon>
+				<cdx-icon :icon="filenameIcon"></cdx-icon>
 				<sd-copy-text-layout
 					:copy-text="displayName"
 					:inline="true"
@@ -129,7 +129,7 @@
 			</p>
 
 			<p v-if="displayNameWithoutExtension" class="sdms-quick-view__list-item sdms-quick-view__copy-name-no-extension">
-				<sd-icon :icon="icons.sdIconWikiText"></sd-icon>
+				<cdx-icon :icon="cdxIconWikiText"></cdx-icon>
 				<sd-copy-text-layout
 					:copy-text="'[[' + title + '|' + displayNameWithoutExtension + ']]'"
 					:inline="true"
@@ -141,18 +141,18 @@
 			<!-- Sometimes this is free text, sometimes it is formatted. Can
 			we make things semi-consistent? -->
 			<p v-if="creationDate" class="sdms-quick-view__list-item sdms-quick-view__creation-date">
-				<sd-icon :icon="icons.sdIconClock"></sd-icon>
+				<cdx-icon :icon="cdxIconClock"></cdx-icon>
 				<span v-html="creationDate"></span>
 			</p>
 
 			<p v-if="resolution" class="sdms-quick-view__list-item sdms-quick-view__resolution">
-				<sd-icon :icon="icons.sdIconCamera"></sd-icon>
+				<cdx-icon :icon="cdxIconCamera"></cdx-icon>
 				<!-- Resolution should never flip. -->
 				<span dir="ltr">{{ resolution }}</span>
 			</p>
 
 			<p v-if="mimeType" class="sdms-quick-view__list-item  sdms-quick-view__mine-type">
-				<sd-icon :icon="icons.sdIconPageSettings"></sd-icon>
+				<cdx-icon :icon="cdxIconPageSettings"></cdx-icon>
 				<span>{{ mimeType }}</span>
 			</p>
 
@@ -169,15 +169,33 @@
 </template>
 
 <script>
-var SdIcon = require( './base/Icon.vue' ),
-	SdPlayer = require( './base/Player.vue' ),
+var SdPlayer = require( './base/Player.vue' ),
 	SdCopyTextLayout = require( './base/CopyTextLayout.vue' ),
 	Spinner = require( './Spinner.vue' ),
-	icons = require( '../../lib/icons.js' ),
 	userLangCode = mw.config.get( 'wgUserLanguage' ),
 	PREVIEW_SIZES = [ 640, 800, 1200, 1600 ], // Pre-defined set of thumbnail image width values
 	MAX_SIZE = 2000,
 	assessmentLabels = mw.config.get( 'sdmsAssessmentQuickviewLabels' );
+
+const { CdxIcon } = require( '@wikimedia/codex' );
+
+const {
+	cdxIconCamera,
+	cdxIconClock,
+	cdxIconClose,
+	cdxIconImageLayoutFrameless,
+	cdxIconLogoCC,
+	cdxIconNext,
+	cdxIconPageSettings,
+	cdxIconPlay,
+	cdxIconPrevious,
+	cdxIconReference,
+	cdxIconUnLock,
+	cdxIconUserAvatar,
+	cdxIconUnStar,
+	cdxIconWikiText,
+	cdxIconVolumeUp
+} = require( './icons.json' );
 
 /**
  * @file QuickView.vue
@@ -190,8 +208,12 @@ var SdIcon = require( './base/Icon.vue' ),
 module.exports = exports = {
 	name: 'QuickView',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
-		'sd-icon': SdIcon,
+		CdxIcon,
 		'sd-player': SdPlayer,
 		'sd-copy-text-layout': SdCopyTextLayout,
 		spinner: Spinner
@@ -239,10 +261,18 @@ module.exports = exports = {
 
 	data: function () {
 		return {
+			cdxIconCamera,
+			cdxIconClock,
+			cdxIconClose,
+			cdxIconNext,
+			cdxIconPageSettings,
+			cdxIconPrevious,
+			cdxIconUserAvatar,
+			cdxIconWikiText,
+			cdxIconUnStar,
 			thumbnailWrapperStyle: false,
 			isExtraSmall: false,
 			showSpinner: false,
-			icons: icons,
 			closeButtonText: this.$i18n( 'mediasearch-quickview-close-button-text' ).text(),
 			previousButtonText: this.$i18n( 'mediasearch-quickview-previous-button-text' ).text(),
 			nextButtonText: this.$i18n( 'mediasearch-quickview-next-button-text' ).text()
@@ -390,11 +420,11 @@ module.exports = exports = {
 		filenameIcon: function () {
 			switch ( this.mediaType ) {
 				case 'audio':
-					return this.icons.sdIconVolumeUp;
+					return cdxIconVolumeUp;
 				case 'video':
-					return this.icons.sdIconPlay;
+					return cdxIconPlay;
 				default:
-					return this.icons.sdIconImageLayoutFrameless;
+					return cdxIconImageLayoutFrameless;
 			}
 		},
 
@@ -596,11 +626,11 @@ module.exports = exports = {
 
 		getLicenseIcon: function ( valueString ) {
 			if ( /^cc|attribution/i.test( valueString ) ) {
-				return icons.sdIconLogoCC;
+				return cdxIconLogoCC;
 			} else if ( /^pd|no restrictions/i.test( valueString ) ) {
-				return icons.sdIconUnLock;
+				return cdxIconUnLock;
 			} else {
-				return icons.sdIconReference;
+				return cdxIconReference;
 			}
 		},
 

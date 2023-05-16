@@ -7,7 +7,7 @@
 		{{/isSearch}}
 	{{/queryParams}}
 
-	<div class="sd-input sdms-search-input sd-input--button">
+	<div class="sd-input sd-input--button sdms-search-input">
 		<div class="sd-input__wrapper">
 			<label
 				id="sdms-search-input__label"
@@ -17,50 +17,50 @@
 				{{searchLabel}}
 			</label>
 
-			<input type="hidden" name="type" value="{{activeType}}" />
-			<input
-				value="{{term}}"
-				{{#autofocus}}
-					autofocus="autofocus"
-				{{/autofocus}}
-				name="search"
-				id="sdms-search-input__input"
-				dir="auto"
-				class="sd-input__input"
-				type="text"
-				placeholder="{{searchPlaceholder}}"
-			>
 
-			<span class="sd-input__icon">
-				<span class="sd-icon">
-					<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" aria-hidden="true">
-						<g fill="currentColor">
-							<path d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 017.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"></path>
-						</g>
-					</svg>
-				</span>
-			</span>
+			<div class="cdx-text-input cdx-text-input--has-start-icon sd-input__input">
+				<input type="hidden" name="type" value="{{activeType}}" />
+				<input
+					value="{{term}}"
+					name="search"
+					id="sdms-search-input__input"
+					dir="auto"
+					class="cdx-text-input__input"
+					type="text"
+					placeholder="{{searchPlaceholder}}"
+				>
+				<span class="cdx-text-input__icon cdx-text-input__start-icon sd-input__css-icon--search"></span>
+			</div>	
 		</div>
-
-		<button type="submit" class="sd-button sd-input__button sd-button--framed sd-button--progressive sd-button--primary">
+		<button type="submit" class="sd-input__button cdx-button cdx-button--action-progressive cdx-button--weight-primary">
 			<span class="sd-button__content">{{searchButton}}</span>
 		</button>
 	</div>
 </form>
 
-<div class="sd-tabs">
-	<div class="sd-tabs__header">
-		<div role="tablist" tabindex="0" class="sd-tabs__tabs-list" aria-activedescendant="sd-tab-{{activeType}}-label">
+<div class="cdx-tabs">
+	<div class="cdx-tabs__header">
+		<ul 
+			class="cdx-tabs__list"
+			role="tablist"
+			aria-activedescendant="cdx-tabs-{{activeType}}-label"
+		>
 			{{#tabs}}
-				<div
-					id="sd-tab-{{type}}-label"
+				<li
+					id="cdx-tab-{{type}}-label"
+					class="cdx-tabs__list__item"
 					{{#isActive}}aria-selected="true"{{/isActive}}
-					aria-controls="sd-tab-{{type}}"
-					role="tab"
-					class="sd-tabs__tabs-list__item {{#isActive}}sd-tabs__tabs-list__item--current{{/isActive}}"
+					role="presentation"
 				>
-					{{! below form is a bit of a hack to mimick tabs without JS, where tab label is submit button }}
 					<form method="get" action="{{page}}">
+						<input
+							id="cdx-tab-{{type}}-input"
+							class="cdx-tabs__submit"
+							name="type"
+							type="submit"
+							value="{{type}}"
+						/>
+
 						{{#queryParams}}
 							{{#isSort}}
 								<input type="hidden" name="{{key}}" value="{{value}}" />
@@ -71,37 +71,34 @@
 						{{/queryParams}}
 						<input type="hidden" name="search" value="{{term}}" />
 
-						<label>
-							<input
-								type="submit"
-								name="type"
-								value="{{type}}"
-								{{#isActive}}checked="checked"{{/isActive}}
-								style="display: none"
-							/>
+						<label
+							for="cdx-tab-{{type}}-input"
+							role="tab"
+							{{#isActive}}aria-selected="true"{{/isActive}}
+						>
 							{{label}}
 						</label>
 					</form>
-				</div>
+				</li>
 			{{/tabs}}
 		</div>
 	</div>
 
-	<div class="sd-tabs__content">
+	<div class="cdx-tabs__content">
 		{{#tabs}}
 			{{#isActive}}
 				<div
-					id="sd-tab-{{activeType}}"
-					aria-labeledby="sd-tab-{{activeType}}-label"
+					id="cdx-tab-{{activeType}}"
+					aria-labeledby="cdx-tab-{{activeType}}-label"
 					role="tabpanel"
-					class="sd-tab"
+					class="cdx-tab"
 				>
 					<div class="sdms-search-filters">
 						{{#filtersForDisplay}}
 						<div class="sd-select sd-select--disabled">
 							<div class="sd-select__content">
 								<span class="sd-select__current-selection">{{ . }}</span>
-								<span class="sd-icon sd-select__handle">
+								<span class="cdx-icon sd-select__handle">
 									<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" aria-hidden="true">
 										<g fill="currentColor">
 											<path d="M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"></path>
@@ -170,13 +167,7 @@
 
 											<h4 class="sdms-audio-result__meta">
 												<span class="sdms-audio-result__duration">
-													<span class="sd-icon sd-icon--flip-for-rtl">
-														<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" aria-hidden="true">
-															<g fill="currentColor">
-																<path d="M4 6v8l5.2 3.9c.3.3.8 0 .8-.5V2.6c0-.5-.5-.8-.8-.5zm0 8H1a1 1 0 01-1-1V7a1 1 0 011-1h3m0 0 M16.4 17.4a1 1 0 01-.7-1.7 8 8 0 000-11.4A1 1 0 0117 3a10 10 0 010 14.2 1 1 0 01-.7.3z M13.5 14.5a1 1 0 01-.7-.3 1 1 0 010-1.4 4 4 0 000-5.6 1 1 0 011.4-1.4 6 6 0 010 8.4 1 1 0 01-.7.3z"></path>
-															</g>
-														</svg>
-													</span>
+													<span class="sdms-audio-result__icon"></span>
 													{{! note: duration formatting is implemented in JS - not worth reimplementing here }}
 												</span>
 												{{#imageinfo.0.mime}}
@@ -212,13 +203,7 @@
 
 												<h4 class="sdms-video-result__meta">
 													<span class="sdms-video-result__duration">
-														<span class="sd-icon">
-															<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" aria-hidden="true">
-																<g fill="currentColor">
-																	<path d="M4.55 19A1 1 0 013 18.13V1.87A1 1 0 014.55 1l12.2 8.13a1 1 0 010 1.7z"></path>
-																</g>
-															</svg>
-														</span>
+														<span class="sdms-video-result__icon"></span>
 														{{! note: duration formatting is implemented in JS - not worth reimplementing here }}
 													</span>
 													{{#imageinfo.0.mime}}
@@ -309,6 +294,23 @@
 									{{/results}}
 								{{/isOther}}
 							</div>
+
+							{{#hasMore}}
+								<form method="get" action="{{page}}">
+									{{#queryParams}}
+										{{^isType}}
+											{{^isContinue}}
+												<input type="hidden" name="{{key}}" value="{{value}}" />
+											{{/isContinue}}
+										{{/isType}}
+									{{/queryParams}}
+									<input type="hidden" name="type" value="{{activeType}}" />
+									<input type="hidden" name="continue" value="{{continue}}" />
+									<button type="submit" class="cdx-button sdms-load-more cdx-button--action-progressive">
+										<span class="sd-button__content">{{continueMessage}}</span>
+									</button>
+								</form>
+							{{/hasMore}}
 
 							{{#endOfResults}}
 								<div class="sdms-end-of-results">
