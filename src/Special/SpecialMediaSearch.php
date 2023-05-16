@@ -252,6 +252,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$totalHits = $searchinfo['totalhits'] ?? 0;
 		$didYouMean = null;
 		$didYouMeanLink = null;
+		$currentResultStart = $this->getRequest()->getText( 'continue' ) ?: 0;
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
 			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ], $activeFilters );
@@ -288,6 +289,8 @@ class SpecialMediaSearch extends SpecialPage {
 			'filtersForDisplay' => array_values( $filtersForDisplay ),
 			'clearFiltersUrl' => $this->getPageTitle()->getLinkURL( array_diff( $queryParams, $activeFilters ) ),
 			'clearFiltersText' => $this->msg( 'mediasearch-clear-filters' )->text(),
+			'hasLess' => $currentResultStart > 0,
+			'previousStart' => max( $currentResultStart - $limit, 0 ),
 			'hasMore' => $continue !== null,
 			'endOfResults' => count( $results ) > 0 && $continue === null,
 			'endOfResultsMessage' => $this->msg( 'mediasearch-end-of-results' )->text(),
@@ -297,6 +300,7 @@ class SpecialMediaSearch extends SpecialPage {
 			'searchButton' => $this->msg( 'searchbutton' )->text(),
 			'searchPlaceholder' => $this->msg( 'mediasearch-input-placeholder' )->text(),
 			'continueMessage' => $this->msg( 'mediasearch-load-more-results' )->text(),
+			'previousMessage' => $this->msg( 'mediasearch-load-less-results' )->text(),
 			'emptyMessage' => $this->msg( 'mediasearch-empty-state', $totalSiteImages )
 				->text(),
 			'noResultsMessage' => $this->msg( 'mediasearch-no-results' )->text(),
