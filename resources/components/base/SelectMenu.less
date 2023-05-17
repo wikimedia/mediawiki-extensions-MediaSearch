@@ -1,10 +1,10 @@
 @import './../../sd-base-variables.less';
 
 .sd-select-menu {
-	box-shadow: @box-shadow-menu;
 	background-color: @background-color-base;
 	border: @border-base;
 	border-radius: 0 0 @border-radius-base @border-radius-base;
+	box-shadow: @box-shadow-drop-medium;
 	box-sizing: border-box;
 	left: 0;
 	margin-bottom: -1px;
@@ -26,7 +26,7 @@
 	}
 
 	&__list-item {
-		transition: background-color 100ms, color 100ms;
+		transition: background-color @transition-duration-base, color @transition-duration-base;
 		color: @color-base;
 		cursor: pointer;
 		list-style: none;
@@ -41,16 +41,16 @@
 		}
 
 		&--active {
-			background-color: @background-color-base--hover;
-			color: @color-base--emphasized;
+			background-color: @background-color-interactive;
+			color: @color-emphasized;
 		}
 
 		&--selected {
-			background-color: @background-color-primary;
+			background-color: @background-color-progressive-subtle;
 		}
 
 		&--active.sd-select-menu__list-item--selected {
-			color: @color-primary;
+			color: @color-progressive;
 		}
 	}
 }

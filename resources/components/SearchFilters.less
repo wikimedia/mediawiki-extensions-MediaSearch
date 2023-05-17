@@ -41,7 +41,7 @@
 			border: @border-width-base @border-style-base @sdms-border-color-tool;
 			border-radius: @border-radius-base;
 			box-shadow: none;
-			color: @sdms-color-tool;
+			color: @color-emphasized;
 
 			@media screen and ( min-width: @width-breakpoint-tablet ) {
 				font-size: 0.9em;
@@ -56,14 +56,14 @@
 			}
 
 			&:focus {
-				box-shadow: inset 0 0 0 1px @color-primary;
-				border-color: @sdms-border-color-base--focus;
-				outline: 0;
+				box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+				border-color: @border-color-progressive--focus;
+				outline: @outline-base--focus;
 			}
 
 			&:active {
 				background-color: @sdms-background-color-tool--active;
-				border-color: @sdms-border-color-base--focus;
+				border-color: @border-color-progressive--focus;
 				box-shadow: none;
 			}
 		}
@@ -71,11 +71,11 @@
 		// Styles for when a filter value has been selected.
 		&.sdms-search-filter--selected {
 			.sd-select__content {
-				color: @color-primary;
+				color: @color-progressive;
 				font-weight: bold;
 
 				.sd-select__handle {
-					color: @color-primary;
+					color: @color-progressive;
 				}
 			}
 		}
@@ -86,14 +86,14 @@
 	}
 
 	&__namespace {
-		transition: color 100ms;
+		transition: color @transition-duration-base;
 		font-weight: normal;
 		padding: 0;
 		background-color: transparent;
 		border: @border-width-base @border-style-base @sdms-border-color-tool;
 		border-radius: @border-radius-base;
 		box-shadow: none;
-		min-height: @size-base;
+		min-height: @min-size-base;
 		white-space: nowrap;
 
 		@media screen and ( min-width: @width-breakpoint-tablet ) {
@@ -105,11 +105,11 @@
 		}
 
 		&--selected {
-			color: @color-primary;
+			color: @color-progressive;
 			font-weight: bold;
 
 			&:hover {
-				color: @color-primary;
+				color: @color-progressive;
 			}
 		}
 
@@ -119,14 +119,14 @@
 
 		&:active {
 			background-color: @sdms-background-color-tool--active;
-			border-color: @sdms-border-color-base--focus;
+			border-color: @border-color-progressive--focus;
 			box-shadow: none;
 		}
 
 		&:focus {
-			box-shadow: inset 0 0 0 1px @color-primary;
-			border-color: @sdms-border-color-base--focus;
-			outline: 0;
+			box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+			border-color: @border-color-progressive--focus;
+			outline: @outline-base--focus;
 		}
 	}
 

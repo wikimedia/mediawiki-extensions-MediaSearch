@@ -5,10 +5,11 @@
 .sdms-image-result {
 	.flex-display();
 	align-items: center;
-	background-color: @wmui-color-base80;
+	background-color: #eaecf0;
 	box-sizing: border-box;
 	height: 180px;
-	transition: box-shadow @transition-base ease, outline @transition-base ease;
+	transition-property: box-shadow, outline;
+	transition-duration: @transition-duration-base;
 
 	&:hover,
 	&:focus {
@@ -17,7 +18,7 @@
 
 	// Extra prominence on focus using outline, for users navigating via keyboard
 	&:focus {
-		outline: solid 2px @color-primary;
+		outline: solid 2px @border-color-progressive--focus;
 		outline-offset: -2px;
 	}
 

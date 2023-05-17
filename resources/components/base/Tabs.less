@@ -48,7 +48,7 @@
 		}
 
 		&__item {
-			transition: color 100ms, box-shadow 100ms;
+			transition: color @transition-duration-base, box-shadow @transition-duration-base;
 			color: @sd-color-taboption;
 			cursor: pointer;
 			font-weight: bold;
@@ -64,35 +64,35 @@
 
 			// Currently selected tab.
 			&--current {
-				box-shadow: inset 0 -2px 0 0 @color-primary;
-				color: @color-primary;
+				box-shadow: inset 0 -2px 0 0 @box-shadow-color-progressive-selected;
+				color: @color-progressive;
 			}
 
 			&:hover {
-				box-shadow: inset 0 -2px 0 0 @color-primary--hover;
-				color: @color-primary--hover;
+				box-shadow: inset 0 -2px 0 0 @box-shadow-color-progressive-selected--hover;
+				color: @color-progressive--hover;
 			}
 
 			// During mousedown.
 			&:active {
-				box-shadow: inset 0 -2px 0 0 @color-primary--active;
-				color: @color-primary--active;
+				box-shadow: inset 0 -2px 0 0 @box-shadow-color-progressive-selected--active;
+				color: @color-progressive--active;
 			}
 
 			&:focus {
 				// Focus style is handled elsewhere.
-				outline: 0;
+				outline: @outline-base--focus;
 			}
 
 			&--disabled {
-				color: @color-base--disabled;
+				color: @color-disabled;
 				cursor: not-allowed;
 
 				&--current,
 				&:hover,
 				&:active {
 					box-shadow: unset;
-					color: @color-base--disabled;
+					color: @color-disabled;
 				}
 			}
 		}
@@ -103,15 +103,15 @@
 		}
 
 		&:focus {
-			outline: 0;
+			outline: @outline-base--focus;
 
 			// If a tab item is clicked, because its tabindex is set to -1, the
 			// item itself will take focus. However, if keyboard nav is used,
 			// the parent element (with tabindex = 0) will take focus and the
 			// style below will apply, acting as a visual focus indicator.
 			.sd-tabs__tabs-list__item--current {
-				border-radius: 2px;
-				box-shadow: inset 0 0 0 2px @color-primary;
+				border-radius: @border-radius-base;
+				box-shadow: inset 0 0 0 2px @box-shadow-color-progressive--focus;
 			}
 		}
 	}

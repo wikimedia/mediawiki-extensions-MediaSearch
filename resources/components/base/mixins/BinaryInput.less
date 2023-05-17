@@ -12,11 +12,12 @@
 
 	// Custom-styled input that's visible to the user.
 	&__icon {
-		transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: @transition-duration-base;
 		background-color: @background-color-base;
 		background-size: 0 0;
 		border: @border-width-base @border-style-base @sd-border-color-input-binary;
-		border-radius: 2px;
+		border-radius: @border-radius-base;
 		box-sizing: border-box;
 		cursor: pointer;
 		height: @sd-size-input-binary;
