@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ella Lachow"
+		]
+	},
+	"mediasearch-title": "Miidiyaa koyya",
+	"mediasearch-continue": "Kaalliyagaa",
+	"mediasearch-tab-image": "Misileta",
+	"mediasearch-tab-audio": "Cenggurssaa",
+	"mediasearch-tab-video": "Viiduwaa",
+	"mediasearch-tab-page": "Moodettatanne Sinttata",
+	"mediasearch-tab-other": "Hara miidiyaa",
+	"mediasearch-filter-size": "Misiliya yesuwaa",
+	"mediasearch-filter-size-unset": "Ubbaa",
+	"mediasearch-filter-size-any": "Ubba misiletu yesuwaa",
+	"mediasearch-filter-size-small": "Guutta",
+	"mediasearch-filter-size-medium": "Giddo",
+	"mediasearch-filter-size-large": "Gita",
+	"mediasearch-filter-file-type-any": "Fayiliyaa Qommuwaa",
+	"mediasearch-filter-file-type-unset": "Ubbaa",
+	"mediasearch-filter-sort-label": "Maara:",
+	"mediasearch-filter-sort-default": "Gaytotettaa",
+	"mediasearch-filter-sort-popularity": "Eretuwaa",
+	"mediasearch-filter-license-any": "Ubba eenotata"
+}
