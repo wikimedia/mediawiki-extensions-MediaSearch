@@ -151,6 +151,12 @@ module.exports = exports = {
 			// key in returned object
 			this.tabs.forEach(
 				function ( tab ) {
+					// Messages that can be used here:
+					// * mediasearch-tab-image
+					// * mediasearch-tab-audio
+					// * mediasearch-tab-video
+					// * mediasearch-tab-page
+					// * mediasearch-tab-other
 					names[ tab ] = this.$i18n( prefix + tab ).text();
 				}.bind( this )
 			);

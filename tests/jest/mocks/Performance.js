@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 const nativePerformance = window.performance;
 
 // Set the performance navigation by defining the NatigationTiming

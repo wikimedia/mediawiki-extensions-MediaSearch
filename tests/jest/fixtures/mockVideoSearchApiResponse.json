@@ -1,1643 +1,1643 @@
 {
-    "batchcomplete": "",
-    "continue": {
-        "gsroffset": 80,
-        "continue": "gsroffset||"
-    },
-    "query": {
-        "searchinfo": {
-            "totalhits": 9104
-        },
-        "pages": {
-            "11136217": {
-                "pageid": 11136217,
-                "ns": 6,
-                "title": "File:Black and white cat drinks from a puddle.ogv",
-                "size": 1202,
-                "wordcount": 1,
-                "snippet": "DescriptionBlack and white <span class=\"searchmatch\">cat</span> drinks from a puddle.ogv English: Black and white domestic <span class=\"searchmatch\">cat</span> drinks from a puddle. Čeština: Černobílá kočka domácí pije",
-                "timestamp": "2020-09-12T23:42:16Z",
-                "index": 44,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T02:53:43Z",
-                "lastrevid": 457101251,
-                "length": 1202,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Black_and_white_cat_drinks_from_a_puddle.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 6294431,
-                        "width": 640,
-                        "height": 480,
-                        "duration": 8.996281179138322,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/200px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/400px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/300px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=11136217",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "11222901": {
-                "pageid": 11222901,
-                "ns": 6,
-                "title": "File:Webcam CT transmissions.ogv",
-                "size": 865,
-                "wordcount": 37,
-                "snippet": "captioned as follows: English: <span class=\"searchmatch\">Cat</span> Scan of a webcam (40s). Other languages Deutsch: Typ-Scan von einer Webcam. English: <span class=\"searchmatch\">Cat</span> Scan of a webcam (40s). Français :",
-                "timestamp": "2020-09-09T13:29:42Z",
-                "index": 57,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T02:53:43Z",
-                "lastrevid": 453254801,
-                "length": 865,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Webcam_CT_transmissions.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 27308933,
-                        "width": 1008,
-                        "height": 1008,
-                        "duration": 39.92,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/200px--Webcam_CT_transmissions.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 200,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/400px--Webcam_CT_transmissions.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/300px--Webcam_CT_transmissions.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Webcam_CT_transmissions.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=11222901",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "23863226": {
-                "pageid": 23863226,
-                "ns": 6,
-                "title": "File:The boxing cats (Prof. Welton's).ogv",
-                "size": 2174,
-                "wordcount": 1,
-                "snippet": "<span class=\"searchmatch\">cats</span> (Prof. Welton's).ogv English: The boxing <span class=\"searchmatch\">cats</span> (Prof. Welton's) (1894). Original description by the Library of Congress: OTHER TITLES Boxing <span class=\"searchmatch\">cats</span>",
-                "timestamp": "2021-01-04T10:48:35Z",
-                "index": 46,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T02:53:47Z",
-                "lastrevid": 524034293,
-                "length": 2174,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:The_boxing_cats_(Prof._Welton%27s).ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 2862500,
-                        "width": 320,
-                        "height": 240,
-                        "duration": 22.589233333333333,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/200px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/320px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/300px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=23863226",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "28025040": {
-                "pageid": 28025040,
-                "ns": 6,
-                "title": "File:Katzensprung in Zeitlupe.webm",
-                "size": 680,
-                "wordcount": 1,
-                "snippet": "English",
-                "timestamp": "2020-09-27T12:51:33Z",
-                "index": 50,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-18T22:31:37Z",
-                "lastrevid": 473203539,
-                "length": 680,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Katzensprung_in_Zeitlupe.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 2398418,
-                        "width": 480,
-                        "height": 360,
-                        "duration": 23.902,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/200px--Katzensprung_in_Zeitlupe.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/400px--Katzensprung_in_Zeitlupe.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/300px--Katzensprung_in_Zeitlupe.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Katzensprung_in_Zeitlupe.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=28025040",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "37234986": {
-                "pageid": 37234986,
-                "ns": 6,
-                "title": "File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
-                "size": 2124,
-                "wordcount": 1,
-                "snippet": "ogv English: Oscillatory movement of HAM-5-GFP and SO-mCherry to opposite <span class=\"searchmatch\">CAT</span> tips in two germlings undergoing chemotropic interactions. A 52-minute movie",
-                "timestamp": "2020-10-17T08:41:47Z",
-                "index": 61,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-12-13T16:10:13Z",
-                "lastrevid": 492319863,
-                "length": 2124,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 3485213,
-                        "width": 1024,
-                        "height": 1024,
-                        "duration": 15,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/200px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 200,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/400px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/300px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=37234986",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "44928007": {
-                "pageid": 44928007,
-                "ns": 6,
-                "title": "File:Private Life of a Cat.ogv",
-                "size": 750,
-                "wordcount": 1,
-                "snippet": "DescriptionPrivate Life of a <span class=\"searchmatch\">Cat</span>.ogv English: Private Life of a <span class=\"searchmatch\">Cat</span>, Alexander Hammid's intimate study of a female <span class=\"searchmatch\">cat</span> and the birth and maturation of",
-                "timestamp": "2021-03-06T13:29:04Z",
-                "index": 41,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-04T17:57:14Z",
-                "lastrevid": 539906779,
-                "length": 750,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Private_Life_of_a_Cat.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 92865172,
-                        "width": 400,
-                        "height": 300,
-                        "duration": 1321.4214214214214,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/200px--Private_Life_of_a_Cat.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/400px--Private_Life_of_a_Cat.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/300px--Private_Life_of_a_Cat.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Private_Life_of_a_Cat.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=44928007",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "49390036": {
-                "pageid": 49390036,
-                "ns": 6,
-                "title": "File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
-                "size": 1182,
-                "wordcount": 1,
-                "snippet": "DescriptionCharacterization-of-ATPase-Activity-of-P2RX2-<span class=\"searchmatch\">Cation</span>-Channel-Video1.ogv This file has no description, and may be lacking other information. Please",
-                "timestamp": "2020-09-05T10:44:23Z",
-                "index": 62,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-12-13T16:10:25Z",
-                "lastrevid": 448490696,
-                "length": 1182,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 17222096,
-                        "width": 500,
-                        "height": 700,
-                        "duration": 85.33333333333333,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/200px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 280,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/400px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/300px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=49390036",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "52653125": {
-                "pageid": 52653125,
-                "ns": 6,
-                "title": "File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
-                "size": 1735,
-                "wordcount": 1,
-                "snippet": "English",
-                "timestamp": "2020-09-05T18:09:08Z",
-                "index": 60,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-12-13T16:11:54Z",
-                "lastrevid": 448839416,
-                "length": 1735,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 302403,
-                        "width": 640,
-                        "height": 480,
-                        "duration": 24.04,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/200px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/400px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/300px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52653125",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "54669255": {
-                "pageid": 54669255,
-                "ns": 6,
-                "title": "File:Cat lapping water off ground in slow motion.gk.webm",
-                "size": 885,
-                "wordcount": 33,
-                "snippet": "Description<span class=\"searchmatch\">Cat</span> lapping water off ground in slow motion.gk.webm English: An orange-and-white domestic <span class=\"searchmatch\">cat</span> lapping water off the ground in slow motion.",
-                "timestamp": "2020-08-18T09:04:07Z",
-                "index": 59,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-02-19T02:39:23Z",
-                "lastrevid": 440532828,
-                "length": 885,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 10359422,
-                        "width": 1280,
-                        "height": 720,
-                        "duration": 23.666,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/200px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/400px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/300px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=54669255",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "68797419": {
-                "pageid": 68797419,
-                "ns": 6,
-                "title": "File:Parasite180022-1-olm Cystic echinococcosis in a cat.ogv",
-                "size": 1325,
-                "wordcount": 1,
-                "snippet": "in a <span class=\"searchmatch\">cat</span>.ogv English: Supplemental File 1 of paper Video file: Laparotomy and extraction of metacestodes of Echinococcus granulosus from a <span class=\"searchmatch\">cat</span>. Date",
-                "timestamp": "2020-09-10T07:35:46Z",
-                "index": 45,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-10-19T01:53:53Z",
-                "lastrevid": 453910578,
-                "length": 1325,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 6830110,
-                        "width": 640,
-                        "height": 352,
-                        "duration": 21.366666666666667,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/200px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 110,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/400px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/300px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=68797419",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "68797421": {
-                "pageid": 68797421,
-                "ns": 6,
-                "title": "File:Parasite180022-3-olm Cystic echinococcosis in a cat.ogv",
-                "size": 1325,
-                "wordcount": 1,
-                "snippet": "in a <span class=\"searchmatch\">cat</span>.ogv English: Supplemental File 3 of paper Video file: Laparotomy and extraction of metacestodes of Echinococcus granulosus from a <span class=\"searchmatch\">cat</span>. Date",
-                "timestamp": "2020-10-06T04:33:07Z",
-                "index": 43,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-10-19T01:53:53Z",
-                "lastrevid": 482511627,
-                "length": 1325,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 6606386,
-                        "width": 640,
-                        "height": 352,
-                        "duration": 13.533333333333333,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/200px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 110,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/400px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/300px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=68797421",
-                        "mime": "application/ogg"
-                    }
-                ]
-            },
-            "79141559": {
-                "pageid": 79141559,
-                "ns": 6,
-                "title": "File:Le Voyage dans la lune (black and white, 1902).webm",
-                "size": 515,
-                "wordcount": 15,
-                "snippet": "1895 – Work location France  Authority control : Q152272 VIAF: 32046955 ISNI: 0000 0001 2278 0413 ULAN: 500066375 LCCN: n79055178 NLA: 36408776 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-09-19T17:13:09Z",
-                "index": 58,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T20:46:11Z",
-                "lastrevid": 465070587,
-                "length": 515,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 727640950,
-                        "width": 768,
-                        "height": 576,
-                        "duration": 771.88,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/200px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/400px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/300px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79141559",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79448637": {
-                "pageid": 79448637,
-                "ns": 6,
-                "title": "File:LSC - Ahir.webm",
-                "size": 867,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-09T03:09:00Z",
-                "index": 79,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:37Z",
-                "lastrevid": 452745621,
-                "length": 867,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Ahir.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 101829,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.822,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/200px--LSC_-_Ahir.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/400px--LSC_-_Ahir.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/300px--LSC_-_Ahir.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LSC_-_Ahir.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79448637",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79448724": {
-                "pageid": 79448724,
-                "ns": 6,
-                "title": "File:LSC - Aplaudiment (oïdors).webm",
-                "size": 903,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-05T09:28:58Z",
-                "index": 70,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:37Z",
-                "lastrevid": 448441126,
-                "length": 903,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Aplaudiment_(o%C3%AFdors).webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 135895,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 5.821,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/200px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/400px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/300px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79448724",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79449001": {
-                "pageid": 79449001,
-                "ns": 6,
-                "title": "File:LSC - Bolet.webm",
-                "size": 869,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-07T16:37:11Z",
-                "index": 77,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:37Z",
-                "lastrevid": 451183314,
-                "length": 869,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Bolet.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 112539,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 5.333,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/200px--LSC_-_Bolet.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/400px--LSC_-_Bolet.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/300px--LSC_-_Bolet.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LSC_-_Bolet.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79449001",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79449305": {
-                "pageid": 79449305,
-                "ns": 6,
-                "title": "File:LSC - Bàscula.webm",
-                "size": 875,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-08T08:42:56Z",
-                "index": 80,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:38Z",
-                "lastrevid": 451841718,
-                "length": 875,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_B%C3%A0scula.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 104793,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.521,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/200px--LSC_-_B%C3%A0scula.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/400px--LSC_-_B%C3%A0scula.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/300px--LSC_-_B%C3%A0scula.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LSC_-_B%C3%A0scula.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79449305",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79450324": {
-                "pageid": 79450324,
-                "ns": 6,
-                "title": "File:LSC - Dimecres.webm",
-                "size": 875,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-06T19:11:06Z",
-                "index": 66,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:38Z",
-                "lastrevid": 450207958,
-                "length": 875,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Dimecres.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 93680,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.822,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/200px--LSC_-_Dimecres.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/400px--LSC_-_Dimecres.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/300px--LSC_-_Dimecres.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/LSC_-_Dimecres.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450324",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79450592": {
-                "pageid": 79450592,
-                "ns": 6,
-                "title": "File:LSC - Estat d'ànim.webm",
-                "size": 889,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-05T14:01:37Z",
-                "index": 68,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:38Z",
-                "lastrevid": 448613530,
-                "length": 889,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Estat_d%27%C3%A0nim.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 109628,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.822,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/200px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/400px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/300px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450592",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79450788": {
-                "pageid": 79450788,
-                "ns": 6,
-                "title": "File:LSC - Heterosexual.webm",
-                "size": 883,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-06T07:29:37Z",
-                "index": 67,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:39Z",
-                "lastrevid": 449544273,
-                "length": 883,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Heterosexual.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 136045,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 7.144,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/200px--LSC_-_Heterosexual.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/400px--LSC_-_Heterosexual.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/300px--LSC_-_Heterosexual.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LSC_-_Heterosexual.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450788",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79451116": {
-                "pageid": 79451116,
-                "ns": 6,
-                "title": "File:LSC - Pantalla.webm",
-                "size": 875,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-07T15:43:06Z",
-                "index": 63,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:39Z",
-                "lastrevid": 451144800,
-                "length": 875,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Pantalla.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 121217,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 5.287,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/200px--LSC_-_Pantalla.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/400px--LSC_-_Pantalla.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/300px--LSC_-_Pantalla.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LSC_-_Pantalla.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451116",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79451360": {
-                "pageid": 79451360,
-                "ns": 6,
-                "title": "File:LSC - Senzill.webm",
-                "size": 872,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-05T14:01:39Z",
-                "index": 64,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:41Z",
-                "lastrevid": 448613563,
-                "length": 872,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Senzill.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 109200,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 5.287,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/200px--LSC_-_Senzill.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/400px--LSC_-_Senzill.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/300px--LSC_-_Senzill.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LSC_-_Senzill.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451360",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79451380": {
-                "pageid": 79451380,
-                "ns": 6,
-                "title": "File:LSC - Setmana (1).webm",
-                "size": 881,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-06T08:22:56Z",
-                "index": 65,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:41Z",
-                "lastrevid": 449584485,
-                "length": 881,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Setmana_(1).webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 82099,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.335,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/200px--LSC_-_Setmana_%281%29.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/400px--LSC_-_Setmana_%281%29.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/300px--LSC_-_Setmana_%281%29.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/LSC_-_Setmana_%281%29.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451380",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79452568": {
-                "pageid": 79452568,
-                "ns": 6,
-                "title": "File:LSC - Z.webm",
-                "size": 860,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-06T05:20:31Z",
-                "index": 69,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:41Z",
-                "lastrevid": 449441598,
-                "length": 860,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Z.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 93013,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.822,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/200px--LSC_-_Z.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/400px--LSC_-_Z.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/300px--LSC_-_Z.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/LSC_-_Z.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79452568",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "79473845": {
-                "pageid": 79473845,
-                "ns": 6,
-                "title": "File:LSC - Ou.webm",
-                "size": 863,
-                "wordcount": 1,
-                "snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
-                "timestamp": "2020-09-07T04:58:44Z",
-                "index": 78,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-19T05:03:42Z",
-                "lastrevid": 450729608,
-                "length": 863,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Ou.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 95151,
-                        "width": 640,
-                        "height": 360,
-                        "duration": 4.822,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/200px--LSC_-_Ou.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/400px--LSC_-_Ou.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/300px--LSC_-_Ou.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LSC_-_Ou.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79473845",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "83384565": {
-                "pageid": 83384565,
-                "ns": 6,
-                "title": "File:Eigenschaften der Menger-Schwamm-Schnitte 20191026.webm",
-                "size": 8060,
-                "wordcount": 40,
-                "snippet": " This image was created with Mandelbulber. I, the copyright holder of this work, hereby publish it under the following license: English German Erstellt",
-                "timestamp": "2020-09-24T22:12:03Z",
-                "index": 55,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-04-03T18:28:51Z",
-                "lastrevid": 470188972,
-                "length": 8060,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 289100668,
-                        "width": 4000,
-                        "height": 4000,
-                        "duration": 100.76,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/200px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 200,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/400px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/300px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=83384565",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "84556291": {
-                "pageid": 84556291,
-                "ns": 6,
-                "title": "File:50 JAAR GENIEMUZIEK-PGM4011519.webm",
-                "size": 6786,
-                "wordcount": 0,
-                "snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-07-22T15:46:01Z",
-                "index": 71,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:31:33Z",
-                "lastrevid": 434463243,
-                "length": 6786,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:50_JAAR_GENIEMUZIEK-PGM4011519.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 12509505,
-                        "width": 1024,
-                        "height": 576,
-                        "duration": 92.889,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/200px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/400px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/300px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=84556291",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "84558399": {
-                "pageid": 84558399,
-                "ns": 6,
-                "title": "File:KRACHTSPORTWEDSTIJDEN \"HERCULES\"-PGM4011862.webm",
-                "size": 5796,
-                "wordcount": 0,
-                "snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2019-12-02T17:38:43Z",
-                "index": 72,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:31:34Z",
-                "lastrevid": 378788650,
-                "length": 5796,
-                "new": "",
-                "fullurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 8700514,
-                        "width": 720,
-                        "height": 576,
-                        "duration": 62.047000000000004,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/200px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 160,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/400px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/300px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=84558399",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "85462545": {
-                "pageid": 85462545,
-                "ns": 6,
-                "title": "File:Sherlock Jr. - Buster Keaton (1924) HD (720p).ogv",
-                "size": 415,
-                "wordcount": 3,
-                "snippet": "Work period 1917 –1966  Authority control : Q103949 VIAF: 66477478 ISNI: 0000 0003 6850 0426 ULAN: 500337099 LCCN: n79027006 NAID: 10581330 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-01-06T18:35:35Z",
-                "index": 74,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:34:19Z",
-                "lastrevid": 385893968,
-                "length": 415,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 209056976,
-                        "width": 400,
-                        "height": 300,
-                        "duration": 2673.8474376417234,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/200px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/400px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/300px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85462545",
-                        "mime": "application/ogg"
-                    }
-                ],
-                "entityterms": {
-                    "label": [
-                        "Sherlock Jr."
-                    ]
-                }
-            },
-            "85529107": {
-                "pageid": 85529107,
-                "ns": 6,
-                "title": "File:Schilderijen van moderne Nederlandse meesters op tournee-PGM4012019.webm",
-                "size": 7157,
-                "wordcount": 0,
-                "snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-01-02T09:10:09Z",
-                "index": 75,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:34:49Z",
-                "lastrevid": 384875789,
-                "length": 7157,
-                "new": "",
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 13411550,
-                        "width": 720,
-                        "height": 576,
-                        "duration": 95.019,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/200px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 160,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/400px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/300px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529107",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "85529199": {
-                "pageid": 85529199,
-                "ns": 6,
-                "title": "File:Nationale baarswedstrijd in het Noordhollands kanaal-PGM4012044.webm",
-                "size": 6436,
-                "wordcount": 0,
-                "snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-01-02T09:12:08Z",
-                "index": 76,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:34:49Z",
-                "lastrevid": 384876232,
-                "length": 6436,
-                "new": "",
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 11712844,
-                        "width": 720,
-                        "height": 576,
-                        "duration": 83.014,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/200px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 160,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/400px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/300px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529199",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "85529835": {
-                "pageid": 85529835,
-                "ns": 6,
-                "title": "File:Nederland wint de honkbalwedstrijd van Belgie-PGM4012049.webm",
-                "size": 5263,
-                "wordcount": 0,
-                "snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-01-02T09:41:08Z",
-                "index": 73,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-23T21:34:49Z",
-                "lastrevid": 384880610,
-                "length": 5263,
-                "new": "",
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 6057646,
-                        "width": 768,
-                        "height": 576,
-                        "duration": 43.006,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/200px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/400px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/300px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529835",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "91905110": {
-                "pageid": 91905110,
-                "ns": 6,
-                "title": "File:Nanook of the North.webm",
-                "size": 572,
-                "wordcount": 5,
-                "snippet": "location Bora Bora  Authority control : Q263148 VIAF: 44493885 ISNI: 0000 0001 1025 9110 ULAN: 500073769 LCCN: n50003066 Open Library: OL1694491A World<span class=\"searchmatch\">Cat</span>",
-                "timestamp": "2020-09-03T07:32:35Z",
-                "index": 56,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-29T02:28:39Z",
-                "lastrevid": 447400142,
-                "length": 572,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nanook_of_the_North.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 1335026288,
-                        "width": 960,
-                        "height": 720,
-                        "duration": 4683.167,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/200px--Nanook_of_the_North.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 150,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/400px--Nanook_of_the_North.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/300px--Nanook_of_the_North.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanook_of_the_North.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=91905110",
-                        "mime": "video/webm"
-                    }
-                ],
-                "entityterms": {
-                    "label": [
-                        "Nanook of the North"
-                    ]
-                }
-            },
-            "92204890": {
-                "pageid": 92204890,
-                "ns": 6,
-                "title": "File:Кішка вмивається.webm",
-                "size": 663,
-                "wordcount": 57,
-                "snippet": "I, the copyright holder of this work, hereby publish it under the following license: English Ukrainian Сирецький дендрологічний парк Місцева кішка URL:",
-                "timestamp": "2020-10-27T08:07:49Z",
-                "index": 53,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-06-06T09:22:23Z",
-                "lastrevid": 503574533,
-                "length": 663,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 39215036,
-                        "width": 1920,
-                        "height": 1080,
-                        "duration": 24.603,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/200px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/400px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/300px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=92204890",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "94895790": {
-                "pageid": 94895790,
-                "ns": 6,
-                "title": "File:Kiel oni hejmigis katojn - Scivolemo.webm",
-                "size": 708,
-                "wordcount": 6,
-                "snippet": "English Esperanto Kiel oni hejmigis katojn",
-                "timestamp": "2020-10-11T15:18:07Z",
-                "index": 51,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2020-10-11T15:18:07Z",
-                "lastrevid": 486925077,
-                "length": 708,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 49720403,
-                        "width": 1280,
-                        "height": 720,
-                        "duration": 228.743,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/200px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/400px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/300px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=94895790",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "97828022": {
-                "pageid": 97828022,
-                "ns": 6,
-                "title": "File:La strega si trasforma in gatto Verrucolette (Minucciano).webm",
-                "size": 479,
-                "wordcount": 13,
-                "snippet": "English Italian La strega gatto origlia nelle case delle vicine - Legge Simona Nobili",
-                "timestamp": "2021-02-12T19:14:56Z",
-                "index": 49,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-24T15:36:11Z",
-                "lastrevid": 532372115,
-                "length": 479,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 24080551,
-                        "width": 1280,
-                        "height": 720,
-                        "duration": 70,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/200px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/400px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/300px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97828022",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "97934587": {
-                "pageid": 97934587,
-                "ns": 6,
-                "title": "File:Strega con l'aspetto di un gatto. Lettura di Simona Nobili.webm",
-                "size": 748,
-                "wordcount": 36,
-                "snippet": "oral form, in Gorfigliano di Minucciano, about a witch transformed into a <span class=\"searchmatch\">cat</span>. Italian Racconto tramandato in forma orale, a Gorfigliano di Minucciano",
-                "timestamp": "2021-01-16T14:43:17Z",
-                "index": 48,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-01-16T14:43:17Z",
-                "lastrevid": 526237495,
-                "length": 748,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 40032129,
-                        "width": 1280,
-                        "height": 720,
-                        "duration": 117.48,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/200px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/400px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/300px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97934587",
-                        "mime": "video/webm"
-                    }
-                ],
-                "entityterms": {
-                    "label": [
-                        "Story handed down in oral form, in Gorfigliano di Minucciano, about a witch transformed into a cat."
-                    ]
-                }
-            },
-            "99201738": {
-                "pageid": 99201738,
-                "ns": 6,
-                "title": "File:Cat play 02.webm",
-                "size": 309,
-                "wordcount": 29,
-                "snippet": "Description<span class=\"searchmatch\">Cat</span> play 02.webm English: <span class=\"searchmatch\">Cat</span> playing with mice Date 24 January 2021 Source Own work Author NairobiPapel",
-                "timestamp": "2021-01-29T17:52:59Z",
-                "index": 42,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-07-15T10:30:19Z",
-                "lastrevid": 529090636,
-                "length": 309,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_play_02.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 52908158,
-                        "width": 1920,
-                        "height": 1080,
-                        "duration": 25.714000000000002,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/200px--Cat_play_02.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/400px--Cat_play_02.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/300px--Cat_play_02.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Cat_play_02.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99201738",
-                        "mime": "video/webm"
-                    }
-                ]
-            },
-            "99462733": {
-                "pageid": 99462733,
-                "ns": 6,
-                "title": "File:Moomin1.webm",
-                "size": 548,
-                "wordcount": 57,
-                "snippet": "I, the copyright holder of this work, hereby publish it under the following license: English Female housecat playing with a cotton bud Portuguese Gata",
-                "timestamp": "2021-02-09T14:43:47Z",
-                "index": 54,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-02-09T14:43:47Z",
-                "lastrevid": 531636729,
-                "length": 548,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Moomin1.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 4937564,
-                        "width": 1080,
-                        "height": 1920,
-                        "duration": 19.074,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/200px--Moomin1.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 356,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/400px--Moomin1.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/300px--Moomin1.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Moomin1.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99462733",
-                        "mime": "video/webm"
-                    }
-                ],
-                "entityterms": {
-                    "label": [
-                        "Female housecat playing with a cotton bud"
-                    ]
-                }
-            },
-            "99493371": {
-                "pageid": 99493371,
-                "ns": 6,
-                "title": "File:Moomin2.webm",
-                "size": 440,
-                "wordcount": 39,
-                "snippet": "I, the copyright holder of this work, hereby publish it under the following license: English testing Wikimedia Commons video capabilities with a 1080p",
-                "timestamp": "2021-02-09T14:43:31Z",
-                "index": 52,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-02-09T14:43:31Z",
-                "lastrevid": 531636690,
-                "length": 440,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Moomin2.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 8559990,
-                        "width": 1080,
-                        "height": 1920,
-                        "duration": 10.057,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/200px--Moomin2.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 356,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/400px--Moomin2.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/300px--Moomin2.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Moomin2.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99493371",
-                        "mime": "video/webm"
-                    }
-                ],
-                "entityterms": {
-                    "label": [
-                        "testing Wikimedia Commons video capabilities with a 1080p 60fps video"
-                    ]
-                }
-            },
-            "99821544": {
-                "pageid": 99821544,
-                "ns": 6,
-                "title": "File:Cat Play 03.webm",
-                "size": 329,
-                "wordcount": 33,
-                "snippet": "Description<span class=\"searchmatch\">Cat</span> Play 03.webm English: <span class=\"searchmatch\">Cat</span> Play Date 13 February 2021 Source Own work Author NairobiPapel(Kamaa)",
-                "timestamp": "2021-02-15T19:07:02Z",
-                "index": 47,
-                "contentmodel": "wikitext",
-                "pagelanguage": "en",
-                "pagelanguagehtmlcode": "en",
-                "pagelanguagedir": "ltr",
-                "touched": "2021-03-21T12:18:24Z",
-                "lastrevid": 533090537,
-                "length": 329,
-                "fullurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
-                "editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_Play_03.webm&action=edit",
-                "canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
-                "imagerepository": "local",
-                "imageinfo": [
-                    {
-                        "size": 16051313,
-                        "width": 1920,
-                        "height": 1080,
-                        "duration": 8.014,
-                        "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/200px--Cat_Play_03.webm.jpg",
-                        "thumbwidth": 200,
-                        "thumbheight": 113,
-                        "responsiveUrls": {
-                            "2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/400px--Cat_Play_03.webm.jpg",
-                            "1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/300px--Cat_Play_03.webm.jpg"
-                        },
-                        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cat_Play_03.webm",
-                        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
-                        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99821544",
-                        "mime": "video/webm"
-                    }
-                ]
-            }
-        }
-    }
+	"batchcomplete": "",
+	"continue": {
+		"gsroffset": 80,
+		"continue": "gsroffset||"
+	},
+	"query": {
+		"searchinfo": {
+			"totalhits": 9104
+		},
+		"pages": {
+			"11136217": {
+				"pageid": 11136217,
+				"ns": 6,
+				"title": "File:Black and white cat drinks from a puddle.ogv",
+				"size": 1202,
+				"wordcount": 1,
+				"snippet": "DescriptionBlack and white <span class=\"searchmatch\">cat</span> drinks from a puddle.ogv English: Black and white domestic <span class=\"searchmatch\">cat</span> drinks from a puddle. Čeština: Černobílá kočka domácí pije",
+				"timestamp": "2020-09-12T23:42:16Z",
+				"index": 44,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T02:53:43Z",
+				"lastrevid": 457101251,
+				"length": 1202,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Black_and_white_cat_drinks_from_a_puddle.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 6294431,
+						"width": 640,
+						"height": 480,
+						"duration": 8.996281179138322,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/200px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/400px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv/300px--Black_and_white_cat_drinks_from_a_puddle.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Black_and_white_cat_drinks_from_a_puddle.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Black_and_white_cat_drinks_from_a_puddle.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=11136217",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"11222901": {
+				"pageid": 11222901,
+				"ns": 6,
+				"title": "File:Webcam CT transmissions.ogv",
+				"size": 865,
+				"wordcount": 37,
+				"snippet": "captioned as follows: English: <span class=\"searchmatch\">Cat</span> Scan of a webcam (40s). Other languages Deutsch: Typ-Scan von einer Webcam. English: <span class=\"searchmatch\">Cat</span> Scan of a webcam (40s). Français :",
+				"timestamp": "2020-09-09T13:29:42Z",
+				"index": 57,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T02:53:43Z",
+				"lastrevid": 453254801,
+				"length": 865,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Webcam_CT_transmissions.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 27308933,
+						"width": 1008,
+						"height": 1008,
+						"duration": 39.92,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/200px--Webcam_CT_transmissions.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 200,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/400px--Webcam_CT_transmissions.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Webcam_CT_transmissions.ogv/300px--Webcam_CT_transmissions.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Webcam_CT_transmissions.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Webcam_CT_transmissions.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=11222901",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"23863226": {
+				"pageid": 23863226,
+				"ns": 6,
+				"title": "File:The boxing cats (Prof. Welton's).ogv",
+				"size": 2174,
+				"wordcount": 1,
+				"snippet": "<span class=\"searchmatch\">cats</span> (Prof. Welton's).ogv English: The boxing <span class=\"searchmatch\">cats</span> (Prof. Welton's) (1894). Original description by the Library of Congress: OTHER TITLES Boxing <span class=\"searchmatch\">cats</span>",
+				"timestamp": "2021-01-04T10:48:35Z",
+				"index": 46,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T02:53:47Z",
+				"lastrevid": 524034293,
+				"length": 2174,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:The_boxing_cats_(Prof._Welton%27s).ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 2862500,
+						"width": 320,
+						"height": 240,
+						"duration": 22.589233333333333,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/200px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/320px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv/300px--The_boxing_cats_%28Prof._Welton%27s%29.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/3/36/The_boxing_cats_%28Prof._Welton%27s%29.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:The_boxing_cats_(Prof._Welton%27s).ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=23863226",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"28025040": {
+				"pageid": 28025040,
+				"ns": 6,
+				"title": "File:Katzensprung in Zeitlupe.webm",
+				"size": 680,
+				"wordcount": 1,
+				"snippet": "English",
+				"timestamp": "2020-09-27T12:51:33Z",
+				"index": 50,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-18T22:31:37Z",
+				"lastrevid": 473203539,
+				"length": 680,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Katzensprung_in_Zeitlupe.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 2398418,
+						"width": 480,
+						"height": 360,
+						"duration": 23.902,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/200px--Katzensprung_in_Zeitlupe.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/400px--Katzensprung_in_Zeitlupe.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Katzensprung_in_Zeitlupe.webm/300px--Katzensprung_in_Zeitlupe.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Katzensprung_in_Zeitlupe.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Katzensprung_in_Zeitlupe.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=28025040",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"37234986": {
+				"pageid": 37234986,
+				"ns": 6,
+				"title": "File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
+				"size": 2124,
+				"wordcount": 1,
+				"snippet": "ogv English: Oscillatory movement of HAM-5-GFP and SO-mCherry to opposite <span class=\"searchmatch\">CAT</span> tips in two germlings undergoing chemotropic interactions. A 52-minute movie",
+				"timestamp": "2020-10-17T08:41:47Z",
+				"index": 61,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-12-13T16:10:13Z",
+				"lastrevid": 492319863,
+				"length": 2124,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 3485213,
+						"width": 1024,
+						"height": 1024,
+						"duration": 15,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/200px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 200,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/400px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv/300px--HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:HAM-5-Functions-As-a-MAP-Kinase-Scaffold-during-Cell-Fusion-in-Neurospora-crassa-pgen.1004783.s010.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=37234986",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"44928007": {
+				"pageid": 44928007,
+				"ns": 6,
+				"title": "File:Private Life of a Cat.ogv",
+				"size": 750,
+				"wordcount": 1,
+				"snippet": "DescriptionPrivate Life of a <span class=\"searchmatch\">Cat</span>.ogv English: Private Life of a <span class=\"searchmatch\">Cat</span>, Alexander Hammid's intimate study of a female <span class=\"searchmatch\">cat</span> and the birth and maturation of",
+				"timestamp": "2021-03-06T13:29:04Z",
+				"index": 41,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-04T17:57:14Z",
+				"lastrevid": 539906779,
+				"length": 750,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Private_Life_of_a_Cat.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 92865172,
+						"width": 400,
+						"height": 300,
+						"duration": 1321.4214214214214,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/200px--Private_Life_of_a_Cat.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/400px--Private_Life_of_a_Cat.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Private_Life_of_a_Cat.ogv/300px--Private_Life_of_a_Cat.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Private_Life_of_a_Cat.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Private_Life_of_a_Cat.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=44928007",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"49390036": {
+				"pageid": 49390036,
+				"ns": 6,
+				"title": "File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
+				"size": 1182,
+				"wordcount": 1,
+				"snippet": "DescriptionCharacterization-of-ATPase-Activity-of-P2RX2-<span class=\"searchmatch\">Cation</span>-Channel-Video1.ogv This file has no description, and may be lacking other information. Please",
+				"timestamp": "2020-09-05T10:44:23Z",
+				"index": 62,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-12-13T16:10:25Z",
+				"lastrevid": 448490696,
+				"length": 1182,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 17222096,
+						"width": 500,
+						"height": 700,
+						"duration": 85.33333333333333,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/200px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 280,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/400px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv/300px--Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Characterization-of-ATPase-Activity-of-P2RX2-Cation-Channel-Video1.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=49390036",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"52653125": {
+				"pageid": 52653125,
+				"ns": 6,
+				"title": "File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
+				"size": 1735,
+				"wordcount": 1,
+				"snippet": "English",
+				"timestamp": "2020-09-05T18:09:08Z",
+				"index": 60,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-12-13T16:11:54Z",
+				"lastrevid": 448839416,
+				"length": 1735,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 302403,
+						"width": 640,
+						"height": 480,
+						"duration": 24.04,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/200px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/400px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv/300px--Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Optogenetic-manipulation-of-cGMP-in-cells-and-animals-by-the-tightly-light-regulated-guanylyl-ncomms9046-s2.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52653125",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"54669255": {
+				"pageid": 54669255,
+				"ns": 6,
+				"title": "File:Cat lapping water off ground in slow motion.gk.webm",
+				"size": 885,
+				"wordcount": 33,
+				"snippet": "Description<span class=\"searchmatch\">Cat</span> lapping water off ground in slow motion.gk.webm English: An orange-and-white domestic <span class=\"searchmatch\">cat</span> lapping water off the ground in slow motion.",
+				"timestamp": "2020-08-18T09:04:07Z",
+				"index": 59,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-02-19T02:39:23Z",
+				"lastrevid": 440532828,
+				"length": 885,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 10359422,
+						"width": 1280,
+						"height": 720,
+						"duration": 23.666,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/200px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/400px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm/300px--Cat_lapping_water_off_ground_in_slow_motion.gk.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_lapping_water_off_ground_in_slow_motion.gk.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=54669255",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"68797419": {
+				"pageid": 68797419,
+				"ns": 6,
+				"title": "File:Parasite180022-1-olm Cystic echinococcosis in a cat.ogv",
+				"size": 1325,
+				"wordcount": 1,
+				"snippet": "in a <span class=\"searchmatch\">cat</span>.ogv English: Supplemental File 1 of paper Video file: Laparotomy and extraction of metacestodes of Echinococcus granulosus from a <span class=\"searchmatch\">cat</span>. Date",
+				"timestamp": "2020-09-10T07:35:46Z",
+				"index": 45,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-10-19T01:53:53Z",
+				"lastrevid": 453910578,
+				"length": 1325,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 6830110,
+						"width": 640,
+						"height": 352,
+						"duration": 21.366666666666667,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/200px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 110,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/400px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv/300px--Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-1-olm_Cystic_echinococcosis_in_a_cat.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=68797419",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"68797421": {
+				"pageid": 68797421,
+				"ns": 6,
+				"title": "File:Parasite180022-3-olm Cystic echinococcosis in a cat.ogv",
+				"size": 1325,
+				"wordcount": 1,
+				"snippet": "in a <span class=\"searchmatch\">cat</span>.ogv English: Supplemental File 3 of paper Video file: Laparotomy and extraction of metacestodes of Echinococcus granulosus from a <span class=\"searchmatch\">cat</span>. Date",
+				"timestamp": "2020-10-06T04:33:07Z",
+				"index": 43,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-10-19T01:53:53Z",
+				"lastrevid": 482511627,
+				"length": 1325,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 6606386,
+						"width": 640,
+						"height": 352,
+						"duration": 13.533333333333333,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/200px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 110,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/400px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv/300px--Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Parasite180022-3-olm_Cystic_echinococcosis_in_a_cat.ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=68797421",
+						"mime": "application/ogg"
+					}
+				]
+			},
+			"79141559": {
+				"pageid": 79141559,
+				"ns": 6,
+				"title": "File:Le Voyage dans la lune (black and white, 1902).webm",
+				"size": 515,
+				"wordcount": 15,
+				"snippet": "1895 – Work location France  Authority control : Q152272 VIAF: 32046955 ISNI: 0000 0001 2278 0413 ULAN: 500066375 LCCN: n79055178 NLA: 36408776 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-09-19T17:13:09Z",
+				"index": 58,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T20:46:11Z",
+				"lastrevid": 465070587,
+				"length": 515,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 727640950,
+						"width": 768,
+						"height": 576,
+						"duration": 771.88,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/200px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/400px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm/300px--Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Le_Voyage_dans_la_lune_%28black_and_white%2C_1902%29.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Le_Voyage_dans_la_lune_(black_and_white,_1902).webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79141559",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79448637": {
+				"pageid": 79448637,
+				"ns": 6,
+				"title": "File:LSC - Ahir.webm",
+				"size": 867,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-09T03:09:00Z",
+				"index": 79,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:37Z",
+				"lastrevid": 452745621,
+				"length": 867,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Ahir.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 101829,
+						"width": 640,
+						"height": 360,
+						"duration": 4.822,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/200px--LSC_-_Ahir.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/400px--LSC_-_Ahir.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/LSC_-_Ahir.webm/300px--LSC_-_Ahir.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/LSC_-_Ahir.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ahir.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79448637",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79448724": {
+				"pageid": 79448724,
+				"ns": 6,
+				"title": "File:LSC - Aplaudiment (oïdors).webm",
+				"size": 903,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-05T09:28:58Z",
+				"index": 70,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:37Z",
+				"lastrevid": 448441126,
+				"length": 903,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Aplaudiment_(o%C3%AFdors).webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 135895,
+						"width": 640,
+						"height": 360,
+						"duration": 5.821,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/200px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/400px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm/300px--LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/2/20/LSC_-_Aplaudiment_%28o%C3%AFdors%29.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Aplaudiment_(o%C3%AFdors).webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79448724",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79449001": {
+				"pageid": 79449001,
+				"ns": 6,
+				"title": "File:LSC - Bolet.webm",
+				"size": 869,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-07T16:37:11Z",
+				"index": 77,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:37Z",
+				"lastrevid": 451183314,
+				"length": 869,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Bolet.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 112539,
+						"width": 640,
+						"height": 360,
+						"duration": 5.333,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/200px--LSC_-_Bolet.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/400px--LSC_-_Bolet.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/LSC_-_Bolet.webm/300px--LSC_-_Bolet.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/LSC_-_Bolet.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Bolet.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79449001",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79449305": {
+				"pageid": 79449305,
+				"ns": 6,
+				"title": "File:LSC - Bàscula.webm",
+				"size": 875,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-08T08:42:56Z",
+				"index": 80,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:38Z",
+				"lastrevid": 451841718,
+				"length": 875,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_B%C3%A0scula.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 104793,
+						"width": 640,
+						"height": 360,
+						"duration": 4.521,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/200px--LSC_-_B%C3%A0scula.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/400px--LSC_-_B%C3%A0scula.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/LSC_-_B%C3%A0scula.webm/300px--LSC_-_B%C3%A0scula.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/LSC_-_B%C3%A0scula.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_B%C3%A0scula.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79449305",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79450324": {
+				"pageid": 79450324,
+				"ns": 6,
+				"title": "File:LSC - Dimecres.webm",
+				"size": 875,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-06T19:11:06Z",
+				"index": 66,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:38Z",
+				"lastrevid": 450207958,
+				"length": 875,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Dimecres.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 93680,
+						"width": 640,
+						"height": 360,
+						"duration": 4.822,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/200px--LSC_-_Dimecres.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/400px--LSC_-_Dimecres.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/LSC_-_Dimecres.webm/300px--LSC_-_Dimecres.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/8/84/LSC_-_Dimecres.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Dimecres.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450324",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79450592": {
+				"pageid": 79450592,
+				"ns": 6,
+				"title": "File:LSC - Estat d'ànim.webm",
+				"size": 889,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-05T14:01:37Z",
+				"index": 68,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:38Z",
+				"lastrevid": 448613530,
+				"length": 889,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Estat_d%27%C3%A0nim.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 109628,
+						"width": 640,
+						"height": 360,
+						"duration": 4.822,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/200px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/400px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm/300px--LSC_-_Estat_d%27%C3%A0nim.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/LSC_-_Estat_d%27%C3%A0nim.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Estat_d%27%C3%A0nim.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450592",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79450788": {
+				"pageid": 79450788,
+				"ns": 6,
+				"title": "File:LSC - Heterosexual.webm",
+				"size": 883,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-06T07:29:37Z",
+				"index": 67,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:39Z",
+				"lastrevid": 449544273,
+				"length": 883,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Heterosexual.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 136045,
+						"width": 640,
+						"height": 360,
+						"duration": 7.144,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/200px--LSC_-_Heterosexual.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/400px--LSC_-_Heterosexual.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/LSC_-_Heterosexual.webm/300px--LSC_-_Heterosexual.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/LSC_-_Heterosexual.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Heterosexual.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79450788",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79451116": {
+				"pageid": 79451116,
+				"ns": 6,
+				"title": "File:LSC - Pantalla.webm",
+				"size": 875,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-07T15:43:06Z",
+				"index": 63,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:39Z",
+				"lastrevid": 451144800,
+				"length": 875,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Pantalla.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 121217,
+						"width": 640,
+						"height": 360,
+						"duration": 5.287,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/200px--LSC_-_Pantalla.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/400px--LSC_-_Pantalla.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/LSC_-_Pantalla.webm/300px--LSC_-_Pantalla.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/LSC_-_Pantalla.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Pantalla.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451116",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79451360": {
+				"pageid": 79451360,
+				"ns": 6,
+				"title": "File:LSC - Senzill.webm",
+				"size": 872,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-05T14:01:39Z",
+				"index": 64,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:41Z",
+				"lastrevid": 448613563,
+				"length": 872,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Senzill.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 109200,
+						"width": 640,
+						"height": 360,
+						"duration": 5.287,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/200px--LSC_-_Senzill.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/400px--LSC_-_Senzill.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/LSC_-_Senzill.webm/300px--LSC_-_Senzill.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/LSC_-_Senzill.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Senzill.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451360",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79451380": {
+				"pageid": 79451380,
+				"ns": 6,
+				"title": "File:LSC - Setmana (1).webm",
+				"size": 881,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-06T08:22:56Z",
+				"index": 65,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:41Z",
+				"lastrevid": 449584485,
+				"length": 881,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Setmana_(1).webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 82099,
+						"width": 640,
+						"height": 360,
+						"duration": 4.335,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/200px--LSC_-_Setmana_%281%29.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/400px--LSC_-_Setmana_%281%29.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LSC_-_Setmana_%281%29.webm/300px--LSC_-_Setmana_%281%29.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/LSC_-_Setmana_%281%29.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Setmana_(1).webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79451380",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79452568": {
+				"pageid": 79452568,
+				"ns": 6,
+				"title": "File:LSC - Z.webm",
+				"size": 860,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-06T05:20:31Z",
+				"index": 69,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:41Z",
+				"lastrevid": 449441598,
+				"length": 860,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Z.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 93013,
+						"width": 640,
+						"height": 360,
+						"duration": 4.822,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/200px--LSC_-_Z.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/400px--LSC_-_Z.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/LSC_-_Z.webm/300px--LSC_-_Z.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/LSC_-_Z.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Z.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79452568",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"79473845": {
+				"pageid": 79473845,
+				"ns": 6,
+				"title": "File:LSC - Ou.webm",
+				"size": 863,
+				"wordcount": 1,
+				"snippet": "Vocabulari bàsic de la llengua de signes catalana (LSC) http://llengua.gencat.<span class=\"searchmatch\">cat</span>/LSC_vocabulari Direcció General de Política Lingüística. Departament de Cultura",
+				"timestamp": "2020-09-07T04:58:44Z",
+				"index": 78,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-19T05:03:42Z",
+				"lastrevid": 450729608,
+				"length": 863,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:LSC_-_Ou.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 95151,
+						"width": 640,
+						"height": 360,
+						"duration": 4.822,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/200px--LSC_-_Ou.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/400px--LSC_-_Ou.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/LSC_-_Ou.webm/300px--LSC_-_Ou.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LSC_-_Ou.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:LSC_-_Ou.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=79473845",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"83384565": {
+				"pageid": 83384565,
+				"ns": 6,
+				"title": "File:Eigenschaften der Menger-Schwamm-Schnitte 20191026.webm",
+				"size": 8060,
+				"wordcount": 40,
+				"snippet": " This image was created with Mandelbulber. I, the copyright holder of this work, hereby publish it under the following license: English German Erstellt",
+				"timestamp": "2020-09-24T22:12:03Z",
+				"index": 55,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-04-03T18:28:51Z",
+				"lastrevid": 470188972,
+				"length": 8060,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 289100668,
+						"width": 4000,
+						"height": 4000,
+						"duration": 100.76,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/200px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 200,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/400px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm/300px--Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Eigenschaften_der_Menger-Schwamm-Schnitte_20191026.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=83384565",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"84556291": {
+				"pageid": 84556291,
+				"ns": 6,
+				"title": "File:50 JAAR GENIEMUZIEK-PGM4011519.webm",
+				"size": 6786,
+				"wordcount": 0,
+				"snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-07-22T15:46:01Z",
+				"index": 71,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:31:33Z",
+				"lastrevid": 434463243,
+				"length": 6786,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:50_JAAR_GENIEMUZIEK-PGM4011519.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 12509505,
+						"width": 1024,
+						"height": 576,
+						"duration": 92.889,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/200px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/400px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm/300px--50_JAAR_GENIEMUZIEK-PGM4011519.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/50_JAAR_GENIEMUZIEK-PGM4011519.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:50_JAAR_GENIEMUZIEK-PGM4011519.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=84556291",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"84558399": {
+				"pageid": 84558399,
+				"ns": 6,
+				"title": "File:KRACHTSPORTWEDSTIJDEN \"HERCULES\"-PGM4011862.webm",
+				"size": 5796,
+				"wordcount": 0,
+				"snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2019-12-02T17:38:43Z",
+				"index": 72,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:31:34Z",
+				"lastrevid": 378788650,
+				"length": 5796,
+				"new": "",
+				"fullurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 8700514,
+						"width": 720,
+						"height": 576,
+						"duration": 62.047000000000004,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/200px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 160,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/400px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm/300px--KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:KRACHTSPORTWEDSTIJDEN_%22HERCULES%22-PGM4011862.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=84558399",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"85462545": {
+				"pageid": 85462545,
+				"ns": 6,
+				"title": "File:Sherlock Jr. - Buster Keaton (1924) HD (720p).ogv",
+				"size": 415,
+				"wordcount": 3,
+				"snippet": "Work period 1917 –1966  Authority control : Q103949 VIAF: 66477478 ISNI: 0000 0003 6850 0426 ULAN: 500337099 LCCN: n79027006 NAID: 10581330 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-01-06T18:35:35Z",
+				"index": 74,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:34:19Z",
+				"lastrevid": 385893968,
+				"length": 415,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 209056976,
+						"width": 400,
+						"height": 300,
+						"duration": 2673.8474376417234,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/200px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/400px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv/300px--Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Sherlock_Jr._-_Buster_Keaton_%281924%29_HD_%28720p%29.ogv",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Sherlock_Jr._-_Buster_Keaton_(1924)_HD_(720p).ogv",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85462545",
+						"mime": "application/ogg"
+					}
+				],
+				"entityterms": {
+					"label": [
+						"Sherlock Jr."
+					]
+				}
+			},
+			"85529107": {
+				"pageid": 85529107,
+				"ns": 6,
+				"title": "File:Schilderijen van moderne Nederlandse meesters op tournee-PGM4012019.webm",
+				"size": 7157,
+				"wordcount": 0,
+				"snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-01-02T09:10:09Z",
+				"index": 75,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:34:49Z",
+				"lastrevid": 384875789,
+				"length": 7157,
+				"new": "",
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 13411550,
+						"width": 720,
+						"height": 576,
+						"duration": 95.019,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/200px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 160,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/400px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm/300px--Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Schilderijen_van_moderne_Nederlandse_meesters_op_tournee-PGM4012019.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529107",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"85529199": {
+				"pageid": 85529199,
+				"ns": 6,
+				"title": "File:Nationale baarswedstrijd in het Noordhollands kanaal-PGM4012044.webm",
+				"size": 6436,
+				"wordcount": 0,
+				"snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-01-02T09:12:08Z",
+				"index": 76,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:34:49Z",
+				"lastrevid": 384876232,
+				"length": 6436,
+				"new": "",
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 11712844,
+						"width": 720,
+						"height": 576,
+						"duration": 83.014,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/200px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 160,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/400px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm/300px--Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Nationale_baarswedstrijd_in_het_Noordhollands_kanaal-PGM4012044.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529199",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"85529835": {
+				"pageid": 85529835,
+				"ns": 6,
+				"title": "File:Nederland wint de honkbalwedstrijd van Belgie-PGM4012049.webm",
+				"size": 5263,
+				"wordcount": 0,
+				"snippet": "http://www.beeldengeluid.nl/ Authority control : Q1131877 VIAF: 140565798 ISNI: 0000 0001 0694 9805 LCCN: no2008021336 NLA: 55276289 GND: 6513843-0 World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-01-02T09:41:08Z",
+				"index": 73,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-23T21:34:49Z",
+				"lastrevid": 384880610,
+				"length": 5263,
+				"new": "",
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 6057646,
+						"width": 768,
+						"height": 576,
+						"duration": 43.006,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/200px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/400px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm/300px--Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Nederland_wint_de_honkbalwedstrijd_van_Belgie-PGM4012049.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=85529835",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"91905110": {
+				"pageid": 91905110,
+				"ns": 6,
+				"title": "File:Nanook of the North.webm",
+				"size": 572,
+				"wordcount": 5,
+				"snippet": "location Bora Bora  Authority control : Q263148 VIAF: 44493885 ISNI: 0000 0001 1025 9110 ULAN: 500073769 LCCN: n50003066 Open Library: OL1694491A World<span class=\"searchmatch\">Cat</span>",
+				"timestamp": "2020-09-03T07:32:35Z",
+				"index": 56,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-29T02:28:39Z",
+				"lastrevid": 447400142,
+				"length": 572,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Nanook_of_the_North.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 1335026288,
+						"width": 960,
+						"height": 720,
+						"duration": 4683.167,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/200px--Nanook_of_the_North.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 150,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/400px--Nanook_of_the_North.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Nanook_of_the_North.webm/300px--Nanook_of_the_North.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Nanook_of_the_North.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Nanook_of_the_North.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=91905110",
+						"mime": "video/webm"
+					}
+				],
+				"entityterms": {
+					"label": [
+						"Nanook of the North"
+					]
+				}
+			},
+			"92204890": {
+				"pageid": 92204890,
+				"ns": 6,
+				"title": "File:Кішка вмивається.webm",
+				"size": 663,
+				"wordcount": 57,
+				"snippet": "I, the copyright holder of this work, hereby publish it under the following license: English Ukrainian Сирецький дендрологічний парк Місцева кішка URL:",
+				"timestamp": "2020-10-27T08:07:49Z",
+				"index": 53,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-06-06T09:22:23Z",
+				"lastrevid": 503574533,
+				"length": 663,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 39215036,
+						"width": 1920,
+						"height": 1080,
+						"duration": 24.603,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/200px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/400px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm/300px--%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%96%D1%88%D0%BA%D0%B0_%D0%B2%D0%BC%D0%B8%D0%B2%D0%B0%D1%94%D1%82%D1%8C%D1%81%D1%8F.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=92204890",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"94895790": {
+				"pageid": 94895790,
+				"ns": 6,
+				"title": "File:Kiel oni hejmigis katojn - Scivolemo.webm",
+				"size": 708,
+				"wordcount": 6,
+				"snippet": "English Esperanto Kiel oni hejmigis katojn",
+				"timestamp": "2020-10-11T15:18:07Z",
+				"index": 51,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2020-10-11T15:18:07Z",
+				"lastrevid": 486925077,
+				"length": 708,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 49720403,
+						"width": 1280,
+						"height": 720,
+						"duration": 228.743,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/200px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/400px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm/300px--Kiel_oni_hejmigis_katojn_-_Scivolemo.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Kiel_oni_hejmigis_katojn_-_Scivolemo.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=94895790",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"97828022": {
+				"pageid": 97828022,
+				"ns": 6,
+				"title": "File:La strega si trasforma in gatto Verrucolette (Minucciano).webm",
+				"size": 479,
+				"wordcount": 13,
+				"snippet": "English Italian La strega gatto origlia nelle case delle vicine - Legge Simona Nobili",
+				"timestamp": "2021-02-12T19:14:56Z",
+				"index": 49,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-24T15:36:11Z",
+				"lastrevid": 532372115,
+				"length": 479,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 24080551,
+						"width": 1280,
+						"height": 720,
+						"duration": 70,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/200px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/400px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm/300px--La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/La_strega_si_trasforma_in_gatto_Verrucolette_%28Minucciano%29.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:La_strega_si_trasforma_in_gatto_Verrucolette_(Minucciano).webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97828022",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"97934587": {
+				"pageid": 97934587,
+				"ns": 6,
+				"title": "File:Strega con l'aspetto di un gatto. Lettura di Simona Nobili.webm",
+				"size": 748,
+				"wordcount": 36,
+				"snippet": "oral form, in Gorfigliano di Minucciano, about a witch transformed into a <span class=\"searchmatch\">cat</span>. Italian Racconto tramandato in forma orale, a Gorfigliano di Minucciano",
+				"timestamp": "2021-01-16T14:43:17Z",
+				"index": 48,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-01-16T14:43:17Z",
+				"lastrevid": 526237495,
+				"length": 748,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 40032129,
+						"width": 1280,
+						"height": 720,
+						"duration": 117.48,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/200px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/400px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm/300px--Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Strega_con_l%27aspetto_di_un_gatto._Lettura_di_Simona_Nobili.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97934587",
+						"mime": "video/webm"
+					}
+				],
+				"entityterms": {
+					"label": [
+						"Story handed down in oral form, in Gorfigliano di Minucciano, about a witch transformed into a cat."
+					]
+				}
+			},
+			"99201738": {
+				"pageid": 99201738,
+				"ns": 6,
+				"title": "File:Cat play 02.webm",
+				"size": 309,
+				"wordcount": 29,
+				"snippet": "Description<span class=\"searchmatch\">Cat</span> play 02.webm English: <span class=\"searchmatch\">Cat</span> playing with mice Date 24 January 2021 Source Own work Author NairobiPapel",
+				"timestamp": "2021-01-29T17:52:59Z",
+				"index": 42,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-07-15T10:30:19Z",
+				"lastrevid": 529090636,
+				"length": 309,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_play_02.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 52908158,
+						"width": 1920,
+						"height": 1080,
+						"duration": 25.714000000000002,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/200px--Cat_play_02.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/400px--Cat_play_02.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cat_play_02.webm/300px--Cat_play_02.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Cat_play_02.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_play_02.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99201738",
+						"mime": "video/webm"
+					}
+				]
+			},
+			"99462733": {
+				"pageid": 99462733,
+				"ns": 6,
+				"title": "File:Moomin1.webm",
+				"size": 548,
+				"wordcount": 57,
+				"snippet": "I, the copyright holder of this work, hereby publish it under the following license: English Female housecat playing with a cotton bud Portuguese Gata",
+				"timestamp": "2021-02-09T14:43:47Z",
+				"index": 54,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-02-09T14:43:47Z",
+				"lastrevid": 531636729,
+				"length": 548,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Moomin1.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 4937564,
+						"width": 1080,
+						"height": 1920,
+						"duration": 19.074,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/200px--Moomin1.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 356,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/400px--Moomin1.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moomin1.webm/300px--Moomin1.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Moomin1.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin1.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99462733",
+						"mime": "video/webm"
+					}
+				],
+				"entityterms": {
+					"label": [
+						"Female housecat playing with a cotton bud"
+					]
+				}
+			},
+			"99493371": {
+				"pageid": 99493371,
+				"ns": 6,
+				"title": "File:Moomin2.webm",
+				"size": 440,
+				"wordcount": 39,
+				"snippet": "I, the copyright holder of this work, hereby publish it under the following license: English testing Wikimedia Commons video capabilities with a 1080p",
+				"timestamp": "2021-02-09T14:43:31Z",
+				"index": 52,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-02-09T14:43:31Z",
+				"lastrevid": 531636690,
+				"length": 440,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Moomin2.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 8559990,
+						"width": 1080,
+						"height": 1920,
+						"duration": 10.057,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/200px--Moomin2.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 356,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/400px--Moomin2.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Moomin2.webm/300px--Moomin2.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Moomin2.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Moomin2.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99493371",
+						"mime": "video/webm"
+					}
+				],
+				"entityterms": {
+					"label": [
+						"testing Wikimedia Commons video capabilities with a 1080p 60fps video"
+					]
+				}
+			},
+			"99821544": {
+				"pageid": 99821544,
+				"ns": 6,
+				"title": "File:Cat Play 03.webm",
+				"size": 329,
+				"wordcount": 33,
+				"snippet": "Description<span class=\"searchmatch\">Cat</span> Play 03.webm English: <span class=\"searchmatch\">Cat</span> Play Date 13 February 2021 Source Own work Author NairobiPapel(Kamaa)",
+				"timestamp": "2021-02-15T19:07:02Z",
+				"index": 47,
+				"contentmodel": "wikitext",
+				"pagelanguage": "en",
+				"pagelanguagehtmlcode": "en",
+				"pagelanguagedir": "ltr",
+				"touched": "2021-03-21T12:18:24Z",
+				"lastrevid": 533090537,
+				"length": 329,
+				"fullurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
+				"editurl": "https://commons.wikimedia.org/w/index.php?title=File:Cat_Play_03.webm&action=edit",
+				"canonicalurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
+				"imagerepository": "local",
+				"imageinfo": [
+					{
+						"size": 16051313,
+						"width": 1920,
+						"height": 1080,
+						"duration": 8.014,
+						"thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/200px--Cat_Play_03.webm.jpg",
+						"thumbwidth": 200,
+						"thumbheight": 113,
+						"responsiveUrls": {
+							"2": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/400px--Cat_Play_03.webm.jpg",
+							"1.5": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Cat_Play_03.webm/300px--Cat_Play_03.webm.jpg"
+						},
+						"url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cat_Play_03.webm",
+						"descriptionurl": "https://commons.wikimedia.org/wiki/File:Cat_Play_03.webm",
+						"descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=99821544",
+						"mime": "video/webm"
+					}
+				]
+			}
+		}
+	}
 }
