@@ -79,6 +79,7 @@
 	"mediasearch-preference": "Arama arayüzünüzü seçiniz",
 	"mediasearch-preference-mediasearch-label": "Özel:OrtamArama",
 	"mediasearch-preference-specialsearch-label": "Özel:Arama",
+	"mediasearch-preference-help": "Arama sonuçlarını görüntülemek için birden fazla arayüz mevcuttur. Yeğlediğiniz bir tanesi için seçin.",
 	"mediasearch-filter-assessment-any-assessment": "Herhangi Bir Değerlendirme",
 	"mediasearch-filter-assessment-picture-of-the-day": "Günün resmi",
 	"mediasearch-filter-assessment-picture-of-the-year": "Yılın resmi",
