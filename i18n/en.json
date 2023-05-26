@@ -46,6 +46,7 @@
 	"mediasearch-input-label": "Search media",
 	"mediasearch-input-placeholder": "Search for images, audio, video and more",
 	"mediasearch-load-more-results": "Load more",
+	"mediasearch-load-less-results": "Go back",
 	"mediasearch-quickview-button-text": "More Details",
 	"mediasearch-quickview-close-button-text": "Close file details",
 	"mediasearch-quickview-previous-button-text": "View previous result",

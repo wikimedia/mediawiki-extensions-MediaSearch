@@ -307,23 +307,6 @@
 								{{/isOther}}
 							</div>
 
-							{{#hasMore}}
-								<form method="get" action="{{page}}">
-									{{#queryParams}}
-										{{^isType}}
-											{{^isContinue}}
-												<input type="hidden" name="{{key}}" value="{{value}}" />
-											{{/isContinue}}
-										{{/isType}}
-									{{/queryParams}}
-									<input type="hidden" name="type" value="{{activeType}}" />
-									<input type="hidden" name="continue" value="{{continue}}" />
-									<button type="submit" class="sd-button sdms-load-more sd-button--framed sd-button--progressive">
-										<span class="sd-button__content">{{continueMessage}}</span>
-									</button>
-								</form>
-							{{/hasMore}}
-
 							{{#endOfResults}}
 								<div class="sdms-end-of-results">
 									<p>
@@ -331,6 +314,42 @@
 									</p>
 								</div>
 							{{/endOfResults}}
+
+							<div class="sdms-pagination">
+								{{#hasLess}}
+									<form method="get" action="{{page}}">
+										{{#queryParams}}
+											{{^isType}}
+												{{^isContinue}}
+													<input type="hidden" name="{{key}}" value="{{value}}" />
+												{{/isContinue}}
+											{{/isType}}
+										{{/queryParams}}
+										<input type="hidden" name="type" value="{{activeType}}" />
+										<input type="hidden" name="continue" value="{{previousStart}}" />
+										<button type="submit">
+											{{previousMessage}}
+										</button>
+									</form>
+								{{/hasLess}}
+
+								{{#hasMore}}
+									<form method="get" action="{{page}}">
+										{{#queryParams}}
+											{{^isType}}
+												{{^isContinue}}
+													<input type="hidden" name="{{key}}" value="{{value}}" />
+												{{/isContinue}}
+											{{/isType}}
+										{{/queryParams}}
+										<input type="hidden" name="type" value="{{activeType}}" />
+										<input type="hidden" name="continue" value="{{continue}}" />
+										<button type="submit" >
+											{{continueMessage}}
+										</button>
+									</form>
+								{{/hasMore}}
+							</div>
 
 							{{^results}}
 								{{#error}}

@@ -54,6 +54,7 @@
 	"mediasearch-input-label": "Visually-hidden label for the Media Search search input",
 	"mediasearch-input-placeholder": "Placeholder text for Media Search search input",
 	"mediasearch-load-more-results": "Text for the 'load more results' button",
+	"mediasearch-load-less-results": "Text for the 'Go back' button",
 	"mediasearch-quickview-button-text": "Text for the button to go to the file page in the QuickView panel",
 	"mediasearch-quickview-close-button-text": "Text for the button to close the QuickView panel",
 	"mediasearch-quickview-previous-button-text": "Text for the button in the QuickView panel to open the preceding result in QuickView",
