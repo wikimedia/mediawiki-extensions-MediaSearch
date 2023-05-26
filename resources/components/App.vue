@@ -11,6 +11,7 @@
 			:placeholder="$i18n( 'mediasearch-input-placeholder' ).text()"
 			:clear-title="$i18n( 'mediasearch-clear-title' ).text()"
 			:button-label="$i18n( 'searchbutton' ).text()"
+			:initialized="initialized"
 			:lookup-results="lookupResults"
 			:lookup-disabled="lookupDisabled"
 			@input="getDebouncedLookupResults"
@@ -124,7 +125,8 @@ module.exports = exports = {
 
 	computed: $.extend( {}, mapState( [
 		'autoloadCounter',
-		'results'
+		'results',
+		'initialized'
 	] ), mapGetters( [
 		'allActiveFilters',
 		'currentType',

@@ -314,6 +314,7 @@ class SpecialMediaSearch extends SpecialPage {
 				'mediasearch-results-count',
 				$userLanguage->formatNum( $totalHits )
 			)->text(),
+			'autofocus' => !$term
 		];
 
 		$externalEntitySearchBaseUri = $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' );

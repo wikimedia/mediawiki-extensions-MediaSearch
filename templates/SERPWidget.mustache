@@ -20,6 +20,9 @@
 			<input type="hidden" name="type" value="{{activeType}}" />
 			<input
 				value="{{term}}"
+				{{#autofocus}}
+					autofocus="autofocus"
+				{{/autofocus}}
 				name="search"
 				id="sdms-search-input__input"
 				dir="auto"

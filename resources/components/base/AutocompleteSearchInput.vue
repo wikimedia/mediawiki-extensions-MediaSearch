@@ -151,6 +151,13 @@ module.exports = exports = {
 		 */
 		lookupDisabled: {
 			type: Boolean
+		},
+		/**
+		 * This property is going to be used to set focus on the input field
+		 */
+		initialized: {
+			type: Boolean,
+			required: true
 		}
 	},
 
@@ -435,6 +442,12 @@ module.exports = exports = {
 		value: function ( newValue ) {
 			if ( newValue === '' ) {
 				this.clearLookupResults();
+			}
+		},
+
+		initialized: function ( isInitalized ) {
+			if ( isInitalized && !this.initialValue.trim() ) {
+				this.$refs.input.focus();
 			}
 		}
 	}
