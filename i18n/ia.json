@@ -46,6 +46,7 @@
 	"mediasearch-input-label": "Recerca multimedial",
 	"mediasearch-input-placeholder": "Cercar imagines, audio, video e plus",
 	"mediasearch-load-more-results": "Cargar plus",
+	"mediasearch-load-less-results": "Retornar",
 	"mediasearch-quickview-button-text": "Plus detalios",
 	"mediasearch-quickview-close-button-text": "Clauder le detalios del file",
 	"mediasearch-quickview-previous-button-text": "Vider le resultato precedente",

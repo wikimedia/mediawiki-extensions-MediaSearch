@@ -58,6 +58,7 @@
 	"mediasearch-input-label": "メディアを検索",
 	"mediasearch-input-placeholder": "画像、音声、動画などを検索",
 	"mediasearch-load-more-results": "続きを表示",
+	"mediasearch-load-less-results": "戻る",
 	"mediasearch-quickview-button-text": "詳細",
 	"mediasearch-quickview-close-button-text": "閉じる",
 	"mediasearch-quickview-previous-button-text": "前の結果を見る",

@@ -3,6 +3,7 @@
 		"authors": [
 			"BadDog",
 			"Kizule",
+			"Milicevic01",
 			"Obsuser",
 			"Zoranzoki21",
 			"Вукан Ц",
@@ -18,5 +19,6 @@
 	"mediasearch-filter-size-small": "Мала",
 	"mediasearch-filter-size-medium": "Средња",
 	"mediasearch-filter-size-large": "Велика",
-	"mediasearch-filter-file-type-any": "Врста датотеке"
+	"mediasearch-filter-file-type-any": "Врста датотеке",
+	"mediasearch-load-less-results": "Назад"
 }
