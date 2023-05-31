@@ -16,7 +16,8 @@
 			"Trial",
 			"VIGNERON",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Eihel"
 		]
 	},
 	"mediasearch-desc": "Moyen axé sur les médias pour afficher les résultats de recherche via la page de [[Special:MediaSearch|recherche de média]].",
@@ -53,7 +54,7 @@
 	"mediasearch-filter-namespace-label": "Espace de noms : $1",
 	"mediasearch-filter-namespace-dialog-title": "Sélecteur d’espace de noms",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Soumettre",
-	"mediasearch-no-results": "Nous n’avons pas trouvé aucun résultat",
+	"mediasearch-no-results": "Nous n’avons trouvé aucun résultat",
 	"mediasearch-no-results-tips": "Essayez des termes plus généraux ou vérifiez votre orthographe",
 	"mediasearch-end-of-results": "Aucun autre résultat trouvé",
 	"mediasearch-empty-state": "Rechercher parmi plus de $1 fichier{{PLURAL:$1||s}} de média librement réutilisable{{PLURAL:$1||s}}",
