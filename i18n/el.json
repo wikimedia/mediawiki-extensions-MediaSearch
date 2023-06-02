@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dogogos123",
 			"Geraki",
 			"Giorgos456",
 			"NikosLikomitros",
@@ -12,5 +13,6 @@
 	"mediasearch-tab-audio": "Ήχος",
 	"mediasearch-tab-video": "Βίντεο",
 	"mediasearch-filter-size": "Μέγεθος εικόνας",
-	"mediasearch-load-more-results": "Φόρτωση περισσότερων"
+	"mediasearch-load-more-results": "Φόρτωση περισσότερων",
+	"mediasearch-load-less-results": "Επιστροφή"
 }
