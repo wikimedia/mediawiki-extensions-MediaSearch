@@ -62,6 +62,7 @@
 	"mediasearch-input-label": "Поиск медиафайлов",
 	"mediasearch-input-placeholder": "Искать изображения, аудио, видео и др.",
 	"mediasearch-load-more-results": "Загрузить ещё",
+	"mediasearch-load-less-results": "Назад",
 	"mediasearch-quickview-button-text": "Подробнее",
 	"mediasearch-quickview-close-button-text": "Закрыть сведения о файле",
 	"mediasearch-quickview-previous-button-text": "Смотреть предыдущий результат",
