@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"mediasearch-title": "Medie sichen",
@@ -37,6 +38,7 @@
 	"mediasearch-end-of-results": "Net méi fonnt",
 	"mediasearch-clear-title": "Ewechhuelen",
 	"mediasearch-load-more-results": "Méi lueden",
+	"mediasearch-load-less-results": "Zréck goen",
 	"mediasearch-quickview-button-text": "Méi Detailer",
 	"mediasearch-quickview-previous-button-text": "Viregt Resultat weisen",
 	"mediasearch-quickview-next-button-text": "Nächst Resultat weisen",
