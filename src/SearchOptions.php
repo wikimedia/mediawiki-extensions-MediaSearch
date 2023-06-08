@@ -552,7 +552,7 @@ class SearchOptions {
 	/**
 	 * @param string $input
 	 * @return int[]
-	 * @throws InvalidArgumentException
+	 * @throws InvalidNamespaceGroupException
 	 */
 	public function getNamespaceIdsFromInput( $input ): array {
 		$namespaceGroups = $this->getNamespaceGroups();
@@ -570,6 +570,6 @@ class SearchOptions {
 			return $verifiedIds;
 		}
 
-		throw new InvalidArgumentException( "$input is no valid namespace input" );
+		throw new InvalidNamespaceGroupException( "$input is no valid namespace input" );
 	}
 }

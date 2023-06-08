@@ -9,14 +9,15 @@ use CirrusSearch\SearchConfig;
 use Config;
 use ConfigException;
 use DerivativeContext;
-use Exception;
-use InvalidArgumentException;
+use MediaWiki\Extension\MediaSearch\InvalidFiltersException;
+use MediaWiki\Extension\MediaSearch\InvalidNamespaceGroupException;
+use MediaWiki\Extension\MediaSearch\NoCirrusSearchException;
+use MediaWiki\Extension\MediaSearch\SearchFailedException;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\User\UserOptionsManager;
-use MWException;
 use NamespaceInfo;
 use OOUI\Tag;
 use OutputPage;
@@ -219,7 +220,6 @@ class SpecialMediaSearch extends SpecialPage {
 		$activeFilters = $this->getActiveFilters( $queryParams );
 
 		try {
-			// Validate filters
 			$this->assertValidFilters( $activeFilters, $type );
 			$filtersForDisplay = $this->getFiltersForDisplay( $activeFilters, $type );
 			$termWithFilters = $this->getTermWithFilters( $term, $activeFilters );
@@ -234,11 +234,10 @@ class SpecialMediaSearch extends SpecialPage {
 				$this->getRequest()->getText( 'continue' ),
 				$this->getSort( $activeFilters )
 			);
-		} catch ( Exception $e ) {
-			// Display an error message if invalid filter settings are detected
-			// (InvalidArgumentException) or search failed for any other reason,
-			// like a bad query with illegal characters, an elastic failure, ...
-			// (MWException)
+		} catch (
+			InvalidNamespaceGroupException | InvalidFiltersException |
+			NoCirrusSearchException | SearchFailedException $_
+		) {
 			$error = [
 				'title' => $this->msg( 'mediasearch-error-message' )->text(),
 				'text' => $this->msg( 'mediasearch-error-text' )->text(),
@@ -255,8 +254,12 @@ class SpecialMediaSearch extends SpecialPage {
 		$currentResultStart = $this->getRequest()->getText( 'continue' ) ?: 0;
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
-			$didYouMean = $this->extractSuggestedTerm( $searchinfo[ 'suggestion' ], $activeFilters );
-			$didYouMeanLink = $this->generateDidYouMeanLink( $queryParams, $didYouMean );
+			try {
+				$didYouMean = $this->extractSuggestedTerm( $searchinfo['suggestion'], $activeFilters );
+				$didYouMeanLink = $this->generateDidYouMeanLink( $queryParams, $didYouMean );
+			} catch ( NoCirrusSearchException $_ ) {
+				// Ignore.
+			}
 		}
 
 		$mappedQueryParams = array_map( static function ( $key, $value ) {
@@ -449,7 +452,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param string|null $continue
 	 * @param string|null $sort
 	 * @return array [ search results, searchinfo data, continuation value ]
-	 * @throws MWException
+	 * @throws SearchFailedException
 	 */
 	protected function search(
 		$term,
@@ -560,9 +563,8 @@ class SpecialMediaSearch extends SpecialPage {
 			$response = $this->api->getResult()->getResultData( [], [ 'Strip' => 'all' ] );
 		}
 
-		// If the API response contains an error, throw a MWException
 		if ( isset( $response[ 'error' ] ) ) {
-			throw new MWException();
+			throw new SearchFailedException();
 		}
 
 		$results = array_values( $response['query']['pages'] ?? [] );
@@ -588,11 +590,11 @@ class SpecialMediaSearch extends SpecialPage {
 	 * Take an associative array of user-specified, supported filter settings
 	 * (originally based on their incoming URL params) and ensure that all
 	 * provided filters and values are appropriate for the current mediaType.
-	 * If all filters pass validation, returns true. Otherwise, returns false.
 	 *
 	 * @param array $activeFilters
 	 * @param string $type
-	 * @throws InvalidArgumentException
+	 * @throws InvalidNamespaceGroupException
+	 * @throws InvalidFiltersException
 	 */
 	protected function assertValidFilters( array $activeFilters, string $type ) {
 		// Gather a [ key => allowed values ] map of all allowed values for the
@@ -620,14 +622,12 @@ class SpecialMediaSearch extends SpecialPage {
 			isset( $invalidFilters[SearchOptions::FILTER_NAMESPACE] ) &&
 			isset( $allowedFilterValues[SearchOptions::FILTER_NAMESPACE] )
 		) {
-			// below will throw an exception if the input is invalid, which
-			// is exactly what we'd want to happen
 			$this->searchOptions->getNamespaceIdsFromInput( $activeFilters[SearchOptions::FILTER_NAMESPACE] );
 			unset( $invalidFilters[SearchOptions::FILTER_NAMESPACE] );
 		}
 
 		if ( count( $invalidFilters ) > 0 ) {
-			throw new InvalidArgumentException(
+			throw new InvalidFiltersException(
 				'Invalid filters ' . implode( ', ', array_keys( $invalidFilters )
 			) );
 		}
@@ -686,6 +686,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param string $term
 	 * @param array $filters [ "mimeType" => "tiff", "imageSize" => ">500" ]
 	 * @return string "kittens filemime:tiff fileres:>500"
+	 * @throws NoCirrusSearchException
 	 */
 	protected function getTermWithFilters( $term, $filters ): string {
 		if ( empty( $term ) || empty( $filters ) ) {
@@ -749,10 +750,11 @@ class SpecialMediaSearch extends SpecialPage {
 	 * Returns a list of supported search keyword prefixes.
 	 *
 	 * @return array
+	 * @throws NoCirrusSearchException
 	 */
 	protected function getSearchKeywords(): array {
 		if ( !$this->searchConfig ) {
-			throw new MWException( 'CirrusSearch required for search keyword prefixes' );
+			throw new NoCirrusSearchException( 'CirrusSearch required for search keyword prefixes' );
 		}
 		$features = ( new FullTextKeywordRegistry( $this->searchConfig ) )->getKeywords();
 
@@ -803,6 +805,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param array $activeFilters
 	 * @param string $type
 	 * @return array
+	 * @throws InvalidNamespaceGroupException
 	 */
 	protected function getSearchNamespaces( array $activeFilters, string $type ) {
 		if ( $type !== SearchOptions::TYPE_PAGE ) {
@@ -824,6 +827,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @param string $suggestion filetype:bitmap|drawing -fileres:0 haswbstatement:P6731=Q63348049 cat
 	 * @param array $activeFilters ["assessment" => "featured-image"]
 	 * @return string
+	 * @throws NoCirrusSearchException
 	 */
 	protected function extractSuggestedTerm( $suggestion, $activeFilters ) {
 		$availableFilters = $this->getSearchKeywords();
