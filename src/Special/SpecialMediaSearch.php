@@ -689,7 +689,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @throws NoCirrusSearchException
 	 */
 	protected function getTermWithFilters( $term, $filters ): string {
-		if ( empty( $term ) || empty( $filters ) ) {
+		if ( $term === '' || !$filters ) {
 			return $term;
 		}
 
