@@ -145,6 +145,12 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'close',
+		'progress',
+		'key'
+	],
+
 	data: function () {
 		return {
 			closeIcon: cdxIconClose,

@@ -245,7 +245,11 @@ describe( 'App', () => {
 		beforeEach( () => {
 			const wrapper = renderComponent( store );
 			wrapper.vm.$refs.dummyTab1.hideDetails = hideDetailsMock;
-			wrapper.vm.onFilterChange( { mediaType: 'dummyTab1', filterType: 'dummyFilterType', value: 'dummyValue' } );
+			wrapper.vm.onFilterChange( {
+				mediaType: 'dummyTab1',
+				filterType: 'dummyFilterType',
+				value: 'dummyValue'
+			} );
 		} );
 
 		test.todo( 'hides the details of the changed tab' );

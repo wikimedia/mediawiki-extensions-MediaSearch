@@ -103,6 +103,11 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'close',
+		'submit'
+	],
+
 	data: function () {
 		return {
 			// eslint-disable-next-line vue/no-computed-properties-in-data

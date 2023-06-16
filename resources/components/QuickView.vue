@@ -128,7 +128,10 @@
 				></sd-copy-text-layout>
 			</p>
 
-			<p v-if="displayNameWithoutExtension" class="sdms-quick-view__list-item sdms-quick-view__copy-name-no-extension">
+			<p
+				v-if="displayNameWithoutExtension"
+				class="sdms-quick-view__list-item sdms-quick-view__copy-name-no-extension"
+			>
 				<cdx-icon :icon="cdxIconWikiText"></cdx-icon>
 				<sd-copy-text-layout
 					:copy-text="'[[' + title + '|' + displayNameWithoutExtension + ']]'"
@@ -258,6 +261,12 @@ module.exports = exports = {
 			type: Boolean
 		}
 	},
+
+	emits: [
+		'previous',
+		'next',
+		'close'
+	],
 
 	data: function () {
 		return {
@@ -523,6 +532,7 @@ module.exports = exports = {
 			var dateString = this.metadata &&
 					this.metadata.DateTimeOriginal &&
 					this.metadata.DateTimeOriginal.value || null,
+				// eslint-disable-next-line security/detect-unsafe-regex
 				dateRegex = /^([0-9]{2,4})(-[0-9]{2})?(-[0-9]{2})?/,
 				dateRegexResult = dateRegex.exec( dateString ),
 				dateObject = new Date( dateRegex.test( dateString ) ?

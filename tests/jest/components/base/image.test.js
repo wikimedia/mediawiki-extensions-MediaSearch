@@ -27,7 +27,12 @@ describe( 'Image Component', () => {
 
 	it( 'width and height style match props', () => {
 
-		const propsData = { source: samplePropsData.source, alt: samplePropsData.alt, originalWidth: 200, originalHeight: 200 };
+		const propsData = {
+			source: samplePropsData.source,
+			alt: samplePropsData.alt,
+			originalWidth: 200,
+			originalHeight: 200
+		};
 		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
 			propsData
 		} );

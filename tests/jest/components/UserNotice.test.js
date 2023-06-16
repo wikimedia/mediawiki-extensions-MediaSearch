@@ -72,14 +72,16 @@ describe( 'UserNotice', () => {
 			const wrapper = shallowMount( Component );
 			wrapper.vm.dismiss();
 			expect( global.mw.Api.prototype.saveOption ).toHaveBeenCalled();
-			expect( global.mw.Api.prototype.saveOption ).toHaveBeenCalledWith( 'sdms-search-user-notice-dismissed', 1 );
+			expect( global.mw.Api.prototype.saveOption )
+				.toHaveBeenCalledWith( 'sdms-search-user-notice-dismissed', 1 );
 		} );
 
 		it( 'saves options to user object', () => {
 			const wrapper = shallowMount( Component );
 			wrapper.vm.dismiss();
 			expect( global.mw.user.options.set ).toHaveBeenCalled();
-			expect( global.mw.user.options.set ).toHaveBeenCalledWith( 'sdms-search-user-notice-dismissed', 1 );
+			expect( global.mw.user.options.set )
+				.toHaveBeenCalledWith( 'sdms-search-user-notice-dismissed', 1 );
 		} );
 
 		it( 'changes dismissed data', () => {
