@@ -237,7 +237,6 @@
 				"mediawiki.ForeignApi",
 				"mediawiki.user",
 				"vue",
-				"@vue/composition-api",
 				"vuex",
 				"web2017-polyfills",
 				"@wikimedia/codex"
