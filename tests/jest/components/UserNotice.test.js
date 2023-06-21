@@ -41,8 +41,8 @@ describe( 'UserNotice', () => {
 			expect( element.exists() ).toBe( false );
 		} );
 
-		it( 'when user is Anon', () => {
-			global.mw.user.isAnon.mockReturnValueOnce( true );
+		it( 'when user is unnamed (anonymous or a temporary user)', () => {
+			global.mw.user.isNamed.mockReturnValueOnce( false );
 			const wrapper = shallowMount( Component );
 			const element = wrapper.find( '.sdms-user-notice__message' );
 			expect( element.exists() ).toBe( false );

@@ -91,7 +91,7 @@ const mw = {
 			get: jest.fn().mockReturnValue( 0 ),
 			set: jest.fn()
 		},
-		isAnon: jest.fn().mockReturnValue( false )
+		isNamed: jest.fn().mockReturnValue( true )
 	}
 };
 /*

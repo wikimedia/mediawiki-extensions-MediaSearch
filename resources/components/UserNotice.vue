@@ -55,7 +55,7 @@ module.exports = exports = {
 		},
 
 		showNotice: function () {
-			if ( mw.user.isAnon() || this.isMobileSkin ) {
+			if ( !mw.user.isNamed() || this.isMobileSkin ) {
 				return false;
 			} else {
 				return !this.previouslyDismissed && !this.dismissed;
