@@ -4,17 +4,26 @@
 .sd-copy-text-layout {
 	&__text {
 		border-right: @border-base;
-		display: inline-block;
 		padding-right: 0.5em;
 	}
 
-	&__button {
-		// Make sure copy button doesn't make the line take up more
-		// vertical space than other lines.
-		padding: 0;
+	// Override some CDX button styles; the copy text button
+	// used here does not 100% line up with anything in the
+	// design system
+	&__button.cdx-button {
+		// don't truncate the button
+		flex-shrink: 0;
+		// ensure a small offset for the focus-state box shadow
+		padding: 2px;
+		// unset the min-height so that all lines of text have
+		// the same height
+		min-height: unset;
 
 		&:hover {
-			background-color: transparent;
+			// CDX button hover styles have very high specificity
+			// but we need to ensure they don't apply here
+			/* stylelint-disable-next-line declaration-no-important */
+			background-color: transparent !important;
 		}
 	}
 
@@ -31,7 +40,6 @@
 		max-width: calc( ~'100% - 20px - 0.5em' );
 
 		.sd-copy-text-layout__text {
-			display: inline;
 			// Since we don't get inline spacing because of the flex display,
 			// we need to add a margin to mimic that spacing.
 			margin-right: 0.25em;

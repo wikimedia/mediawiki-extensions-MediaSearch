@@ -24,15 +24,6 @@
 	},
 	"overrides": [
 		{
-			"files": [ "**/*.test.js" ],
-			"env": {
-				"jest": true
-			},
-			"globals": {
-				"global": false
-			}
-		},
-		{
 			"files": [ "**/*.js", "**/*.vue" ],
 			"rules": {
 				"max-len": [

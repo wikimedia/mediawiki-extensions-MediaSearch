@@ -4,12 +4,12 @@ const Vuex = require( 'vuex' ),
 	when = require( 'jest-when' ).when,
 	UserNotice = require( '../../../resources/components/UserNotice.vue' ),
 	SdAutocompleteSearchInput = require( '../../../resources/components/base/AutocompleteSearchInput.vue' ),
-	SdTab = require( '../../../resources/components/base/Tab.vue' ),
-	SdTabs = require( '../../../resources/components/base/Tabs.vue' ),
 	SearchResults = require( '../../../resources/components/SearchResults.vue' ),
 	SearchFilters = require( '../../../resources/components/SearchFilters.vue' ),
 	DidYouMean = require( '../../../resources/components/DidYouMean.vue' ),
 	Observer = require( '../../../resources/components/base/Observer.vue' );
+
+const { CdxTabs, CdxTab } = require( '@wikimedia/codex' );
 
 window.performance.navigation = {
 	type: jest.fn()
@@ -33,7 +33,8 @@ const initialState = {
 	},
 	dummyCurrentType: 'dummyTab1',
 	dummySearchTerm: 'dummySearchTerm',
-	dummyAllFilter: 'dummyAllFilter'
+	dummyAllFilter: 'dummyAllFilter',
+	initialized: true
 };
 
 const App = require( '../../../resources/components/App.vue' );
@@ -43,10 +44,10 @@ const renderComponent = ( store ) => {
 		global: {
 			plugins: [ store ],
 			stubs: {
-				'sd-tabs': {
+				'cdx-tabs': {
 					template: '<div><slot></slot></div>'
 				},
-				'sd-tab': {
+				'cdx-tab': {
 					template: '<div><slot></slot></div>'
 				},
 				'sd-autocomplete-search-input': true,
@@ -134,17 +135,17 @@ describe( 'App', () => {
 		expect( wrapper.findComponent( SdAutocompleteSearchInput ).exists() ).toBe( true );
 	} );
 
-	it( 'Renders sd-tabs component', () => {
+	it( 'Renders cdx-tabs component', () => {
 
 		const wrapper = renderComponent( store );
-		expect( wrapper.findComponent( SdTabs ).exists() ).toBe( true );
+		expect( wrapper.findComponent( CdxTabs ).exists() ).toBe( true );
 	} );
 
-	it( 'Renders the correct number of sdTab components', () => {
+	it( 'Renders the correct number of cdx-tab components', () => {
 		// This value comes from the mock of sdmsInitialSearchResults
 		const wrapper = renderComponent( store );
 		const expectedNumberOfTabs = 2;
-		expect( wrapper.findAllComponents( SdTab ).length ).toBe( expectedNumberOfTabs );
+		expect( wrapper.findAllComponents( CdxTab ).length ).toBe( expectedNumberOfTabs );
 	} );
 
 	it( 'Renders search-filters component', () => {

@@ -20,6 +20,10 @@
 
 // @vue/component
 module.exports = {
-	name: 'SearchError'
+	name: 'SearchError',
+
+	compatConfig: {
+		MODE: 3
+	}
 };
 </script>

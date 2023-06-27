@@ -17,7 +17,7 @@ module.exports = exports = {
 	name: 'SdImage',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	mixins: [ observer ],

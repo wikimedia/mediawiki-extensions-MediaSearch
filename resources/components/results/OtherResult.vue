@@ -56,6 +56,10 @@ var searchResult = require( '../../mixins/searchResult.js' );
 module.exports = exports = {
 	name: 'OtherResult',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
 		'sdms-image': SdImage
 	},

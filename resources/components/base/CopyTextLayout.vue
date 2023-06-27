@@ -3,19 +3,19 @@
 		<span class="sd-copy-text-layout__text">
 			{{ copyText }}
 		</span>
-		<sd-button
+		<cdx-button
 			class="sd-copy-text-layout__button"
-			:progressive="true"
-			:frameless="true"
+			weight="quiet"
+			action="progressive"
 			@click="handleCopyText"
 		>
 			{{ buttonText }}
-		</sd-button>
+		</cdx-button>
 	</div>
 </template>
 
 <script>
-const SdButton = require( './Button.vue' );
+const { CdxButton } = require( '@wikimedia/codex' );
 
 /**
  * Text with a button that copies the text to the user's clipboard.
@@ -25,11 +25,11 @@ module.exports = exports = {
 	name: 'SdCopyTextLayout',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	components: {
-		'sd-button': SdButton
+		CdxButton
 	},
 
 	props: {

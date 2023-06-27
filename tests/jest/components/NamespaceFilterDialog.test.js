@@ -1,7 +1,6 @@
-const { mount, shallowMount } = require( '@vue/test-utils' ),
-	Component = require( '../../../resources/components/NamespaceFilterDialog.vue' ),
-	Radio = require( '../../../resources/components/base/Radio.vue' ),
-	Checkbox = require( '../../../resources/components/base/Checkbox.vue' );
+const { mount, shallowMount } = require( '@vue/test-utils' );
+const Component = require( '../../../resources/components/NamespaceFilterDialog.vue' );
+const { CdxRadio, CdxCheckbox } = require( '@wikimedia/codex' );
 
 describe( 'EndOfResults', () => {
 	it( 'render the component', () => {
@@ -19,7 +18,7 @@ describe( 'EndOfResults', () => {
 	} );
 
 	describe( 'when items are set', () => {
-		it( 'render an sd-radio', () => {
+		it( 'render a cdx-radio', () => {
 			const wrapper = mount( Component, {
 				props: {
 					active: true,
@@ -30,12 +29,12 @@ describe( 'EndOfResults', () => {
 				}
 			} );
 
-			expect( wrapper.findComponent( Radio ).exists() ).toBe( true );
+			expect( wrapper.findComponent( CdxRadio ).exists() ).toBe( true );
 		} );
 	} );
 
 	describe( 'when formattedNamespaces are set', () => {
-		it( 'render an sd-checkbox', () => {
+		it( 'render a cdx-checkbox', () => {
 			const wrapper = mount( Component, {
 				props: {
 					active: true,
@@ -46,7 +45,7 @@ describe( 'EndOfResults', () => {
 				}
 			} );
 
-			expect( wrapper.findComponent( Checkbox ).exists() ).toBe( true );
+			expect( wrapper.findComponent( CdxCheckbox ).exists() ).toBe( true );
 		} );
 	} );
 

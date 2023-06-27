@@ -40,7 +40,7 @@
 	&__body {
 		margin-top: @sdms-spacing-base;
 
-		.sd-icon {
+		.cdx-icon {
 			color: @sdms-icon-color--subtle;
 			margin-right: 4px;
 		}
@@ -74,7 +74,7 @@
 			}
 		}
 
-		.sd-icon {
+		.cdx-icon {
 			// Mimic natural inline element spacing.
 			margin-right: 0.4em;
 		}
@@ -123,15 +123,14 @@
 		display: inline-flex;
 		padding: 3px;
 
-		.sd-icon {
+		.cdx-icon {
 			color: @color-subtle;
-			font-size: 20px;
 			transition: color @transition-duration-base;
 		}
 
 		&:hover,
 		&:focus {
-			.sd-icon {
+			.cdx-icon {
 				color: @color-base;
 			}
 		}
@@ -147,15 +146,15 @@
 	}
 
 	&__close-button {
-		left: @sdms-spacing-base * 2;
+		left: @sdms-spacing-base;
 		position: absolute;
-		top: @sdms-spacing-base * 2;
+		top: @sdms-spacing-base;
 	}
 
 	&__controls {
 		position: absolute;
-		right: @sdms-spacing-base * 2;
-		top: @sdms-spacing-base * 2;
+		right: @sdms-spacing-base;
+		top: @sdms-spacing-base;
 
 		.sdms-quick-view__button:first-child {
 			margin-right: @sdms-spacing-base / 2;

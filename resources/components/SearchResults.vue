@@ -30,14 +30,14 @@
 			<!-- When the autoload counter for a given tab reaches zero,
 			don't load more results until user explicitly clicks on a
 			"load more" button; this resets the autoload count -->
-			<sd-button
+			<cdx-button
 				v-else-if="hasMoreResults"
 				class="sdms-load-more"
-				:progressive="true"
+				action="progressive"
 				@click="$emit( 'load-more' )"
 			>
 				{{ $i18n( 'mediasearch-load-more-results' ).text() }}
-			</sd-button>
+			</cdx-button>
 
 			<!-- If an invalid search has been detected, don't display
 			anything else until it has been cleared -->
@@ -124,7 +124,6 @@ var mapState = require( 'vuex' ).mapState,
 	PageResult = require( './results/PageResult.vue' ),
 	OtherResult = require( './results/OtherResult.vue' ),
 	SdDialog = require( './base/Dialog.vue' ),
-	SdButton = require( './base/Button.vue' ),
 	Spinner = require( './Spinner.vue' ),
 	QuickView = require( './QuickView.vue' ),
 	NoResults = require( './NoResults.vue' ),
@@ -132,9 +131,15 @@ var mapState = require( 'vuex' ).mapState,
 	EmptyState = require( './EmptyState.vue' ),
 	SearchError = require( './SearchError.vue' );
 
+const { CdxButton } = require( '@wikimedia/codex' );
+
 // @vue/component
 module.exports = exports = {
 	name: 'SearchResults',
+
+	compatConfig: {
+		MODE: 3
+	},
 
 	components: {
 		'image-result': ImageResult,
@@ -144,7 +149,7 @@ module.exports = exports = {
 		'other-result': OtherResult,
 		'quick-view': QuickView,
 		'sd-dialog': SdDialog,
-		'sd-button': SdButton,
+		CdxButton,
 		spinner: Spinner,
 		'empty-state': EmptyState,
 		'no-results': NoResults,

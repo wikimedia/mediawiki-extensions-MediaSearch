@@ -22,7 +22,7 @@
 
 			<h4 class="sdms-video-result__meta">
 				<span class="sdms-video-result__duration">
-					<sd-icon :icon="icon"></sd-icon>
+					<cdx-icon :icon="cdxIconPlay" size="small"></cdx-icon>
 					<span
 						v-if="formattedDuration"
 						class="sdms-video-result__duration__text"
@@ -46,16 +46,21 @@
  * mixin as well as the "time-based" result mixin.
  */
 var searchResult = require( '../../mixins/searchResult.js' ),
-	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' ),
-	SdIcon = require( '../base/Icon.vue' ),
-	icons = require( '../../../lib/icons.js' );
+	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' );
+
+const { CdxIcon } = require( '@wikimedia/codex' );
+const { cdxIconPlay } = require( '../icons.json' );
 
 // @vue/component
 module.exports = exports = {
 	name: 'VideoResult',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
-		'sd-icon': SdIcon
+		CdxIcon
 	},
 
 	mixins: [ searchResult, searchResultTimeBased ],
@@ -64,7 +69,7 @@ module.exports = exports = {
 
 	data: function () {
 		return {
-			icon: icons.sdIconPlay
+			cdxIconPlay
 		};
 	}
 };

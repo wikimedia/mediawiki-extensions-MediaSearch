@@ -10,7 +10,7 @@
 	>
 		<div>
 			<div class="sdms-namespace-dialog__radios">
-				<sd-radio
+				<cdx-radio
 					v-for="item in items"
 					:key="item.value"
 					v-model="selectedRadio"
@@ -18,11 +18,11 @@
 					:input-value="item.value"
 				>
 					{{ item.label }}
-				</sd-radio>
+				</cdx-radio>
 			</div>
 
 			<div class="sdms-namespace-dialog__custom">
-				<sd-checkbox
+				<cdx-checkbox
 					v-for="namespace in formattedNamespaces"
 					:key="namespace.value"
 					v-model="selectedCustom"
@@ -30,7 +30,7 @@
 					:disabled="!isCustom"
 				>
 					{{ namespace.label }}
-				</sd-checkbox>
+				</cdx-checkbox>
 			</div>
 		</div>
 	</sd-dialog>
@@ -38,8 +38,7 @@
 
 <script>
 const sdDialog = require( './base/Dialog.vue' );
-const sdRadio = require( './base/Radio.vue' );
-const sdCheckbox = require( './base/Checkbox.vue' );
+const { CdxRadio, CdxCheckbox } = require( '@wikimedia/codex' );
 
 /**
  * @file NamespaceFilterDialog.vue
@@ -53,13 +52,13 @@ module.exports = exports = {
 	name: 'NamespaceFilterDialog',
 
 	compatConfig: {
-		COMPONENT_V_MODEL: false
+		MODE: 3
 	},
 
 	components: {
 		'sd-dialog': sdDialog,
-		'sd-radio': sdRadio,
-		'sd-checkbox': sdCheckbox
+		CdxRadio,
+		CdxCheckbox
 	},
 
 	props: {

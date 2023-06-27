@@ -8,6 +8,10 @@
 // @vue/component
 module.exports = exports = {
 	// eslint-disable-next-line vue/multi-word-component-names
-	name: 'Spinner'
+	name: 'Spinner',
+
+	compatConfig: {
+		MODE: 3
+	}
 };
 </script>

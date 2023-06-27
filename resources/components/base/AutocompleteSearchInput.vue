@@ -9,39 +9,28 @@
 				{{ label }}
 			</label>
 
-			<input
+			<cdx-text-input
 				:id="inputElementId"
+				class="sd-input__input"
 				ref="input"
 				v-model="value"
-				dir="auto"
-				class="sd-input__input"
 				type="text"
-				role="combobox"
 				aria-autocomplete="list"
 				:aria-owns="lookupResultsElementId"
 				:aria-expanded="isExpanded"
 				:aria-activedescendant="activeLookupItemId || null"
 				:placeholder="placeholder"
+				:start-icon="cdxIconSearch"
+				:clearable="true"
 				@input="onInput"
 				@focus="onFocus"
 				@blur="onBlur"
-				@keyup.enter="onSubmit"
-				@keyup.up="onArrowUp"
-				@keyup.down="onArrowDown"
+				@keydown.enter="onSubmit"
+				@keydown.up="onArrowUp"
+				@keydown.down="onArrowDown"
+				@clear="onClear"
 			>
-
-			<span class="sd-input__icon" @click="onIconClick">
-				<sd-icon :icon="icons.sdIconSearch"></sd-icon>
-			</span>
-
-			<span
-				v-if="value"
-				class="sd-input__indicator"
-				role="button"
-				@click="onClear"
-			>
-				<sd-icon :icon="icons.sdIconClear" :title="clearTitle"></sd-icon>
-			</span>
+			</cdx-text-input>
 
 			<sd-select-menu
 				v-if="hasLookupResults && showLookupResults"
@@ -55,23 +44,22 @@
 			</sd-select-menu>
 		</div>
 
-		<sd-button
+		<cdx-button
 			v-if="hasButton"
 			class="sd-input__button"
-			:primary="true"
-			:progressive="true"
+			weight="primary"
+			action="progressive"
 			@click="onSubmit"
 		>
 			{{ $i18n( 'searchbutton' ).text() }}
-		</sd-button>
+		</cdx-button>
 	</div>
 </template>
 
 <script>
-var SdButton = require( './Button.vue' ),
-	SdIcon = require( './Icon.vue' ),
-	SdSelectMenu = require( './SelectMenu.vue' ),
-	icons = require( '../../../lib/icons.js' );
+const { CdxButton, CdxTextInput } = require( '@wikimedia/codex' );
+const SdSelectMenu = require( './SelectMenu.vue' );
+const { cdxIconSearch } = require( '../icons.json' );
 
 /**
  * @file AutocompleteSearchInput
@@ -87,12 +75,12 @@ module.exports = exports = {
 	name: 'SdAutocompleteSearchInput',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	components: {
-		'sd-button': SdButton,
-		'sd-icon': SdIcon,
+		CdxButton,
+		CdxTextInput,
 		'sd-select-menu': SdSelectMenu
 	},
 
@@ -121,11 +109,6 @@ module.exports = exports = {
 		},
 
 		placeholder: {
-			type: [ String, Object ],
-			default: null
-		},
-
-		clearTitle: {
 			type: [ String, Object ],
 			default: null
 		},
@@ -173,10 +156,10 @@ module.exports = exports = {
 	data: function () {
 		return {
 			value: this.initialValue,
-			icons: icons,
 			pending: false,
 			showLookupResults: false,
-			activeLookupItemIndex: -1
+			activeLookupItemIndex: -1,
+			cdxIconSearch
 		};
 	},
 
@@ -369,18 +352,6 @@ module.exports = exports = {
 			this.activeLookupItemIndex = index;
 		},
 
-		/*
-		* Set focus to input if icon is clicked.
-		*/
-		onIconClick: function () {
-			var $input;
-
-			this.$nextTick( function () {
-				$input = this.$refs.input;
-				$input.focus();
-			} );
-		},
-
 		/**
 		 * Handle clear icon click.
 		 */
@@ -388,7 +359,6 @@ module.exports = exports = {
 			this.$emit( 'clear' );
 			this.value = '';
 			this.clearLookupResults();
-			this.$refs.input.focus();
 		},
 
 		/**

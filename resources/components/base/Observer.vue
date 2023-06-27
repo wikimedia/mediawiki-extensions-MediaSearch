@@ -25,7 +25,7 @@ module.exports = exports = {
 	name: 'SdObserver',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	mixins: [ observer ],

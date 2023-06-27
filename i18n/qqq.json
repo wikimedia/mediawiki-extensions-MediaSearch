@@ -89,5 +89,6 @@
 	"mediasearch-filter-file-type": "Label for file type search filter",
 	"mediasearch-filter-assessment": "Label for search filter for commons image community assessments",
 	"mediasearch-filter-license": "Label for license type search filter\n{{identical|License}}",
-	"mediasearch-filter-license-unset": "Label text for option to unset license filter\n{{identical|All}}"
+	"mediasearch-filter-license-unset": "Label text for option to unset license filter\n{{identical|All}}",
+	"mediasearch-dialog-close-button-label": "Label text for button to close dialog"
 }

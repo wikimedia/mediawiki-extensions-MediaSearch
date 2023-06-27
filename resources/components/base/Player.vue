@@ -14,7 +14,7 @@ module.exports = exports = {
 	name: 'SdPlayer',
 
 	compatConfig: {
-		ATTR_FALSE_VALUE: true
+		MODE: 3
 	},
 
 	props: {

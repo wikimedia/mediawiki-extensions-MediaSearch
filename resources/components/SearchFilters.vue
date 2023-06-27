@@ -31,15 +31,16 @@
 
 				<!-- Namespace filter is represented as a button that
 				launches a modal -->
-				<sd-button
+				<cdx-button
 					v-else
 					:key="'filter-namespace-' + index"
 					class="sdms-search-filters__namespace"
 					:class="namespaceFilterClasses"
+					weight="quiet"
 					@click="namespaceFilterDialogActive = true"
 				>
 					{{ namespaceFilterLabel }}
-				</sd-button>
+				</cdx-button>
 			</div>
 
 			<div class="sdms-search-results-count">
@@ -76,19 +77,24 @@
 var mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
 	SdSelect = require( './base/Select.vue' ),
-	SdButton = require( './base/Button.vue' ),
 	NamespaceFilterDialog = require( './NamespaceFilterDialog.vue' ),
 	SearchFilter = require( '../models/SearchFilter.js' ),
 	searchOptions = require( './../data/searchOptions.json' ),
 	observer = require( './base/mixins/observer.js' );
 
+const { CdxButton } = require( '@wikimedia/codex' );
+
 // @vue/component
 module.exports = exports = {
 	name: 'SearchFilters',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
 		'sd-select': SdSelect,
-		'sd-button': SdButton,
+		CdxButton,
 		'namespace-filter-dialog': NamespaceFilterDialog
 	},
 

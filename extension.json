@@ -62,19 +62,12 @@
 		"mediasearch.styles": {
 			"styles": [
 				"resources/components/base/AutocompleteSearchInput.less",
-				"resources/components/base/Button.less",
-				"resources/components/base/Checkbox.less",
 				"resources/components/base/CopyTextLayout.less",
 				"resources/components/base/Dialog.less",
-				"resources/components/base/Icon.less",
-				"resources/components/base/Message.less",
 				"resources/components/base/Player.less",
-				"resources/components/base/Radio.less",
 				"resources/components/base/Select.less",
 				"resources/components/base/SelectMenu.less",
-				"resources/components/base/Tabs.less",
 				"resources/components/base/Image.less",
-				"resources/components/base/mixins/BinaryInput.less",
 				"resources/components/results/ImageResult.less",
 				"resources/components/results/VideoResult.less",
 				"resources/components/results/AudioResult.less",
@@ -104,23 +97,14 @@
 				"resources/getLocationAgnosticMwApi.js",
 				"resources/ensureArray.js",
 				"resources/constants.js",
-				"lib/icons.js",
 				"resources/components/base/AutocompleteSearchInput.vue",
-				"resources/components/base/Button.vue",
-				"resources/components/base/Checkbox.vue",
 				"resources/components/base/CopyTextLayout.vue",
 				"resources/components/base/Dialog.vue",
-				"resources/components/base/Icon.vue",
-				"resources/components/base/Message.vue",
-				"resources/components/base/Radio.vue",
 				"resources/components/base/Select.vue",
 				"resources/components/base/SelectMenu.vue",
-				"resources/components/base/Tab.vue",
-				"resources/components/base/Tabs.vue",
 				"resources/components/base/Observer.vue",
 				"resources/components/base/Image.vue",
 				"resources/components/base/Player.vue",
-				"resources/components/base/mixins/binaryInput.js",
 				"resources/components/base/mixins/observer.js",
 				"resources/components/results/ImageResult.vue",
 				"resources/components/results/VideoResult.vue",
@@ -153,6 +137,35 @@
 				{
 					"name": "resources/data/searchOptions.json",
 					"callback": "MediaWiki\\Extension\\MediaSearch\\SearchOptions::getSearchOptions"
+				},
+				{
+					"name": "resources/components/icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAlert",
+						"cdxIconCamera",
+						"cdxIconCheck",
+						"cdxIconClear",
+						"cdxIconClock",
+						"cdxIconClose",
+						"cdxIconError",
+						"cdxIconExpand",
+						"cdxIconImageLayoutFrameless",
+						"cdxIconInfoFilled",
+						"cdxIconLogoCC",
+						"cdxIconNext",
+						"cdxIconPageSettings",
+						"cdxIconPlay",
+						"cdxIconPrevious",
+						"cdxIconReference",
+						"cdxIconSearch",
+						"cdxIconUnLock",
+						"cdxIconUnStar",
+						"cdxIconVolumeUp",
+						"cdxIconUserAvatar",
+						"cdxIconWikiText"
+
+					]
 				}
 			],
 			"messages": [
@@ -207,6 +220,7 @@
 				"mediasearch-filter-assessment",
 				"mediasearch-filter-license",
 				"mediasearch-filter-size",
+				"mediasearch-dialog-close-button-label",
 				"size-bytes",
 				"size-kilobytes",
 				"size-megabytes",
@@ -225,7 +239,8 @@
 				"vue",
 				"@vue/composition-api",
 				"vuex",
-				"web2017-polyfills"
+				"web2017-polyfills",
+				"@wikimedia/codex"
 			],
 			"es6": true,
 			"targets": [

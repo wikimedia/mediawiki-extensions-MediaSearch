@@ -74,8 +74,8 @@
 		padding: 0 @sdms-spacing-xs;
 		margin-right: @sdms-spacing-sm;
 
-		.sd-icon {
-			font-size: 1em;
+		.cdx-icon {
+			color: inherit;
 		}
 
 		&__text {
@@ -86,5 +86,13 @@
 	&__mime {
 		color: @color-subtle;
 		font-weight: normal;
+	}
+
+	&__icon {
+		.cdx-mixin-css-icon(
+			@cdx-icon-play,
+			@color-subtle,
+			@size-icon-small
+		);
 	}
 }

@@ -9,7 +9,6 @@
 			:label="$i18n( 'mediasearch-input-label' ).text()"
 			:initial-value="currentSearchTerm"
 			:placeholder="$i18n( 'mediasearch-input-placeholder' ).text()"
-			:clear-title="$i18n( 'mediasearch-clear-title' ).text()"
 			:button-label="$i18n( 'searchbutton' ).text()"
 			:initialized="initialized"
 			:lookup-results="lookupResults"
@@ -23,12 +22,12 @@
 
 		<!-- Generate a tab for each key in the "results" object. Data types,
 		messages, and loading behavior are bound to this key. -->
-		<sd-tabs :active="currentType" @tab-change="onTabChange">
-			<sd-tab
+		<cdx-tabs :active="currentType" @update:active="onTabChange">
+			<cdx-tab
 				v-for="tab in tabs"
 				:key="tab"
 				:name="tab"
-				:title="tabNames[ tab ]"
+				:label="tabNames[ tab ]"
 			>
 				<!-- Display search filters for each tab. -->
 				<search-filters :media-type="tab" @filter-change="onFilterChange">
@@ -53,8 +52,8 @@
 					@intersect="getMoreResultsForTabIfAvailable"
 				>
 				</observer>
-			</sd-tab>
-		</sd-tabs>
+			</cdx-tab>
+		</cdx-tabs>
 	</div>
 </template>
 
@@ -84,8 +83,6 @@ var MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	mapMutations = require( 'vuex' ).mapMutations,
 	mapActions = require( 'vuex' ).mapActions,
 	SdAutocompleteSearchInput = require( './base/AutocompleteSearchInput.vue' ),
-	SdTab = require( './base/Tab.vue' ),
-	SdTabs = require( './base/Tabs.vue' ),
 	SearchResults = require( './SearchResults.vue' ),
 	SearchFilters = require( './SearchFilters.vue' ),
 	DidYouMean = require( './DidYouMean.vue' ),
@@ -94,13 +91,19 @@ var MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	autocompleteLookupHandler = require( './../mixins/autocompleteLookupHandler.js' ),
 	restoreHistoryHandler = require( './../mixins/restoreHistoryHandler.js' );
 
+const { CdxTabs, CdxTab } = require( '@wikimedia/codex' );
+
 // @vue/component
 module.exports = exports = {
 	name: 'MediaSearch',
 
+	compatConfig: {
+		MODE: 3
+	},
+
 	components: {
-		'sd-tabs': SdTabs,
-		'sd-tab': SdTab,
+		CdxTabs,
+		CdxTab,
 		'sd-autocomplete-search-input': SdAutocompleteSearchInput,
 		'search-results': SearchResults,
 		'search-filters': SearchFilters,
