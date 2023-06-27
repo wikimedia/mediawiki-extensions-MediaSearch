@@ -46,5 +46,6 @@
 	"mediasearch-filter-assessment-unset": "یکے",
 	"mediasearch-filter-file-type": "فائل قسم",
 	"mediasearch-filter-license": "لائیسنس",
-	"mediasearch-filter-license-unset": "یکے"
+	"mediasearch-filter-license-unset": "یکے",
+	"mediasearch-dialog-close-button-label": "بند کرو"
 }

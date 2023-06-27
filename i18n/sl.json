@@ -83,5 +83,6 @@
 	"mediasearch-filter-file-type": "Vrsta datoteke",
 	"mediasearch-filter-assessment": "Ocene skupnosti",
 	"mediasearch-filter-license": "Licenca",
-	"mediasearch-filter-license-unset": "Vse"
+	"mediasearch-filter-license-unset": "Vse",
+	"mediasearch-dialog-close-button-label": "Zapri"
 }

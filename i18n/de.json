@@ -85,5 +85,6 @@
 	"mediasearch-filter-file-type": "Dateityp",
 	"mediasearch-filter-assessment": "Bewertungen der Community",
 	"mediasearch-filter-license": "Lizenz",
-	"mediasearch-filter-license-unset": "Alle"
+	"mediasearch-filter-license-unset": "Alle",
+	"mediasearch-dialog-close-button-label": "Schließen"
 }

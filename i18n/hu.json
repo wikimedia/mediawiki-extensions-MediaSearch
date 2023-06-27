@@ -4,6 +4,7 @@
 			"Csega",
 			"Einstein2",
 			"Hanna Tardos",
+			"Krisztina",
 			"Luckylukee81",
 			"Tacsipacsi",
 			"Worrida"
@@ -75,5 +76,6 @@
 	"mediasearch-filter-file-type": "Fájltípus",
 	"mediasearch-filter-assessment": "Közösségi értékelések",
 	"mediasearch-filter-license": "Licensz",
-	"mediasearch-filter-license-unset": "Mind"
+	"mediasearch-filter-license-unset": "Mind",
+	"mediasearch-dialog-close-button-label": "Bezárás"
 }

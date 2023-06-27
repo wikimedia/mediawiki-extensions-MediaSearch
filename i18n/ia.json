@@ -80,5 +80,6 @@
 	"mediasearch-filter-file-type": "Typo de file",
 	"mediasearch-filter-assessment": "Evalutationes del communitate",
 	"mediasearch-filter-license": "Licentia",
-	"mediasearch-filter-license-unset": "Totes"
+	"mediasearch-filter-license-unset": "Totes",
+	"mediasearch-dialog-close-button-label": "Clauder"
 }
