@@ -11,9 +11,9 @@
 
 			<cdx-text-input
 				:id="inputElementId"
-				class="sd-input__input"
 				ref="input"
 				v-model="value"
+				class="sd-input__input"
 				type="text"
 				aria-autocomplete="list"
 				:aria-owns="lookupResultsElementId"

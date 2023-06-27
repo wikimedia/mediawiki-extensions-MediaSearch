@@ -158,7 +158,8 @@ const searchCurrentTermAndType = function ( context ) {
 		// 1. Special handling for assessment filter
 		if ( filterValues.assessment ) {
 			var assessmentValue = filterValues.assessment;
-			var assessmentStatements = searchOptions[ context.getters.currentType ].assessment.data.statementData;
+			var assessmentStatements = searchOptions[ context.getters.currentType ]
+				.assessment.data.statementData;
 
 			var assessment = assessmentStatements.find( function ( i ) {
 				return i.value === assessmentValue;
@@ -272,9 +273,15 @@ const searchCurrentTermAndType = function ( context ) {
 		// Set whether or not the query can be continued
 		if ( response.continue && response.continue.gsroffset ) {
 			// Store the "continue" property of the request so we can pick up where we left off
-			context.commit( 'setContinue', { type: context.getters.currentType, continue: response.continue.gsroffset } );
+			context.commit( 'setContinue', {
+				type: context.getters.currentType,
+				continue: response.continue.gsroffset
+			} );
 		} else {
-			context.commit( 'setContinue', { type: context.getters.currentType, continue: null } );
+			context.commit( 'setContinue', {
+				type: context.getters.currentType,
+				continue: null
+			} );
 		}
 	} ).done( function () {
 		// Set pending back to false when request is complete

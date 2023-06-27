@@ -107,6 +107,10 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'filter-change'
+	],
+
 	data: function () {
 		return {
 			hasOverflow: false,

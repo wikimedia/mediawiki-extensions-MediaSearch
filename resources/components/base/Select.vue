@@ -32,7 +32,11 @@
 				</template>
 				{{ currentSelection }}
 			</span>
-			<cdx-icon class="sd-select__handle" :icon="cdxIconExpand" size="x-small">
+			<cdx-icon
+				class="sd-select__handle"
+				:icon="cdxIconExpand"
+				size="x-small"
+			>
 			</cdx-icon>
 		</button>
 		<sd-select-menu
@@ -124,6 +128,10 @@ module.exports = exports = {
 			default: ''
 		}
 	},
+
+	emits: [
+		'select'
+	],
 
 	data: function () {
 		return {

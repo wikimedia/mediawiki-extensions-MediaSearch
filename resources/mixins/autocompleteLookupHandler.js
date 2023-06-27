@@ -62,11 +62,13 @@ module.exports = exports = {
 				// below could be a regex literal, but eslint fails to parse the `u` flag...
 				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
 				words = trimmedInput.match( new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+', 'gu' ) ) || [];
+				// eslint-disable-next-line security/detect-non-literal-regexp
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[\\p{L}\\p{M}\\p{N}\\p{S}]+.*?' ), 'iu' );
 			} catch ( e ) {
 				// if browser doesn't support unicode regexes, fall back to simple
 				// space/punctuation-based word detection
 				words = trimmedInput.match( /[^\s\-.:;,"]+/g ) || [];
+				// eslint-disable-next-line security/detect-non-literal-regexp
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[^\\s\\-]+[\\s\\-.:;,"]*' ), 'i' );
 			}
 

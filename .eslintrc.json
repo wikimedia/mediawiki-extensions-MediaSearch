@@ -11,16 +11,9 @@
 		"max-len": "off",
 		"no-jquery/variable-pattern": "off",
 		"no-jquery/no-event-shorthand": "off",
-		"compat/compat": "warn",
-		"es-x/no-array-prototype-find": "warn",
-		"es-x/no-array-prototype-findindex": "warn",
-		"es-x/no-array-prototype-keys": "warn",
-		"es-x/no-regexp-u-flag": "warn",
-		"es-x/no-regexp-unicode-property-escapes": "warn",
 		"vue/no-undef-properties": "off",
 		"vue/no-unused-refs": "off",
-		"no-var": "off",
-		"mediawiki/msg-doc": "off"
+		"no-var": "off"
 	},
 	"overrides": [
 		{
@@ -30,7 +23,9 @@
 					"warn",
 					{
 						"code": 110,
-						"ignoreComments": true
+						"ignoreComments": true,
+						"ignoreStrings": true,
+						"ignoreTemplateLiterals": true
 					}
 				]
 			}

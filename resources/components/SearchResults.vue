@@ -164,6 +164,10 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'load-more'
+	],
+
 	data: function () {
 		return {
 			// Whether to show the QuickView panel.
@@ -479,10 +483,12 @@ module.exports = exports = {
 		getResultClass: function ( title ) {
 			return {
 				// Visual indication that result is currently displayed in QuickView
-				'sdms-search-result--highlighted': this.details[ this.mediaType ] && this.details[ this.mediaType ].title === title,
+				'sdms-search-result--highlighted': this.details[ this.mediaType ] &&
+					this.details[ this.mediaType ].title === title,
 				// If there are 3 or fewer image results, we'll limit their
 				// growth to avoid having one overly-stretched image in the grid.
-				'sdms-image-result--limit-size': this.mediaType === 'image' && this.results[ this.mediaType ].length <= 3
+				'sdms-image-result--limit-size': this.mediaType === 'image' &&
+					this.results[ this.mediaType ].length <= 3
 			};
 		},
 

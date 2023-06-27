@@ -78,6 +78,10 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'copy'
+	],
+
 	computed: {
 		rootClasses: function () {
 			return {

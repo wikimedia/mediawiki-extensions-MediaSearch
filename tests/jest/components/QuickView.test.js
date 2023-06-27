@@ -5,8 +5,10 @@ const SdPlayer = require( '../../../resources/components/base/Player.vue' );
 const when = require( 'jest-when' ).when;
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on title, not a straight array
-const originalImageSampleResult = require( '../fixtures/mockImageQuickSearchApiResponse.json' ).query.pages[ 9809267 ];
-const originalVideoSampleResult = require( '../fixtures/mockVideoQuickSearchApiResponse.json' ).query.pages[ 96292422 ];
+const originalImageSampleResult = require( '../fixtures/mockImageQuickSearchApiResponse.json' )
+	.query.pages[ 9809267 ];
+const originalVideoSampleResult = require( '../fixtures/mockVideoQuickSearchApiResponse.json' )
+	.query.pages[ 96292422 ];
 
 const icons = require( '@wikimedia/codex-icons' );
 
@@ -1227,7 +1229,8 @@ describe( 'QuickView', () => {
 				} );
 
 				wrapper.vm.handleWikitextCopy();
-				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action ).toEqual( 'quickview_wikitext_link_copy' );
+				expect( wrapper.vm.$log.mock.calls[ 0 ][ 0 ].action )
+					.toEqual( 'quickview_wikitext_link_copy' );
 			} );
 		} );
 	} );

@@ -31,6 +31,10 @@ module.exports = exports = {
 		}
 	},
 
+	emits: [
+		'play'
+	],
+
 	data: function () {
 		return {
 			player: null

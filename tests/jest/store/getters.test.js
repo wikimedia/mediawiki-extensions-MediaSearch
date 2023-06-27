@@ -48,7 +48,9 @@ describe( 'Vuex root getters', () => {
 				}
 			};
 
-			expect( getters.allActiveFilters( mockedState ) ).toEqual( JSON.stringify( mockedState.filterValues ) );
+			expect( getters.allActiveFilters( mockedState ) ).toEqual(
+				JSON.stringify( mockedState.filterValues )
+			);
 		} );
 	} );
 	describe( 'allActiveDetails', () => {
@@ -59,7 +61,9 @@ describe( 'Vuex root getters', () => {
 				}
 			};
 
-			expect( getters.allActiveDetails( mockedState ) ).toEqual( JSON.stringify( mockedState.details ) );
+			expect( getters.allActiveDetails( mockedState ) ).toEqual(
+				JSON.stringify( mockedState.details )
+			);
 		} );
 	} );
 	describe( 'currentSearchTerm', () => {
