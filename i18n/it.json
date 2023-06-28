@@ -53,5 +53,6 @@
 	"mediasearch-filter-assessment-picture-of-the-day": "Immagine del giorno",
 	"mediasearch-filter-assessment-picture-of-the-year": "Immagine dell'anno",
 	"mediasearch-filter-file-type": "Tipo file",
-	"mediasearch-filter-license": "Licenza"
+	"mediasearch-filter-license": "Licenza",
+	"mediasearch-dialog-close-button-label": "Chiudi"
 }

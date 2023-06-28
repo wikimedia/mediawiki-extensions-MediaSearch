@@ -60,5 +60,6 @@
 	"mediasearch-filter-assessment-unset": "All",
 	"mediasearch-filter-file-type": "Typ vu Fichier",
 	"mediasearch-filter-license": "Lizenz",
-	"mediasearch-filter-license-unset": "All"
+	"mediasearch-filter-license-unset": "All",
+	"mediasearch-dialog-close-button-label": "Zoumaachen"
 }

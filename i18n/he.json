@@ -85,5 +85,6 @@
 	"mediasearch-filter-file-type": "סוג קובץ",
 	"mediasearch-filter-assessment": "הערכות קהילה",
 	"mediasearch-filter-license": "רישיון",
-	"mediasearch-filter-license-unset": "הכול"
+	"mediasearch-filter-license-unset": "הכול",
+	"mediasearch-dialog-close-button-label": "סגירה"
 }
