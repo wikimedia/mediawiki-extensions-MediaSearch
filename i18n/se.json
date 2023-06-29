@@ -1,10 +1,44 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Kimberli Mäkäräinen (WMNO)"
 		]
 	},
+	"mediasearch-title": "Oza media",
 	"mediasearch-continue": "Čuovvovaš",
+	"mediasearch-tab-image": "Govat",
+	"mediasearch-tab-audio": "Jietna",
+	"mediasearch-tab-video": "Video",
+	"mediasearch-tab-page": "Kategoriijat ja siiddut",
+	"mediasearch-tab-other": "Eará media",
+	"mediasearch-filter-size": "Govvasturrodat",
+	"mediasearch-filter-size-unset": "Buot",
+	"mediasearch-filter-size-any": "Buot govvasturrodagat",
+	"mediasearch-filter-file-type-any": "Fiilašládja",
+	"mediasearch-filter-file-type-unset": "Buot",
+	"mediasearch-filter-sort-label": "Sirre:",
+	"mediasearch-filter-license-any": "Buot liseanssat",
+	"mediasearch-filter-license-other": "Eará",
+	"mediasearch-filter-namespace-all": "Buot",
+	"mediasearch-filter-namespace-discussion": "Ságastallan",
 	"mediasearch-filter-namespace-label": "Nammagomuvuohta: $1",
-	"mediasearch-clear-title": "Sihko"
+	"mediasearch-filter-namespace-dialog-progressive-action": "Sádde",
+	"mediasearch-clear-title": "Sihko",
+	"mediasearch-input-label": "Oza media",
+	"mediasearch-input-placeholder": "Oza govaid, audiofiillaid, videoaudiofiillaid ja iešguđetlágan fiillaid",
+	"mediasearch-quickview-button-text": "Lassedieđut",
+	"mediasearch-copytextlayout-copy": "Máŋge",
+	"mediasearch-copytextlayout-copy-fail": "Čuohpusgirjái máŋgen ii lihkostuvvan.",
+	"mediasearch-copytextlayout-copy-success": "Čuohpusgirjái máŋgen lihkostuvai.",
+	"mediasearch-clear-filters": "Gurre silliid",
+	"mediasearch-results-count": "$1 {{PLURAL:$1|boađus|bohtosa}}",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|sátni|sáni}})",
+	"mediasearch-image-size": "($1)",
+	"mediasearch-filter-assessment-picture-of-the-day": "Beaivve govva",
+	"mediasearch-filter-assessment-picture-of-the-year": "Jagi govva",
+	"mediasearch-filter-assessment-unset": "Buot",
+	"mediasearch-filter-file-type": "Fiilašládja",
+	"mediasearch-filter-license": "Liseansa",
+	"mediasearch-filter-license-unset": "Buot"
 }

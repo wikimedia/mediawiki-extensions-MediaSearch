@@ -8,7 +8,7 @@
 	"mediasearch-tab-image": "Koveh",
 	"mediasearch-tab-audio": "Audio",
 	"mediasearch-tab-video": "Video",
-	"mediasearch-tab-page": "Luokah já Siijđoh",
+	"mediasearch-tab-page": "Luokah já siijđoh",
 	"mediasearch-tab-other": "Eres media",
 	"mediasearch-filter-size": "Kove stuárudâh",
 	"mediasearch-filter-size-unset": "Puoh",
@@ -16,6 +16,7 @@
 	"mediasearch-filter-license-other": "Eres",
 	"mediasearch-clear-title": "Siho",
 	"mediasearch-copytextlayout-copy": "Kopijist",
+	"mediasearch-results-count": "{{PLURAL:$1|1=uuccâmpuáđus|$1 uuccâmpuáttus|$1 uuccâmpuáđusid}}",
 	"mediasearch-filter-assessment-unset": "Puoh",
 	"mediasearch-filter-license-unset": "Puoh"
 }
