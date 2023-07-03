@@ -82,5 +82,6 @@
 	"mediasearch-filter-file-type": "Вид податотека",
 	"mediasearch-filter-assessment": "Оценки на заедницата",
 	"mediasearch-filter-license": "Лиценца",
-	"mediasearch-filter-license-unset": "Сите"
+	"mediasearch-filter-license-unset": "Сите",
+	"mediasearch-dialog-close-button-label": "Затвори"
 }

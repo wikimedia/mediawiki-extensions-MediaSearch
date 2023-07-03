@@ -93,5 +93,6 @@
 	"mediasearch-filter-file-type": "Тип файла",
 	"mediasearch-filter-assessment": "Оценки сообщества",
 	"mediasearch-filter-license": "Лицензия",
-	"mediasearch-filter-license-unset": "все"
+	"mediasearch-filter-license-unset": "все",
+	"mediasearch-dialog-close-button-label": "Закрыть"
 }

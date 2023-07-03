@@ -20,5 +20,6 @@
 	"mediasearch-filter-size-medium": "Средња",
 	"mediasearch-filter-size-large": "Велика",
 	"mediasearch-filter-file-type-any": "Врста датотеке",
-	"mediasearch-load-less-results": "Назад"
+	"mediasearch-load-less-results": "Назад",
+	"mediasearch-dialog-close-button-label": "Затвори"
 }

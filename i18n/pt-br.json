@@ -4,6 +4,7 @@
 			"!Silent",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
+			"Glaucia Japui Gonçalves",
 			"Jhonnatanricardo",
 			"TheEduGobi",
 			"Tks4Fish"
@@ -81,5 +82,6 @@
 	"mediasearch-filter-assessment-unset": "Todos",
 	"mediasearch-filter-file-type": "Tipos de arquivo",
 	"mediasearch-filter-assessment": "Avaliações da comunidade",
-	"mediasearch-filter-license": "Licença"
+	"mediasearch-filter-license": "Licença",
+	"mediasearch-dialog-close-button-label": "Fechado"
 }

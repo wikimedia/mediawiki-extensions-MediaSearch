@@ -53,6 +53,7 @@
 	"mediasearch-input-label": "মিডিয়া অনুসন্ধান",
 	"mediasearch-input-placeholder": "চিত্র, অডিও, ভিডিও এবং আরও অনেক কিছু অনুসন্ধান করুন",
 	"mediasearch-load-more-results": "আরও লোড করুন",
+	"mediasearch-load-less-results": "ফিরে যান",
 	"mediasearch-quickview-button-text": "আরও তথ্য",
 	"mediasearch-quickview-close-button-text": "ফাইলের বিশদ বন্ধ করুন",
 	"mediasearch-quickview-previous-button-text": "পূর্ববর্তী ফলাফল দেখুন",
@@ -86,5 +87,6 @@
 	"mediasearch-filter-file-type": "ফাইলের ধরন",
 	"mediasearch-filter-assessment": "সম্প্রদায়ের মূল্যায়ন",
 	"mediasearch-filter-license": "লাইসেন্স",
-	"mediasearch-filter-license-unset": "সব"
+	"mediasearch-filter-license-unset": "সব",
+	"mediasearch-dialog-close-button-label": "বন্ধ করুন"
 }
