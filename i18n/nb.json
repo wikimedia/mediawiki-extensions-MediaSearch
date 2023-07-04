@@ -83,5 +83,6 @@
 	"mediasearch-filter-file-type": "Filtype",
 	"mediasearch-filter-assessment": "Fellesskapsvurderinger",
 	"mediasearch-filter-license": "Lisens",
-	"mediasearch-filter-license-unset": "Alle"
+	"mediasearch-filter-license-unset": "Alle",
+	"mediasearch-dialog-close-button-label": "Lukk"
 }
