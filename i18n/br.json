@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Fulup"
 		]
 	},
@@ -13,5 +14,6 @@
 	"mediasearch-filter-size-any": "Ne vern ar vent",
 	"mediasearch-filter-size-small": "Bihan",
 	"mediasearch-filter-size-medium": "Etre",
-	"mediasearch-filter-size-large": "Bras"
+	"mediasearch-filter-size-large": "Bras",
+	"mediasearch-dialog-close-button-label": "Serriñ"
 }
