@@ -315,6 +315,29 @@ const searchCurrentTermAndType = function ( context ) {
 	} );
 };
 
+// We record timing here in the store, instead of in App.vue like other use
+// cases, so we can ensure we are only timing full search requests that make it
+// to the backend. Sadly this still times some things that end up
+// short-circuiting and skipping the backend, but refactoring the 200 line
+// function above is left as an excercise for the future.
+const timedPromise = function ( metricName, fn, ...args ) {
+	const start = performance.now();
+	const promise = fn.apply( this, args );
+
+	promise.done( function () {
+		const took = performance.now() - start;
+		// half-hearted attempt to skip requests that didn't query the backend, we know
+		// that anything that touches the mw api and gets a non-cached response takes
+		// at least 10ms. Optimistically the short-circuit attempts above should happen
+		// in a single tick.
+		if ( took >= 10 ) {
+			mw.track( 'timing.MediaSearch' + metricName, took );
+		}
+	} );
+
+	return promise;
+};
+
 module.exports = {
 
 	/**
@@ -325,7 +348,7 @@ module.exports = {
 	 * @return {jQuery.Deferred}
 	 */
 	performNewSearch: function ( context ) {
-		return searchCurrentTermAndType( context );
+		return timedPromise( 'NewSearch', searchCurrentTermAndType, context );
 	},
 	/**
 	 * Continue to search the current term and type. This will just trigger a search
@@ -351,11 +374,12 @@ module.exports = {
 		if ( !context.state.pending[ context.getters.currentType ] ) {
 			// If more results are available, and if another request is not
 			// already pending, then launch a search request
-			return searchCurrentTermAndType( context ).then( function ( decreaseAutoload ) {
-				if ( !decreaseAutoload ) {
-					this.commit( 'decreaseAutoloadCounterForMediaType', this.getters.currentType );
-				}
-			}.bind( this, resetCounter ) );
+			return timedPromise( 'SearchMore', searchCurrentTermAndType, context )
+				.then( function ( decreaseAutoload ) {
+					if ( !decreaseAutoload ) {
+						this.commit( 'decreaseAutoloadCounterForMediaType', this.getters.currentType );
+					}
+				}.bind( this, resetCounter ) );
 
 		} else {
 			// If more results are available but another request is

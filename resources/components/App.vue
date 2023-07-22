@@ -365,6 +365,15 @@ module.exports = exports = {
 				search_result_count: this.results[ this.currentType ].length
 			} );
 			/* eslint-enable camelcase */
+			if ( performance && performance.timing ) {
+				const reportLoadTiming = () => mw.track( 'timing.MediaSearchPageLoad',
+					performance.timing.loadEventEnd - performance.timing.navigationStart );
+				if ( document.readyState === 'complete' ) {
+					reportLoadTiming();
+				} else {
+					window.addEventListener( 'load', reportLoadTiming );
+				}
+			}
 		}
 	},
 
