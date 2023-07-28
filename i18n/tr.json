@@ -58,6 +58,7 @@
 	"mediasearch-input-label": "Ortam ara",
 	"mediasearch-input-placeholder": "Resim, ses, video ve daha fazlasını arayın",
 	"mediasearch-load-more-results": "Daha fazla yükle",
+	"mediasearch-load-less-results": "Geri dön",
 	"mediasearch-quickview-button-text": "Daha Fazla Ayrıntı",
 	"mediasearch-quickview-close-button-text": "Dosya ayrıntıları kapat",
 	"mediasearch-quickview-previous-button-text": "Önceki sonucu görüntüle",
@@ -91,5 +92,6 @@
 	"mediasearch-filter-file-type": "Dosya Türü",
 	"mediasearch-filter-assessment": "Topluluk Değerlendirmeleri",
 	"mediasearch-filter-license": "Lisans",
-	"mediasearch-filter-license-unset": "Hepsi"
+	"mediasearch-filter-license-unset": "Hepsi",
+	"mediasearch-dialog-close-button-label": "Kapat"
 }
