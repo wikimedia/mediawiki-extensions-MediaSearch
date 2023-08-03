@@ -1,3 +1,7 @@
+{{!
+	SERPWidget template. This file sets up the no-JS fallback UI for
+	Special:MediaSearch using simple HTML form tags.
+}}
 <form method="get" action="{{page}}">
 	{{#queryParams}}
 		{{^isSearch}}
@@ -30,7 +34,7 @@
 					placeholder="{{searchPlaceholder}}"
 				>
 				<span class="cdx-text-input__icon cdx-text-input__start-icon sd-input__css-icon--search"></span>
-			</div>	
+			</div>
 		</div>
 		<button type="submit" class="sd-input__button cdx-button cdx-button--action-progressive cdx-button--weight-primary">
 			<span class="sd-button__content">{{searchButton}}</span>
@@ -38,50 +42,47 @@
 	</div>
 </form>
 
+{{!
+	CSS-only version of the Codex Tabs component. For more information about this,
+	see https://doc.wikimedia.org/codex/main/components/demos/tabs.html#css-only-version
+}}
 <div class="cdx-tabs">
 	<div class="cdx-tabs__header">
-		<ul 
-			class="cdx-tabs__list"
-			role="tablist"
-			aria-activedescendant="cdx-tabs-{{activeType}}-label"
+		<form
+			class="cdx-tabs__header"
+			action="{{page}}"
+			method="get"
 		>
+			<div
+				class="cdx-tabs__list"
+				role="tablist"
+				tabindex="-1"
+			>
 			{{#tabs}}
-				<li
+				<button
 					id="cdx-tab-{{type}}-label"
 					class="cdx-tabs__list__item"
+					role="tab"
 					{{#isActive}}aria-selected="true"{{/isActive}}
-					role="presentation"
+					aria-controls="cdx-tab-{{activeType}}"
+					name="type"
+					value="{{type}}"
 				>
-					<form method="get" action="{{page}}">
-						<input
-							id="cdx-tab-{{type}}-input"
-							class="cdx-tabs__submit"
-							name="type"
-							type="submit"
-							value="{{type}}"
-						/>
-
-						{{#queryParams}}
-							{{#isSort}}
-								<input type="hidden" name="{{key}}" value="{{value}}" />
-							{{/isSort}}
-							{{#isTitle}}
-								<input type="hidden" name="{{key}}" value="{{value}}" />
-							{{/isTitle}}
-						{{/queryParams}}
-						<input type="hidden" name="search" value="{{term}}" />
-
-						<label
-							for="cdx-tab-{{type}}-input"
-							role="tab"
-							{{#isActive}}aria-selected="true"{{/isActive}}
-						>
-							{{label}}
-						</label>
-					</form>
-				</li>
+					{{label}}
+				</button>
 			{{/tabs}}
-		</div>
+
+			{{#queryParams}}
+				{{#isSort}}
+					<input type="hidden" name="{{key}}" value="{{value}}" />
+				{{/isSort}}
+				{{#isTitle}}
+					<input type="hidden" name="{{key}}" value="{{value}}" />
+				{{/isTitle}}
+			{{/queryParams}}
+			<input type="hidden" name="search" value="{{term}}" />
+			</div>
+		</form>
 	</div>
 
 	<div class="cdx-tabs__content">
