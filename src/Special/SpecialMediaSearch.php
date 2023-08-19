@@ -17,6 +17,7 @@ use MediaWiki\Extension\MediaSearch\SearchOptions;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsManager;
 use NamespaceInfo;
 use OOUI\Tag;
@@ -27,7 +28,6 @@ use SearchEngineFactory;
 use SiteStats;
 use SpecialPage;
 use TemplateParser;
-use Title;
 use Wikimedia\Assert\Assert;
 
 /**
