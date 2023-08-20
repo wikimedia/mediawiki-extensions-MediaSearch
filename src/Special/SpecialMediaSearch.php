@@ -14,6 +14,7 @@ use MediaWiki\Extension\MediaSearch\InvalidNamespaceGroupException;
 use MediaWiki\Extension\MediaSearch\NoCirrusSearchException;
 use MediaWiki\Extension\MediaSearch\SearchFailedException;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
+use MediaWiki\Html\TemplateParser;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
@@ -27,7 +28,6 @@ use SearchEngine;
 use SearchEngineFactory;
 use SiteStats;
 use SpecialPage;
-use TemplateParser;
 use Wikimedia\Assert\Assert;
 
 /**
