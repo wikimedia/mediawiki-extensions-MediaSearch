@@ -40,6 +40,7 @@
 	"mediasearch-filter-namespace-dialog-title": "Избор именског простора",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Проследи",
 	"mediasearch-no-results": "Нема резултата",
+	"mediasearch-no-results-tips": "Пробајте познати термин или проверите типографију",
 	"mediasearch-end-of-results": "Нема више резултата",
 	"mediasearch-clear-title": "Уклони",
 	"mediasearch-input-label": "Претрага медија",
