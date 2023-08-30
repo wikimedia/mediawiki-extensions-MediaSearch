@@ -49,6 +49,7 @@
 	"mediasearch-input-label": "Pretraži medijske datoteke",
 	"mediasearch-input-placeholder": "Traži slike, zvukovne datoteke, videodatoteke i više",
 	"mediasearch-load-more-results": "Učitaj više",
+	"mediasearch-load-less-results": "Idi natrag",
 	"mediasearch-quickview-button-text": "Više pojedinosti",
 	"mediasearch-quickview-close-button-text": "Zatvori pojedinosti datoteke",
 	"mediasearch-quickview-previous-button-text": "Vidi prethodni rezultat",
@@ -82,5 +83,6 @@
 	"mediasearch-filter-file-type": "Vrsta datoteke",
 	"mediasearch-filter-assessment": "Ocjene zajednice",
 	"mediasearch-filter-license": "Licencija",
-	"mediasearch-filter-license-unset": "Sve"
+	"mediasearch-filter-license-unset": "Sve",
+	"mediasearch-dialog-close-button-label": "Zatvori"
 }
