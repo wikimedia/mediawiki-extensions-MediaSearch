@@ -33,6 +33,7 @@
 	"mediasearch-quickview-button-text": "Fleire detaljar",
 	"mediasearch-user-notice-title": "Ser du etter [[Special:Search]]?",
 	"mediasearch-user-notice-body": "Du kan no endra [[Special:Preferences#mw-prefsection-searchoptions|innstillingane]] dine for å velja søkjeopplevinga du likar best.",
+	"mediasearch-did-you-mean": "Meinte du: $1",
 	"mediasearch-filter-assessment-featured-image": "Utvalt bilete",
 	"mediasearch-filter-assessment-quality-image": "Kvalitetsbilete",
 	"mediasearch-filter-file-type": "Filtype",
