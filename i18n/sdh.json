@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"TerranBoy"
+		]
+	},
+	"mediasearch-tab-image": "وێنەگان",
+	"mediasearch-tab-video": "ڤیدیۆ",
+	"mediasearch-filter-size": "ئەنازەێ وێنە",
+	"mediasearch-filter-size-unset": "گشت",
+	"mediasearch-filter-size-small": "بۊچگ",
+	"mediasearch-filter-size-large": "گەورا",
+	"mediasearch-filter-file-type-unset": "گشت",
+	"mediasearch-filter-namespace-discussion": "وەتوویش",
+	"mediasearch-clear-title": "لاوردن",
+	"mediasearch-load-more-results": "فێشتر باربکە",
+	"mediasearch-quickview-button-text": "وردەکاریەیل فێشتر",
+	"mediasearch-copytextlayout-copy": "ڕۊنۊسکردن",
+	"mediasearch-filter-file-type": "جوور پەڕگە"
+}
