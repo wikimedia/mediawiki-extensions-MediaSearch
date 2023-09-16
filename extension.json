@@ -52,7 +52,12 @@
 		}
 	},
 	"Hooks": {
-		"GetPreferences": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks::onGetPreferences"
+		"GetPreferences": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\MediaSearch\\MediaSearchHooks"
+		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
