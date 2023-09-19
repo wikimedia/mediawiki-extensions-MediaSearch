@@ -9,7 +9,7 @@
 				ref="link"
 				:href="canonicalurl"
 				:title="title"
-				@click="showDetails"
+				@click.left.exact="showDetails"
 			>
 				{{ displayName }}
 			</a>

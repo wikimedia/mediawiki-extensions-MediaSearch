@@ -6,7 +6,7 @@
 		:title="title"
 		:class="$attrs[ 'parent-class' ]"
 		:style="$attrs[ 'parent-style' ]"
-		@click="showDetails"
+		@click.left.exact="showDetails"
 	>
 		<img
 			:src="thumbnail"
