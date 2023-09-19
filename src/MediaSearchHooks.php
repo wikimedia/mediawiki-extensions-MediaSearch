@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\MediaSearch;
 
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use Message;
 
 /**
@@ -10,7 +11,7 @@ use Message;
  * @license GPL-2.0-or-later
  * @author Cormac Parle
  */
-class MediaSearchHooks {
+class MediaSearchHooks implements GetPreferencesHook {
 
 	/**
 	 * Handler for the GetPreferences hook
@@ -18,7 +19,7 @@ class MediaSearchHooks {
 	 * @param \User $user
 	 * @param array[] &$preferences
 	 */
-	public static function onGetPreferences( \User $user, array &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		$preferences['search-special-page'] = [
 			'type' => 'select',
 			'section' => 'searchoptions/searchmisc',
