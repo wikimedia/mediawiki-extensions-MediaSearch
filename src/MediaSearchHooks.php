@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\MediaSearch;
 
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
-use Message;
 
 /**
  * MediaWiki hook handlers for the MediaSearch extension.
@@ -25,11 +24,9 @@ class MediaSearchHooks implements GetPreferencesHook {
 			'section' => 'searchoptions/searchmisc',
 			'label-message' => 'mediasearch-preference',
 			'help-message' => 'mediasearch-preference-help',
-			'options' => [
-				wfMessage( 'mediasearch-preference-mediasearch-label' )
-					->toString( Message::FORMAT_ESCAPED ) => 'MediaSearch',
-				wfMessage( 'mediasearch-preference-specialsearch-label' )
-					->toString( Message::FORMAT_ESCAPED ) => 'Search',
+			'options-messages' => [
+				'mediasearch-preference-mediasearch-label' => 'MediaSearch',
+				'mediasearch-preference-specialsearch-label' => 'Search',
 			]
 		];
 
