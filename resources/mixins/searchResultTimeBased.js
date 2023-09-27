@@ -22,13 +22,14 @@ module.exports = {
 		 * @return {string|null}
 		 */
 		formattedDuration: function () {
-			var minutes,
-				seconds;
-
 			if ( this.duration ) {
-				minutes = '0' + Math.floor( this.duration / 60 );
-				seconds = '0' + this.duration % 60;
-				return minutes.slice( -2 ) + ':' + seconds.slice( -2 );
+				const hours = Math.floor( this.duration / 3600 );
+				const minutes = Math.floor( ( this.duration % 3600 ) / 60 );
+				const seconds = this.duration % 60;
+				return ( hours ? hours + ':' : '' ) +
+					( minutes < 10 ? '0' : '' ) + minutes +
+					':' +
+					( seconds < 10 ? '0' : '' ) + seconds;
 			} else {
 				return null;
 			}
