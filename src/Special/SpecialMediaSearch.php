@@ -125,7 +125,7 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @inheritDoc
 	 */
 	public function getDescription() {
-		return $this->msg( 'mediasearch-title' )->text();
+		return $this->msg( 'mediasearch-title' );
 	}
 
 	/**
