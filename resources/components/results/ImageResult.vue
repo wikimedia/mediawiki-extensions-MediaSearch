@@ -7,7 +7,7 @@
 		:title="title"
 		:class="[ rootClasses, $attrs[ 'parent-class' ] ]"
 		:style="[ style, $attrs[ 'parent-style' ] ]"
-		@click="showDetails"
+		@click.left.exact="showDetails"
 	>
 		<sdms-image
 			:source="thumbnail"
