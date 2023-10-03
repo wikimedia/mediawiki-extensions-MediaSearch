@@ -365,9 +365,13 @@ module.exports = exports = {
 				search_result_count: this.results[ this.currentType ].length
 			} );
 			/* eslint-enable camelcase */
-			if ( performance && performance.timing ) {
-				const reportLoadTiming = () => mw.track( 'timing.MediaSearchPageLoad',
-					performance.timing.loadEventEnd - performance.timing.navigationStart );
+			if ( window.performance && window.performance.getEntriesByType ) {
+				const reportLoadTiming = function () {
+					const entry = performance.getEntriesByType( 'navigation' )[ 0 ];
+					if ( entry && entry.loadEventEnd ) {
+						mw.track( 'timing.MediaSearchPageLoad', event.loadEventEnd );
+					}
+				};
 				if ( document.readyState === 'complete' ) {
 					reportLoadTiming();
 				} else {
