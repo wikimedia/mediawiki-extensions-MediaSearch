@@ -369,7 +369,7 @@ module.exports = exports = {
 				const reportLoadTiming = function () {
 					const entry = performance.getEntriesByType( 'navigation' )[ 0 ];
 					if ( entry && entry.loadEventEnd ) {
-						mw.track( 'timing.MediaSearchPageLoad', event.loadEventEnd );
+						mw.track( 'timing.MediaSearchPageLoad', entry.loadEventEnd );
 					}
 				};
 				if ( document.readyState === 'complete' ) {
