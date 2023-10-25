@@ -18,7 +18,7 @@
 		display: none;
 	}
 
-	@media screen and ( min-width: @width-breakpoint-desktop ) {
+	@media screen and ( min-width: @min-width-breakpoint-desktop ) {
 		overflow-x: visible;
 	}
 
@@ -31,7 +31,7 @@
 	.sd-select {
 		position: static;
 
-		@media screen and ( min-width: @width-breakpoint-desktop ) {
+		@media screen and ( min-width: @min-width-breakpoint-desktop ) {
 			margin-right: 0;
 			position: relative;
 		}
@@ -43,7 +43,7 @@
 			box-shadow: none;
 			color: @color-emphasized;
 
-			@media screen and ( min-width: @width-breakpoint-tablet ) {
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				font-size: 0.9em;
 				padding: @sdms-padding-vertical-tool
 					@sdms-padding-end-dropdown
@@ -95,7 +95,7 @@
 		min-height: @min-size-interactive-pointer;
 		white-space: nowrap;
 
-		@media screen and ( min-width: @width-breakpoint-tablet ) {
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			font-size: 0.9em;
 			padding: @sdms-padding-vertical-tool
 				@sdms-padding-horizontal-base
@@ -137,7 +137,7 @@
 		// Mimic filter spacing.
 		padding-left: 20px;
 
-		@media screen and ( min-width: @width-breakpoint-tablet ) {
+		@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 			font-size: 0.9em;
 		}
 	}
@@ -150,7 +150,7 @@
 		&--no-js {
 			margin-right: @sdms-spacing-sm;
 
-			@media screen and ( min-width: @width-breakpoint-tablet ) {
+			@media screen and ( min-width: @min-width-breakpoint-tablet ) {
 				font-size: 0.9em;
 			}
 		}
