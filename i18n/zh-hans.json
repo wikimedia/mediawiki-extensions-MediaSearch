@@ -34,6 +34,7 @@
 			"LittlePaw365"
 		]
 	},
+	"mediasearch-desc": "通过[[Special:MediaSearch|多媒体搜索]]页面以多媒体为中心来显示搜索结果。",
 	"mediasearch-title": "搜索媒体",
 	"mediasearch-continue": "下一页",
 	"mediasearch-tab-image": "图像",
@@ -93,6 +94,10 @@
 	"mediasearch-did-you-mean": "您是否想找：$1",
 	"mediasearch-error-message": "搜索无效",
 	"mediasearch-error-text": "在上方输入新搜索并重试",
+	"mediasearch-preference": "选择您的搜索界面",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
+	"mediasearch-preference-help": "有多种界面可用于显示搜索结果。选择您首选的界面。",
 	"mediasearch-filter-assessment-any-assessment": "任何评价",
 	"mediasearch-filter-assessment-picture-of-the-day": "今日图片",
 	"mediasearch-filter-assessment-picture-of-the-year": "年度图片",
