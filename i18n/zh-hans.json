@@ -34,6 +34,7 @@
 			"科劳"
 		]
 	},
+	"mediasearch-desc": "通过[[Special:MediaSearch|多媒体搜索]]页面以多媒体为中心来显示搜索结果。",
 	"mediasearch-title": "搜索媒体",
 	"mediasearch-continue": "下一页",
 	"mediasearch-tab-image": "图像",
@@ -75,6 +76,7 @@
 	"mediasearch-input-label": "搜索媒体",
 	"mediasearch-input-placeholder": "搜索图像、音频、视频等",
 	"mediasearch-load-more-results": "加载更多",
+	"mediasearch-load-less-results": "返回",
 	"mediasearch-quickview-button-text": "更多详情",
 	"mediasearch-quickview-close-button-text": "关闭文件详情",
 	"mediasearch-quickview-previous-button-text": "查看之前的结果",
@@ -93,6 +95,10 @@
 	"mediasearch-did-you-mean": "您是否想找：$1",
 	"mediasearch-error-message": "搜索无效",
 	"mediasearch-error-text": "在上方输入新搜索并重试",
+	"mediasearch-preference": "选择您的搜索界面",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
+	"mediasearch-preference-help": "有多种界面可用于显示搜索结果。选择您首选的界面。",
 	"mediasearch-filter-assessment-any-assessment": "任何评价",
 	"mediasearch-filter-assessment-picture-of-the-day": "今日图片",
 	"mediasearch-filter-assessment-picture-of-the-year": "年度图片",
@@ -101,5 +107,6 @@
 	"mediasearch-filter-file-type": "文件类型",
 	"mediasearch-filter-assessment": "社区评估",
 	"mediasearch-filter-license": "协议",
-	"mediasearch-filter-license-unset": "全部"
+	"mediasearch-filter-license-unset": "全部",
+	"mediasearch-dialog-close-button-label": "关闭"
 }

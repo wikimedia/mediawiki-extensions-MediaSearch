@@ -59,6 +59,7 @@
 	"mediasearch-input-label": "Zoeken naar media",
 	"mediasearch-input-placeholder": "Zoeken naar afbeeldingen, audio, video en meer",
 	"mediasearch-load-more-results": "Meer laden",
+	"mediasearch-load-less-results": "Terug",
 	"mediasearch-quickview-button-text": "Meer details",
 	"mediasearch-quickview-close-button-text": "Sluit bestandsdetails",
 	"mediasearch-quickview-previous-button-text": "Zie vorige resultaten",
@@ -78,6 +79,11 @@
 	"mediasearch-did-you-mean": "Bedoelde u: $1",
 	"mediasearch-error-message": "Ongeldige zoekopdracht",
 	"mediasearch-error-text": "Voer hierboven een nieuwe zoekopdracht in en probeer het opnieuw",
+	"mediasearch-preference": "Kies uw zoekinterface",
+	"mediasearch-preference-mediasearch-label": "Speciaal:Media_zoeken",
+	"mediasearch-preference-specialsearch-label": "Speciaal:Zoeken",
+	"mediasearch-preference-help": "Er zijn meerdere interfaces beschikbaar voor het weergeven van zoekresultaten. Kies die van uw voorkeur.",
+	"mediasearch-filter-assessment-any-assessment": "Elke beoordeling",
 	"mediasearch-filter-assessment-picture-of-the-day": "Afbeelding van de dag",
 	"mediasearch-filter-assessment-picture-of-the-year": "Afbeelding van het jaar",
 	"mediasearch-filter-assessment-featured-image": "Uitgelichte afbeelding",
@@ -86,6 +92,8 @@
 	"mediasearch-filter-assessment-menu-label": "Gemeenschaps-beoordelingen",
 	"mediasearch-filter-assessment-unset": "Alle",
 	"mediasearch-filter-file-type": "Bestandstype",
+	"mediasearch-filter-assessment": "Gemeenschapsbeoordelingen",
 	"mediasearch-filter-license": "Licentie",
-	"mediasearch-filter-license-unset": "Alle"
+	"mediasearch-filter-license-unset": "Alle",
+	"mediasearch-dialog-close-button-label": "Sluiten"
 }
