@@ -44,11 +44,20 @@
 	"mediasearch-user-notice-dismiss": "Yimi lahibaliŋɔ yalani",
 	"mediasearch-switch-special-search": "!!FUZZY!!Labimi zaɣ'gahindili palo: Vihi ma",
 	"mediasearch-copytextlayout-copy": "Paɣisi",
+	"mediasearch-did-you-mean": "A wuhimi ni: $1",
 	"mediasearch-error-message": "Vihigu shɛli diŋ kani",
+	"mediasearch-error-text": "Kpɛhimi vihigu palli zuɣusaa ŋɔ n-labi nya",
+	"mediasearch-preference": "Piimi a vihigu ni gabiri taba shɛm",
+	"mediasearch-preference-mediasearch-label": "Din gahim:MediaSearch",
 	"mediasearch-preference-specialsearch-label": "Kasi:Vihigu",
 	"mediasearch-filter-assessment-any-assessment": "Dahimbu sheli",
+	"mediasearch-filter-assessment-picture-of-the-day": "Zuŋɔ anfooni gahindili",
+	"mediasearch-filter-assessment-picture-of-the-year": "Yuuni ŋɔ anfooni gahindili",
 	"mediasearch-filter-assessment-quality-image": "Anfooni viɛlli",
 	"mediasearch-filter-assessment-unset": "Zaa",
+	"mediasearch-filter-file-type": "Faali ŋmali",
 	"mediasearch-filter-assessment": "Tiŋni dahimbu",
-	"mediasearch-filter-license-unset": "Zaa"
+	"mediasearch-filter-license": "Shɛhira gbaŋ din dihi nua",
+	"mediasearch-filter-license-unset": "Zaa",
+	"mediasearch-dialog-close-button-label": "Kparima"
 }
