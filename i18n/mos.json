@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Raizkgh",
 			"Soumaya"
 		]
 	},
-	"mediasearch-desc": "Sõng-y n ges y sẽn dat n bãng bũmb ning sẽn be [[Special: MediaSearch|media search]]Biiblã pʋgẽ wã.",
+	"mediasearch-desc": "Sõng-y n ges y sẽn dat n bãng bũmb ning sẽn be [[Special:MediaSearch|media search]]Biiblã pʋgẽ wã",
 	"mediasearch-title": "Baoosg zĩiga",
 	"mediasearch-continue": "sẽn pʋgdã",
 	"mediasearch-tab-image": "D sẽn yã wã",
