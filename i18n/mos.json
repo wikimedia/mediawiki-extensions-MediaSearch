@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Soumaya"
+			"Soumaya",
+			"Raizkgh"
 		]
 	},
-	"mediasearch-desc": "Sõng-y n ges y sẽn dat n bãng bũmb ning sẽn be Biiblã pʋgẽ wã.",
+	"mediasearch-desc": "Sõng-y n ges y sẽn dat n bãng bũmb ning sẽn be [[Special:MediaSearch|media search]]Biiblã pʋgẽ wã",
 	"mediasearch-title": "Baoosg zĩiga",
 	"mediasearch-continue": "sẽn pʋgdã",
 	"mediasearch-tab-image": "D sẽn yã wã",
@@ -35,12 +36,13 @@
 	"mediasearch-filter-namespace-discussion": "Sõs-kãsems",
 	"mediasearch-filter-namespace-help": "Sõng sẽn yaa kãseng",
 	"mediasearch-filter-namespace-custom": "Dĩng sẽn yaa to-to",
-	"mediasearch-filter-namespace-label": "Yʋʋre vɩʋʋgo:",
+	"mediasearch-filter-namespace-label": "Yʋʋre vɩʋʋgo:$1",
 	"mediasearch-filter-namespace-dialog-title": "Nom-rãmbã sõor yãkd-yã",
 	"mediasearch-filter-namespace-dialog-progressive-action": "Bing",
 	"mediasearch-no-results": "Tõnd pa yãt baa fʋɩ ye.",
 	"mediasearch-no-results-tips": "Mak-y n bãng y sẽn gʋlsd bũmb ningã",
 	"mediasearch-end-of-results": "Baoob-biis ka paame",
+	"mediasearch-empty-state": "BAO bãng $1 n king zãalm media{{PLURAL:$1|file|files}}",
 	"mediasearch-clear-title": "yɩɩsi",
 	"mediasearch-input-label": "Baoosg zĩiga",
 	"mediasearch-input-placeholder": "Bao-y foto, audio, video la bũmb a taab",
@@ -60,7 +62,7 @@
 	"mediasearch-copytextlayout-copy-success": "Rɩka n tall-ba",
 	"mediasearch-clear-filters": "Yãk-y ne filtre wã fãa",
 	"mediasearch-results-count": "Sẽn pugde $1 {{PLURAL:$1|paanga|paangsi}}",
-	"mediasearch-wordcount": "$1({{PLURAL:$2|1 gom-biiga|$2 gom-biisi}})",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|gom-biiga|gom-biisi}})",
 	"mediasearch-did-you-mean": "Fo tagsa mi: $1",
 	"mediasearch-error-message": "Bõn-kalemd baoob",
 	"mediasearch-error-text": "Bao-y bũmb a to n le bao n leoke",
