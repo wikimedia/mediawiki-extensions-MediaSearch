@@ -73,6 +73,8 @@
 	"mediasearch-did-you-mean": "Чи мали ви на увазі: $1",
 	"mediasearch-error-message": "Недійсний пошук",
 	"mediasearch-error-text": "Введіть новий пошук вище та повторіть спробу",
+	"mediasearch-preference": "Виберіть інтерфейс пошуку",
+	"mediasearch-preference-help": "Є кілька доступних інтерфейсів для показу результатів пошуку. Виберіть той, якому віддаєте перевагу.",
 	"mediasearch-filter-assessment-any-assessment": "Будь-яка оцінка",
 	"mediasearch-filter-assessment-picture-of-the-day": "Зображення дня",
 	"mediasearch-filter-assessment-picture-of-the-year": "Зображення року",
