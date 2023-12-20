@@ -54,6 +54,7 @@
 	"mediasearch-input-label": "Пошук медіа",
 	"mediasearch-input-placeholder": "Шукати зображення, аудіо, відео та інше",
 	"mediasearch-load-more-results": "Завантажити ще",
+	"mediasearch-load-less-results": "Повернутися",
 	"mediasearch-quickview-button-text": "Більше деталей",
 	"mediasearch-quickview-close-button-text": "Закрити деталі файлу",
 	"mediasearch-quickview-previous-button-text": "Переглянути попередній результат",
@@ -73,6 +74,8 @@
 	"mediasearch-did-you-mean": "Чи мали ви на увазі: $1",
 	"mediasearch-error-message": "Недійсний пошук",
 	"mediasearch-error-text": "Введіть новий пошук вище та повторіть спробу",
+	"mediasearch-preference": "Виберіть інтерфейс пошуку",
+	"mediasearch-preference-help": "Є кілька доступних інтерфейсів для показу результатів пошуку. Виберіть той, якому віддаєте перевагу.",
 	"mediasearch-filter-assessment-any-assessment": "Будь-яка оцінка",
 	"mediasearch-filter-assessment-picture-of-the-day": "Зображення дня",
 	"mediasearch-filter-assessment-picture-of-the-year": "Зображення року",
@@ -84,5 +87,6 @@
 	"mediasearch-filter-file-type": "Тип файлу",
 	"mediasearch-filter-assessment": "Оцінки громади",
 	"mediasearch-filter-license": "Ліцензія",
-	"mediasearch-filter-license-unset": "Усі"
+	"mediasearch-filter-license-unset": "Усі",
+	"mediasearch-dialog-close-button-label": "Закрити"
 }
