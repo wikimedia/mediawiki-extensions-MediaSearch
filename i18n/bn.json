@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
+			"Aishik Rehman",
 			"R4356th",
 			"Tahmid",
 			"Tahmid02016",
@@ -21,7 +22,7 @@
 	"mediasearch-tab-other": "অন্যান্য মিডিয়া",
 	"mediasearch-filter-size": "চিত্রের আকার",
 	"mediasearch-filter-size-unset": "সব",
-	"mediasearch-filter-size-any": "যেকোন আকারের চিত্র",
+	"mediasearch-filter-size-any": "যেকোনো আকারের চিত্র",
 	"mediasearch-filter-size-small": "ছোট",
 	"mediasearch-filter-size-medium": "মাঝারি",
 	"mediasearch-filter-size-large": "বড়",
@@ -76,7 +77,7 @@
 	"mediasearch-preference-mediasearch-label": "বিশেষ:মিডিয়া অনুসন্ধান",
 	"mediasearch-preference-specialsearch-label": "বিশেষ:অনুসন্ধান",
 	"mediasearch-preference-help": "অনুসন্ধানের ফলাফল প্রদর্শনের জন্য একাধিক ইন্টারফেস উপলব্ধ। আপনার পছন্দেরটি বেছে নিতে তা নির্বাচন করুন।",
-	"mediasearch-filter-assessment-any-assessment": "যেকোন মূল্যায়ন",
+	"mediasearch-filter-assessment-any-assessment": "যেকোনো মূল্যায়ন",
 	"mediasearch-filter-assessment-picture-of-the-day": "আজকের নির্বাচিত ছবি",
 	"mediasearch-filter-assessment-picture-of-the-year": "বছরের নির্বাচিত ছবি",
 	"mediasearch-filter-assessment-featured-image": "নির্বাচিত ছবি",
