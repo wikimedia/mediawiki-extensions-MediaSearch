@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Tofeiku"
+			"Tofeiku",
+			"Hakimi97"
 		]
 	},
 	"mediasearch-tab-other": "Media lain",
 	"mediasearch-filter-size": "Saiz imej",
 	"mediasearch-filter-size-any": "Semua saiz imej",
+	"mediasearch-filter-size-small": "Kecil",
 	"mediasearch-filter-file-type-any": "Jenis Fail",
 	"mediasearch-end-of-results": "Tiada hasil carian lain dijumpai",
 	"mediasearch-quickview-button-text": "Butiran lanjut",
