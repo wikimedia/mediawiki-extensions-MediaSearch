@@ -63,7 +63,7 @@
 	"mediasearch-filter-license-other": "其他",
 	"mediasearch-filter-namespace-all": "全部",
 	"mediasearch-filter-namespace-discussion": "讨论",
-	"mediasearch-filter-namespace-help": "一般性帮助",
+	"mediasearch-filter-namespace-help": "通用帮助",
 	"mediasearch-filter-namespace-custom": "自定义",
 	"mediasearch-filter-namespace-label": "命名空间：$1",
 	"mediasearch-filter-namespace-dialog-title": "命名空间选择器",
