@@ -183,6 +183,8 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetLicenseGroupsForImage() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'WikibaseCirrusSearch' );
+
 		$licenseMapping = [
 			'attribution' => [ 'P275=Q98755364', 'P275=Q98755344' ],
 			'attribution-same-license' => [ 'P275=Q19125117' ],
