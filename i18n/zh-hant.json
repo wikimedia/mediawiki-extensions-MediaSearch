@@ -90,5 +90,6 @@
 	"mediasearch-filter-file-type": "檔案類型",
 	"mediasearch-filter-assessment": "社群評估",
 	"mediasearch-filter-license": "授權條款",
-	"mediasearch-filter-license-unset": "全部"
+	"mediasearch-filter-license-unset": "全部",
+	"mediasearch-dialog-close-button-label": "關閉"
 }
