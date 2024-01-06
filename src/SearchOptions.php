@@ -2,8 +2,9 @@
 
 namespace MediaWiki\Extension\MediaSearch;
 
-use Config;
 use InvalidArgumentException;
+use MediaWiki\Config\Config;
+use MediaWiki\Config\ConfigException;
 use MediaWiki\MediaWikiServices;
 use MessageLocalizer;
 use Wikibase\Search\Elastic\Query\HasLicenseFeature;
@@ -90,13 +91,13 @@ class SearchOptions {
 
 		try {
 			$mainConfig = $configFactory->makeConfig( 'main' );
-		} catch ( \ConfigException $e ) {
+		} catch ( ConfigException $e ) {
 			$mainConfig = null;
 		}
 
 		try {
 			$searchConfig = $configFactory->makeConfig( 'WikibaseCirrusSearch' );
-		} catch ( \ConfigException $e ) {
+		} catch ( ConfigException $e ) {
 			$searchConfig = null;
 		}
 

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\MediaSearch\Tests\MediaWiki;
 
-use HashConfig;
 use InvalidArgumentException;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\MediaSearch\SearchOptions;
 use MediaWikiIntegrationTestCase;
 use MockMessageLocalizer;
