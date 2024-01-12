@@ -90,10 +90,6 @@
 				"resources/components/NamespaceFilterDialog.less",
 				"resources/components/UserNotice.less",
 				"resources/components/SearchError.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"mediasearch": {
@@ -245,11 +241,7 @@
 				"web2017-polyfills",
 				"@wikimedia/codex"
 			],
-			"es6": true,
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"es6": true
 		}
 	},
 	"DefaultUserOptions": {
