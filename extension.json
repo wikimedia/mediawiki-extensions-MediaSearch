@@ -240,8 +240,7 @@
 				"vuex",
 				"web2017-polyfills",
 				"@wikimedia/codex"
-			],
-			"es6": true
+			]
 		}
 	},
 	"DefaultUserOptions": {
