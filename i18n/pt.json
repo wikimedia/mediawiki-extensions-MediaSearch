@@ -52,6 +52,7 @@
 	"mediasearch-input-label": "Pesquisa multimédia",
 	"mediasearch-input-placeholder": "Procurar imagens, áudio, vídeo e mais",
 	"mediasearch-load-more-results": "Carregar mais",
+	"mediasearch-load-less-results": "Voltar",
 	"mediasearch-quickview-button-text": "Mais detalhes",
 	"mediasearch-quickview-close-button-text": "Fechar detalhes do ficheiro",
 	"mediasearch-quickview-previous-button-text": "Ver o resultado anterior",
@@ -85,5 +86,6 @@
 	"mediasearch-filter-file-type": "Tipo de ficheiro",
 	"mediasearch-filter-assessment": "Avaliações da comunidade",
 	"mediasearch-filter-license": "Licença",
-	"mediasearch-filter-license-unset": "Todos"
+	"mediasearch-filter-license-unset": "Todos",
+	"mediasearch-dialog-close-button-label": "Fechar"
 }
