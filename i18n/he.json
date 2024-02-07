@@ -60,7 +60,7 @@
 	"mediasearch-user-notice-body": "עכשיו {{GENDER:|אתה יכול|את יכולה}} לכוונן את [[Special:Preferences#mw-prefsection-searchoptions|ההעדפות]] שלך כדי לבחור את חוויית החיפוש.",
 	"mediasearch-user-notice-dismiss": "סגירת ההודעה הזאת",
 	"mediasearch-switch-special-search": "מעבר ל־Special:Search",
-	"mediasearch-category-info": "{{PLURAL:$1|פריט אחד|$1 פריטים}} ({{PLURAL:$2|תת־קטגוריה אחת|$2 תת־קטגוריות}}, {{PLURAL:$1|קובץ אחד|$3 קבצים}})",
+	"mediasearch-category-info": "{{PLURAL:$1|פריט אחד|$1 פריטים}} ({{PLURAL:$2|קטגוריית־משנה אחת|$2 קטגוריות־משנה}}, {{PLURAL:$1|קובץ אחד|$3 קבצים}})",
 	"mediasearch-copytextlayout-copy": "העתקה",
 	"mediasearch-copytextlayout-copy-fail": "ההעתקה ללוח לא עבדה.",
 	"mediasearch-copytextlayout-copy-success": "הועתק ללוח.",

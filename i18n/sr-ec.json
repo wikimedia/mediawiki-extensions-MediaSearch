@@ -60,6 +60,8 @@
 	"mediasearch-switch-special-search": "Пребаци на Special:Search",
 	"mediasearch-copytextlayout-copy": "Копирај",
 	"mediasearch-clear-filters": "Очисти филтере",
+	"mediasearch-results-count": "$1 {{PLURAL:$1|резултат|резултата}}",
+	"mediasearch-wordcount": "($1 {{PLURAL:$1|реч|речи}})",
 	"mediasearch-did-you-mean": "Да ли сте мислили: $1",
 	"mediasearch-preference": "Избор претраживача:",
 	"mediasearch-preference-help": "Избор жељеног претраживача.",
