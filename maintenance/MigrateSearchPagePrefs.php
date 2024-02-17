@@ -28,41 +28,46 @@ class MigrateSearchPagePrefs extends Maintenance {
 	}
 
 	public function execute() {
-		$dbr = $this->getDB( DB_REPLICA );
-		$userIds = $dbr->selectFieldValues(
-			'user_properties',
-			'up_user',
-			[
+		$dbr = $this->getReplicaDB();
+		$userIds = $dbr->newSelectQueryBuilder()
+			->select( [ 'up_user' ] )
+			->from( 'user_properties' )
+			->where( [
 				'up_property' => 'sdms-specialsearch-default',
-				'up_value' => 1,
-			],
-			__METHOD__
-		);
+				'up_value' => '1',
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		if ( !$userIds ) {
 			return;
 		}
+		$insertRows = [];
+		$deleteUserIds = [];
+		foreach ( $userIds as $userId ) {
+			$userId = (int)$userId;
+			$insertRows[] = [
+				'up_user' => $userId,
+				'up_property' => 'search-special-page',
+				'up_value' => 'Search',
+			];
+			$deleteUserIds[] = $userId;
+		}
 
-		$dbw = $this->getDB( DB_PRIMARY );
+		$dbw = $this->getPrimaryDB();
 		$this->beginTransaction( $dbw, __METHOD__ );
-		$dbw->insert(
-			'user_properties',
-			array_map( static function ( $userId ) {
-				return [
-					'up_user' => $userId,
-					'up_property' => 'search-special-page',
-					'up_value' => 'Search',
-				];
-			}, $userIds ),
-			__METHOD__
-		);
-		$dbw->delete(
-			'user_properties',
-			[
-				'up_user' => $userIds,
-				'up_property' => [ 'sdms-specialsearch-default' ],
-			],
-			__METHOD__
-		);
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'user_properties' )
+			->rows( $insertRows )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'user_properties' )
+			->where( [
+				'up_user' => $deleteUserIds,
+				'up_property' => 'sdms-specialsearch-default',
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		$this->commitTransaction( $dbw, __METHOD__ );
 	}
 }
