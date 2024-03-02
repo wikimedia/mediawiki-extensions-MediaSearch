@@ -7,7 +7,6 @@
 			:aria-label="filtersLabel"
 			:aria-describedby="searchCountId"
 			tabindex="0"
-			@scroll.passive="onScroll"
 		>
 			<div v-for="( filter, index ) in searchFilters" :key="'filter-' + index">
 				<!-- Namespace filter requires special treatment; see below. -->
@@ -113,8 +112,6 @@ module.exports = exports = {
 
 	data: function () {
 		return {
-			hasOverflow: false,
-			isScrolledToEnd: false,
 			namespaceFilterDialogActive: false,
 			// eslint-disable-next-line vue/no-unused-properties
 			observerOptions: {
@@ -150,13 +147,7 @@ module.exports = exports = {
 		 * @return {Object}
 		 */
 		rootClasses: function () {
-			return {
-				'sdms-search-filters-wrapper--gradient': this.showGradient
-			};
-		},
-
-		showGradient: function () {
-			return this.hasOverflow && !this.isScrolledToEnd;
+			return {};
 		},
 
 		/**
@@ -446,26 +437,6 @@ module.exports = exports = {
 					ref.reset();
 				}
 			}.bind( this ) );
-		},
-
-		/**
-		 * Handle horizontal scrolling events in the filters bar when they
-		 * must overflow (smaller screens only), to determine whether or not
-		 * the user has scrolled to the end (plus or minus 1 pixel) of the
-		 * content.
-		 *
-		 * @param {Event} e
-		 */
-		onScroll: function ( e ) {
-			var el = e.target,
-				scrollMax = el.scrollWidth - el.clientWidth;
-
-			// Allow a margin of error of 1px due to JS rounding weirdness;
-			if ( scrollMax - el.scrollLeft <= 1 ) {
-				this.isScrolledToEnd = true;
-			} else {
-				this.isScrolledToEnd = false;
-			}
 		}
 	} ),
 
@@ -480,13 +451,6 @@ module.exports = exports = {
 				this.synchronizeFilters();
 			},
 			deep: true
-		},
-
-		observerIntersecting: {
-			handler: function ( intersecting ) {
-				this.hasOverflow = !intersecting;
-			},
-			immediate: true
 		}
 	},
 

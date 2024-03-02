@@ -275,46 +275,6 @@ describe( 'SearchFilters', () => {
 
 		} );
 
-		describe( 'onScroll', () => {
-
-			it( 'to end; total scroll is <= 1; set isScrolledToEnd to be true', () => {
-
-				const wrapper = renderComponent( store );
-
-				const event = {
-					target: {
-						scrollLeft: 5,
-						scrollWidth: 10,
-						clientWidth: 5
-					}
-				};
-
-				wrapper.vm.onScroll( event );
-
-				expect( wrapper.vm.isScrolledToEnd ).toBe( true );
-
-			} );
-
-			it( 'total scroll is > 1; set isScrolledToEnd to be false', () => {
-
-				const wrapper = renderComponent( store );
-
-				const event = {
-					target: {
-						scrollLeft: 2,
-						scrollWidth: 10,
-						clientWidth: 5
-					}
-				};
-
-				wrapper.vm.onScroll( event );
-
-				expect( wrapper.vm.isScrolledToEnd ).toBe( false );
-
-			} );
-
-		} );
-
 	} );
 
 } );
