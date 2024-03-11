@@ -226,7 +226,7 @@ class SpecialMediaSearch extends SpecialPage {
 
 			// Actually perform the search. This method will throw an error if the
 			// user enters a bad query (illegal characters, etc)
-			list( $results, $searchinfo, $continue ) = $this->search(
+			[ $results, $searchinfo, $continue ] = $this->search(
 				$termWithFilters,
 				$type,
 				$this->getSearchNamespaces( $activeFilters, $type ),

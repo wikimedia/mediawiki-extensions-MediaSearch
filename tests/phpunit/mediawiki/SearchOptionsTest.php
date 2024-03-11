@@ -174,7 +174,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 					array_keys( $licenseMapping ),
 					[ '', 'other' ]
 				);
-				$this->assertCount( count( $expectedLicenses ), $licenses['items'] );
+				$this->assertSameSize( $expectedLicenses, $licenses['items'] );
 				foreach ( $licenses['items'] as $license ) {
 					$this->assertContains( $license['value'], $expectedLicenses );
 				}
@@ -313,7 +313,7 @@ class SearchOptionsTest extends MediaWikiIntegrationTestCase {
 
 		// Verify that the correct number of options are created
 		$expectedValues = array_merge( array_keys( $assessmentFilters ), [ '' ] );
-		$this->assertCount( count( $assessmentOptions ), $expectedValues );
+		$this->assertSameSize( $assessmentOptions, $expectedValues );
 
 		// Verify that the option values correspond to the config keys
 		foreach ( $assessmentOptions as $option ) {
