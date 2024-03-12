@@ -12,7 +12,7 @@ for more information on how to install)
 
 ### MW Extensions
 
-The following Mediawiki extensions are recommended:
+The following MediaWiki extensions are recommended:
 
 - [CirrusSearch](https://www.mediawiki.org/wiki/Extension:CirrusSearch#Installation)
   and dependencies, for improved search results & per-mediatype tab support
