@@ -22,6 +22,7 @@
 	"mediasearch-filter-license-unrestricted": "Sen restrikti",
 	"mediasearch-no-results": "Nula rezulti trovita",
 	"mediasearch-no-results-tips": "Probez uzar ordinara vorti, o voluntez verifikar quale vu skriptis",
+	"mediasearch-end-of-results": "Nula plusa rezulti trovesis",
 	"mediasearch-user-notice-title": "Ka vu serchas [[Special:Search]]?",
 	"mediasearch-user-notice-body": "Nun vu povas ajustar vua [[Special:Preferences#mw-prefsection-searchoptions|preferaji]], por selektar la formo quan vu facos vua serchado.",
 	"mediasearch-switch-special-search": "Chanjez a Special:Search",
