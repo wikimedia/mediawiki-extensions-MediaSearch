@@ -248,9 +248,15 @@ const searchCurrentTermAndType = function ( context ) {
 			// if a new result's title already exists in the set of
 			// previously-loaded results, filter it out.
 			sortedResults = titles
-				.map( function ( id ) { return results[ id ]; } )
-				.filter( function ( result ) { return existingTitles.indexOf( result.title ) < 0; } )
-				.sort( function ( a, b ) { return a.index - b.index; } );
+				.map( function ( id ) {
+					return results[ id ];
+				} )
+				.filter( function ( result ) {
+					return existingTitles.indexOf( result.title ) < 0;
+				} )
+				.sort( function ( a, b ) {
+					return a.index - b.index;
+				} );
 
 			sortedResults.forEach( function ( result ) {
 				context.commit( 'addResult', { type: context.getters.currentType, item: result } );

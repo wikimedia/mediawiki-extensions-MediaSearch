@@ -55,7 +55,9 @@ module.exports = exports = {
 		// support for OGG/WebM playback in browsers like Safari.
 		mw.loader
 			.using( 'ext.tmh.videojs-ogvjs' )
-			.then( function () { return mw.OgvJsSupport.loadIfNeeded(); } )
+			.then( function () {
+				return mw.OgvJsSupport.loadIfNeeded();
+			} )
 			.then( function () {
 				this.player = window.videojs(
 					this.$refs.videoPlayer,
