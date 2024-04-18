@@ -38,7 +38,7 @@ class MigrateSearchPagePrefs extends Maintenance {
 			] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
-		if ( !$userIds ) {
+		if ( !$userIds->numRows() ) {
 			return;
 		}
 		$insertRows = [];
