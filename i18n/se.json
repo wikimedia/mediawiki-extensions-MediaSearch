@@ -42,5 +42,6 @@
 	"mediasearch-filter-assessment-unset": "Buot",
 	"mediasearch-filter-file-type": "Fiilašládja",
 	"mediasearch-filter-license": "Liseansa",
-	"mediasearch-filter-license-unset": "Buot"
+	"mediasearch-filter-license-unset": "Buot",
+	"mediasearch-dialog-close-button-label": "Gidde"
 }
