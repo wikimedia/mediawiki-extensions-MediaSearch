@@ -51,7 +51,7 @@
 	"mediasearch-filter-file-type-any": "文件类型",
 	"mediasearch-filter-file-type-unset": "全部",
 	"mediasearch-filter-sort-label": "排序方式：",
-	"mediasearch-filter-sort-default": "相关度",
+	"mediasearch-filter-sort-default": "相关性",
 	"mediasearch-filter-sort-recency": "新近度",
 	"mediasearch-filter-sort-popularity": "流行度",
 	"mediasearch-filter-license-any": "所有协议",
