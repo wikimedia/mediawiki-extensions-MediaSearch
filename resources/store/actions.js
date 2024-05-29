@@ -464,6 +464,20 @@ module.exports = {
 	},
 
 	/**
+	 * Update "Switch to Special:Search" link target
+	 *
+	 * @param {Object} context
+	 */
+	updateSpecialSearch: function ( context ) {
+		var specialSearch = document.getElementById( 'mediasearch-switch-special-search' );
+		if ( !specialSearch ) {
+			return;
+		}
+		var uri = new mw.Uri( specialSearch.href );
+		uri.extend( { search: context.state.uriQuery.search } );
+		specialSearch.href = uri;
+	},
+	/**
 	 * Push the current value of url.query to the browser's session history stack
 	 *
 	 * @param {Object} context
@@ -476,6 +490,7 @@ module.exports = {
 		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.pushState( mwUri.query, null, queryString );
+		context.dispatch( 'updateSpecialSearch' );
 	},
 	/**
 	 * Replace the current value of url.query to the browser's session history stack
@@ -490,6 +505,7 @@ module.exports = {
 		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
 		var queryString = '?' + mwUri.getQueryString();
 		window.history.replaceState( mwUri.query, null, queryString );
+		context.dispatch( 'updateSpecialSearch' );
 	},
 	/**
 	 * Update the current Type value and reset all filters
