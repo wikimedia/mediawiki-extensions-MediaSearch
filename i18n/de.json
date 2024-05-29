@@ -60,7 +60,7 @@
 	"mediasearch-user-notice-body": "Du kannst nun deine [[Special:Preferences#mw-prefsection-searchoptions|Benutzereinstellungen]] anpassen, um deine bevorzugten Suchparameter auszuwählen.",
 	"mediasearch-user-notice-dismiss": "Diese Benachrichtigung verwerfen",
 	"mediasearch-switch-special-search": "Umschalten auf Special:Search",
-	"mediasearch-category-info": "$1 {{PLURAL:$1|Mitglied|Mitglieder}} ($2 {{PLURAL:$2|Unterkategorie|Unterkategorien}}, $3 {{PLURAL:$3|Datei|Dateien}})",
+	"mediasearch-category-info": "$1 {{PLURAL:$1|Element|Elemente}} ($2 {{PLURAL:$2|Unterkategorie|Unterkategorien}}, $3 {{PLURAL:$3|Datei|Dateien}})",
 	"mediasearch-copytextlayout-copy": "Kopieren",
 	"mediasearch-copytextlayout-copy-fail": "Der Text konnte nicht in die Zwischenablage kopiert werden.",
 	"mediasearch-copytextlayout-copy-success": "In die Zwischenablage kopiert.",
