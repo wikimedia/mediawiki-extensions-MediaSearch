@@ -67,10 +67,6 @@ var searchResult = require( '../../mixins/searchResult.js' ),
 module.exports = exports = {
 	name: 'PageResult',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	mixins: [ searchResult ],
 
 	inheritAttrs: false,

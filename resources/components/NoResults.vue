@@ -20,10 +20,6 @@
 
 // @vue/component
 module.exports = exports = {
-	name: 'NoResults',
-
-	compatConfig: {
-		MODE: 3
-	}
+	name: 'NoResults'
 };
 </script>

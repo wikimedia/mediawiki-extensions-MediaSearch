@@ -51,10 +51,6 @@ const { cdxIconVolumeUp } = require( '../icons.json' );
 module.exports = exports = {
 	name: 'AudioResult',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxIcon
 	},

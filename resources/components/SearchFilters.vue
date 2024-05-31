@@ -87,10 +87,6 @@ const { CdxButton } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'SearchFilters',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		'sd-select': SdSelect,
 		CdxButton,

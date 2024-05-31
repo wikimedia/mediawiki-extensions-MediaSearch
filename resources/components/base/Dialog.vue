@@ -94,10 +94,6 @@ const { cdxIconClose } = require( '../icons.json' );
 module.exports = exports = {
 	name: 'SdDialog',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxButton,
 		CdxIcon

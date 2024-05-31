@@ -22,10 +22,6 @@ const fileCount = mw.config.get( 'sdmsTotalSiteImages' );
 module.exports = exports = {
 	name: 'EmptyState',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	data: function () {
 		return {
 			fileCount: fileCount

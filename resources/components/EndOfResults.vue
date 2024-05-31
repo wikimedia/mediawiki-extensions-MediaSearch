@@ -15,10 +15,6 @@
 
 // @vue/component
 module.exports = exports = {
-	name: 'EndOfResults',
-
-	compatConfig: {
-		MODE: 3
-	}
+	name: 'EndOfResults'
 };
 </script>

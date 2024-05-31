@@ -211,10 +211,6 @@ const {
 module.exports = exports = {
 	name: 'QuickView',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxIcon,
 		'sd-player': SdPlayer,

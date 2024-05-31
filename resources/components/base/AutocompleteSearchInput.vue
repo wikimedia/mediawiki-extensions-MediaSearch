@@ -74,10 +74,6 @@ const { cdxIconSearch } = require( '../icons.json' );
 module.exports = exports = {
 	name: 'SdAutocompleteSearchInput',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxButton,
 		CdxTextInput,

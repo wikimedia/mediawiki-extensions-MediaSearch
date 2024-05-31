@@ -71,10 +71,6 @@ const { cdxIconExpand } = require( '../icons.json' );
 module.exports = exports = {
 	name: 'SdSelect',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxIcon,
 		'sd-select-menu': SelectMenu

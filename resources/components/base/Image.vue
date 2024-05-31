@@ -16,10 +16,6 @@ var observer = require( './mixins/observer.js' );
 module.exports = exports = {
 	name: 'SdImage',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	mixins: [ observer ],
 	props: {
 		source: {

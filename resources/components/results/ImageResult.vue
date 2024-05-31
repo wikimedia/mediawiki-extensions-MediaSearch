@@ -41,10 +41,6 @@ module.exports = exports = {
 
 	inheritAttrs: false,
 
-	configureCompat: {
-		MODE: 3
-	},
-
 	computed: {
 		/**
 		 * @return {Object}
