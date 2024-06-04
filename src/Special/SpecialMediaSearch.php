@@ -349,7 +349,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$this->getOutput()->setIndicators( [
 			$this->getLanguage()->pipeList( [
 				( new Tag( 'a' ) )
-					->setAttributes( [ 'href' => $specialSearchUrl ] )
+					->setAttributes( [ 'href' => $specialSearchUrl, 'id' => 'mediasearch-switch-special-search' ] )
 					// phpcs:ignore Generic.Files.LineLength.TooLong
 					->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
 				( new Tag( 'a' ) )
