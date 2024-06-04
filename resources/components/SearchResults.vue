@@ -137,10 +137,6 @@ const { CdxButton } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'SearchResults',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		'image-result': ImageResult,
 		'video-result': VideoResult,

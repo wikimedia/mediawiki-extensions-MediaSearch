@@ -16,10 +16,6 @@ const { mapState } = require( 'vuex' );
 module.exports = exports = {
 	name: 'DidYouMean',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	computed: $.extend( {}, mapState( [
 		'didYouMean'
 	] ), {

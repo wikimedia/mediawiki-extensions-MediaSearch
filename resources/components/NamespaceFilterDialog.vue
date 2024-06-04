@@ -51,10 +51,6 @@ const { CdxRadio, CdxCheckbox } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'NamespaceFilterDialog',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		'sd-dialog': sdDialog,
 		CdxRadio,

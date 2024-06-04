@@ -55,10 +55,6 @@ const { cdxIconPlay } = require( '../icons.json' );
 module.exports = exports = {
 	name: 'VideoResult',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxIcon
 	},

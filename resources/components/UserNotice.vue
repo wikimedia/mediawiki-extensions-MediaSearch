@@ -22,10 +22,6 @@ const { CdxMessage } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'UserNotice',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxMessage
 	},

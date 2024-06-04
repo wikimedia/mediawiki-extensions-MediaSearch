@@ -39,10 +39,6 @@
 module.exports = exports = {
 	name: 'SelectMenu',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	props: {
 		/**
 		 * Items can come in 3 formats:

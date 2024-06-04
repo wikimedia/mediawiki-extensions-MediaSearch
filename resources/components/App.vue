@@ -97,10 +97,6 @@ const { CdxTabs, CdxTab } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'MediaSearch',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxTabs,
 		CdxTab,

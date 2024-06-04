@@ -13,10 +13,6 @@
 module.exports = exports = {
 	name: 'SdPlayer',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	props: {
 		options: {
 			type: Object,

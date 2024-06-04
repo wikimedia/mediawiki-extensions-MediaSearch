@@ -24,10 +24,6 @@ const { CdxButton } = require( '@wikimedia/codex' );
 module.exports = exports = {
 	name: 'SdCopyTextLayout',
 
-	compatConfig: {
-		MODE: 3
-	},
-
 	components: {
 		CdxButton
 	},
