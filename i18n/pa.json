@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cabal"
+		]
+	},
+	"mediasearch-continue": "ਅਗਲਾ",
+	"mediasearch-tab-image": "ਤਸਵੀਰਾਂ",
+	"mediasearch-tab-video": "ਵੀਡੀਓ",
+	"mediasearch-filter-size": "ਤਸਵੀਰ ਦਾ ਅਕਾਰ",
+	"mediasearch-filter-size-unset": "ਸਾਰੇ",
+	"mediasearch-filter-size-small": "ਛੋਟਾ",
+	"mediasearch-filter-size-medium": "ਦਰਮਿਆਨਾ",
+	"mediasearch-filter-size-large": "ਵੱਡਾ",
+	"mediasearch-filter-file-type-unset": "ਸਾਰੇ",
+	"mediasearch-filter-license-any": "ਸਾਰੇ ਲਸੰਸ",
+	"mediasearch-filter-license-unrestricted": "ਕੋਈ ਪਾਬੰਦੀਆਂ ਨਹੀਂ",
+	"mediasearch-filter-license-other": "ਹੋਰ",
+	"mediasearch-filter-namespace-all": "ਸਾਰੇ",
+	"mediasearch-no-results": "ਸਾਨੂੰ ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ",
+	"mediasearch-end-of-results": "ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਲੱਭੇ",
+	"mediasearch-clear-title": "ਹਟਾਓ",
+	"mediasearch-quickview-button-text": "ਹੋਰ ਵੇਰਵਾ",
+	"mediasearch-quickview-previous-button-text": "ਪਿਛਲਾ ਨਤੀਜਾ ਵੇਖੋ",
+	"mediasearch-user-notice-dismiss": "ਇਸ ਸੂਚਨਾ ਨੂੰ ਖਾਰਜ ਕਰੋ",
+	"mediasearch-copytextlayout-copy": "ਨਕਲ ਕਰੋ",
+	"mediasearch-did-you-mean": "ਕੀ ਤੁਹਾਡਾ ਮਤਲਬ ਸੀ: $1",
+	"mediasearch-filter-assessment-picture-of-the-day": "ਦਿਨ ਦੀ ਤਸਵੀਰ",
+	"mediasearch-filter-assessment-picture-of-the-year": "ਸਾਲ ਦੀ ਤਸਵੀਰ",
+	"mediasearch-filter-assessment-unset": "ਸਾਰੇ",
+	"mediasearch-filter-license": "ਲਸੰਸ",
+	"mediasearch-filter-license-unset": "ਸਾਰੇ"
+}
