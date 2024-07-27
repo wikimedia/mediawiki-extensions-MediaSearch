@@ -51,20 +51,18 @@ const initialState = {
 };
 const defaultMediaType = 'image';
 const mockFocus = jest.fn();
-const renderComponent = ( store, mediaType ) => {
-	return shallowMount( Component, {
-		props: {
-			mediaType: mediaType || defaultMediaType
-		},
-		global: {
-			plugins: [ store ],
-			mocks: {
-				$log: jest.fn(),
-				focus: mockFocus
-			}
+const renderComponent = ( store, mediaType ) => shallowMount( Component, {
+	props: {
+		mediaType: mediaType || defaultMediaType
+	},
+	global: {
+		plugins: [ store ],
+		mocks: {
+			$log: jest.fn(),
+			focus: mockFocus
 		}
-	} );
-};
+	}
+} );
 
 describe( 'SearchResults', () => {
 	let store,

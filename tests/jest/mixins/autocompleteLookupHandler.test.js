@@ -151,7 +151,7 @@ describe( 'AutocompleteLookupHandler', () => {
 				const wrapper = VueTestUtils.shallowMount( Component );
 
 				// Simulate regex error
-				mockRegexMethod.mockImplementationOnce( function () {
+				mockRegexMethod.mockImplementationOnce( () => {
 					throw new Error( '' );
 				} );
 
@@ -224,7 +224,7 @@ describe( 'AutocompleteLookupHandler', () => {
 
 				const mockGetFilteredLookupResults = jest.fn();
 				wrapper.vm.getFilteredLookupResults = mockGetFilteredLookupResults;
-				mockGetFilteredLookupResults.mockImplementationOnce( function () {
+				mockGetFilteredLookupResults.mockImplementationOnce( () => {
 					throw new Error( '' );
 				} );
 
@@ -329,7 +329,7 @@ describe( 'AutocompleteLookupHandler', () => {
 
 			const wrapper = VueTestUtils.shallowMount( Component );
 
-			mockRegexMethod.mockImplementationOnce( function () {
+			mockRegexMethod.mockImplementationOnce( () => {
 				throw new Error( '' );
 			} );
 

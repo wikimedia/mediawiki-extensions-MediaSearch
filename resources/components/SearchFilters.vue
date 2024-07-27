@@ -118,7 +118,7 @@ module.exports = exports = {
 		};
 	},
 
-	computed: $.extend( {}, mapState( [
+	computed: Object.assign( {}, mapState( [
 		'totalHits',
 		'filterValues'
 	] ), {
@@ -163,7 +163,7 @@ module.exports = exports = {
 			var optionsForType = searchOptions[ this.mediaType ],
 				filters = [];
 
-			Object.keys( optionsForType ).forEach( function ( filterName ) {
+			Object.keys( optionsForType ).forEach( ( filterName ) => {
 				var filterData = optionsForType[ filterName ],
 					filter = new SearchFilter(
 						filterName,
@@ -260,13 +260,11 @@ module.exports = exports = {
 			// Array.prototype.find is polyfilled so we can use this
 			// ES6 array method here
 
-			return this.searchFilters.find( function ( filter ) {
-				return filter.type === 'namespace';
-			} );
+			return this.searchFilters.find( ( filter ) => filter.type === 'namespace' );
 		}
 	} ),
 
-	methods: $.extend( {}, mapMutations( [
+	methods: Object.assign( {}, mapMutations( [
 		'addFilterValue',
 		'removeFilterValue'
 	] ), {
@@ -279,9 +277,7 @@ module.exports = exports = {
 		 */
 		onSelect: function ( value, filterType ) {
 			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
-				currentFilter = this.searchFilters.find( function ( filter ) {
-					return filter.type === filterType;
-				} );
+				currentFilter = this.searchFilters.find( ( filter ) => filter.type === filterType );
 
 			// for logging purposes, we only want a simple string value
 			function normalizedValue( v ) {
@@ -398,9 +394,9 @@ module.exports = exports = {
 		},
 
 		resetAllFilters: function () {
-			this.searchFilters.forEach( function ( filter ) {
+			this.searchFilters.forEach( ( filter ) => {
 				this.getRef( filter ).reset();
-			}.bind( this ) );
+			} );
 		},
 
 		/**
@@ -408,7 +404,7 @@ module.exports = exports = {
 		 * value in Vuex
 		 */
 		synchronizeFilters: function () {
-			this.searchFilters.forEach( function ( filter ) {
+			this.searchFilters.forEach( ( filter ) => {
 				var currentValue = this.filterValues[ this.mediaType ][ filter.type ],
 					ref = this.getRef( filter );
 
@@ -432,7 +428,7 @@ module.exports = exports = {
 				} else {
 					ref.reset();
 				}
-			}.bind( this ) );
+			} );
 		}
 	} ),
 

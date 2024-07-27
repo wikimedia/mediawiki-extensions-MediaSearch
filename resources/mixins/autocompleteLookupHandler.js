@@ -62,13 +62,13 @@ module.exports = exports = {
 				// below could be a regex literal, but eslint fails to parse the `u` flag...
 				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
 				words = trimmedInput.match( new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+', 'gu' ) ) || [];
-				// eslint-disable-next-line security/detect-non-literal-regexp
+
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[\\p{L}\\p{M}\\p{N}\\p{S}]+.*?' ), 'iu' );
 			} catch ( e ) {
 				// if browser doesn't support unicode regexes, fall back to simple
 				// space/punctuation-based word detection
 				words = trimmedInput.match( /[^\s\-.:;,"]+/g ) || [];
-				// eslint-disable-next-line security/detect-non-literal-regexp
+
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[^\\s\\-]+[\\s\\-.:;,"]*' ), 'i' );
 			}
 
@@ -77,7 +77,7 @@ module.exports = exports = {
 			}
 
 			this.doLookupRequest( trimmedInput )
-				.then( function ( results ) {
+				.then( ( results ) => {
 					try {
 						this.lookupResults = this.getFilteredLookupResults( results, inputRegex );
 					} catch ( e ) {
@@ -89,7 +89,7 @@ module.exports = exports = {
 						// for example.
 						this.clearLookupResults();
 					}
-				}.bind( this ) );
+				} );
 		},
 
 		/**
@@ -123,12 +123,10 @@ module.exports = exports = {
 			// First, get results for the entire search input.
 			inputPromise = this.getLookupRequestForTerm( input );
 			promises.push(
-				inputPromise.then( function ( response ) {
-					return response.search.map( function ( result ) {
-						// Get search term that matched (could be label or alias or...)
-						return result.match.text;
-					} );
-				} ).promise( { abort: inputPromise.abort } )
+				inputPromise.then( ( response ) => response.search.map( ( result ) =>
+				// Get search term that matched (could be label or alias or...)
+						 result.match.text
+					 ) ).promise( { abort: inputPromise.abort } )
 			);
 
 			// Next, if there's more than 1 word, get results for just the last
@@ -139,12 +137,10 @@ module.exports = exports = {
 			if ( lastWord && lastWord[ 0 ] && input !== lastWord[ 0 ] ) {
 				lastWordPromise = this.getLookupRequestForTerm( lastWord[ 0 ] );
 				promises.push(
-					lastWordPromise.then( function ( response ) {
-						return response.search.map( function ( result ) {
-							// Add search term to rest of the input.
-							return input.replace( lastWordRegex, result.match.text );
-						} );
-					} ).promise( { abort: lastWordPromise.abort } )
+					lastWordPromise.then( ( response ) => response.search.map( ( result ) =>
+					// Add search term to rest of the input.
+							 input.replace( lastWordRegex, result.match.text )
+						 ) ).promise( { abort: lastWordPromise.abort } )
 				);
 			}
 
@@ -153,11 +149,9 @@ module.exports = exports = {
 			this.lookupPromises = $.when.apply( $, promises )
 				.then( function () {
 					// Combine the results of multiple API calls.
-					return [].slice.call( arguments ).reduce( function ( combined, results ) {
-						return combined.concat( results );
-					}, [] );
+					return [].slice.call( arguments ).reduce( ( combined, results ) => combined.concat( results ), [] );
 				} ).promise( { abort: function () {
-					promises.forEach( function ( promise ) {
+					promises.forEach( ( promise ) => {
 						promise.abort();
 					} );
 				} } );
@@ -199,7 +193,7 @@ module.exports = exports = {
 		 */
 		getFilteredLookupResults: function ( lookupResults, inputRegex ) {
 			return lookupResults
-				.map( function ( result ) {
+				.map( ( result ) => {
 					// Only suggest completion for the word currently being typed.
 					var match = result.match( inputRegex );
 					return match.length > 0 ? match[ 0 ] : '';
@@ -209,11 +203,7 @@ module.exports = exports = {
 				// but that'd be case-sensitive, and since case doesn't matter
 				// for search terms, we shouldn't be showing the same term in
 				// different capitalization if it's going to give the same results.
-				.filter( function ( value, i, array ) {
-					return !array.slice( 0, i ).some( function ( previousValue ) {
-						return previousValue.toLowerCase() === value.toLowerCase();
-					} );
-				} )
+				.filter( ( value, i, array ) => !array.slice( 0, i ).some( ( previousValue ) => previousValue.toLowerCase() === value.toLowerCase() ) )
 				// Return a limited number of results to show the user.
 				.slice( 0, this.lookupResultsLimit );
 		}

@@ -53,7 +53,7 @@ module.exports = {
 			state.details[ mediaType ] = null;
 		} else {
 			// Reset results for all types if second arg is not provided
-			types.forEach( function ( type ) {
+			types.forEach( ( type ) => {
 				state.results[ type ] = [];
 				state.continue[ type ] = undefined;
 				state.totalHits[ type ] = 0;
@@ -148,10 +148,10 @@ module.exports = {
 	resetFilters: function ( state ) {
 		var mediaTypes = Object.keys( state.filterValues );
 
-		mediaTypes.forEach( function ( mediaType ) {
+		mediaTypes.forEach( ( mediaType ) => {
 			var activeFiltersForMediaType = Object.keys( state.filterValues[ mediaType ] );
 
-			activeFiltersForMediaType.forEach( function ( filterType ) {
+			activeFiltersForMediaType.forEach( ( filterType ) => {
 				delete state.filterValues[ mediaType ][ filterType ];
 			} );
 		} );
@@ -213,14 +213,14 @@ module.exports = {
 
 		// Restore previously stored state for results, continue, totalHits, and
 		// details (all of which are further divided by media type)
-		props.forEach( function ( prop ) {
-			Object.keys( stash[ prop ] ).forEach( function ( key ) {
+		props.forEach( ( prop ) => {
+			Object.keys( stash[ prop ] ).forEach( ( key ) => {
 				state[ prop ][ key ] = stash[ prop ][ key ];
 			} );
 		} );
 
 		// Restore the scroll position after a short delay
-		setTimeout( function () {
+		setTimeout( () => {
 			window.scroll( 0, stash.scrollY );
 		}, 1500 );
 	},
@@ -238,8 +238,8 @@ module.exports = {
 	 * @param {Object} state
 	 */
 	clearFilterQueryParams: function ( state ) {
-		Object.keys( state.filterValues ).forEach( function ( type ) {
-			Object.keys( state.filterValues[ type ] ).forEach( function ( filter ) {
+		Object.keys( state.filterValues ).forEach( ( type ) => {
+			Object.keys( state.filterValues[ type ] ).forEach( ( filter ) => {
 				delete state.uriQuery[ filter ];
 			} );
 		} );
@@ -251,7 +251,7 @@ module.exports = {
 	 * @param {Object} currentFilterValues
 	 */
 	updateFilterQueryParams: function ( state, currentFilterValues ) {
-		Object.keys( currentFilterValues ).forEach( function ( filter ) {
+		Object.keys( currentFilterValues ).forEach( ( filter ) => {
 			state.uriQuery[ filter ] = currentFilterValues[ filter ];
 		} );
 	},
@@ -294,7 +294,7 @@ module.exports = {
 	 * @param {Object} state
 	 */
 	resetAutoLoadForAllMediaType: function ( state ) {
-		Object.keys( state.autoloadCounter ).forEach( function ( mediaType ) {
+		Object.keys( state.autoloadCounter ).forEach( ( mediaType ) => {
 			state.autoloadCounter[ mediaType ] = AUTOLOAD_COUNT;
 		} );
 	},

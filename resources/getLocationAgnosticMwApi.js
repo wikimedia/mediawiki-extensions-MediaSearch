@@ -27,7 +27,7 @@ module.exports = exports = ( function () {
 	 * @return {mw.Api}
 	 */
 	return function getLocationAgnosticMwApi( apiEndpoint, options ) {
-		var mwApiOptions = $.extend( {}, options, { ajax: { url: apiEndpoint } } );
+		var mwApiOptions = Object.assign( {}, options, { ajax: { url: apiEndpoint } } );
 
 		if ( getHost( apiEndpoint ) !== getHost( location.href ) ) {
 			// Use mw.ForeignApi if the api we want to use is on a different domain.

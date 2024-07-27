@@ -175,7 +175,7 @@ module.exports = exports = {
 		};
 	},
 
-	computed: $.extend( {}, mapState( [
+	computed: Object.assign( {}, mapState( [
 		'continue',
 		'details',
 		'hasError',
@@ -269,7 +269,7 @@ module.exports = exports = {
 		}
 	} ),
 
-	methods: $.extend( {}, mapMutations( [
+	methods: Object.assign( {}, mapMutations( [
 		'setDetails',
 		'clearDetails'
 	] ), mapActions( [
@@ -293,7 +293,7 @@ module.exports = exports = {
 			this.showQuickView = true;
 
 			this.$nextTick(
-				function () {
+				() => {
 					// Scroll the window to the top of the QuickView aside
 					// (only happens on desktop skin)
 					if ( this.$refs.aside ) {
@@ -304,7 +304,7 @@ module.exports = exports = {
 					// (e.g. if the user is scrolling through results via
 					// keyboard nav or the QuickView nav buttons).
 					this.scrollIntoViewIfNeeded( title );
-				}.bind( this )
+				}
 			);
 
 			// In cases where the details panel is already open and the user
@@ -312,18 +312,18 @@ module.exports = exports = {
 			// loading, but only if it takes longer than half a second. That
 			// way, for fast connections, the loading state will be less
 			// noticeable.
-			detailsTimeout = setTimeout( function () {
+			detailsTimeout = setTimeout( () => {
 				this.clearDetails( { mediaType: this.mediaType } );
-			}.bind( this ), 500 );
+			}, 500 );
 
 			// Get data for the item opened in QuickView.
 			this.fetchDetails( { title: title, mediaType: this.mediaType } ).then(
-				function ( response ) {
+				( response ) => {
 					clearTimeout( detailsTimeout );
 					var searchedItemDetails;
 
 					Object.keys( response.query.pages ).forEach(
-						function ( key ) {
+						( key ) => {
 							if ( response.query.pages[ key ].title === title ) {
 								searchedItemDetails = response.query.pages[ key ];
 							}
@@ -338,9 +338,9 @@ module.exports = exports = {
 					// Let the QuickView component programatically manage focus
 					// once it is displayed
 					this.$nextTick(
-						function () {
+						() => {
 							this.$refs.quickview.focus( this.focusOn );
-						}.bind( this )
+						}
 					);
 
 					// Updated from ID to Title for new schema T297400
@@ -353,7 +353,7 @@ module.exports = exports = {
 						search_result_has_quickview: true
 					} );
 					/* eslint-enable camelcase */
-				}.bind( this )
+				}
 			);
 		},
 
@@ -386,9 +386,9 @@ module.exports = exports = {
 			} );
 
 			this.$nextTick(
-				function () {
+				() => {
 					this.scrollIntoViewIfNeeded( originatingResultTitle );
-				}.bind( this )
+				}
 			);
 		},
 
@@ -401,9 +401,7 @@ module.exports = exports = {
 		changeQuickViewResult: function ( shouldChangeFocus, addend ) {
 			var tabResults = this.results[ this.mediaType ],
 				currentItem = tabResults.filter(
-					function ( result ) {
-						return result.title === this.details[ this.mediaType ].title;
-					}.bind( this )
+					( result ) => result.title === this.details[ this.mediaType ].title
 				),
 				currentIndex = tabResults.indexOf( currentItem[ 0 ] ),
 				nextIndex = currentIndex + addend;

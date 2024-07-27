@@ -334,9 +334,7 @@ describe( 'Select', () => {
 			} );
 
 			const mockToggleMenu = jest.spyOn( wrapper.vm, 'toggleMenu' );
-			mockToggleMenu.mockImplementation( function () {
-				return jest.fn();
-			} );
+			mockToggleMenu.mockImplementation( () => jest.fn() );
 
 			const element = wrapper.find( '.sd-select__content' );
 

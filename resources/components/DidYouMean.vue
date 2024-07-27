@@ -16,7 +16,7 @@ const { mapState } = require( 'vuex' );
 module.exports = exports = {
 	name: 'DidYouMean',
 
-	computed: $.extend( {}, mapState( [
+	computed: Object.assign( {}, mapState( [
 		'didYouMean'
 	] ), {
 

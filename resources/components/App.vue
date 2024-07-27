@@ -122,7 +122,7 @@ module.exports = exports = {
 		return {};
 	},
 
-	computed: $.extend( {}, mapState( [
+	computed: Object.assign( {}, mapState( [
 		'autoloadCounter',
 		'results',
 		'initialized'
@@ -136,9 +136,7 @@ module.exports = exports = {
 		 * @return {string[]} [  'image', 'video', 'audio', 'page', 'other'  ]
 		 */
 		tabs: function () {
-			return MEDIASEARCH_TABS.map( function ( tab ) {
-				return tab.type;
-			} );
+			return MEDIASEARCH_TABS.map( ( tab ) => tab.type );
 		},
 
 		/**
@@ -151,7 +149,7 @@ module.exports = exports = {
 			// Get the i18n message for each tab title and assign to appropriate
 			// key in returned object
 			this.tabs.forEach(
-				function ( tab ) {
+				( tab ) => {
 					// Messages that can be used here:
 					// * mediasearch-tab-image
 					// * mediasearch-tab-audio
@@ -159,14 +157,14 @@ module.exports = exports = {
 					// * mediasearch-tab-page
 					// * mediasearch-tab-other
 					names[ tab ] = this.$i18n( prefix + tab ).text();
-				}.bind( this )
+				}
 			);
 
 			return names;
 		}
 	} ),
 
-	methods: $.extend( {}, mapMutations( [
+	methods: Object.assign( {}, mapMutations( [
 		'clearDidYouMean',
 		'resetResults',
 		'resetAutoLoadForAllMediaType',
@@ -248,7 +246,7 @@ module.exports = exports = {
 		 * Trigger an action to search for more result if available and log the action
 		 */
 		getMoreResultsForTabIfAvailable: function () {
-			this.searchMore().then( function () {
+			this.searchMore().then( () => {
 				/* eslint-disable camelcase */
 				this.$log( {
 					action: 'search_load_more',
@@ -257,11 +255,11 @@ module.exports = exports = {
 					search_result_count: this.results[ this.currentType ].length
 				} );
 				/* eslint-enable camelcase */
-			}.bind( this ) );
+			} );
 		},
 
 		resetCountAndLoadMore: function () {
-			this.searchMore( true ).then( function () {
+			this.searchMore( true ).then( () => {
 				/* eslint-disable camelcase */
 				this.$log( {
 					action: 'search_load_more',
@@ -269,7 +267,7 @@ module.exports = exports = {
 					search_media_type: this.currentType,
 					search_result_count: this.results[ this.currentType ].length
 				} );
-			}.bind( this ) );
+			} );
 		},
 
 		/**
@@ -298,7 +296,7 @@ module.exports = exports = {
 				this.lookupPromises.abort();
 			}
 
-			this.performNewSearch().then( function () {
+			this.performNewSearch().then( () => {
 				/* eslint-disable camelcase */
 				this.$log( {
 					action: 'search_new',
@@ -307,7 +305,7 @@ module.exports = exports = {
 					search_result_count: this.results[ this.currentType ].length
 				} );
 				/* eslint-enable camelcase */
-			}.bind( this ) );
+			} );
 		}
 	} ),
 
@@ -380,9 +378,9 @@ module.exports = exports = {
 	mounted: function () {
 		// eslint-disable-next-line no-jquery/no-global-selector
 		var $container = $( '#sdms-app' );
-		this.$nextTick( function () {
+		this.$nextTick( () => {
 			var readyDeferred = $.Deferred(),
-				promises = $container.find( 'img' ).get().map( function ( image ) {
+				promises = $container.find( 'img' ).get().map( ( image ) => {
 					// We start out with an initial serverside DOM that we'll swap out as
 					// soon as the Vue components are mounted
 					// Images, however, are not loaded until they become visible (their src
@@ -405,12 +403,12 @@ module.exports = exports = {
 						return $.Deferred().resolve().promise();
 					}
 
-					return image.decode().then( null, function () {
+					return image.decode().then( null, () =>
 						// turn rejected promises into successful resolves, so that below
 						// $.when can act as `allSettled` (it otherwise short-circuits as
 						// as soon as one of the promises fails)
-						return $.Deferred().resolve().promise();
-					} );
+						 $.Deferred().resolve().promise()
+					 );
 				} );
 
 			// When above image-loading has completed, we're allowed to proceed & swap out
@@ -424,7 +422,7 @@ module.exports = exports = {
 			// - 1 second has passed
 			$.when.apply( $, promises ).then( readyDeferred.resolve );
 			setTimeout( readyDeferred.resolve, 1000 );
-			readyDeferred.promise().then( function () {
+			readyDeferred.promise().then( () => {
 				// only replace serverside render once entire view has rendered
 				// and images are settled, ensuring a smooth transition
 				$container.show().siblings().remove();
@@ -432,8 +430,8 @@ module.exports = exports = {
 
 				// Restore the user's previous session from localstorage if necessary
 				this.restorePageStateIfNecessary();
-			}.bind( this ) );
-		}.bind( this ) );
+			} );
+		} );
 	}
 };
 </script>

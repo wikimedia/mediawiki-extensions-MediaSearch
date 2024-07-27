@@ -164,12 +164,10 @@ module.exports = exports = {
 				items.length &&
 				typeof items[ 0 ] === 'string'
 			) {
-				return items.map( function ( item ) {
-					return {
-						label: item,
-						value: item
-					};
-				} );
+				return items.map( ( item ) => ( {
+					label: item,
+					value: item
+				} ) );
 			}
 
 			// Handle array of objects.
@@ -178,7 +176,7 @@ module.exports = exports = {
 				items.length &&
 				typeof items[ 0 ] === 'object'
 			) {
-				return items.map( function ( item ) {
+				return items.map( ( item ) => {
 					if ( 'label' in item && 'value' in item ) {
 						return item;
 					}
@@ -190,12 +188,10 @@ module.exports = exports = {
 			// Handle object.
 			if ( typeof items === 'object' ) {
 				keys = Object.keys( items );
-				return keys.map( function ( key ) {
-					return {
-						label: items[ key ],
-						value: key
-					};
-				} );
+				return keys.map( ( key ) => ( {
+					label: items[ key ],
+					value: key
+				} ) );
 			}
 
 			throw new Error( 'Passed value format is not supported' );

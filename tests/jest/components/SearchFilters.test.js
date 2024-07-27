@@ -20,19 +20,17 @@ const initialState = {
 		other: {}
 	}
 };
-const renderComponent = ( store, mediaType ) => {
-	return mount( Component, {
-		props: {
-			mediaType: mediaType || defaultMediaType
-		},
-		global: {
-			plugins: [ store ],
-			mocks: {
-				$log: jest.fn()
-			}
+const renderComponent = ( store, mediaType ) => mount( Component, {
+	props: {
+		mediaType: mediaType || defaultMediaType
+	},
+	global: {
+		plugins: [ store ],
+		mocks: {
+			$log: jest.fn()
 		}
-	} );
-};
+	}
+} );
 
 describe( 'SearchFilters', () => {
 	let store,

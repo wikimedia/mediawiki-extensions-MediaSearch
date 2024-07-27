@@ -161,9 +161,7 @@ const searchCurrentTermAndType = function ( context ) {
 			var assessmentStatements = searchOptions[ context.getters.currentType ]
 				.assessment.data.statementData;
 
-			var assessment = assessmentStatements.find( function ( i ) {
-				return i.value === assessmentValue;
-			} );
+			var assessment = assessmentStatements.find( ( i ) => i.value === assessmentValue );
 
 			if ( assessment ) {
 				statement = assessment.statement;
@@ -200,10 +198,8 @@ const searchCurrentTermAndType = function ( context ) {
 	// pass them on to the API search request - this allows requesting
 	// a specific search profile and carry it forward in JS navigation
 	Object.keys( context.state.uriQuery )
-		.filter( function ( param ) {
-			return param.match( /^mediasearch_/ );
-		} )
-		.forEach( function ( param ) {
+		.filter( ( param ) => param.match( /^mediasearch_/ ) )
+		.forEach( ( param ) => {
 			params[ param ] = context.state.uriQuery[ param ];
 		} );
 
@@ -232,10 +228,8 @@ const searchCurrentTermAndType = function ( context ) {
 
 	activeSearchRequest = request;
 
-	return request.then( function ( response ) {
-		var existingTitles = context.state.results[ context.getters.currentType ].map( function ( result ) {
-				return result.title;
-			} ),
+	return request.then( ( response ) => {
+		var existingTitles = context.state.results[ context.getters.currentType ].map( ( result ) => result.title ),
 			results, titles, sortedResults;
 
 		if ( response.query && response.query.pages ) {
@@ -248,17 +242,11 @@ const searchCurrentTermAndType = function ( context ) {
 			// if a new result's title already exists in the set of
 			// previously-loaded results, filter it out.
 			sortedResults = titles
-				.map( function ( id ) {
-					return results[ id ];
-				} )
-				.filter( function ( result ) {
-					return existingTitles.indexOf( result.title ) < 0;
-				} )
-				.sort( function ( a, b ) {
-					return a.index - b.index;
-				} );
+				.map( ( id ) => results[ id ] )
+				.filter( ( result ) => existingTitles.indexOf( result.title ) < 0 )
+				.sort( ( a, b ) => a.index - b.index );
 
-			sortedResults.forEach( function ( result ) {
+			sortedResults.forEach( ( result ) => {
 				context.commit( 'addResult', { type: context.getters.currentType, item: result } );
 			} );
 
@@ -289,16 +277,16 @@ const searchCurrentTermAndType = function ( context ) {
 				continue: null
 			} );
 		}
-	} ).done( function () {
+	} ).done( () => {
 		// Set pending back to false when request is complete
 		activeSearchRequest = null;
 		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
-	} ).catch( function ( errorCode, details ) {
+	} ).catch( ( errorCode, details ) => {
 		// Set pending to false and clear the stashed request
 		var pendingType;
 		activeSearchRequest = null;
 
-		Object.keys( context.state.pending ).forEach( function ( type ) {
+		Object.keys( context.state.pending ).forEach( ( type ) => {
 			if ( context.state.pending[ type ] === true && context.getters.currentType !== type ) {
 				pendingType = type;
 			}
@@ -330,7 +318,7 @@ const timedPromise = function ( metricName, fn, ...args ) {
 	const start = performance.now();
 	const promise = fn.apply( this, args );
 
-	promise.done( function () {
+	promise.done( () => {
 		const took = performance.now() - start;
 		// half-hearted attempt to skip requests that didn't query the backend, we know
 		// that anything that touches the mw api and gets a non-cached response takes
@@ -393,7 +381,7 @@ module.exports = {
 			// after some time has passed
 			var deferred = $.Deferred();
 			window.setTimeout(
-				function () {
+				() => {
 					context.dispatch( 'searchMore' )
 						.then( deferred.resolve, deferred.reject );
 				},

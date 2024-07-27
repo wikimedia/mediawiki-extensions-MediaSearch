@@ -95,10 +95,10 @@ module.exports = {
 			this.observerOptions || {} // additional options can be provided as props to this component
 		);
 		this.$nextTick(
-			function () {
+			() => {
 				var intersectElement = this.defineObserverElement( this.observerElement );
 				this.observer.observe( intersectElement );
-			}.bind( this )
+			}
 		);
 	},
 

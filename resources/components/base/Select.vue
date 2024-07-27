@@ -373,9 +373,7 @@ module.exports = exports = {
 		select: function ( selection ) {
 			var selectionIndex;
 
-			selectionIndex = this.items.findIndex( function ( item ) {
-				return item.value === selection;
-			} );
+			selectionIndex = this.items.findIndex( ( item ) => item.value === selection );
 
 			if ( selectionIndex && selectionIndex >= 0 ) {
 				this.selectedItemIndex = selectionIndex;

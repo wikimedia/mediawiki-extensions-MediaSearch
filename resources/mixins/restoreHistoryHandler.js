@@ -10,7 +10,7 @@ const searchOptions = require( '../data/searchOptions.json' ); // Virtual file g
 const { mapMutations, mapActions } = require( 'vuex' );
 
 module.exports = exports = {
-	methods: $.extend( {}, mapMutations( [
+	methods: Object.assign( {}, mapMutations( [
 		'clearStoredPageState',
 		'clearFilterQueryParams',
 		'resetFilters',
@@ -52,7 +52,7 @@ module.exports = exports = {
 				// the URL object to match the previously-stored values
 				this.clearFilterQueryParams();
 				this.resetFilters();
-				Object.keys( e.state ).forEach( function ( key ) {
+				Object.keys( e.state ).forEach( ( key ) => {
 					if (
 						searchOptions[ this.currentType ] &&
 						key in searchOptions[ this.currentType ]
@@ -64,7 +64,7 @@ module.exports = exports = {
 							value: e.state[ key ]
 						} );
 					}
-				}.bind( this ) );
+				} );
 			}
 		},
 

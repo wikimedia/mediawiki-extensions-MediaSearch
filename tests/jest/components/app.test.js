@@ -39,30 +39,28 @@ const initialState = {
 
 const App = require( '../../../resources/components/App.vue' );
 
-const renderComponent = ( store ) => {
-	return mount( App, {
-		global: {
-			plugins: [ store ],
-			stubs: {
-				'cdx-tabs': {
-					template: '<div><slot></slot></div>'
-				},
-				'cdx-tab': {
-					template: '<div><slot></slot></div>'
-				},
-				'sd-autocomplete-search-input': true,
-				'search-results': true,
-				'search-filters': true,
-				'did-you-mean': true,
-				'search-user-notice': true,
-				observer: true
+const renderComponent = ( store ) => mount( App, {
+	global: {
+		plugins: [ store ],
+		stubs: {
+			'cdx-tabs': {
+				template: '<div><slot></slot></div>'
 			},
-			mocks: {
-				$log: jest.fn()
-			}
+			'cdx-tab': {
+				template: '<div><slot></slot></div>'
+			},
+			'sd-autocomplete-search-input': true,
+			'search-results': true,
+			'search-filters': true,
+			'did-you-mean': true,
+			'search-user-notice': true,
+			observer: true
+		},
+		mocks: {
+			$log: jest.fn()
 		}
-	} );
-};
+	}
+} );
 
 describe( 'App', () => {
 	let store,
@@ -75,15 +73,9 @@ describe( 'App', () => {
 		jest.resetModules();
 		state = JSON.parse( JSON.stringify( initialState ) );
 		getters = {
-			allActiveFilters: jest.fn( function ( localState ) {
-				return localState.dummyAllFilter;
-			} ),
-			currentType: jest.fn( function ( localState ) {
-				return localState.dummyCurrentType;
-			} ),
-			currentSearchTerm: jest.fn( function ( localState ) {
-				return localState.dummySearchTerm;
-			} )
+			allActiveFilters: jest.fn( ( localState ) => localState.dummyAllFilter ),
+			currentType: jest.fn( ( localState ) => localState.dummyCurrentType ),
+			currentSearchTerm: jest.fn( ( localState ) => localState.dummySearchTerm )
 		};
 		mutations = {
 			clearDidYouMean: jest.fn(),

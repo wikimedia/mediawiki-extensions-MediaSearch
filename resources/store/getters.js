@@ -44,7 +44,7 @@ module.exports = {
 	allResultsEmpty: function ( state ) {
 		var isEmpty = true;
 
-		Object.keys( state.results ).forEach( function ( mediaType ) {
+		Object.keys( state.results ).forEach( ( mediaType ) => {
 			if ( state.results[ mediaType ].length !== 0 ) {
 				isEmpty = false;
 			}

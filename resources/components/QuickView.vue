@@ -342,10 +342,10 @@ module.exports = exports = {
 				// URLs to attempt to accommodate most sizes and concatenate a
 				// string to use as the attribute value.
 				PREVIEW_SIZES.forEach(
-					function ( size ) {
+					( size ) => {
 						var url = mw.util.parseImageUrl( this.thumbnail ).resizeUrl( size );
 						attributeString += url + ' ' + size + 'w,\n';
-					}.bind( this )
+					}
 				);
 
 				// Add one final item to the list representing the maximum size.
@@ -379,7 +379,7 @@ module.exports = exports = {
 			if ( this.isDialog ) {
 				// For dialog mode, use an image size that matches the width of
 				// the viewport since the Quickview is full-width
-				PREVIEW_SIZES.forEach( function ( size ) {
+				PREVIEW_SIZES.forEach( ( size ) => {
 					attributeString += '(min-width: ' + size + 'px) ' + size + 'px,\n';
 				} );
 				attributeString += MAX_SIZE + 'px';
@@ -506,7 +506,7 @@ module.exports = exports = {
 				this.metadata.Assessments.value
 			) {
 				assessmentValues = this.metadata.Assessments.value.split( '|' );
-				assessmentValues.forEach( function ( assessment ) {
+				assessmentValues.forEach( ( assessment ) => {
 					// Messages that can be used here:
 					// * mediasearch-filter-assessment-valued-image
 					// * mediasearch-filter-assessment-quality-image
@@ -514,7 +514,7 @@ module.exports = exports = {
 					// * mediasearch-filter-assessment-picture-of-the-day
 					// * mediasearch-filter-assessment-picture-of-the-year
 					assessmentList.push( this.$i18n( assessmentLabels[ assessment ] ).text() );
-				}.bind( this ) );
+				} );
 				return assessmentList.join( this.$i18n( 'comma-separator' ).text() );
 			} else {
 				return null;
@@ -752,9 +752,9 @@ module.exports = exports = {
 	mounted: function () {
 		this.getThumbnailWrapperStyle();
 
-		setTimeout( function () {
+		setTimeout( () => {
 			this.showSpinner = true;
-		}.bind( this ), 500 );
+		}, 500 );
 	}
 };
 </script>

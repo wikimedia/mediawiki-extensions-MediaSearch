@@ -5,9 +5,7 @@ const initialResults = mw.config.get( 'sdmsInitialSearchResults' );
 const initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) );
 const didYouMean = mw.config.get( 'sdmsDidYouMean' );
 const ensureArray = require( './../ensureArray.js' );
-const sortedResults = ensureArray( initialResults.results || [] ).sort( function ( a, b ) {
-	return a.index - b.index;
-} );
+const sortedResults = ensureArray( initialResults.results || [] ).sort( ( a, b ) => a.index - b.index );
 const mwUri = new mw.Uri();
 
 module.exports = {

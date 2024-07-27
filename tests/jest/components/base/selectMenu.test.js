@@ -71,12 +71,10 @@ describe( 'SelectMenu', () => {
 				}
 			} );
 
-			expect( wrapper.vm.formattedItems ).toMatchObject( FRUITS.map( function ( item ) {
-				return {
-					label: item.label.toLowerCase(),
-					value: item.value
-				};
-			} ) );
+			expect( wrapper.vm.formattedItems ).toMatchObject( FRUITS.map( ( item ) => ( {
+				label: item.label.toLowerCase(),
+				value: item.value
+			} ) ) );
 
 		} );
 
