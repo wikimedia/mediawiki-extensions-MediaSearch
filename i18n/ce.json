@@ -39,7 +39,7 @@
 	"mediasearch-input-label": "Медиафайлаш лахар",
 	"mediasearch-quickview-button-text": "Ма-дарра",
 	"mediasearch-copytextlayout-copy": "Копийан",
-	"mediasearch-clear-filters": "Литтарш цӀанйан",
+	"mediasearch-clear-filters": "Фильтраш цӀанйан",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|карийнарш}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|дош}})",
 	"mediasearch-image-size": "($1)"
