@@ -9,7 +9,8 @@
 			"Ladsgroup",
 			"Physicsch",
 			"Reza1615",
-			"درفش کاویانی"
+			"درفش کاویانی",
+			"Ebrahim"
 		]
 	},
 	"mediasearch-title": "جستجوی رسانه‌ها",
@@ -65,7 +66,7 @@
 	"mediasearch-copytextlayout-copy": "رونویسی",
 	"mediasearch-copytextlayout-copy-fail": "ناتوان در رونویسی در بریده‌دان",
 	"mediasearch-copytextlayout-copy-success": "در بریده‌دان رونویسی شد.",
-	"mediasearch-clear-filters": "پاک‌کردن پالایه‌ها",
+	"mediasearch-clear-filters": "پاک کردن پالایه‌ها",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|نتیجه}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|واژه}})",
 	"mediasearch-did-you-mean": "منظورتان $1 بود؟",
