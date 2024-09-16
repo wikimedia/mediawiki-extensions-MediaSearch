@@ -1,4 +1,5 @@
-/* eslint-env node, es6 */
+'use strict';
+
 module.exports = function ( grunt ) {
 	const conf = grunt.file.readJSON( 'extension.json' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
@@ -8,12 +9,11 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				extensions: [ '.js', '.json', '.vue' ],
 				cache: true,
 				fix: grunt.option( 'fix' )
 			},
 			all: [
-				'**/*.{js,json,vue}',
+				'.',
 				'!{vendor,node_modules,coverage,tests/jest/fixtures}/**',
 				'!jest.config.js',
 				'!jest.setup.js'

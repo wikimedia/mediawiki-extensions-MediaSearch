@@ -1,0 +1,37 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client-es6",
+		"wikimedia/mediawiki",
+		"wikimedia/jquery"
+	],
+	"rules": {
+		"max-len": "off",
+		"no-jquery/variable-pattern": "off",
+		"no-jquery/no-event-shorthand": "off",
+		"vue/no-undef-properties": "off",
+		"vue/no-unused-refs": "off",
+		"no-var": "off",
+		"implicit-arrow-linebreak": "warn",
+		"no-mixed-spaces-and-tabs": "warn"
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/*.js",
+				"**/*.vue"
+			],
+			"rules": {
+				"max-len": [
+					"warn",
+					{
+						"code": 110,
+						"ignoreComments": true,
+						"ignoreStrings": true,
+						"ignoreTemplateLiterals": true
+					}
+				]
+			}
+		}
+	]
+}
