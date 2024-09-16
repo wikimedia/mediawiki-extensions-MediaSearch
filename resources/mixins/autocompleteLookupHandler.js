@@ -123,10 +123,10 @@ module.exports = exports = {
 			// First, get results for the entire search input.
 			inputPromise = this.getLookupRequestForTerm( input );
 			promises.push(
-				inputPromise.then( ( response ) => response.search.map( ( result ) =>
-				// Get search term that matched (could be label or alias or...)
-						 result.match.text
-					 ) ).promise( { abort: inputPromise.abort } )
+				inputPromise.then( ( response ) => response.search.map(
+					// Get search term that matched (could be label or alias or...)
+					( result ) => result.match.text
+				) ).promise( { abort: inputPromise.abort } )
 			);
 
 			// Next, if there's more than 1 word, get results for just the last
@@ -137,10 +137,10 @@ module.exports = exports = {
 			if ( lastWord && lastWord[ 0 ] && input !== lastWord[ 0 ] ) {
 				lastWordPromise = this.getLookupRequestForTerm( lastWord[ 0 ] );
 				promises.push(
-					lastWordPromise.then( ( response ) => response.search.map( ( result ) =>
-					// Add search term to rest of the input.
-							 input.replace( lastWordRegex, result.match.text )
-						 ) ).promise( { abort: lastWordPromise.abort } )
+					lastWordPromise.then( ( response ) => response.search.map(
+						// Add search term to rest of the input.
+						( result ) => input.replace( lastWordRegex, result.match.text )
+					) ).promise( { abort: lastWordPromise.abort } )
 				);
 			}
 

@@ -403,12 +403,12 @@ module.exports = exports = {
 						return $.Deferred().resolve().promise();
 					}
 
-					return image.decode().then( null, () =>
+					return image.decode().then( null,
 						// turn rejected promises into successful resolves, so that below
 						// $.when can act as `allSettled` (it otherwise short-circuits as
 						// as soon as one of the promises fails)
-						 $.Deferred().resolve().promise()
-					 );
+						() => $.Deferred().resolve().promise()
+					);
 				} );
 
 			// When above image-loading has completed, we're allowed to proceed & swap out
