@@ -264,8 +264,6 @@ module.exports = exports = {
 		 * @return {void}
 		 */
 		onEnter: function () {
-			var value;
-
 			// If the menu is hidden, show it.
 			if ( !this.showMenu ) {
 				this.toggleMenu( true );
@@ -285,7 +283,7 @@ module.exports = exports = {
 			//   the menu is reopened
 			// - Emit the selected item to the parent
 			// - Hide the menu
-			value = this.items[ this.activeItemIndex ].value;
+			const value = this.items[ this.activeItemIndex ].value;
 			this.selectedItemIndex = this.activeItemIndex;
 			this.$emit( 'select', value );
 			this.toggleMenu( false );
@@ -313,7 +311,7 @@ module.exports = exports = {
 		 * if activeItem is -1 go to second item (this is because we pre-select the first item )
 		 */
 		onArrowDown: function () {
-			var index = this.activeItemIndex,
+			const index = this.activeItemIndex,
 				isNotLastItem = this.itemsLength > index + 1,
 				isUnselectedMenu = index === -1;
 
@@ -331,7 +329,7 @@ module.exports = exports = {
 		 * the last item.
 		 */
 		onArrowUp: function () {
-			var index = this.activeItemIndex;
+			const index = this.activeItemIndex;
 			// Do nothing if there is no active item yet.
 			if ( index > -1 ) {
 				this.activeItemIndex = index === 0 ? this.itemsLength - 1 : index - 1;
@@ -371,9 +369,7 @@ module.exports = exports = {
 		 */
 		// eslint-disable-next-line vue/no-unused-properties
 		select: function ( selection ) {
-			var selectionIndex;
-
-			selectionIndex = this.items.findIndex( ( item ) => item.value === selection );
+			const selectionIndex = this.items.findIndex( ( item ) => item.value === selection );
 
 			if ( selectionIndex && selectionIndex >= 0 ) {
 				this.selectedItemIndex = selectionIndex;

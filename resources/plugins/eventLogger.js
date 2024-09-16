@@ -5,7 +5,7 @@
 
 module.exports = {
 	install: function ( app, options ) {
-		var stream = options.stream,
+		const stream = options.stream,
 			schema = options.schema,
 			token = mw.user.getPageviewToken();
 

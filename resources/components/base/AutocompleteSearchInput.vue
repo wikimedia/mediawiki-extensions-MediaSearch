@@ -320,7 +320,7 @@ module.exports = exports = {
 		 * first item.
 		 */
 		onArrowDown: function () {
-			var index = this.activeLookupItemIndex;
+			const index = this.activeLookupItemIndex;
 			if ( this.hasLookupResults ) {
 				this.activeLookupItemIndex =
 					this.lookupResults.length > index + 1 ? index + 1 : 0;
@@ -332,7 +332,7 @@ module.exports = exports = {
 		 * the last item.
 		 */
 		onArrowUp: function () {
-			var index = this.activeLookupItemIndex;
+			const index = this.activeLookupItemIndex;
 			if ( this.hasLookupResults && index > -1 ) {
 				this.activeLookupItemIndex =
 					index === 0 ? this.lookupResults.length - 1 : index - 1;

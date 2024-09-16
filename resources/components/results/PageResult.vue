@@ -60,7 +60,7 @@
  *
  * v-html use: snippet comes from trusted API/parser content.
  */
-var searchResult = require( '../../mixins/searchResult.js' ),
+const searchResult = require( '../../mixins/searchResult.js' ),
 	userLanguage = mw.config.get( 'wgUserLanguage' );
 
 // @vue/component
@@ -112,7 +112,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		namespacePrefix: function () {
-			var title = mw.Title.newFromText( this.title );
+			const title = mw.Title.newFromText( this.title );
 
 			if ( !title ) {
 				return null;
@@ -145,11 +145,10 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		lastEdited: function () {
-			var date = new Date( this.timestamp ),
-				timeString,
-				dateString;
+			const date = new Date( this.timestamp );
 
 			if ( date instanceof Date ) {
+				let timeString, dateString;
 				// Some browsers may not support UTC timezone.
 				// If not, simply display nothing.
 				try {

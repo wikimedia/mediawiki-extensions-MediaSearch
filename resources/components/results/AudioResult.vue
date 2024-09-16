@@ -41,7 +41,7 @@
  * Audio-specific search result layout. Implements the general searchResult
  * mixin as well as the "time-based" result mixin.
  */
-var searchResult = require( '../../mixins/searchResult.js' ),
+const searchResult = require( '../../mixins/searchResult.js' ),
 	searchResultTimeBased = require( '../../mixins/searchResultTimeBased.js' );
 
 const { CdxIcon } = require( '@wikimedia/codex' );

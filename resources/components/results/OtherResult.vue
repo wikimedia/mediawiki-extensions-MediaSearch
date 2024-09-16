@@ -43,14 +43,14 @@
 </template>
 
 <script>
-var SdImage = require( './../base/Image.vue' );
+const SdImage = require( './../base/Image.vue' );
 
 /**
  * @file OtherResult.vue
  *
  * Represents mediatypes other than image, audio, and video.
  */
-var searchResult = require( '../../mixins/searchResult.js' );
+const searchResult = require( '../../mixins/searchResult.js' );
 
 // @vue/component
 module.exports = exports = {
@@ -71,7 +71,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		extension: function () {
-			var title = mw.Title.newFromText( this.title );
+			const title = mw.Title.newFromText( this.title );
 			if ( title && title.getExtension() ) {
 				return title.getExtension().toUpperCase();
 			} else {
@@ -83,7 +83,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		resolution: function () {
-			var width = this.imageinfo[ 0 ].width,
+			const width = this.imageinfo[ 0 ].width,
 				height = this.imageinfo[ 0 ].height;
 
 			if ( width && height ) {
@@ -127,7 +127,7 @@ module.exports = exports = {
 		 * @return {Object} style object with width and height properties
 		 */
 		style: function () {
-			var desiredWidth = 120;
+			const desiredWidth = 120;
 
 			return {
 				width: desiredWidth + 'px',

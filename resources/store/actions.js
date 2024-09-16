@@ -33,7 +33,7 @@ const getMediaFilters = function ( mediaType, filterValues ) {
 	}
 
 	function addFilter( filter ) {
-		var value = filter in filterValues ? filterValues[ filter ] : null;
+		const value = filter in filterValues ? filterValues[ filter ] : null;
 		if ( value && filter !== 'assessment' ) {
 			return ' ' + filter + ':' + value;
 		}
@@ -61,7 +61,7 @@ const getMediaFilters = function ( mediaType, filterValues ) {
  * @return {string} string containing *only* the suggested new query, no keywords
  */
 const extractSuggestedTerm = function ( suggestion, filters, assessment ) {
-	var filteredSuggestion = suggestion;
+	let filteredSuggestion = suggestion;
 
 	if ( filters ) {
 		filteredSuggestion = filteredSuggestion.slice( filters.length ).trim();
@@ -102,7 +102,7 @@ const searchCurrentTermAndType = function ( context ) {
 	}
 
 	// common request params for all requests
-	var params = {
+	const params = {
 			format: 'json',
 			uselang: mw.config.get( 'wgUserLanguage' ),
 			action: 'query',
@@ -116,13 +116,9 @@ const searchCurrentTermAndType = function ( context ) {
 			inprop: 'url'
 		},
 		namespaceGroups = mw.config.get( 'sdmsNamespaceGroups' ),
-		namespaceFilter,
-		namespaces,
-		filters,
-		urlWidth,
-		request,
-		statement,
 		filterValues = context.state.filterValues[ context.getters.currentType ] || {};
+
+	let filters, statement;
 
 	// If a search request is already in-flight, abort it
 	if ( activeSearchRequest && activeSearchRequest.abort ) {
@@ -138,10 +134,10 @@ const searchCurrentTermAndType = function ( context ) {
 
 	if ( context.getters.currentType === 'page' ) {
 		// Page/category-specific params.
-		namespaceFilter = filterValues.namespace;
+		const namespaceFilter = filterValues.namespace;
 
 		// Default to all namespaces.
-		namespaces = Object.keys( namespaceGroups.all ).join( '|' );
+		let namespaces = Object.keys( namespaceGroups.all ).join( '|' );
 
 		if ( namespaceFilter ) {
 			// If the namespace filter value is one of the pre-defined
@@ -157,11 +153,11 @@ const searchCurrentTermAndType = function ( context ) {
 		// Params used in all non-page/category searches.
 		// 1. Special handling for assessment filter
 		if ( filterValues.assessment ) {
-			var assessmentValue = filterValues.assessment;
-			var assessmentStatements = searchOptions[ context.getters.currentType ]
+			const assessmentValue = filterValues.assessment;
+			const assessmentStatements = searchOptions[ context.getters.currentType ]
 				.assessment.data.statementData;
 
-			var assessment = assessmentStatements.find( ( i ) => i.value === assessmentValue );
+			const assessment = assessmentStatements.find( ( i ) => i.value === assessmentValue );
 
 			if ( assessment ) {
 				statement = assessment.statement;
@@ -173,6 +169,7 @@ const searchCurrentTermAndType = function ( context ) {
 		if ( filters ) {
 			params.gsrsearch = filters + ' ' + params.gsrsearch;
 		}
+		let urlWidth;
 		switch ( context.getters.currentType ) {
 			case 'video':
 				urlWidth = 200;
@@ -218,7 +215,7 @@ const searchCurrentTermAndType = function ( context ) {
 		pending: true
 	} );
 
-	request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
+	const request = getLocationAgnosticMwApi( externalSearchUri, { anonymous: true } ).get( params );
 
 	request.promise( {
 		abort: function () {
@@ -229,19 +226,18 @@ const searchCurrentTermAndType = function ( context ) {
 	activeSearchRequest = request;
 
 	return request.then( ( response ) => {
-		var existingTitles = context.state.results[ context.getters.currentType ].map( ( result ) => result.title ),
-			results, titles, sortedResults;
+		const existingTitles = context.state.results[ context.getters.currentType ].map( ( result ) => result.title );
 
 		if ( response.query && response.query.pages ) {
-			results = response.query.pages;
-			titles = Object.keys( results );
+			const results = response.query.pages;
+			const titles = Object.keys( results );
 
 			// Sort the results within each batch prior to committing them
 			// to the store. Also, ensure that there is no duplication of
 			// results between batches (see https://phabricator.wikimedia.org/T272923);
 			// if a new result's title already exists in the set of
 			// previously-loaded results, filter it out.
-			sortedResults = titles
+			const sortedResults = titles
 				.map( ( id ) => results[ id ] )
 				.filter( ( result ) => existingTitles.indexOf( result.title ) < 0 )
 				.sort( ( a, b ) => a.index - b.index );
@@ -283,7 +279,7 @@ const searchCurrentTermAndType = function ( context ) {
 		context.commit( 'setPending', { type: context.getters.currentType, pending: false } );
 	} ).catch( ( errorCode, details ) => {
 		// Set pending to false and clear the stashed request
-		var pendingType;
+		let pendingType;
 		activeSearchRequest = null;
 
 		Object.keys( context.state.pending ).forEach( ( type ) => {
@@ -379,7 +375,7 @@ module.exports = {
 			// If more results are available but another request is
 			// currently in-flight, attempt to make the request again
 			// after some time has passed
-			var deferred = $.Deferred();
+			const deferred = $.Deferred();
 			window.setTimeout(
 				() => {
 					context.dispatch( 'searchMore' )
@@ -401,7 +397,7 @@ module.exports = {
 	 * @return {jQuery.Deferred}
 	 */
 	fetchDetails: function ( context, options ) {
-		var userLanguage = mw.config.get( 'wgUserLanguage' ),
+		const userLanguage = mw.config.get( 'wgUserLanguage' ),
 			params = {
 				format: 'json',
 				uselang: userLanguage,
@@ -457,11 +453,11 @@ module.exports = {
 	 * @param {Object} context
 	 */
 	updateSpecialSearch: function ( context ) {
-		var specialSearch = document.getElementById( 'mediasearch-switch-special-search' );
+		const specialSearch = document.getElementById( 'mediasearch-switch-special-search' );
 		if ( !specialSearch ) {
 			return;
 		}
-		var uri = new mw.Uri( specialSearch.href );
+		const uri = new mw.Uri( specialSearch.href );
 		uri.extend( { search: context.state.uriQuery.search } );
 		specialSearch.href = uri;
 	},
@@ -476,7 +472,7 @@ module.exports = {
 		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
 		// object ourselves, using JSON.parse( JSON.stringify() ) to convert the Proxy to Object.
 		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
-		var queryString = '?' + mwUri.getQueryString();
+		const queryString = '?' + mwUri.getQueryString();
 		window.history.pushState( mwUri.query, null, queryString );
 		context.dispatch( 'updateSpecialSearch' );
 	},
@@ -491,7 +487,7 @@ module.exports = {
 		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
 		// object ourselves, using JSON.parse( JSON.stringify() ) to convert the Proxy to Object.
 		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
-		var queryString = '?' + mwUri.getQueryString();
+		const queryString = '?' + mwUri.getQueryString();
 		window.history.replaceState( mwUri.query, null, queryString );
 		context.dispatch( 'updateSpecialSearch' );
 	},
@@ -526,7 +522,7 @@ module.exports = {
 	 * @param {Object} context
 	 */
 	syncActiveTypeAndQueryType: function ( context ) {
-		var activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
+		const activeType = mw.config.get( 'sdmsInitialSearchResults' ).activeType;
 
 		if ( context.state.uriQuery.type !== activeType ) {
 			context.commit( 'setCurrentType', activeType );

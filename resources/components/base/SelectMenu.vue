@@ -123,7 +123,7 @@ module.exports = exports = {
 		 */
 		isActiveItem: function ( index ) {
 			// If activeItemIndex is unset (-1), we select the first item of the list.
-			var activeItem = this.activeItemIndex === -1 ? 0 : this.activeItemIndex;
+			const activeItem = this.activeItemIndex === -1 ? 0 : this.activeItemIndex;
 			return index === activeItem;
 		},
 
@@ -135,7 +135,7 @@ module.exports = exports = {
 		 */
 		isSelectedItem: function ( index ) {
 			// If selectedItem is unset (-1), we select the first item of the list.
-			var itemToSelect = this.selectedItemIndex === -1 ? 0 : this.selectedItemIndex;
+			const itemToSelect = this.selectedItemIndex === -1 ? 0 : this.selectedItemIndex;
 			return index === itemToSelect;
 		},
 
@@ -156,7 +156,7 @@ module.exports = exports = {
 		 * @return {Array} Array of objects with label and value keys
 		 */
 		getFormattedItems: function ( items ) {
-			var keys;
+			let keys;
 
 			// Handle array of strings.
 			if (

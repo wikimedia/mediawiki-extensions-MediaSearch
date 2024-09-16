@@ -18,7 +18,7 @@
  * - hide: Triggered when the element is not intersecting anymore
  * - change: Triggered everytime there is a change in the intersecting
  */
-var observer = require( './mixins/observer.js' );
+const observer = require( './mixins/observer.js' );
 
 // @vue/component
 module.exports = exports = {

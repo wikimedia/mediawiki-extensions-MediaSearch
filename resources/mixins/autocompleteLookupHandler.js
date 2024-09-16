@@ -48,9 +48,7 @@ module.exports = exports = {
 		 * @param {string} input
 		 */
 		getLookupResults: function ( input ) {
-			var trimmedInput = input.trim(),
-				words,
-				inputRegex;
+			const trimmedInput = input.trim();
 
 			// If this is an empty string or just whitespace, bail early.
 			if ( trimmedInput.length === 0 ) {
@@ -58,6 +56,7 @@ module.exports = exports = {
 				return;
 			}
 
+			let words, inputRegex;
 			try {
 				// below could be a regex literal, but eslint fails to parse the `u` flag...
 				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
@@ -99,11 +98,8 @@ module.exports = exports = {
 		 * @return {Array}
 		 */
 		doLookupRequest: function ( input ) {
-			var lastWordRegex,
-				lastWord,
-				inputPromise,
-				promises = [],
-				lastWordPromise;
+			const promises = [];
+			let lastWordRegex, lastWord;
 
 			try {
 				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
@@ -121,7 +117,7 @@ module.exports = exports = {
 			}
 
 			// First, get results for the entire search input.
-			inputPromise = this.getLookupRequestForTerm( input );
+			const inputPromise = this.getLookupRequestForTerm( input );
 			promises.push(
 				inputPromise.then( ( response ) => response.search.map(
 					// Get search term that matched (could be label or alias or...)
@@ -135,7 +131,7 @@ module.exports = exports = {
 			// e.g. when the second word is more specific or meaningful than the
 			// first.
 			if ( lastWord && lastWord[ 0 ] && input !== lastWord[ 0 ] ) {
-				lastWordPromise = this.getLookupRequestForTerm( lastWord[ 0 ] );
+				const lastWordPromise = this.getLookupRequestForTerm( lastWord[ 0 ] );
 				promises.push(
 					lastWordPromise.then( ( response ) => response.search.map(
 						// Add search term to rest of the input.
@@ -166,7 +162,7 @@ module.exports = exports = {
 		 * @return {jQuery.promise}
 		 */
 		getLookupRequestForTerm: function ( term ) {
-			var api = getLocationAgnosticMwApi( apiUri, { anonymous: true } );
+			const api = getLocationAgnosticMwApi( apiUri, { anonymous: true } );
 
 			if ( this.lookupDisabled ) {
 				return $.Deferred().resolve( { search: [] } ).promise( { abort: function () {} } );
@@ -195,7 +191,7 @@ module.exports = exports = {
 			return lookupResults
 				.map( ( result ) => {
 					// Only suggest completion for the word currently being typed.
-					var match = result.match( inputRegex );
+					const match = result.match( inputRegex );
 					return match.length > 0 ? match[ 0 ] : '';
 				} )
 				// Filter for unique values.

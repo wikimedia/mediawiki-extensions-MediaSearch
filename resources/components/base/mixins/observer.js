@@ -66,7 +66,7 @@ module.exports = {
 		intersectionCallback: function ( entries ) {
 			// An array of entries will be passed to the callback,
 			// but we only care about the first element
-			var entry = entries[ 0 ];
+			const entry = entries[ 0 ];
 
 			if ( entry && entry.isIntersecting ) {
 				this.$emit( 'intersect' );
@@ -96,7 +96,7 @@ module.exports = {
 		);
 		this.$nextTick(
 			() => {
-				var intersectElement = this.defineObserverElement( this.observerElement );
+				const intersectElement = this.defineObserverElement( this.observerElement );
 				this.observer.observe( intersectElement );
 			}
 		);

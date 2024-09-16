@@ -88,9 +88,9 @@ module.exports = exports = {
 		 * handle this ourselves if necessary.
 		 */
 		restorePageStateIfNecessary: function () {
-			var isBackNavigating = false,
+			const perf = window.performance;
+			let isBackNavigating = false,
 				hasStashedData = false,
-				perf = window.performance,
 				navigationEntry;
 
 			if ( perf && perf.getEntriesByType ) {

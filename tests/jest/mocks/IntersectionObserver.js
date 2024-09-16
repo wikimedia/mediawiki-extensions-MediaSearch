@@ -1,5 +1,5 @@
 /* eslint-disable compat/compat */
-var IntersectionObserverSpies = {
+const IntersectionObserverSpies = {
 	observe: jest.fn(),
 	unobserve: jest.fn(),
 	disconnect: jest.fn()

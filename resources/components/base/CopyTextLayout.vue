@@ -92,10 +92,8 @@ module.exports = exports = {
 		 * Try to copy text to the user's clipboard and inform them of results.
 		 */
 		handleCopyText: function () {
-			var textarea = document.createElement( 'textarea' ),
-				range = document.createRange(),
-				selection,
-				copied;
+			const textarea = document.createElement( 'textarea' ),
+				range = document.createRange();
 
 			// Set the value of the textarea to our copytext.
 			textarea.textContent = this.copyText;
@@ -115,7 +113,7 @@ module.exports = exports = {
 			// In most modern browsers we could just do textarea.select(), but
 			// iOS versions below 14 don't implement this.
 			range.selectNodeContents( textarea );
-			selection = window.getSelection();
+			const selection = window.getSelection();
 			selection.removeAllRanges();
 			selection.addRange( range );
 			// Set this to a huge number to make sure we're getting the entire
@@ -126,6 +124,7 @@ module.exports = exports = {
 			textarea.contentEditable = false;
 
 			// Try to copy the text.
+			let copied;
 			try {
 				copied = document.execCommand( 'copy' );
 			} catch ( e ) {

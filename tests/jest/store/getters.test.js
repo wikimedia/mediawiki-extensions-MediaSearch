@@ -7,12 +7,12 @@
 
 'use strict';
 
-var getters = require( '../../../resources/store/getters.js' );
+const getters = require( '../../../resources/store/getters.js' );
 
 describe( 'Vuex root getters', () => {
 	describe( 'checkForMore', () => {
 		it( 'return false for a specific mediaType if continue value if null', () => {
-			var mockedState = {
+			const mockedState = {
 				continue: {
 					image: null
 				}
@@ -21,7 +21,7 @@ describe( 'Vuex root getters', () => {
 			expect( getters.checkForMore( mockedState ).image ).toEqual( false );
 		} );
 		it( 'return true for a specific mediaType if continue value if undefined', () => {
-			var mockedState = {
+			const mockedState = {
 				continue: {
 					image: null,
 					video: undefined
@@ -31,7 +31,7 @@ describe( 'Vuex root getters', () => {
 			expect( getters.checkForMore( mockedState ).video ).toEqual( true );
 		} );
 		it( 'return true for a specific mediaType if continue value if not undefined', () => {
-			var mockedState = {
+			const mockedState = {
 				continue: {
 					image: null
 				}
@@ -42,7 +42,7 @@ describe( 'Vuex root getters', () => {
 	} );
 	describe( 'allActiveFilters', () => {
 		it( 'return stringified value of filter values', () => {
-			var mockedState = {
+			const mockedState = {
 				filterValues: {
 					dummy: 'dummy'
 				}
@@ -55,7 +55,7 @@ describe( 'Vuex root getters', () => {
 	} );
 	describe( 'allActiveDetails', () => {
 		it( 'return stringified value of details values', () => {
-			var mockedState = {
+			const mockedState = {
 				details: {
 					dummy: 'dummy'
 				}
@@ -68,7 +68,7 @@ describe( 'Vuex root getters', () => {
 	} );
 	describe( 'currentSearchTerm', () => {
 		it( 'Returns empty string if search value is not set', () => {
-			var mockedState = {
+			const mockedState = {
 				uriQuery: {}
 			};
 
@@ -76,7 +76,7 @@ describe( 'Vuex root getters', () => {
 		} );
 
 		it( 'Returns last item as current search term if search is array', () => {
-			var mockedState = {
+			const mockedState = {
 				uriQuery: {
 					search: [ 'cat', 'cat' ]
 				}
@@ -86,7 +86,7 @@ describe( 'Vuex root getters', () => {
 		} );
 
 		it( 'Returns string for current search term if search is string', () => {
-			var mockedState = {
+			const mockedState = {
 				uriQuery: {
 					search: 'cat'
 				}
@@ -98,7 +98,7 @@ describe( 'Vuex root getters', () => {
 
 	describe( 'currentType', () => {
 		it( 'returns uriQuery.type if available', () => {
-			var mockedState = {
+			const mockedState = {
 				uriQuery: {
 					type: 'image'
 				},
@@ -111,7 +111,7 @@ describe( 'Vuex root getters', () => {
 		} );
 
 		it( 'returns first mediatype if uriQuery.type is not available', () => {
-			var mockedState = {
+			const mockedState = {
 				uriQuery: { },
 				results: {
 					firstMedia: [],
@@ -124,7 +124,7 @@ describe( 'Vuex root getters', () => {
 
 	describe( 'allResultsEmpty', () => {
 		it( 'returns true if results are all empty', () => {
-			var mockedState = {
+			const mockedState = {
 				results: {
 					firstMedia: [],
 					secondMedia: []
@@ -134,7 +134,7 @@ describe( 'Vuex root getters', () => {
 		} );
 
 		it( 'returns false if any of the result is not empty', () => {
-			var mockedState = {
+			const mockedState = {
 				results: {
 					firstMedia: [],
 					secondMedia: [ 'dummy' ]

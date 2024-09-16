@@ -26,7 +26,7 @@
  * Image-specific search result layout. Implements the general searchResult
  * mixin and includes some custom computed properties.
  */
-var searchResult = require( '../../mixins/searchResult.js' ),
+const searchResult = require( '../../mixins/searchResult.js' ),
 	SdImage = require( './../base/Image.vue' );
 
 // @vue/component
@@ -97,7 +97,7 @@ module.exports = exports = {
 		 * @return {Object}
 		 */
 		style: function () {
-			var width = this.thumbwidth;
+			let width = this.thumbwidth;
 
 			// For images with height < 180px, use the actual thumbwidth, to
 			// avoid displaying a large gray background with a small image

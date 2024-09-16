@@ -1,7 +1,7 @@
 'use strict';
 
 ( function () {
-	var Vue = require( 'vue' ),
+	const Vue = require( 'vue' ),
 		App = require( './components/App.vue' ),
 		logger = require( './plugins/eventLogger.js' ),
 		store = require( './store/index.js' ),
@@ -11,7 +11,7 @@
 	// eslint-disable-next-line no-jquery/no-global-selector
 	$( '#mw-content-text' ).append( $container.hide() );
 
-	var vueApp = Vue.createMwApp( App )
+	const vueApp = Vue.createMwApp( App )
 		.use( store )
 		.use( logger, {
 			stream: 'mediawiki.mediasearch_interaction',

@@ -28,12 +28,12 @@ module.exports = {
 	},
 
 	currentType: function ( state ) {
-		var firstMediaType = Object.keys( state.results )[ 0 ];
+		const firstMediaType = Object.keys( state.results )[ 0 ];
 		return state.uriQuery.type || firstMediaType;
 	},
 
 	currentSearchTerm: function ( state ) {
-		var currentSearch = state.uriQuery.search || '';
+		const currentSearch = state.uriQuery.search || '';
 		if ( Array.isArray( currentSearch ) ) {
 			return currentSearch[ currentSearch.length - 1 ];
 		}
@@ -42,7 +42,7 @@ module.exports = {
 	},
 
 	allResultsEmpty: function ( state ) {
-		var isEmpty = true;
+		let isEmpty = true;
 
 		Object.keys( state.results ).forEach( ( mediaType ) => {
 			if ( state.results[ mediaType ].length !== 0 ) {

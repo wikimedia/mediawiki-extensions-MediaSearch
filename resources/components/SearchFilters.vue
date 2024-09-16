@@ -73,7 +73,7 @@
  * updated with the new filter value, and a new-search event is emitted so the
  * parent App component can dispatch the search action.
  */
-var mapState = require( 'vuex' ).mapState,
+const mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
 	SdSelect = require( './base/Select.vue' ),
 	NamespaceFilterDialog = require( './NamespaceFilterDialog.vue' ),
@@ -150,7 +150,7 @@ module.exports = exports = {
 		 * @return {Object}
 		 */
 		namespaceFilterClasses: function () {
-			var selected = ( 'namespace' in this.filterValues[ this.mediaType ] );
+			const selected = ( 'namespace' in this.filterValues[ this.mediaType ] );
 			return {
 				'sdms-search-filters__namespace--selected': selected
 			};
@@ -160,11 +160,11 @@ module.exports = exports = {
 		 * @return {Array} SearchFilter objects for this media type.
 		 */
 		searchFilters: function () {
-			var optionsForType = searchOptions[ this.mediaType ],
+			const optionsForType = searchOptions[ this.mediaType ],
 				filters = [];
 
 			Object.keys( optionsForType ).forEach( ( filterName ) => {
-				var filterData = optionsForType[ filterName ],
+				const filterData = optionsForType[ filterName ],
 					filter = new SearchFilter(
 						filterName,
 						filterData.items,
@@ -213,9 +213,8 @@ module.exports = exports = {
 		 * @return {Object}
 		 */
 		namespaceFilterLabel: function () {
-			var namespaceGroups = this.namespaceFilter.data.namespaceGroups,
-				messageKey,
-				filterValue = 'all';
+			const namespaceGroups = this.namespaceFilter.data.namespaceGroups;
+			let filterValue = 'all';
 
 			// If there is a namespace filter value...
 			if ( 'namespace' in this.filterValues[ this.mediaType ] ) {
@@ -226,7 +225,7 @@ module.exports = exports = {
 					this.filterValues[ this.mediaType ].namespace : 'custom';
 			}
 
-			messageKey = 'mediasearch-filter-namespace-' + filterValue;
+			const messageKey = 'mediasearch-filter-namespace-' + filterValue;
 
 			// Return the label message, which takes the filter value as a
 			// param and will return something like "Namespace: Discussion".
@@ -276,7 +275,7 @@ module.exports = exports = {
 		 * @fires filter-change
 		 */
 		onSelect: function ( value, filterType ) {
-			var oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
+			const oldValue = this.filterValues[ this.mediaType ][ filterType ] || '',
 				currentFilter = this.searchFilters.find( ( filter ) => filter.type === filterType );
 
 			// for logging purposes, we only want a simple string value
@@ -405,7 +404,7 @@ module.exports = exports = {
 		 */
 		synchronizeFilters: function () {
 			this.searchFilters.forEach( ( filter ) => {
-				var currentValue = this.filterValues[ this.mediaType ][ filter.type ],
+				const currentValue = this.filterValues[ this.mediaType ][ filter.type ],
 					ref = this.getRef( filter );
 
 				if ( currentValue ) {

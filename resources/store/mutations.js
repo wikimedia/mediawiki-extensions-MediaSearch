@@ -42,7 +42,7 @@ module.exports = {
 	 * @param {string} mediaType image, audio, etc
 	 */
 	resetResults: function ( state, mediaType ) {
-		var types = Object.keys( state.results );
+		const types = Object.keys( state.results );
 
 		if ( mediaType ) {
 			// Reset results for only a single result type if the second arg is
@@ -146,10 +146,10 @@ module.exports = {
 	 * @param {Object} state
 	 */
 	resetFilters: function ( state ) {
-		var mediaTypes = Object.keys( state.filterValues );
+		const mediaTypes = Object.keys( state.filterValues );
 
 		mediaTypes.forEach( ( mediaType ) => {
-			var activeFiltersForMediaType = Object.keys( state.filterValues[ mediaType ] );
+			const activeFiltersForMediaType = Object.keys( state.filterValues[ mediaType ] );
 
 			activeFiltersForMediaType.forEach( ( filterType ) => {
 				delete state.filterValues[ mediaType ][ filterType ];
@@ -190,7 +190,7 @@ module.exports = {
 	 * @param {Object} state
 	 */
 	stashPageState: function ( state ) {
-		var stash = {
+		const stash = {
 			results: state.results,
 			continue: state.continue,
 			totalHits: state.totalHits,
@@ -208,7 +208,7 @@ module.exports = {
 	 * @param {Object} state
 	 */
 	restorePageState: function ( state ) {
-		var stash = mw.storage.getObject( STORAGE_KEY ),
+		const stash = mw.storage.getObject( STORAGE_KEY ),
 			props = [ 'results', 'continue', 'totalHits', 'details', 'filterValues' ];
 
 		// Restore previously stored state for results, continue, totalHits, and
@@ -265,7 +265,7 @@ module.exports = {
 	 * @param {Object} newType
 	 */
 	setCurrentType: function ( state, newType ) {
-		var allowedTypes = Object.keys( state.results );
+		const allowedTypes = Object.keys( state.results );
 
 		if ( allowedTypes.indexOf( newType ) !== -1 ) {
 			state.uriQuery.type = newType;
@@ -315,7 +315,7 @@ module.exports = {
 	 * @param {string} mediaType
 	 */
 	decreaseAutoloadCounterForMediaType: function ( state, mediaType ) {
-		var currentValue = state.autoloadCounter[ mediaType ];
+		const currentValue = state.autoloadCounter[ mediaType ];
 		if ( currentValue >= 1 ) {
 			state.autoloadCounter[ mediaType ] = currentValue - 1;
 		}

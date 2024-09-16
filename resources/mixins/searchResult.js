@@ -50,10 +50,7 @@ module.exports = {
 		 * @return {string|undefined}
 		 */
 		thumbnail: function () {
-			var commonWidths = mw.config.get( 'sdmsThumbLimits' ),
-				oldWidth,
-				newWidth,
-				i;
+			const commonWidths = mw.config.get( 'sdmsThumbLimits' );
 
 			// Do nothing if we have no imageinfo or thumbnail data.
 			if ( !this.imageinfo || !( 'thumburl' in this.imageinfo[ 0 ] ) ) {
@@ -62,9 +59,9 @@ module.exports = {
 
 			// find the closest (larger) width that is more common, it is (much) more
 			// likely to have a thumbnail cached
-			oldWidth = this.imageinfo[ 0 ].thumbwidth;
-			newWidth = oldWidth;
-			for ( i = 0; i < commonWidths.length; i++ ) {
+			const oldWidth = this.imageinfo[ 0 ].thumbwidth;
+			let newWidth = oldWidth;
+			for ( let i = 0; i < commonWidths.length; i++ ) {
 				if ( commonWidths[ i ] >= oldWidth ) {
 					newWidth = commonWidths[ i ];
 					break;
@@ -91,7 +88,7 @@ module.exports = {
 		 * @return {string|null}
 		 */
 		displayName: function () {
-			var title = mw.Title.newFromText( this.title );
+			const title = mw.Title.newFromText( this.title );
 			return title ? title.getMainText() : null;
 		}
 	},
@@ -138,20 +135,19 @@ module.exports = {
 		 * @return {string} Size to the hundreths place plus units
 		 */
 		formatSize: function ( size ) {
-			var decimalPlace = 1,
-				sizeMsgs = [
-					'size-bytes',
-					'size-kilobytes',
-					'size-megabytes',
-					'size-gigabytes'
-				],
-				sizeDigitsInLanguage;
+			const sizeMsgs = [
+				'size-bytes',
+				'size-kilobytes',
+				'size-megabytes',
+				'size-gigabytes'
+			];
 
 			while ( size >= 1024 && sizeMsgs.length > 1 ) {
 				size /= 1024;
-				sizeMsgs = sizeMsgs.slice( 1 );
+				sizeMsgs.shift();
 			}
 
+			let decimalPlace = 1;
 			// To match what the Language::formatSize method is doing, we'll
 			// only show decimal places for MB and larger.
 			if ( sizeMsgs.length <= 2 ) {
@@ -161,7 +157,7 @@ module.exports = {
 			// Ensure that the rounded numerical digits fed to the size messages
 			// are provided in the appropriate language; Bangle and Farsi must
 			// not use Arabic numbers for example. https://phabricator.wikimedia.org/T274614
-			sizeDigitsInLanguage = mw.language.convertNumber(
+			const sizeDigitsInLanguage = mw.language.convertNumber(
 				Math.round( size * decimalPlace ) / decimalPlace
 			);
 

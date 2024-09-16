@@ -77,7 +77,7 @@
  * request and this component passes an array of string lookup results to the
  * AutocompleteSearchInput for display.
  */
-var MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
+const MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	mapState = require( 'vuex' ).mapState,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapMutations = require( 'vuex' ).mapMutations,
@@ -143,7 +143,7 @@ module.exports = exports = {
 		 * @return {Object} { image: 'Images', video: 'Video', page: 'Categories and Pages'... }
 		 */
 		tabNames: function () {
-			var names = {},
+			const names = {},
 				prefix = 'mediasearch-tab-';
 
 			// Get the i18n message for each tab title and assign to appropriate
@@ -377,9 +377,9 @@ module.exports = exports = {
 
 	mounted: function () {
 		// eslint-disable-next-line no-jquery/no-global-selector
-		var $container = $( '#sdms-app' );
+		const $container = $( '#sdms-app' );
 		this.$nextTick( () => {
-			var readyDeferred = $.Deferred(),
+			const readyDeferred = $.Deferred(),
 				promises = $container.find( 'img' ).get().map( ( image ) => {
 					// We start out with an initial serverside DOM that we'll swap out as
 					// soon as the Vue components are mounted

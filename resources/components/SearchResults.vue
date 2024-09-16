@@ -114,7 +114,7 @@
  * This component can also display a "quickview" preview element for a given
  * result, including some additional data fetched from the API.
  */
-var mapState = require( 'vuex' ).mapState,
+const mapState = require( 'vuex' ).mapState,
 	mapMutations = require( 'vuex' ).mapMutations,
 	mapGetters = require( 'vuex' ).mapGetters,
 	mapActions = require( 'vuex' ).mapActions,
@@ -212,7 +212,7 @@ module.exports = exports = {
 		 * @return {Object} Dynamic classes for the "list" element
 		 */
 		listClasses: function () {
-			var listTypeModifier = 'sdms-search-results__list--' + this.mediaType,
+			const listTypeModifier = 'sdms-search-results__list--' + this.mediaType,
 				classObject = {
 					'sdms-search-results__list--collapsed': !!this.showQuickView && !this.isMobileSkin
 				};
@@ -286,8 +286,6 @@ module.exports = exports = {
 		 * @param {number} index
 		 */
 		showDetails: function ( title, index ) {
-			var detailsTimeout;
-
 			// Immediately open the QuickView aside. If the details haven't been
 			// retrieved yet, a placeholder UI will display.
 			this.showQuickView = true;
@@ -312,7 +310,7 @@ module.exports = exports = {
 			// loading, but only if it takes longer than half a second. That
 			// way, for fast connections, the loading state will be less
 			// noticeable.
-			detailsTimeout = setTimeout( () => {
+			const detailsTimeout = setTimeout( () => {
 				this.clearDetails( { mediaType: this.mediaType } );
 			}, 500 );
 
@@ -320,7 +318,7 @@ module.exports = exports = {
 			this.fetchDetails( { title: title, mediaType: this.mediaType } ).then(
 				( response ) => {
 					clearTimeout( detailsTimeout );
-					var searchedItemDetails;
+					let searchedItemDetails;
 
 					Object.keys( response.query.pages ).forEach(
 						( key ) => {
@@ -368,11 +366,11 @@ module.exports = exports = {
 				return;
 			}
 
-			var originatingResultTitle = this.details[ this.mediaType ].title;
+			const originatingResultTitle = this.details[ this.mediaType ].title;
 
 			if ( restoreFocus ) {
 				// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
-				var result = this.$refs[ originatingResultTitle ][ 0 ] ||
+				const result = this.$refs[ originatingResultTitle ][ 0 ] ||
 					this.$refs[ originatingResultTitle ];
 				result.focus();
 			}
@@ -399,7 +397,7 @@ module.exports = exports = {
 		 * @param {number} addend 1 for next, -1 for previous
 		 */
 		changeQuickViewResult: function ( shouldChangeFocus, addend ) {
-			var tabResults = this.results[ this.mediaType ],
+			const tabResults = this.results[ this.mediaType ],
 				currentItem = tabResults.filter(
 					( result ) => result.title === this.details[ this.mediaType ].title
 				),
@@ -430,7 +428,7 @@ module.exports = exports = {
 		 */
 		scrollIntoViewIfNeeded: function ( title ) {
 			// VUE 3 MIGRATION: these refs are arrays in Vue 2 but not in Vue 3
-			var ref = Array.isArray( this.$refs[ title ] ) ?
+			const ref = Array.isArray( this.$refs[ title ] ) ?
 				this.$refs[ title ][ 0 ] :
 				this.$refs[ title ];
 
@@ -438,7 +436,7 @@ module.exports = exports = {
 				return;
 			}
 
-			var element = ref.$el,
+			const element = ref.$el,
 				bounds = element.getBoundingClientRect(),
 				viewportHeight = window.innerHeight || document.documentElement.clientHeight,
 				isAboveViewport = bounds.top < 0 || bounds.bottom < 0,
@@ -490,8 +488,6 @@ module.exports = exports = {
 		 * Get style attribute for components.
 		 */
 		getResultStyle: function () {
-			var rowWidth, rowItemCount, maxWidth;
-
 			// Do nothing if the app isn't displayed yet, or if this isn't the
 			// video tab.
 			if ( !this.initialized || this.mediaType !== 'video' ) {
@@ -499,7 +495,7 @@ module.exports = exports = {
 			}
 
 			// Get the current width of the search results list.
-			rowWidth = this.$refs.list.offsetWidth;
+			const rowWidth = this.$refs.list.offsetWidth;
 			if ( rowWidth === 0 ) {
 				return;
 			}
@@ -507,7 +503,7 @@ module.exports = exports = {
 			// Divide row width by the min size of a result (flex-basis of 260
 			// plus 16px of horizontal margin) to find the current number of
 			// items per row.
-			rowItemCount = Math.floor( ( rowWidth - 20 ) / 272 );
+			const rowItemCount = Math.floor( ( rowWidth - 20 ) / 272 );
 
 			// If this number is greater than the number of results, set
 			// max-width to the natural max-width in this particular flex layout
@@ -515,6 +511,7 @@ module.exports = exports = {
 			// is also set in the CSS so that the PHP version of these
 			// components aren't too wide, helping to avoid a layout jump when
 			// the JS UI loads.
+			let maxWidth;
 			if ( rowItemCount > this.results[ this.mediaType ].length ) {
 				maxWidth = 401.5;
 			} else {
@@ -566,7 +563,7 @@ module.exports = exports = {
 		},
 
 		allActiveDetails: function ( newVal ) {
-			var currentDetails = JSON.parse( newVal );
+			const currentDetails = JSON.parse( newVal );
 
 			if ( currentDetails[ this.mediaType ] && !this.showQuickView ) {
 				this.showQuickView = true;

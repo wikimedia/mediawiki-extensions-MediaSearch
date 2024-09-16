@@ -6,7 +6,7 @@ module.exports = exports = ( function () {
 	 * @return {string}
 	 */
 	function getHost( url ) {
-		var parser = document.createElement( 'a' );
+		const parser = document.createElement( 'a' );
 
 		// Internet Explorer returns an incomplete host (without port) when the protocol is missing.
 		if ( /^\/\//.test( url ) ) {
@@ -27,7 +27,7 @@ module.exports = exports = ( function () {
 	 * @return {mw.Api}
 	 */
 	return function getLocationAgnosticMwApi( apiEndpoint, options ) {
-		var mwApiOptions = Object.assign( {}, options, { ajax: { url: apiEndpoint } } );
+		const mwApiOptions = Object.assign( {}, options, { ajax: { url: apiEndpoint } } );
 
 		if ( getHost( apiEndpoint ) !== getHost( location.href ) ) {
 			// Use mw.ForeignApi if the api we want to use is on a different domain.

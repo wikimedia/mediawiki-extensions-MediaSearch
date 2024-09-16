@@ -172,7 +172,7 @@
 </template>
 
 <script>
-var SdPlayer = require( './base/Player.vue' ),
+const SdPlayer = require( './base/Player.vue' ),
 	SdCopyTextLayout = require( './base/CopyTextLayout.vue' ),
 	Spinner = require( './Spinner.vue' ),
 	userLangCode = mw.config.get( 'wgUserLanguage' ),
@@ -327,7 +327,7 @@ module.exports = exports = {
 		 * @return {string|boolean}
 		 */
 		srcset: function () {
-			var attributeString = '';
+			let attributeString = '';
 
 			// If the URL produced by parseImageUrl isn't a thumbnail, we won't
 			// be able to use resizeUrl and should just omit the srcset.
@@ -343,7 +343,7 @@ module.exports = exports = {
 				// string to use as the attribute value.
 				PREVIEW_SIZES.forEach(
 					( size ) => {
-						var url = mw.util.parseImageUrl( this.thumbnail ).resizeUrl( size );
+						const url = mw.util.parseImageUrl( this.thumbnail ).resizeUrl( size );
 						attributeString += url + ' ' + size + 'w,\n';
 					}
 				);
@@ -374,7 +374,7 @@ module.exports = exports = {
 		 * @return {string}
 		 */
 		sizes: function () {
-			var attributeString = '';
+			let attributeString = '';
 
 			if ( this.isDialog ) {
 				// For dialog mode, use an image size that matches the width of
@@ -410,7 +410,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		displayName: function () {
-			var title = mw.Title.newFromText( this.title );
+			const title = mw.Title.newFromText( this.title );
 			return title ? title.getMainText() : null;
 		},
 
@@ -418,7 +418,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		displayNameWithoutExtension: function () {
-			var title = mw.Title.newFromText( this.title );
+			const title = mw.Title.newFromText( this.title );
 			return title ? title.getName() : null;
 		},
 
@@ -494,8 +494,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		assessmentList: function () {
-			var assessmentList = [],
-				assessmentValues;
+			const assessmentList = [];
 
 			// If assessemnt labels have been enabled and if the image contains
 			// assessment metadata
@@ -505,7 +504,7 @@ module.exports = exports = {
 				this.metadata.Assessments &&
 				this.metadata.Assessments.value
 			) {
-				assessmentValues = this.metadata.Assessments.value.split( '|' );
+				const assessmentValues = this.metadata.Assessments.value.split( '|' );
 				assessmentValues.forEach( ( assessment ) => {
 					// Messages that can be used here:
 					// * mediasearch-filter-assessment-valued-image
@@ -525,7 +524,7 @@ module.exports = exports = {
 		 * @return {string|null} String that may contain HTML
 		 */
 		creationDate: function () {
-			var dateString = this.metadata &&
+			const dateString = this.metadata &&
 					this.metadata.DateTimeOriginal &&
 					this.metadata.DateTimeOriginal.value || null,
 				// eslint-disable-next-line security/detect-unsafe-regex
@@ -583,7 +582,7 @@ module.exports = exports = {
 		 * @return {string|null}
 		 */
 		resolution: function () {
-			var width = this.imageinfo ? this.imageinfo[ 0 ].width : null,
+			const width = this.imageinfo ? this.imageinfo[ 0 ].width : null,
 				height = this.imageinfo ? this.imageinfo[ 0 ].height : null;
 
 			if ( width && height ) {
@@ -658,15 +657,14 @@ module.exports = exports = {
 		 * height of that image to avoid a layout jump when the image loads.
 		 */
 		getThumbnailWrapperStyle: function () {
-			var imgWidth, imgHeight, elWidth, height;
-
 			if ( !this.imageinfo ) {
 				return;
 			}
 
-			imgWidth = this.imageinfo[ 0 ].width;
-			imgHeight = this.imageinfo[ 0 ].height;
-			elWidth = this.$refs.header.offsetWidth;
+			const imgWidth = this.imageinfo[ 0 ].width;
+			const imgHeight = this.imageinfo[ 0 ].height;
+			const elWidth = this.$refs.header.offsetWidth;
+			let height;
 			if ( imgWidth >= imgHeight ) {
 				// For landscape-oriented images, calculate the height
 				// based on the aspect ratio and the width of the container.

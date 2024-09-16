@@ -10,8 +10,7 @@
 		"no-jquery/variable-pattern": "off",
 		"no-jquery/no-event-shorthand": "off",
 		"vue/no-undef-properties": "off",
-		"vue/no-unused-refs": "off",
-		"no-var": "off"
+		"vue/no-unused-refs": "off"
 	},
 	"overrides": [
 		{
