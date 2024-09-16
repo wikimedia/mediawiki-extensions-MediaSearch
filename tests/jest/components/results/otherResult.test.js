@@ -2,6 +2,7 @@ const VueTestUtils = require( '@vue/test-utils' );
 const OtherResult = require( '../../../../resources/components/results/OtherResult.vue' );
 const SdImage = require( '../../../../resources/components/base/Image.vue' );
 const when = require( 'jest-when' ).when;
+require( '../../mocks/IntersectionObserver.js' );
 
 // grab a random image result from the set
 // Note: results are stored as key/value pairs based on title, not a straight array

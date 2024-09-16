@@ -1,6 +1,5 @@
 <template>
 	<img
-		:src="observerSupported ? null : source"
 		:data-src="source"
 		:alt="alt"
 		class="sd-image"

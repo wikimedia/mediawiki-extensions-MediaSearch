@@ -2,6 +2,7 @@ const Vuex = require( 'vuex' ),
 	{ mount } = require( '@vue/test-utils' ),
 	Component = require( '../../../resources/components/SearchFilters.vue' ),
 	NamespaceFilterDialogComponent = require( '../../../resources/components/NamespaceFilterDialog.vue' );
+require( '../mocks/IntersectionObserver.js' );
 
 const defaultMediaType = 'image';
 const initialState = {

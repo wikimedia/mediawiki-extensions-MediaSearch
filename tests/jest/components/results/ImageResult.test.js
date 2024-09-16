@@ -10,6 +10,7 @@ const sampleResults = require( '../../fixtures/mockImageSearchApiResponse.json' 
 const sampleResultIDs = Object.keys( sampleResults );
 const randomlyChosenResultID = sampleResultIDs[ Math.floor( Math.random() * sampleResultIDs.length ) ];
 const sampleResult = sampleResults[ randomlyChosenResultID ];
+require( '../../mocks/IntersectionObserver.js' );
 
 const thumbLimits = [
 	120, 150, 180, 200,

@@ -1,7 +1,6 @@
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
 const ImageComponent = require( '../../../../resources/components/base/Image.vue' );
-const Observer = require( '../../../../resources/components/base/mixins/observer.js' );
 require( '../../mocks/IntersectionObserver.js' );
 
 // Sample test image props
@@ -44,37 +43,6 @@ describe( 'Image Component', () => {
 		expect( wrapper.attributes().style ).toContain(
 			propsData.originalHeight.toString()
 		);
-
-	} );
-
-	it( 'source is set immediately if observer is not supported', () => {
-		const wrapper = VueTestUtils.shallowMount( ImageComponent, {
-			propsData: samplePropsData
-		} );
-
-		expect( wrapper.attributes().src ).toBe( samplePropsData.source );
-
-	} );
-
-	it( 'source is not set if observer is supported', ( done ) => {
-		const observerInstance = Observer;
-
-		observerInstance.methods.supportsObserverCheck = jest.fn().mockReturnValue( true );
-		observerInstance.methods.defineObserverElement = jest.fn().mockReturnValue( 'mock-element-selector' );
-
-		const wrapper = VueTestUtils.mount( ImageComponent, {
-			propsData: samplePropsData,
-			mixins: [ observerInstance ]
-		} );
-
-		Vue.nextTick().then( () => {
-
-			expect( wrapper.vm.observerSupported ).toBe( true );
-			expect( wrapper.attributes().src ).toBeUndefined();
-
-			done();
-
-		} );
 
 	} );
 
