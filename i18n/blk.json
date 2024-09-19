@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khun Kt"
+			"Khun Kt",
+			"咽頭べさ"
 		]
 	},
 	"mediasearch-filter-size-unset": "ကားကအဝ်ႏ",
+	"mediasearch-filter-size-small": "အပေႏ",
 	"mediasearch-filter-file-type-any": "ဖုဲင်အစွိုးအမျိုꩻ",
 	"mediasearch-filter-file-type-unset": "ကားကအဝ်ႏ",
 	"mediasearch-filter-assessment-unset": "ကားကအဝ်ႏ",
