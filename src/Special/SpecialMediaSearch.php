@@ -28,7 +28,6 @@ use MediaWiki\User\Options\UserOptionsManager;
 use OOUI\Tag;
 use SearchEngine;
 use SearchEngineFactory;
-use Wikimedia\Assert\Assert;
 
 /**
  * Special page specifically for searching multimedia pages.
@@ -457,19 +456,13 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @throws SearchFailedException
 	 */
 	protected function search(
-		$term,
-		$type,
-		$namespaces,
-		$limit = null,
-		$continue = null,
-		$sort = 'relevance'
+		string $term,
+		string $type,
+		array $namespaces,
+		?int $limit = null,
+		?string $continue = null,
+		?string $sort = 'relevance'
 	): array {
-		Assert::parameterType( 'string', $term, '$term' );
-		Assert::parameterType( 'string', $type, '$type' );
-		Assert::parameterType( 'integer|null', $limit, '$limit' );
-		Assert::parameterType( 'string|null', $continue, '$continue' );
-		Assert::parameterType( 'string|null', $sort, '$sort' );
-
 		if ( $term === '' ) {
 			return [ [], [], null ];
 		}
