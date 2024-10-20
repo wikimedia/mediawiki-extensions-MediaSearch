@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\MediaSearch\Special;
 
-use ApiBase;
-use ApiMain;
 use CirrusSearch\Parser\FullTextKeywordRegistry;
 use CirrusSearch\SearchConfig;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Context\DerivativeContext;

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\MediaSearch\Maintenance;
 
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
