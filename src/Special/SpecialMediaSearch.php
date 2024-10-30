@@ -308,8 +308,10 @@ class SpecialMediaSearch extends SpecialPage {
 			'noResultsMessage' => $this->msg( 'mediasearch-no-results' )->text(),
 			'noResultsMessageExtra' => $this->msg( 'mediasearch-no-results-tips' )->text(),
 			'didYouMean' => $didYouMean,
-			// phpcs:ignore Generic.Files.LineLength.TooLong
-			'didYouMeanMessage' => $didYouMean ? $this->msg( 'mediasearch-did-you-mean' )->rawParams( $didYouMeanLink )->parse() : null,
+			'didYouMeanMessage' => $didYouMean
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable $didYouMeanLink set with $didYouMean
+				? $this->msg( 'mediasearch-did-you-mean' )->rawParams( $didYouMeanLink )->parse()
+				: null,
 			'totalHits' => $totalHits,
 			'showResultsCount' => $totalHits > 0,
 			'resultsCount' => $this->msg(
