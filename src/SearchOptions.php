@@ -74,8 +74,8 @@ class SearchOptions {
 	 */
 	public function __construct(
 		MessageLocalizer $context,
-		Config $mainConfig = null,
-		Config $searchConfig = null
+		?Config $mainConfig = null,
+		?Config $searchConfig = null
 	) {
 		$this->context = $context;
 		$this->mainConfig = $mainConfig;
