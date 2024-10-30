@@ -87,10 +87,10 @@ class SpecialMediaSearch extends SpecialPage {
 		UserOptionsManager $userOptionsManager,
 		LinkRenderer $linkRenderer,
 		$name = 'MediaSearch',
-		ApiBase $api = null,
-		TemplateParser $templateParser = null,
-		SearchConfig $searchConfig = null,
-		Config $mainConfig = null
+		?ApiBase $api = null,
+		?TemplateParser $templateParser = null,
+		?SearchConfig $searchConfig = null,
+		?Config $mainConfig = null
 	) {
 		parent::__construct( $name );
 
