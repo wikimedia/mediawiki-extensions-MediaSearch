@@ -90,5 +90,6 @@
 	"mediasearch-filter-file-type": "نوع الملف",
 	"mediasearch-filter-assessment": "تقييم المجتمع",
 	"mediasearch-filter-license": "الرُّخصة",
-	"mediasearch-filter-license-unset": "الكل"
+	"mediasearch-filter-license-unset": "الكل",
+	"mediasearch-dialog-close-button-label": "إغلاق"
 }
