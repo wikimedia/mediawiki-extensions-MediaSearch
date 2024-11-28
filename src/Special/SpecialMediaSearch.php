@@ -6,6 +6,7 @@ use CirrusSearch\Parser\FullTextKeywordRegistry;
 use CirrusSearch\SearchConfig;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Context\DerivativeContext;
@@ -241,6 +242,22 @@ class SpecialMediaSearch extends SpecialPage {
 				'title' => $this->msg( 'mediasearch-error-message' )->text(),
 				'text' => $this->msg( 'mediasearch-error-text' )->text(),
 			];
+		} catch ( ApiUsageException $apiEx ) {
+			// We are executing the API in internal mode which means there's no error
+			// handling for us, ergo, the API would directly throw ApiUsageException
+			// when any non-good status object is returned from the search request.
+			// Here, we catch that exception and turn it into a user error as it would
+			// have been done by ApiMain if the search API request were to come
+			// from a remote client.
+			// See T379293 and its numerous subtasks and their duplicates.
+			$error = [
+				'apiErrorHtml' => $apiEx->getMessageObject()->parse(),
+
+				// These are unused but in case anything is relying
+				// on the keys to be present
+				'title' => $this->msg( 'mediasearch-error-message' )->text(),
+				'text' => $this->msg( 'mediasearch-error-text' )->text(),
+			];
 		}
 
 		$totalSiteImages = $userLanguage->formatNum( SiteStats::images() );
@@ -250,7 +267,8 @@ class SpecialMediaSearch extends SpecialPage {
 		$totalHits = $searchinfo['totalhits'] ?? 0;
 		$didYouMean = null;
 		$didYouMeanLink = null;
-		$currentResultStart = $this->getRequest()->getText( 'continue' ) ?: 0;
+		$currentResultStart = intval( $this->getRequest()->getText( 'continue' ) );
+		$apiErrorMessage = $error['apiErrorHtml'] ?? null;
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
 			try {
@@ -298,6 +316,8 @@ class SpecialMediaSearch extends SpecialPage {
 			'endOfResultsMessage' => $this->msg( 'mediasearch-end-of-results' )->text(),
 			'errorTitle' => $this->msg( 'mediasearch-error-message' )->text(),
 			'errorText' => $this->msg( 'mediasearch-error-text' )->text(),
+			'hasApiError' => $apiErrorMessage !== null,
+			'apiErrorMsgHtml' => $apiErrorMessage,
 			'searchLabel' => $this->msg( 'mediasearch-input-label' )->text(),
 			'searchButton' => $this->msg( 'searchbutton' )->text(),
 			'searchPlaceholder' => $this->msg( 'mediasearch-input-placeholder' )->text(),

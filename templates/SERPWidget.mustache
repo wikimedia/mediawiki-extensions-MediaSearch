@@ -364,7 +364,12 @@
 									<p>
 										{{errorTitle}}
 										<span class="sdms-error__message">
-											{{errorText}}
+											{{#hasApiError}}
+												{{{apiErrorMsgHtml}}}
+											{{/hasApiError}}
+											{{^hasApiError}}
+												{{errorText}}
+											{{/hasApiError}}
 										</span>
 									</p>
 								</div>
