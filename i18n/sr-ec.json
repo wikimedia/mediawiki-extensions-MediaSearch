@@ -46,6 +46,7 @@
 	"mediasearch-no-results": "Нема резултата",
 	"mediasearch-no-results-tips": "Пробајте познати термин или проверите типографију",
 	"mediasearch-end-of-results": "Нема више резултата",
+	"mediasearch-empty-state": "Претражите више од $1 слободних мултимедијалних {{PLURAL:$1|датотека}}",
 	"mediasearch-clear-title": "Уклони",
 	"mediasearch-input-label": "Претрага медија",
 	"mediasearch-input-placeholder": "Претрага слика, аудио и видео датотека и више",
