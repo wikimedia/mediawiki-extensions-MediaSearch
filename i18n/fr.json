@@ -17,7 +17,8 @@
 			"Trial",
 			"VIGNERON",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Pyb"
 		]
 	},
 	"mediasearch-desc": "Moyen axé sur les médias pour afficher les résultats de recherche via la page de [[Special:MediaSearch|recherche de média]].",
@@ -70,7 +71,7 @@
 	"mediasearch-user-notice-title": "Vous cherchez [[Special:Search|Spéciale:Rechercher]] ?",
 	"mediasearch-user-notice-body": "Vous pouvez maintenant ajuster vos [[Special:Preferences#mw-prefsection-searchoptions|préférences]] pour sélectionner votre expérience préférée pour la recherche.",
 	"mediasearch-user-notice-dismiss": "Fermer cette notification",
-	"mediasearch-switch-special-search": "Basculer vers Spéciale:Recherche",
+	"mediasearch-switch-special-search": "Basculer vers Special:Search",
 	"mediasearch-category-info": "$1 membre{{PLURAL:$1||s}} ($2 sous-catégorie{{PLURAL:$2||s}}, $3 fichier{{PLURAL:$3||s}})",
 	"mediasearch-copytextlayout-copy": "Copier",
 	"mediasearch-copytextlayout-copy-fail": "Échec de copie vers le presse-papiers.",

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nemoralis"
+			"Nemoralis",
+			"Əkrəm Cəfər"
 		]
 	},
 	"mediasearch-desc": "Axtarış nəticələrini [[Special:MediaSearch|media axtarışı]] səhifəsi vasitəsilə göstərməyin media yönümlü yolu.",
@@ -45,7 +46,7 @@
 	"mediasearch-input-placeholder": "Şəkillər, audio, video və s. axtarın",
 	"mediasearch-load-more-results": "Daha çox yüklə",
 	"mediasearch-load-less-results": "Geri qayıt",
-	"mediasearch-quickview-button-text": "Ətraflı Təfərrüatlar",
+	"mediasearch-quickview-button-text": "Ətraflı təfərrüatlar",
 	"mediasearch-quickview-close-button-text": "Fayl təfərrüatlarını bağla",
 	"mediasearch-quickview-previous-button-text": "Əvvəlki nəticəyə bax",
 	"mediasearch-quickview-next-button-text": "Növbəti nəticəyə bax",
@@ -54,7 +55,7 @@
 	"mediasearch-user-notice-dismiss": "Bu bildirişi bağla",
 	"mediasearch-switch-special-search": "Special:Search səhifəsinə keç",
 	"mediasearch-category-info": "{{PLURAL:$1|$1 element}} ({{PLURAL:$2|$2 alt kateqoriya}}, {{PLURAL:$3|$3 fayl}})",
-	"mediasearch-copytextlayout-copy": "Kopyala",
+	"mediasearch-copytextlayout-copy": "Kopiyala",
 	"mediasearch-copytextlayout-copy-fail": "Buferə kopyalamaq alınmadı.",
 	"mediasearch-copytextlayout-copy-success": "Mübadilə buferinə kopyalandı.",
 	"mediasearch-clear-filters": "Filtrləri təmizlə",
