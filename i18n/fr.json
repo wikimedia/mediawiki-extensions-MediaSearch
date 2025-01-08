@@ -68,7 +68,7 @@
 	"mediasearch-quickview-close-button-text": "Fermer les détails du fichier",
 	"mediasearch-quickview-previous-button-text": "Afficher le résultat précédent",
 	"mediasearch-quickview-next-button-text": "Voir le résultat suivant",
-	"mediasearch-user-notice-title": "Vous cherchez [[Special:Search|Spéciale:Rechercher]] ?",
+	"mediasearch-user-notice-title": "Vous cherchez [[Special:Search]] ?",
 	"mediasearch-user-notice-body": "Vous pouvez maintenant ajuster vos [[Special:Preferences#mw-prefsection-searchoptions|préférences]] pour sélectionner votre expérience préférée pour la recherche.",
 	"mediasearch-user-notice-dismiss": "Fermer cette notification",
 	"mediasearch-switch-special-search": "Basculer vers Special:Search",
