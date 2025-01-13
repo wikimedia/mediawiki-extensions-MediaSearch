@@ -19,5 +19,6 @@
 	"mediasearch-copytextlayout-copy": "Kopijist",
 	"mediasearch-results-count": "{{PLURAL:$1|1=uuccâmpuáđus|$1 uuccâmpuáttus|$1 uuccâmpuáđusid}}",
 	"mediasearch-filter-assessment-unset": "Puoh",
+	"mediasearch-filter-license": "Liiseens",
 	"mediasearch-filter-license-unset": "Puoh"
 }
