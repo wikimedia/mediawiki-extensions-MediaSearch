@@ -7,7 +7,8 @@
 			"Jhonnatanricardo",
 			"TheEduGobi",
 			"Tks4Fish",
-			"Glaucia Japui Gonçalves"
+			"Glaucia Japui Gonçalves",
+			"Fúlvio"
 		]
 	},
 	"mediasearch-title": "Pesquisar mídia",
@@ -82,5 +83,6 @@
 	"mediasearch-filter-assessment-unset": "Todos",
 	"mediasearch-filter-file-type": "Tipos de arquivo",
 	"mediasearch-filter-assessment": "Avaliações da comunidade",
-	"mediasearch-filter-license": "Licença"
+	"mediasearch-filter-license": "Licença",
+	"mediasearch-filter-license-unset": "Todas"
 }
