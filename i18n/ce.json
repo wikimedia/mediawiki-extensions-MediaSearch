@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Исмаил Садуев",
 			"Умар"
 		]
 	},
@@ -34,7 +35,7 @@
 	"mediasearch-filter-namespace-dialog-progressive-action": "Ӏалашйан",
 	"mediasearch-no-results": "Тхуна хӀума цакарийна",
 	"mediasearch-no-results-tips": "Лелайе йукъара терминаш йа орфографи талла",
-	"mediasearch-end-of-results": "ХӀума ца карийна",
+	"mediasearch-end-of-results": "ХӀумма а ца карийна",
 	"mediasearch-clear-title": "ДӀайаккха",
 	"mediasearch-input-label": "Медиафайлаш лахар",
 	"mediasearch-quickview-button-text": "Ма-дарра",
