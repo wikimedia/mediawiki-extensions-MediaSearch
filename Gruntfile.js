@@ -20,6 +20,9 @@ module.exports = function ( grunt ) {
 			]
 		},
 		stylelint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'**/*.{less,vue}',
 				'!node_modules/**',
