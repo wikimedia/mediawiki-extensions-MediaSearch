@@ -368,16 +368,14 @@ class SpecialMediaSearch extends SpecialPage {
 		$specialSearchUrl = SpecialPage::getTitleFor( 'Search' )->getLocalURL( [ 'search' => $term ] );
 		$helpUrl = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:MediaSearch';
 		$this->getOutput()->setIndicators( [
-			$this->getLanguage()->pipeList( [
-				( new Tag( 'a' ) )
-					->setAttributes( [ 'href' => $specialSearchUrl, 'id' => 'mediasearch-switch-special-search' ] )
-					// phpcs:ignore Generic.Files.LineLength.TooLong
-					->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
-				( new Tag( 'a' ) )
-					->addClasses( [ 'mw-helplink' ] )
-					->setAttributes( [ 'href' => $helpUrl, 'target' => '_blank' ] )
-					->appendContent( $this->msg( 'helppage-top-gethelp' )->escaped() ),
-			] )
+			'mw-help-switch' => ( new Tag( 'a' ) )
+				->setAttributes( [ 'href' => $specialSearchUrl, 'id' => 'mediasearch-switch-special-search' ] )
+				// phpcs:ignore Generic.Files.LineLength.TooLong
+				->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
+			'mw-helplink' => ( new Tag( 'a' ) )
+				->addClasses( [ 'mw-helplink' ] )
+				->setAttributes( [ 'href' => $helpUrl, 'target' => '_blank' ] )
+				->appendContent( $this->msg( 'helppage-top-gethelp' )->escaped() ),
 		] );
 
 		return parent::execute( $subPage );
