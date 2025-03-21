@@ -142,15 +142,16 @@ class SpecialMediaSearch extends SpecialPage {
 		OutputPage::setupOOUI();
 		$userLanguage = $this->getLanguage();
 
-		// url & querystring params of this page
-		$url = $this->getRequest()->getRequestURL();
+		// url & querystring params of this page, in tests this is sometimes unset
+		$request = $this->getRequest();
+		$url = $request instanceof FauxRequest && !$request->hasRequestURL() ? null : $request->getRequestURL();
 
 		// Discard query param keys or values that are not strings to sanitize before using
-		$queryParams = array_filter( $this->getRequest()->getValues(), static function ( $v, $k ) {
+		$queryParams = array_filter( $request->getValues(), static function ( $v, $k ) {
 			return is_string( $k ) && is_string( $v );
 		}, ARRAY_FILTER_USE_BOTH );
 
-		$term = str_replace( "\n", ' ', $this->getRequest()->getText( 'search' ) );
+		$term = str_replace( "\n", ' ', $request->getText( 'search' ) );
 		$redirectUrl = $this->findExactMatchRedirectUrl( $term );
 		if ( $redirectUrl !== null ) {
 			$this->getOutput()->redirect( $redirectUrl );
@@ -211,7 +212,7 @@ class SpecialMediaSearch extends SpecialPage {
 			array_push( $tabs, $tabDefinitions[ $tabPlace ] );
 		}
 
-		$limit = $this->getRequest()->getText( 'limit' ) ? (int)$this->getRequest()->getText( 'limit' ) : 40;
+		$limit = $request->getText( 'limit' ) ? (int)$request->getText( 'limit' ) : 40;
 		$error = [];
 		$results = [];
 		$searchinfo = [];
@@ -231,7 +232,7 @@ class SpecialMediaSearch extends SpecialPage {
 				$type,
 				$this->getSearchNamespaces( $activeFilters, $type ),
 				$limit,
-				$this->getRequest()->getText( 'continue' ),
+				$request->getText( 'continue' ),
 				$this->getSort( $activeFilters )
 			);
 		} catch (
@@ -267,7 +268,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$totalHits = $searchinfo['totalhits'] ?? 0;
 		$didYouMean = null;
 		$didYouMeanLink = null;
-		$currentResultStart = intval( $this->getRequest()->getText( 'continue' ) );
+		$currentResultStart = intval( $request->getText( 'continue' ) );
 		$apiErrorMessage = $error['apiErrorHtml'] ?? null;
 
 		if ( isset( $searchinfo[ 'suggestion' ] ) ) {
@@ -290,7 +291,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$data = [
 			'queryParams' => $mappedQueryParams,
 			'page' => $url,
-			'path' => parse_url( $url, PHP_URL_PATH ),
+			'path' => $url !== null ? parse_url( $url, PHP_URL_PATH ) : null,
 			'term' => $term,
 			'hasTerm' => (bool)$term,
 			'limit' => $limit,
