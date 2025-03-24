@@ -12,6 +12,7 @@
 			"Samoasambia"
 		]
 	},
+	"mediasearch-desc": "Mediaan keskittyvä tapa näyttää hakutuloksia [[Special:MediaSearch|mediahaku]]-sivulla.",
 	"mediasearch-title": "Etsi mediaa",
 	"mediasearch-continue": "Seuraava",
 	"mediasearch-tab-image": "Kuvat",
@@ -71,7 +72,10 @@
 	"mediasearch-did-you-mean": "Tarkoititko: $1",
 	"mediasearch-error-message": "Virheellinen haku",
 	"mediasearch-error-text": "Anna uusi hakusana ja kokeile uudelleen",
-	"mediasearch-preference": "Valitse hakukokemuksesi",
+	"mediasearch-preference": "Valitse hakukäyttöliittymäsi",
+	"mediasearch-preference-mediasearch-label": "Mediahaku (Special:MediaSearch)",
+	"mediasearch-preference-specialsearch-label": "Tavallinen haku (Special:MediaSearch)",
+	"mediasearch-preference-help": "Hakutulosten näyttämiseen on saatavilla useampi käyttöliittymä. Valitse haluamasi vaihtoehto.",
 	"mediasearch-filter-assessment-any-assessment": "Mikä tahansa arviointi",
 	"mediasearch-filter-assessment-picture-of-the-day": "Päivän kuva",
 	"mediasearch-filter-assessment-picture-of-the-year": "Vuoden kuva",
