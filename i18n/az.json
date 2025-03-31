@@ -56,7 +56,7 @@
 	"mediasearch-switch-special-search": "Special:Search səhifəsinə keç",
 	"mediasearch-category-info": "{{PLURAL:$1|$1 element}} ({{PLURAL:$2|$2 alt kateqoriya}}, {{PLURAL:$3|$3 fayl}})",
 	"mediasearch-copytextlayout-copy": "Kopiyala",
-	"mediasearch-copytextlayout-copy-fail": "Buferə kopyalamaq alınmadı.",
+	"mediasearch-copytextlayout-copy-fail": "Buferə kopiyalamaq alınmadı.",
 	"mediasearch-copytextlayout-copy-success": "Mübadilə buferinə kopyalandı.",
 	"mediasearch-clear-filters": "Filtrləri təmizlə",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|nəticə}}",
