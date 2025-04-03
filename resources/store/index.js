@@ -1,5 +1,3 @@
-'use strict';
-
 const Vuex = require( 'vuex' );
 const state = require( './state.js' );
 const getters = require( './getters.js' );

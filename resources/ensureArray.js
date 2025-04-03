@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Take in an object or array and return an array.
  *

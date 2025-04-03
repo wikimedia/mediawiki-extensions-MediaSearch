@@ -5,8 +5,6 @@
  * @license MIT
  */
 
-'use strict';
-
 const when = require( 'jest-when' ).when;
 const activeType = 'audio';
 const ensureArrayMock = jest.fn();
