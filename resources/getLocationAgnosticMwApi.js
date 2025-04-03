@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = exports = ( function () {
 	/**
 	 * @param {string} url

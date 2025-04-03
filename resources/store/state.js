@@ -1,5 +1,3 @@
-'use strict';
-
 const AUTOLOAD_COUNT = 2;
 const initialResults = mw.config.get( 'sdmsInitialSearchResults' );
 const initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) );

@@ -1,5 +1,3 @@
-'use strict';
-
 const getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' );
 const externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' );
 const LIMIT = 40;
