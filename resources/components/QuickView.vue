@@ -132,7 +132,7 @@
 				v-if="displayNameWithoutExtension"
 				class="sdms-quick-view__list-item sdms-quick-view__copy-name-no-extension"
 			>
-				<cdx-icon :icon="cdxIconWikiText"></cdx-icon>
+				<cdx-icon :icon="cdxIconWikitext"></cdx-icon>
 				<sd-copy-text-layout
 					:copy-text="'[[' + title + '|' + displayNameWithoutExtension + ']]'"
 					:inline="true"
@@ -196,7 +196,7 @@ const {
 	cdxIconUnLock,
 	cdxIconUserAvatar,
 	cdxIconUnStar,
-	cdxIconWikiText,
+	cdxIconWikitext,
 	cdxIconVolumeUp
 } = require( './icons.json' );
 
@@ -273,7 +273,7 @@ module.exports = exports = {
 			cdxIconPageSettings,
 			cdxIconPrevious,
 			cdxIconUserAvatar,
-			cdxIconWikiText,
+			cdxIconWikitext,
 			cdxIconUnStar,
 			thumbnailWrapperStyle: false,
 			isExtraSmall: false,
