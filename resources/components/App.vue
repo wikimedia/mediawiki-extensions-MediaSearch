@@ -371,6 +371,7 @@ module.exports = exports = {
 					const entry = performance.getEntriesByType( 'navigation' )[ 0 ];
 					if ( entry && entry.loadEventEnd ) {
 						mw.track( 'timing.MediaSearchPageLoad', entry.loadEventEnd );
+						mw.track( 'stats.MediaSearch_PageLoad_seconds', entry.loadEventEnd );
 					}
 				};
 				if ( document.readyState === 'complete' ) {
