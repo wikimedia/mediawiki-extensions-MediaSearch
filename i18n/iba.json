@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Song GK"
+		]
+	},
+	"mediasearch-filter-size-unset": "Semua",
+	"mediasearch-filter-size-any": "Semua saiz gambar",
+	"mediasearch-filter-size-small": "Mit",
+	"mediasearch-filter-size-medium": "Sedang",
+	"mediasearch-filter-size-large": "Besai",
+	"mediasearch-filter-file-type-any": "Bansa fail",
+	"mediasearch-filter-file-type-unset": "Semua",
+	"mediasearch-filter-sort-label": "Tusun nitihka:",
+	"mediasearch-filter-license-other": "Ke bukai",
+	"mediasearch-filter-namespace-all": "Semua",
+	"mediasearch-filter-namespace-discussion": "Randau",
+	"mediasearch-filter-namespace-help": "Bantu rama",
+	"mediasearch-no-results": "Kami enda tetemuka sebarang asil",
+	"mediasearch-filter-assessment-unset": "Semua",
+	"mediasearch-filter-license-unset": "Semua"
+}
