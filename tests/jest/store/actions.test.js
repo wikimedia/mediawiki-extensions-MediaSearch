@@ -2,6 +2,7 @@ const initialState = require( '../fixtures/initialVuexState.js' ),
 	namespaceGroups = require( '../fixtures/namespaceGroups.js' ),
 	mockImageSearchApiResponse = require( '../fixtures/mockImageSearchApiResponse.json' ),
 	mockEmptyImageSearchApiWithSuggestionResponse = require( '../fixtures/mockEmptyImageSearchApiWithSuggestion.json' ),
+	mockEmptyImageSearchApiWithWarningsResponse = require( '../fixtures/mockEmptyImageSearchApiWithWarnings.json' ),
 	mockImageDetailsApiResponse = require( '../fixtures/mockImageDetailsApiResponse.json' ),
 	thumbRenderMap = [ 320, 640, 800, 1024, 1280, 1920 ],
 	when = require( 'jest-when' ).when;
@@ -238,6 +239,20 @@ describe( 'performNewSearch', () => {
 		} );
 	} );
 
+	describe( 'when response includes warnings', () => {
+		it( 'commits a "setSearchWarnings" mutation', ( done ) => {
+			context.getters.currentType = 'image';
+			global.mw.Api.prototype.get.mockReturnValue(
+				$.Deferred().resolve( mockEmptyImageSearchApiWithWarningsResponse ).promise() );
+
+			actions.performNewSearch( context ).then( () => {
+				const setSearchWarnings = context.commit.mock.calls.filter( ( call ) => call[ 0 ] === 'setSearchWarnings' );
+				expect( setSearchWarnings.length ).toEqual( 1 );
+				done();
+			} );
+		} );
+	} );
+
 	describe( 'when response inludes suggestionInfo', () => {
 		it( 'commits an "setDidYouMean" mutations', ( done ) => {
 
@@ -449,6 +464,7 @@ describe( 'clear', () => {
 		expect( context.commit ).toHaveBeenCalledWith( 'resetFilters' );
 		expect( context.commit ).toHaveBeenCalledWith( 'resetResults' );
 		expect( context.commit ).toHaveBeenCalledWith( 'clearDidYouMean' );
+		expect( context.commit ).toHaveBeenCalledWith( 'clearSearchWarnings' );
 	} );
 } );
 

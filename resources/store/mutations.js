@@ -173,6 +173,21 @@ module.exports = {
 	},
 
 	/**
+	 * @param {Object} state
+	 * @param {string} searchWarnings
+	 */
+	setSearchWarnings: function ( state, searchWarnings ) {
+		state.searchWarnings = searchWarnings;
+	},
+
+	/**
+	 * @param {Object} state
+	 */
+	clearSearchWarnings: function ( state ) {
+		state.searchWarnings = null;
+	},
+
+	/**
 	 * Let the entire app know that the UI is fully initialized.
 	 *
 	 * Useful for things like taking measurements of DOM elements.

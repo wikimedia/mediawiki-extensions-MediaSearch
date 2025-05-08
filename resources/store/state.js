@@ -14,6 +14,11 @@ module.exports = {
 	didYouMean: didYouMean,
 
 	/**
+	 * Warnings from the executed search query
+	 */
+	searchWarnings: initialResults.searchWarnings || null,
+
+	/**
 	 * Boolean flag indicating whether the search has errored
 	 */
 	hasError: mw.config.get( 'sdmsHasError' ),

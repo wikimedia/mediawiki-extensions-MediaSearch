@@ -122,6 +122,7 @@
 				"resources/components/DidYouMean.vue",
 				"resources/components/SearchError.vue",
 				"resources/components/SearchFilters.vue",
+				"resources/components/SearchWarnings.vue",
 				"resources/components/NamespaceFilterDialog.vue",
 				"resources/components/UserNotice.vue",
 				"resources/models/SearchFilter.js",

@@ -250,6 +250,22 @@ describe( 'mutations', () => {
 		} );
 	} );
 
+	describe( 'setSearchWarnings', () => {
+		it( 'sets the value of warnings', () => {
+			const dummyValue = 'dummyValue';
+			mutations.setSearchWarnings( state, dummyValue );
+			expect( state.searchWarnings ).toBe( dummyValue );
+		} );
+	} );
+
+	describe( 'clearSearchWarnings', () => {
+		it( 'clears the value of warnings', () => {
+			state.warnings = 'dummyValue';
+			mutations.clearSearchWarnings( state );
+			expect( state.searchWarnings ).toBe( null );
+		} );
+	} );
+
 	describe( 'setDidYouMean', () => {
 		it( 'sets the value of didYouMean', () => {
 			const dummyValue = 'dummyValue';

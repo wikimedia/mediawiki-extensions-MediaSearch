@@ -33,6 +33,9 @@
 				<search-filters :media-type="tab" @filter-change="onFilterChange">
 				</search-filters>
 
+				<search-warnings>
+				</search-warnings>
+
 				<did-you-mean>
 				</did-you-mean>
 
@@ -85,6 +88,7 @@ const MEDIASEARCH_TABS = mw.config.get( 'sdmsInitialSearchResults' ).tabs,
 	SdAutocompleteSearchInput = require( './base/AutocompleteSearchInput.vue' ),
 	SearchResults = require( './SearchResults.vue' ),
 	SearchFilters = require( './SearchFilters.vue' ),
+	SearchWarnings = require( './SearchWarnings.vue' ),
 	DidYouMean = require( './DidYouMean.vue' ),
 	Observer = require( './base/Observer.vue' ),
 	UserNotice = require( './UserNotice.vue' ),
@@ -103,6 +107,7 @@ module.exports = exports = {
 		'sd-autocomplete-search-input': SdAutocompleteSearchInput,
 		'search-results': SearchResults,
 		'search-filters': SearchFilters,
+		'search-warnings': SearchWarnings,
 		'did-you-mean': DidYouMean,
 		'search-user-notice': UserNotice,
 		observer: Observer
@@ -166,6 +171,7 @@ module.exports = exports = {
 
 	methods: Object.assign( {}, mapMutations( [
 		'clearDidYouMean',
+		'clearSearchWarnings',
 		'resetResults',
 		'resetAutoLoadForAllMediaType',
 		'setHasError',
@@ -280,6 +286,7 @@ module.exports = exports = {
 		onTermOrFilterChange: function ( mediaType ) {
 			this.resetResults( mediaType );
 			this.clearDidYouMean();
+			this.clearSearchWarnings();
 			this.resetAutoLoadForAllMediaType();
 
 			// Clear any delayed/debounced lookup requests that may still be
