@@ -168,7 +168,6 @@ class SearchOptions {
 					'value' => '<500'
 				],
 				[
-					// phpcs:ignore Generic.Files.LineLength.TooLong
 					'label' => $this->context->msg( 'mediasearch-filter-size-medium' )->text(),
 					'value' => '500,1000'
 				],
@@ -198,7 +197,6 @@ class SearchOptions {
 			case static::TYPE_IMAGE:
 				return [ 'items' => [
 					[
-						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->text(),
 						'value' => ''
 					],
@@ -234,7 +232,6 @@ class SearchOptions {
 			case static::TYPE_AUDIO:
 				return [ 'items' => [
 					[
-						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->text(),
 						'value' => ''
 					],
@@ -262,7 +259,6 @@ class SearchOptions {
 			case static::TYPE_VIDEO:
 				return [ 'items' => [
 					[
-						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->text(),
 						'value' => ''
 					],
@@ -282,7 +278,6 @@ class SearchOptions {
 			case static::TYPE_OTHER:
 				return [ 'items' => [
 					[
-						// phpcs:ignore Generic.Files.LineLength.TooLong
 						'label' => $this->context->msg( 'mediasearch-filter-file-type-unset' )->text(),
 						'value' => ''
 					],
@@ -462,22 +457,18 @@ class SearchOptions {
 		if ( $type === static::TYPE_PAGE ) {
 			$filterItems = [
 				[
-					// phpcs:ignore Generic.Files.LineLength.TooLong
 					'label' => $this->context->msg( 'mediasearch-filter-namespace-all' )->text(),
 					'value' => static::NAMESPACES_ALL
 				],
 				[
-					// phpcs:ignore Generic.Files.LineLength.TooLong
 					'label' => $this->context->msg( 'mediasearch-filter-namespace-discussion' )->text(),
 					'value' => static::NAMESPACES_DISCUSSION
 				],
 				[
-					// phpcs:ignore Generic.Files.LineLength.TooLong
 					'label' => $this->context->msg( 'mediasearch-filter-namespace-help' )->text(),
 					'value' => static::NAMESPACES_HELP
 				],
 				[
-					// phpcs:ignore Generic.Files.LineLength.TooLong
 					'label' => $this->context->msg( 'mediasearch-filter-namespace-custom' )->text(),
 					'value' => static::NAMESPACES_CUSTOM
 				],

@@ -371,7 +371,6 @@ class SpecialMediaSearch extends SpecialPage {
 		$this->getOutput()->setIndicators( [
 			'mw-help-switch' => ( new Tag( 'a' ) )
 				->setAttributes( [ 'href' => $specialSearchUrl, 'id' => 'mediasearch-switch-special-search' ] )
-				// phpcs:ignore Generic.Files.LineLength.TooLong
 				->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
 			'mw-helplink' => ( new Tag( 'a' ) )
 				->addClasses( [ 'mw-helplink' ] )
@@ -686,8 +685,8 @@ class SpecialMediaSearch extends SpecialPage {
 				SearchOptions::NAMESPACE_GROUPS
 			)
 		) {
-			// phpcs:ignore Generic.Files.LineLength.TooLong
-			$display[SearchOptions::FILTER_NAMESPACE] = $labels[SearchOptions::FILTER_NAMESPACE][SearchOptions::NAMESPACES_CUSTOM];
+			$display[SearchOptions::FILTER_NAMESPACE] =
+				$labels[SearchOptions::FILTER_NAMESPACE][SearchOptions::NAMESPACES_CUSTOM];
 		}
 
 		return $display;
@@ -739,8 +738,8 @@ class SpecialMediaSearch extends SpecialPage {
 
 		// If assessment filters have been enabled...
 		if ( $enabledAssessments ) {
-			// phpcs:ignore Generic.Files.LineLength.TooLong
-			$assessmentData = $this->searchOptions->getAssessments( SearchOptions::TYPE_IMAGE )[ 'data' ][ 'statementData' ];
+			$assessmentData =
+				$this->searchOptions->getAssessments( SearchOptions::TYPE_IMAGE )[ 'data' ][ 'statementData' ];
 			$validAssessments = array_keys( $enabledAssessments );
 
 			// and if the assessment param matches one of the specified
