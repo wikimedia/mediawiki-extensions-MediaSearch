@@ -258,6 +258,10 @@ const searchCurrentTermAndType = function ( context ) {
 			);
 		}
 
+		if ( response.warnings && response.warnings.search && response.warnings.search[ '*' ] ) {
+			context.commit( 'setSearchWarnings', response.warnings.search[ '*' ] );
+		}
+
 		// Set whether or not the query can be continued
 		if ( response.continue && response.continue.gsroffset ) {
 			// Store the "continue" property of the request so we can pick up where we left off
@@ -435,6 +439,7 @@ module.exports = {
 		context.commit( 'resetFilters' );
 		context.commit( 'resetResults' );
 		context.commit( 'clearDidYouMean' );
+		context.commit( 'clearSearchWarnings' );
 		context.dispatch( 'pushQueryToHistoryState' );
 	},
 

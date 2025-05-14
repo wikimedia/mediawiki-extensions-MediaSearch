@@ -124,6 +124,16 @@
 						{{/showResultsCount}}
 					</div>
 
+					{{#searchWarnings}}
+					<div class="cdx-message--warning cdx-message cdx-message--block">
+						<span class="cdx-message__icon"></span>
+						<div class="cdx-message__content">
+							<p>{{ searchWarnings }}</p>
+						</div>
+					</div>
+					{{/searchWarnings}}
+
+
 					{{#didYouMean}}
 					<div class="sdms-did-you-mean">
 						{{{ didYouMeanMessage }}}

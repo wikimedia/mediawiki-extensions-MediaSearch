@@ -217,6 +217,7 @@ class SpecialMediaSearch extends SpecialPage {
 		$results = [];
 		$searchinfo = [];
 		$continue = null;
+		$searchWarnings = [];
 		$filtersForDisplay = [];
 		$activeFilters = $this->getActiveFilters( $queryParams );
 
@@ -227,7 +228,7 @@ class SpecialMediaSearch extends SpecialPage {
 
 			// Actually perform the search. This method will throw an error if the
 			// user enters a bad query (illegal characters, etc)
-			[ $results, $searchinfo, $continue ] = $this->search(
+			[ $results, $searchinfo, $continue, $searchWarnings ] = $this->search(
 				$termWithFilters,
 				$type,
 				$this->getSearchNamespaces( $activeFilters, $type ),
@@ -339,7 +340,8 @@ class SpecialMediaSearch extends SpecialPage {
 				'mediasearch-results-count',
 				$userLanguage->formatNum( $totalHits )
 			)->text(),
-			'autofocus' => !$term
+			'autofocus' => !$term,
+			'searchWarnings' => $searchWarnings,
 		];
 
 		$externalEntitySearchBaseUri = $this->getConfig()->get( 'MediaSearchExternalEntitySearchBaseUri' );
@@ -484,7 +486,7 @@ class SpecialMediaSearch extends SpecialPage {
 		?string $sort = 'relevance'
 	): array {
 		if ( $term === '' ) {
-			return [ [], [], null ];
+			return [ [], [], null, null ];
 		}
 
 		$langCode = $this->getLanguage()->getCode();
@@ -585,12 +587,13 @@ class SpecialMediaSearch extends SpecialPage {
 		$results = array_values( $response['query']['pages'] ?? [] );
 		$searchinfo = $response['query']['searchinfo'] ?? [];
 		$continue = $response['continue']['gsroffset'] ?? null;
+		$searchWarnings = $response['warnings']['search']['warnings'] ?? null;
 
 		uasort( $results, static function ( $a, $b ) {
 			return $a['index'] <=> $b['index'];
 		} );
 
-		return [ $results, $searchinfo, $continue ];
+		return [ $results, $searchinfo, $continue, $searchWarnings ];
 	}
 
 	/**

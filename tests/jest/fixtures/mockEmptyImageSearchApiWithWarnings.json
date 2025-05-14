@@ -1,0 +1,14 @@
+{
+	"batchcomplete": "",
+	"warnings": {
+		"search": {
+			"*": "bad thing happened"
+		}
+	},
+	"query": {
+		"searchinfo": {
+			"totalhits": 0
+		},
+		"search": []
+	}
+}

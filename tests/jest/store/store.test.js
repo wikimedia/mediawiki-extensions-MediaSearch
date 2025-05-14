@@ -48,6 +48,26 @@ describe( 'Vuex root state', () => {
 		} );
 	} );
 
+	describe( 'warnings', () => {
+		it( 'initializes from initial warning', () => {
+			initializeMocks( {
+				sdmsInitialFilters: '{}',
+				sdmsInitialSearchResults: {
+					searchWarnings: 'bad thing'
+				}
+			} );
+			expect( state.searchWarnings ).toBe( 'bad thing' );
+		} );
+
+		it( 'is otherwise empty', () => {
+			initializeMocks( {
+				sdmsInitialFilters: '{}',
+				sdmsInitialSearchResults: {}
+			} );
+			expect( state.searchWarnings ).toBe( null );
+		} );
+	} );
+
 	describe( 'hasError', () => {
 
 		it( 'return config sdmsHasError', () => {
