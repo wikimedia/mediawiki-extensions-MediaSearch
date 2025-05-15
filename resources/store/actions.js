@@ -1,7 +1,6 @@
 const getLocationAgnosticMwApi = require( '../getLocationAgnosticMwApi.js' );
 const externalSearchUri = mw.config.get( 'sdmsExternalSearchUri' );
 const LIMIT = 40;
-const mwUri = new mw.Uri();
 const searchOptions = require( '../data/searchOptions.json' );
 let activeSearchRequest = null;
 
@@ -460,9 +459,9 @@ module.exports = {
 		if ( !specialSearch ) {
 			return;
 		}
-		const uri = new mw.Uri( specialSearch.href );
-		uri.extend( { search: context.state.uriQuery.search } );
-		specialSearch.href = uri;
+		const url = new URL( specialSearch.href );
+		url.searchParams.set( 'search', context.state.uriQuery.search );
+		specialSearch.href = url.toString();
 	},
 	/**
 	 * Push the current value of url.query to the browser's session history stack
@@ -470,13 +469,13 @@ module.exports = {
 	 * @param {Object} context
 	 */
 	pushQueryToHistoryState: function ( context ) {
-		// update mw URI query object with the one currently available within the store
+		// update URL query object with the one currently available within the store
 		// In Vue 3, context.state.uriQuery is a Proxy, and passing it to replaceState()
 		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
 		// object ourselves, using JSON.parse( JSON.stringify() ) to convert the Proxy to Object.
-		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
-		const queryString = '?' + mwUri.getQueryString();
-		window.history.pushState( mwUri.query, null, queryString );
+		const query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
+		const queryString = '?' + new URLSearchParams( query ).toString();
+		window.history.pushState( query, null, queryString );
 		context.dispatch( 'updateSpecialSearch' );
 	},
 	/**
@@ -485,13 +484,13 @@ module.exports = {
 	 * @param {Object} context
 	 */
 	replaceQueryToHistoryState: function ( context ) {
-		// update mw URI query object with the one currently available within the store
+		// update URL query object with the one currently available within the store
 		// In Vue 3, context.state.uriQuery is a Proxy, and passing it to replaceState()
 		// causes an error saying it can't be cloned. Work around this by cloning the uriQuery
 		// object ourselves, using JSON.parse( JSON.stringify() ) to convert the Proxy to Object.
-		mwUri.query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
-		const queryString = '?' + mwUri.getQueryString();
-		window.history.replaceState( mwUri.query, null, queryString );
+		const query = JSON.parse( JSON.stringify( context.state.uriQuery ) );
+		const queryString = '?' + new URLSearchParams( query ).toString();
+		window.history.replaceState( query, null, queryString );
 		context.dispatch( 'updateSpecialSearch' );
 	},
 	/**

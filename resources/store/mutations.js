@@ -287,7 +287,7 @@ module.exports = {
 		}
 	},
 	/**
-	 * Update or delete a specific key within mw.url.query.
+	 * Update or delete a specific key within uriQuery.
 	 * The item will be deleted if the value is falsy
 	 *
 	 * @param {Object} state
