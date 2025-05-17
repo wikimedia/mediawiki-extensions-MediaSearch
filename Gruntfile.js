@@ -12,12 +12,7 @@ module.exports = function ( grunt ) {
 				cache: true,
 				fix: grunt.option( 'fix' )
 			},
-			all: [
-				'.',
-				'!{vendor,node_modules,coverage,tests/jest/fixtures}/**',
-				'!jest.config.js',
-				'!jest.setup.js'
-			]
+			all: '.'
 		},
 		stylelint: {
 			all: [
