@@ -26,7 +26,7 @@ module.exports = exports = {
 		/**
 		 * The warning message to be issued.
 		 *
-		 * @return {String}
+		 * @return {string}
 		 */
 		warningMessage: function () {
 			return this.searchWarnings;

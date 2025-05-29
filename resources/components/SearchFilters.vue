@@ -338,7 +338,7 @@ module.exports = exports = {
 		 */
 		getFilterClasses: function ( filterType ) {
 			return {
-				'sdms-search-filter--selected': this.currentActiveFilters.indexOf( filterType ) !== -1
+				'sdms-search-filter--selected': this.currentActiveFilters.includes( filterType )
 			};
 		},
 

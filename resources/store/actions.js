@@ -237,7 +237,7 @@ const searchCurrentTermAndType = function ( context ) {
 			// previously-loaded results, filter it out.
 			const sortedResults = titles
 				.map( ( id ) => results[ id ] )
-				.filter( ( result ) => existingTitles.indexOf( result.title ) < 0 )
+				.filter( ( result ) => !existingTitles.includes( result.title ) )
 				.sort( ( a, b ) => a.index - b.index );
 
 			sortedResults.forEach( ( result ) => {

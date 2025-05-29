@@ -5,7 +5,9 @@
 		<p>
 			{{ $i18n( 'mediasearch-error-message' ).text() }}
 			<!-- eslint-disable vue/no-v-html -->
-			<span v-if="hasApiError" class="sdms-error__message"
+			<span
+				v-if="hasApiError"
+				class="sdms-error__message"
 				v-html="errorMsgHtml">
 			</span>
 			<!-- eslint-enable vue/no-v-html -->

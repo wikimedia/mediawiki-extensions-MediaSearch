@@ -282,7 +282,7 @@ module.exports = {
 	setCurrentType: function ( state, newType ) {
 		const allowedTypes = Object.keys( state.results );
 
-		if ( allowedTypes.indexOf( newType ) !== -1 ) {
+		if ( allowedTypes.includes( newType ) ) {
 			state.uriQuery.type = newType;
 		}
 	},
