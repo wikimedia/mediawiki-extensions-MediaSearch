@@ -4,7 +4,14 @@ const initialFilters = JSON.parse( mw.config.get( 'sdmsInitialFilters' ) );
 const didYouMean = mw.config.get( 'sdmsDidYouMean' );
 const ensureArray = require( './../ensureArray.js' );
 const sortedResults = ensureArray( initialResults.results || [] ).sort( ( a, b ) => a.index - b.index );
-const mwUri = new mw.Uri();
+const uriQuery = ( () => {
+	// ES2019 'Object.fromEntries' method is shorter
+	const object = {};
+	for ( const [ k, v ] of new URLSearchParams( location.search ).entries() ) {
+		object[ k ] = v;
+	}
+	return object;
+} )();
 
 module.exports = {
 
@@ -90,9 +97,9 @@ module.exports = {
 	initialized: false,
 
 	/**
-	 * Local instance of the query paramethers avaialable within the URI library
+	 * Local instance of the query parameters
 	 */
-	uriQuery: mwUri.query,
+	uriQuery,
 	/**
 	 * Object with keys corresponding to the number of automatic search request
 	 * left for each individual MediaType

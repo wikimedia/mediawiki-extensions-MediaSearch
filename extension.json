@@ -231,7 +231,6 @@
 			],
 			"dependencies": [
 				"mediasearch.styles",
-				"mediawiki.Uri",
 				"mediawiki.jqueryMsg",
 				"mediawiki.api",
 				"mediawiki.storage",

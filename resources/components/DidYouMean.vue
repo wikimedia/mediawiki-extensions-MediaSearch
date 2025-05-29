@@ -21,15 +21,14 @@ module.exports = exports = {
 	] ), {
 
 		/**
-		 * Generate a link to the suggested search term using mw.Uri
+		 * Generate a link to the suggested search term using `URL`
 		 *
 		 * @return {HTMLElement}
 		 */
 		didYouMeanLink: function () {
 			const linkNode = document.createElement( 'a' );
-			const url = new mw.Uri();
-
-			url.query.search = this.didYouMean;
+			const url = new URL( location.href );
+			url.searchParams.set( 'search', this.didYouMean );
 			linkNode.href = url.toString();
 			linkNode.appendChild( document.createTextNode( this.didYouMean ) );
 
