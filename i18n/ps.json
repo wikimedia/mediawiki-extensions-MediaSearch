@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"mediasearch-title": "رسنۍ پلټل",
+	"mediasearch-continue": "راتلونکی",
+	"mediasearch-tab-image": "انځورونه",
+	"mediasearch-tab-audio": "غږيز",
+	"mediasearch-tab-video": "ويډيو",
+	"mediasearch-tab-page": "وېشنيزې او مخونه",
+	"mediasearch-tab-other": "نورې رسنۍ",
+	"mediasearch-filter-size": "انځور کچه",
+	"mediasearch-filter-size-unset": "ټول",
+	"mediasearch-filter-size-any": "ټولو انځورونو کچې",
+	"mediasearch-filter-size-small": "کوچنی",
+	"mediasearch-filter-size-medium": "منځوی",
+	"mediasearch-filter-size-large": "لوی",
+	"mediasearch-filter-file-type-any": "دوتنې ډول",
+	"mediasearch-filter-file-type-unset": "ټول",
+	"mediasearch-filter-sort-label": "اوډون ډول:",
+	"mediasearch-filter-sort-default": "انډولتيا"
+}
