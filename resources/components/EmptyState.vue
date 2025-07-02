@@ -2,8 +2,7 @@
 	<div v-if="fileCount" class="sdms-empty-state">
 		<div class="sdms-empty-state__icon"></div>
 
-		<!-- eslint-disable-next-line vue/no-v-html-->
-		<p v-html="message"></p>
+		<p>{{ message }}</p>
 	</div>
 </template>
 
@@ -13,8 +12,6 @@
  *
  * A visual "empty state" containing a message that is displayed to the user
  * when no search term has been provided.
- *
- * v-html use: this is a message whose param comes from trusted API content.
  */
 const fileCount = mw.config.get( 'sdmsTotalSiteImages' );
 
