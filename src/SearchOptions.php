@@ -91,13 +91,13 @@ class SearchOptions {
 
 		try {
 			$mainConfig = $configFactory->makeConfig( 'main' );
-		} catch ( ConfigException $e ) {
+		} catch ( ConfigException ) {
 			$mainConfig = null;
 		}
 
 		try {
 			$searchConfig = $configFactory->makeConfig( 'WikibaseCirrusSearch' );
-		} catch ( ConfigException $e ) {
+		} catch ( ConfigException ) {
 			$searchConfig = null;
 		}
 

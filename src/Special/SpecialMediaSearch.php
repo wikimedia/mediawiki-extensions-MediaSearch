@@ -104,7 +104,7 @@ class SpecialMediaSearch extends SpecialPage {
 			$this->searchConfig = $searchConfig ?? MediaWikiServices::getInstance()
 				->getConfigFactory()
 				->makeConfig( 'CirrusSearch' );
-		} catch ( ConfigException $e ) {
+		} catch ( ConfigException ) {
 			// CirrusSearch not installed
 		}
 
