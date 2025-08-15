@@ -21,7 +21,7 @@
 		"MediaWiki\\Extension\\MediaSearch\\Tests\\MediaWiki\\": "tests/phpunit/mediawiki/"
 	},
 	"ConfigRegistry": {
-		"MediaSearch": "GlobalVarConfig::newInstance"
+		"MediaSearch": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"config": {
 		"MediaSearchExternalEntitySearchBaseUri": {
