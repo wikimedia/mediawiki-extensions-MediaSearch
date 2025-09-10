@@ -9,5 +9,6 @@
 		]
 	},
 	"mediasearch-tab-audio": "Аудио",
-	"mediasearch-filter-namespace-discussion": "Беседа"
+	"mediasearch-filter-namespace-discussion": "Беседа",
+	"mediasearch-dialog-close-button-label": "Затваряне"
 }
