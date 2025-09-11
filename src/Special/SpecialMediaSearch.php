@@ -35,11 +35,6 @@ use SearchEngineFactory;
  */
 class SpecialMediaSearch extends SpecialPage {
 	/**
-	 * @var NamespaceInfo
-	 */
-	protected $namespaceInfo;
-
-	/**
 	 * @var ApiBase
 	 */
 	protected $api;
@@ -65,28 +60,18 @@ class SpecialMediaSearch extends SpecialPage {
 	private $searchOptions;
 
 	/**
-	 * @var UserOptionsManager
-	 */
-	private $userOptionsManager;
-
-	/**
 	 * @var SearchEngine
 	 */
 	private $searchEngine;
-
-	/**
-	 * @var LinkRenderer
-	 */
-	private $linkRenderer;
 
 	/**
 	 * @inheritDoc
 	 */
 	public function __construct(
 		SearchEngineFactory $searchEngineFactory,
-		NamespaceInfo $namespaceInfo,
-		UserOptionsManager $userOptionsManager,
-		LinkRenderer $linkRenderer,
+		private readonly NamespaceInfo $namespaceInfo,
+		private readonly UserOptionsManager $userOptionsManager,
+		private readonly LinkRenderer $linkRenderer,
 		$name = 'MediaSearch',
 		?ApiBase $api = null,
 		?TemplateParser $templateParser = null,
@@ -95,7 +80,6 @@ class SpecialMediaSearch extends SpecialPage {
 	) {
 		parent::__construct( $name );
 
-		$this->namespaceInfo = $namespaceInfo;
 		$this->api = $api ?: new ApiMain( new FauxRequest() );
 		$this->templateParser = $templateParser ?: new TemplateParser(
 			__DIR__ . '/../../templates'
@@ -112,13 +96,9 @@ class SpecialMediaSearch extends SpecialPage {
 			->getConfigFactory()
 			->makeConfig( 'main' );
 
-		$this->userOptionsManager = $userOptionsManager;
-
 		$this->searchEngine = $searchEngineFactory->create();
 
 		$this->searchOptions = SearchOptions::getInstanceFromContext( $this->getContext() );
-
-		$this->linkRenderer = $linkRenderer;
 	}
 
 	/**

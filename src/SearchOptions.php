@@ -58,28 +58,11 @@ class SearchOptions {
 		self::NAMESPACES_CUSTOM
 	];
 
-	/** @var MessageLocalizer */
-	private $context;
-
-	/** @var Config|null */
-	private $mainConfig;
-
-	/** @var Config|null */
-	private $searchConfig;
-
-	/**
-	 * @param MessageLocalizer $context
-	 * @param Config|null $mainConfig
-	 * @param Config|null $searchConfig
-	 */
 	public function __construct(
-		MessageLocalizer $context,
-		?Config $mainConfig = null,
-		?Config $searchConfig = null
+		private readonly MessageLocalizer $context,
+		private readonly ?Config $mainConfig = null,
+		private readonly ?Config $searchConfig = null,
 	) {
-		$this->context = $context;
-		$this->mainConfig = $mainConfig;
-		$this->searchConfig = $searchConfig;
 	}
 
 	/**
