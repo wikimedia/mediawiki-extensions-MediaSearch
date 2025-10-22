@@ -65,6 +65,8 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|реч|речи}})",
 	"mediasearch-did-you-mean": "Да ли сте мислили: $1",
 	"mediasearch-preference": "Избор претраживача:",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Избор жељеног претраживача.",
 	"mediasearch-filter-assessment-any-assessment": "Свеједно",
 	"mediasearch-filter-assessment-picture-of-the-day": "Слика дана",
