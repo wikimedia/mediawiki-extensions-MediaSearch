@@ -6,7 +6,8 @@
 		"test": "grunt test && npm run test:unit",
 		"build-lib": ". ./bin/build.sh",
 		"test:unit": "jest",
-		"lint:fix": "grunt fix"
+		"lint:fix": "grunt fix",
+		"coverage": "npm run test:unit"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.16.11",
