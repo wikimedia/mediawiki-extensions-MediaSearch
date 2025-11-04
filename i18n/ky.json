@@ -52,7 +52,7 @@
 	"mediasearch-user-notice-title": "[[Special:Search|Атайын:Издөө]] дегенди издеп жатасызбы?",
 	"mediasearch-user-notice-dismiss": "Бул эскертмени жабуу",
 	"mediasearch-switch-special-search": "Жөнөкөй издөөгө өтүү",
-	"mediasearch-category-info": "$1 {{PLURAL:$1|бирдик}} ($2 {{PLURAL:$2|субкатегория}}, $3 {{PLURAL:$3|файл}})",
+	"mediasearch-category-info": "$1 {{PLURAL:$1|бирдик}} ($2 {{PLURAL:$2|ички категория}}, $3 {{PLURAL:$3|файл}})",
 	"mediasearch-copytextlayout-copy": "Көчүрүү",
 	"mediasearch-copytextlayout-copy-fail": "Алмашуу буферине көчүрүлбөй калды.",
 	"mediasearch-copytextlayout-copy-success": "Алмашуу буферине көчүрүлдү.",
