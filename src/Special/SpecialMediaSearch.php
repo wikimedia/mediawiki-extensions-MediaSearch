@@ -989,15 +989,16 @@ class SpecialMediaSearch extends SpecialPage {
 				$result[ 'extension' ] = $imageInfo[ 'mime' ];
 			}
 
-			// Generate style attribute for the image itself.
+			// Constrain the image to its original size to avoid stretching a small image.
+
 			// There are height and max-width rules with the important
 			// keyword for .content a > img in Minerva Neue, and they
 			// have to be overridden.
 			if ( $imageInfo['width'] && $imageInfo['height'] ) {
 				$result['imageStyle'] =
 					'height: 100% !important; ' .
-					'max-width: ' . $imageInfo['width'] . 'px !important; ' .
-					'max-height: ' . $imageInfo['height'] . 'px;';
+					'max-width: ' . max( $imageInfo['width'], $imageInfo['thumbwidth'] ?? 0 ) . 'px !important; ' .
+					'max-height: ' . max( $imageInfo['height'], $imageInfo['thumbheight'] ?? 0 ) . 'px;';
 			}
 		}
 

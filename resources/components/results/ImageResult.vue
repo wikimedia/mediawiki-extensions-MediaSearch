@@ -14,6 +14,8 @@
 			:alt="displayName"
 			:original-width="width"
 			:original-height="height"
+			:thumb-width="thumbwidth"
+			:thumb-height="thumbheight"
 		>
 		</sdms-image>
 	</a>
