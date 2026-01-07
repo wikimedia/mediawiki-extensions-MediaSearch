@@ -5,7 +5,8 @@
 			"Josefine Hellroth Larsson (WMSE)",
 			"Sabelöga",
 			"Sturban",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"mediasearch-desc": "Mediafokuserat sätt att visa sökresultat via [[Special:MediaSearch|mediasöksidan]].",
@@ -50,6 +51,7 @@
 	"mediasearch-input-label": "Sök media",
 	"mediasearch-input-placeholder": "Sök efter bilder, ljud, video och mer",
 	"mediasearch-load-more-results": "Läs in fler",
+	"mediasearch-load-less-results": "Gå tillbaka",
 	"mediasearch-quickview-button-text": "Fler detaljer",
 	"mediasearch-quickview-close-button-text": "Stäng fildetaljer",
 	"mediasearch-quickview-previous-button-text": "Visa tidigare resultat",
@@ -83,5 +85,6 @@
 	"mediasearch-filter-file-type": "Filtyp",
 	"mediasearch-filter-assessment": "Gemenskapsutvärderingar",
 	"mediasearch-filter-license": "Licens",
-	"mediasearch-filter-license-unset": "Alla"
+	"mediasearch-filter-license-unset": "Alla",
+	"mediasearch-dialog-close-button-label": "Stäng"
 }
