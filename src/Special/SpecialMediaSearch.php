@@ -218,7 +218,7 @@ class SpecialMediaSearch extends SpecialPage {
 			);
 		} catch (
 			InvalidNamespaceGroupException | InvalidFiltersException |
-			NoCirrusSearchException | SearchFailedException $_
+			NoCirrusSearchException | SearchFailedException
 		) {
 			$error = [
 				'title' => $this->msg( 'mediasearch-error-message' )->text(),
@@ -256,7 +256,7 @@ class SpecialMediaSearch extends SpecialPage {
 			try {
 				$didYouMean = $this->extractSuggestedTerm( $searchinfo['suggestion'], $activeFilters );
 				$didYouMeanLink = $this->generateDidYouMeanLink( $queryParams, $didYouMean );
-			} catch ( NoCirrusSearchException $_ ) {
+			} catch ( NoCirrusSearchException ) {
 				// Ignore.
 			}
 		}
