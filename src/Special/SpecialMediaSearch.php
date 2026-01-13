@@ -343,7 +343,8 @@ class SpecialMediaSearch extends SpecialPage {
 			'sdmsDidYouMean' => $didYouMean,
 			'sdmsHasError' => (bool)$error,
 			'sdmsNamespaceGroups' => $this->searchOptions->getNamespaceGroups(),
-			'sdmsAssessmentQuickviewLabels' => $this->getConfig()->get( 'MediaSearchAssessmentQuickviewLabels' )
+			'sdmsAssessmentQuickviewLabels' => $this->getConfig()->get( 'MediaSearchAssessmentQuickviewLabels' ),
+			'sdmsSpecialSearchTitle' => SpecialPage::getTitleFor( 'Search' )->getPrefixedText(),
 		] );
 
 		$specialSearchUrl = SpecialPage::getTitleFor( 'Search' )->getLocalURL( [ 'search' => $term ] );

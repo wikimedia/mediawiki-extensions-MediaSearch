@@ -59,7 +59,7 @@
 	"mediasearch-quickview-close-button-text": "Text for the button to close the QuickView panel",
 	"mediasearch-quickview-previous-button-text": "Text for the button in the QuickView panel to open the preceding result in QuickView",
 	"mediasearch-quickview-next-button-text": "Text for the button in the QuickView panel to open the next result in QuickView",
-	"mediasearch-user-notice-title": "Title text for notification notifying users they can change their default search option",
+	"mediasearch-user-notice-title": "Title text for notification notifying users they can change their default search option. Parameters:\n* $1 - Link to Special:Search\n* $2 - Localized label for Special:Search",
 	"mediasearch-user-notice-body": "Body text for notification notifying users they can change their default search option",
 	"mediasearch-user-notice-dismiss": "Label for button that closes notification",
 	"mediasearch-switch-special-search": "A link so that the user can go to Special:Search",

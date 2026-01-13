@@ -6,7 +6,7 @@
 			@user-dismissed="dismiss"
 		>
 			<span
-				v-i18n-html:mediasearch-user-notice-title
+				v-i18n-html:mediasearch-user-notice-title="[ specialSearchLink, specialSearchTitle ]"
 				class="sdms-user-notice__title"
 			></span>
 			<br>
@@ -29,11 +29,21 @@ module.exports = exports = {
 	data: function () {
 		return {
 			prefKey: 'sdms-search-user-notice-dismissed',
-			dismissed: false
+			dismissed: false,
+			specialSearchTitle: mw.config.get( 'sdmsSpecialSearchTitle' )
 		};
 	},
 
 	computed: {
+		specialSearchLink: function () {
+			const urlParams = {};
+			if ( mw.util.getParamValue( 'search' ) ) {
+				urlParams.search = mw.util.getParamValue( 'search' );
+			}
+
+			return mw.util.getUrl( this.specialSearchTitle, urlParams );
+		},
+
 		previouslyDismissed: function () {
 			const numVal = Number( mw.user.options.get( this.prefKey ) );
 			return Boolean( numVal );

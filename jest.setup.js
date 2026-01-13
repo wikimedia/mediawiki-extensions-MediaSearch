@@ -62,7 +62,9 @@ const mw = {
 	util: {
 		parseImageUrl: jest.fn().mockReturnValue( {
 			resizeUrl: jest.fn()
-		} )
+		} ),
+		getParamValue: jest.fn().mockReturnValue( null ),
+		getUrl: jest.fn().mockReturnValue( '/wiki/Special:Search' )
 	},
 	language: {
 		convertNumber: jest.fn()
