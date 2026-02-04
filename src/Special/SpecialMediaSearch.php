@@ -340,7 +340,6 @@ class SpecialMediaSearch extends SpecialPage {
 			'sdmsExternalEntitySearchBaseUri' => $externalEntitySearchBaseUri,
 			'sdmsExternalSearchUri' => $this->getConfig()->get( 'MediaSearchExternalSearchUri' ) ?: wfScript( 'api' ),
 			'sdmsThumbLimits' => $thumbLimits,
-			'sdmsThumbRenderMap' => $this->getConfig()->get( 'UploadThumbnailRenderMap' ),
 			'sdmsInitialFilters' => json_encode( (object)$activeFilters ),
 			'sdmsDidYouMean' => $didYouMean,
 			'sdmsHasError' => (bool)$error,
