@@ -168,16 +168,13 @@ const searchCurrentTermAndType = function ( context ) {
 		}
 		let urlWidth;
 		switch ( context.getters.currentType ) {
+			// Picking standard thumb sizes. See https://w.wiki/GHai
 			case 'video':
-				urlWidth = 200;
+				urlWidth = 250;
 				break;
 
 			case 'other':
-				// generating thumbnails from many of these file types is very
-				// expensive and slow, enough so that we're better off using a
-				// larger (takes longer to transfer) pre-generated (but readily
-				// available) size
-				urlWidth = Math.min.apply( Math, mw.config.get( 'sdmsThumbRenderMap' ) );
+				urlWidth = 330;
 				break;
 		}
 
