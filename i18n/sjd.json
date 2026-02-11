@@ -4,5 +4,26 @@
 			"Merrahtar"
 		]
 	},
-	"mediasearch-load-more-results": "Вя̄л лоа̄дтэ"
+	"mediasearch-title": "Мультиме̄дья озант",
+	"mediasearch-tab-image": "Ка̄вь",
+	"mediasearch-tab-video": "Вӣдья",
+	"mediasearch-tab-page": "Категорья я лыст",
+	"mediasearch-tab-other": "Мудта ме̄дья",
+	"mediasearch-filter-size-any": "Пугк коа̄ве ме̄рь",
+	"mediasearch-filter-size-small": "удць",
+	"mediasearch-filter-size-large": "шӯрр",
+	"mediasearch-filter-sort-label": "Со̄рртлаһтӭ:",
+	"mediasearch-filter-sort-default": "Релевантвуд мӣлльтэ",
+	"mediasearch-filter-sort-recency": "О̄дтвуд мӣлльтэ",
+	"mediasearch-filter-license-any": "Пугк лицензья",
+	"mediasearch-filter-namespace-all": "Пугк",
+	"mediasearch-filter-namespace-custom": "Ӣджьнан пыййма",
+	"mediasearch-filter-namespace-label": "Нэ̄ммко̄ммтвудт: $1",
+	"mediasearch-load-more-results": "Вя̄л лоа̄дтэ",
+	"mediasearch-user-notice-title": "О̄дзэкь-гэ [[Special:Search|а̄рркъесь озант]]?",
+	"mediasearch-clear-filters": "Чисстлэ фӣльтрэтҍ",
+	"mediasearch-results-count": "$1 {{PLURAL:$1|пуадтмушш|пуадтмуж|пуадтмушшэ}}",
+	"mediasearch-preference": "Воа̄лэшьт ӣжянт о̄дзэм интэрфейс",
+	"mediasearch-filter-assessment": "Се̄бр а̄ррвдэмуж",
+	"mediasearch-filter-license": "Лицензья"
 }
