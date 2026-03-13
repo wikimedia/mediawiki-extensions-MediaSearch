@@ -350,10 +350,10 @@ class SpecialMediaSearch extends SpecialPage {
 		$specialSearchUrl = SpecialPage::getTitleFor( 'Search' )->getLocalURL( [ 'search' => $term ] );
 		$helpUrl = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Help:MediaSearch';
 		$this->getOutput()->setIndicators( [
-			'mw-help-switch' => ( new Tag( 'a' ) )
+			'mw-help-switch' => (string)( new Tag( 'a' ) )
 				->setAttributes( [ 'href' => $specialSearchUrl, 'id' => 'mediasearch-switch-special-search' ] )
 				->appendContent( $this->msg( 'mediasearch-switch-special-search' )->escaped() ),
-			'mw-helplink' => ( new Tag( 'a' ) )
+			'mw-helplink' => (string)( new Tag( 'a' ) )
 				->addClasses( [ 'mw-helplink' ] )
 				->setAttributes( [ 'href' => $helpUrl, 'target' => '_blank' ] )
 				->appendContent( $this->msg( 'helppage-top-gethelp' )->escaped() ),
