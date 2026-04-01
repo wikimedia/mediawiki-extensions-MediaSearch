@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ella Lachow"
+			"Ella Lachow",
+			"Malaalaa"
 		]
 	},
 	"mediasearch-title": "Miidiyaa koyya",
 	"mediasearch-continue": "Kaalliyagaa",
 	"mediasearch-tab-image": "Misileta",
 	"mediasearch-tab-audio": "Cenggurssaa",
-	"mediasearch-tab-video": "Viiduwaa",
+	"mediasearch-tab-video": "Viiduwa",
 	"mediasearch-tab-page": "Moodettatanne Sinttata",
 	"mediasearch-tab-other": "Hara miidiyaa",
 	"mediasearch-filter-size": "Misiliya yesuwaa",
