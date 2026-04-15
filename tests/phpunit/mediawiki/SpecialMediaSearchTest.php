@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\MediaSearch\Tests\MediaWiki;
 
 use MediaWiki\Request\FauxRequest;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 
 /**
  * @covers \MediaWiki\Extension\MediaSearch\Special\SpecialMediaSearch

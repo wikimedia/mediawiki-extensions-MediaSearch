@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\MediaSearch;
 use InvalidArgumentException;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\MediaWikiServices;
-use MessageLocalizer;
 use Wikibase\Search\Elastic\Query\HasLicenseFeature;
 
 /**
