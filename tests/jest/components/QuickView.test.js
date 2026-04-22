@@ -482,7 +482,7 @@ describe( 'QuickView', () => {
 				} );
 
 				it( 'include each MAX_SIZE in string return', () => {
-					const MAX_SIZE = '2000';
+					const MAX_SIZE = '1920';
 					const wrapper = shallowMount( QuickView, {
 						props: {
 							title: imageSampleResult.title,
@@ -543,7 +543,7 @@ describe( 'QuickView', () => {
 				} );
 
 				it( 'include each MAX_SIZE in string return', () => {
-					const MAX_SIZE = '2000';
+					const MAX_SIZE = '1920';
 					const wrapper = shallowMount( QuickView, {
 						props: {
 							title: imageSampleResult.title,
