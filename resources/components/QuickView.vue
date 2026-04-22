@@ -177,7 +177,9 @@ const SdPlayer = require( './base/Player.vue' ),
 	Spinner = require( './Spinner.vue' ),
 	userLangCode = mw.config.get( 'wgUserLanguage' ),
 	PREVIEW_SIZES = [ 640, 800, 1200, 1600 ], // Pre-defined set of thumbnail image width values
-	MAX_SIZE = 2000,
+	// Mapping of those sizes to thumbs being loaded. Keep in sync with $wgThumbnailSteps
+	PREVIEW_SIZE_URLS = [ 960, 960, 1280, 1920 ],
+	MAX_SIZE = 1920,
 	assessmentLabels = mw.config.get( 'sdmsAssessmentQuickviewLabels' );
 
 const { CdxIcon } = require( '@wikimedia/codex' );
@@ -342,8 +344,8 @@ module.exports = exports = {
 				// URLs to attempt to accommodate most sizes and concatenate a
 				// string to use as the attribute value.
 				PREVIEW_SIZES.forEach(
-					( size ) => {
-						const url = mw.util.parseImageUrl( this.thumbnail ).resizeUrl( size );
+					( size, index ) => {
+						const url = mw.util.parseImageUrl( this.thumbnail ).resizeUrl( PREVIEW_SIZE_URLS[ index ] );
 						attributeString += url + ' ' + size + 'w,\n';
 					}
 				);
@@ -361,7 +363,7 @@ module.exports = exports = {
 				// a sidebar and will rarely be wider ~640px (would require a
 				// massive screen)
 				attributeString +=
-					mw.util.parseImageUrl( this.thumbnail ).resizeUrl( PREVIEW_SIZES[ 0 ] ) +
+					mw.util.parseImageUrl( this.thumbnail ).resizeUrl( PREVIEW_SIZE_URLS[ 0 ] ) +
 					' ' +
 					PREVIEW_SIZES[ 0 ] +
 					'w';
