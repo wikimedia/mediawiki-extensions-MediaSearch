@@ -6,7 +6,8 @@
 			"Jonghaya",
 			"Kwj2772",
 			"Songhee",
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
 	"mediasearch-desc": "[[Special:MediaSearch|미디어 검색]] 페이지를 통해 미디어에 적합한 방법으로 검색 결과를 제공합니다.",
@@ -51,6 +52,7 @@
 	"mediasearch-input-label": "미디어 검색",
 	"mediasearch-input-placeholder": "이미지, 오디오, 비디오 등을 검색합니다",
 	"mediasearch-load-more-results": "더 불러오기",
+	"mediasearch-load-less-results": "돌아가기",
 	"mediasearch-quickview-button-text": "자세한 내용",
 	"mediasearch-quickview-close-button-text": "파일 정보 닫기",
 	"mediasearch-quickview-previous-button-text": "이전 결과 보기",
@@ -70,7 +72,10 @@
 	"mediasearch-error-message": "잘못된 검색",
 	"mediasearch-error-text": "위에 새 검색을 입력하고 다시 시도하십시오",
 	"mediasearch-preference": "검색 인터페이스 선택",
+	"mediasearch-preference-mediasearch-label": "특수:미디어검색",
+	"mediasearch-preference-specialsearch-label": "특수:검색",
 	"mediasearch-preference-help": "검색 결과를 표시하는 여러 인터페이스가 있습니다. 당신이 선호하는 것을 선택하십시오.",
+	"mediasearch-filter-assessment-any-assessment": "모든 평가",
 	"mediasearch-filter-assessment-picture-of-the-day": "오늘의 사진",
 	"mediasearch-filter-assessment-picture-of-the-year": "올해의 사진",
 	"mediasearch-filter-assessment-featured-image": "알찬 사진",
@@ -81,5 +86,6 @@
 	"mediasearch-filter-file-type": "파일 유형",
 	"mediasearch-filter-assessment": "공동체 평가",
 	"mediasearch-filter-license": "라이선스",
-	"mediasearch-filter-license-unset": "모두"
+	"mediasearch-filter-license-unset": "모두",
+	"mediasearch-dialog-close-button-label": "닫기"
 }
