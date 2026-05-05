@@ -10,7 +10,6 @@ use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigException;
 use MediaWiki\Context\DerivativeContext;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\MediaSearch\InvalidFiltersException;
 use MediaWiki\Extension\MediaSearch\InvalidNamespaceGroupException;
 use MediaWiki\Extension\MediaSearch\NoCirrusSearchException;
@@ -550,7 +549,7 @@ class SpecialMediaSearch extends SpecialPage {
 			$response = json_decode( $data, true ) ?: [];
 		} else {
 			// Local results (real)
-			$context = new DerivativeContext( RequestContext::getMain() );
+			$context = new DerivativeContext( $this->getContext() );
 			$context->setRequest( $request );
 			$this->api->setContext( $context );
 
