@@ -28,7 +28,8 @@ class MediaSearchHooks implements GetPreferencesHook {
 			'options-messages' => [
 				'mediasearch-preference-mediasearch-label' => 'MediaSearch',
 				'mediasearch-preference-specialsearch-label' => 'Search',
-			]
+			],
+			'options-messages-parse' => true,
 		];
 
 		$preferences['sdms-search-user-notice-dismissed'] = [
