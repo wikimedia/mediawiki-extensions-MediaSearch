@@ -47,17 +47,13 @@ module.exports = exports = {
 		// Videojs is provided by the ext.tmh.video-js resource module
 		// from the TimedMediaHandler Extension. See:
 		// https://www.mediawiki.org/wiki/Extension:TimedMediaHandler
-		// for more information. The ogvjs library is necessary to provide
-		// support for OGG/WebM playback in browsers like Safari.
+		// for more information.
 		mw.loader
-			.using( 'ext.tmh.videojs-ogvjs' )
-			.then( () => mw.OgvJsSupport.loadIfNeeded() )
+			.using( 'ext.tmh.video-js' )
 			.then( () => {
 				this.player = window.videojs(
 					this.$refs.videoPlayer,
-					Object.assign( {}, this.options, {
-						ogvjs: { base: mw.OgvJsSupport.basePath() }
-					} ),
+					this.options,
 					() => {}
 				);
 
