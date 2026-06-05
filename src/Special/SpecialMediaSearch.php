@@ -783,6 +783,10 @@ class SpecialMediaSearch extends SpecialPage {
 	 * @return array
 	 */
 	protected function getThumbLimits() {
+		$thumbLimits = $this->getConfig()->get( 'ThumbnailSteps' );
+		if ( $thumbLimits ) {
+			return $thumbLimits;
+		}
 		$thumbLimits = [];
 		foreach ( $this->getConfig()->get( 'ThumbLimits' ) as $limit ) {
 			$thumbLimits[] = $limit;
