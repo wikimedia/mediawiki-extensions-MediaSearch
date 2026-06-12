@@ -75,6 +75,8 @@
 	"mediasearch-error-message": "Недійсний пошук",
 	"mediasearch-error-text": "Введіть новий пошук вище та повторіть спробу",
 	"mediasearch-preference": "Виберіть інтерфейс пошуку",
+	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
+	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Є кілька доступних інтерфейсів для показу результатів пошуку. Виберіть той, якому віддаєте перевагу.",
 	"mediasearch-filter-assessment-any-assessment": "Будь-яка оцінка",
 	"mediasearch-filter-assessment-picture-of-the-day": "Зображення дня",
