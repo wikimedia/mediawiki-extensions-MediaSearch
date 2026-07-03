@@ -7,7 +7,7 @@ enhance the media search experience.
 
 ### System-level dependencies
 
-- ElasticSearch (see [here](https://www.mediawiki.org/wiki/Extension:CirrusSearch#Dependencies)
+- ElasticSearch or OpenSearch (see [here](https://www.mediawiki.org/wiki/Extension:CirrusSearch#Dependencies)
 for more information on how to install)
 
 ### MW Extensions
