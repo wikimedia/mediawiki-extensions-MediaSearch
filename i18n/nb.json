@@ -69,8 +69,6 @@
 	"mediasearch-error-message": "Ugyldig søk",
 	"mediasearch-error-text": "Skriv et nytt søk og prøv igjen",
 	"mediasearch-preference": "Velg søkegrensesnitt",
-	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
-	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Det er flere tilgjengelige grensesnitt for å vise søkeresultater. Velg hvilken du foretrekker.",
 	"mediasearch-filter-assessment-any-assessment": "Enhver vurdering",
 	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bilde",

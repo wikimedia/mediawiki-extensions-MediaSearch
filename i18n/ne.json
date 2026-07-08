@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pratik11",
 			"पर्वत सुबेदी",
 			"बडा काजी"
 		]
@@ -50,7 +51,7 @@
 	"mediasearch-quickview-button-text": "अधिक जानकारी",
 	"mediasearch-quickview-previous-button-text": "अघिल्लो परिणाम हेर्नुहोस्",
 	"mediasearch-quickview-next-button-text": "अर्को परिणाम हेर्नुहोस्",
-	"mediasearch-user-notice-title": "[[Special:Search]] खोज्दै हुनुहुन्छ?",
+	"mediasearch-user-notice-title": "[ $1 $2 ] खोज्दै हुनुहुन्छ?",
 	"mediasearch-copytextlayout-copy": "प्रतिलिपि गर्नुहोस्",
 	"mediasearch-filter-assessment-unset": "सबै",
 	"mediasearch-filter-license": "अनुमतिपत्र",

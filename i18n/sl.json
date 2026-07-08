@@ -69,8 +69,6 @@
 	"mediasearch-error-message": "Neveljavno iskanje",
 	"mediasearch-error-text": "Zgoraj vnesite novo iskanje in poskusite znova",
 	"mediasearch-preference": "Izberite svoj iskalni vmesnik",
-	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
-	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Za prikaz iskalnih zadetkov je na voljo več različnih vmesnikov. Izberite želenega.",
 	"mediasearch-filter-assessment-any-assessment": "Katera koli ocena",
 	"mediasearch-filter-assessment-picture-of-the-day": "Slika dneva",

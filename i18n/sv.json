@@ -71,8 +71,6 @@
 	"mediasearch-error-message": "Ogiltig sökning",
 	"mediasearch-error-text": "Skriv en ny sökning och försök igen",
 	"mediasearch-preference": "Välj ditt sökgränssnitt",
-	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
-	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Det finns flera tillgängliga gränssnitt för att visa sökresultat. Klicka på en för att välja ditt föredragna.",
 	"mediasearch-filter-assessment-any-assessment": "Alla utvärderingar",
 	"mediasearch-filter-assessment-picture-of-the-day": "Dagens bild",

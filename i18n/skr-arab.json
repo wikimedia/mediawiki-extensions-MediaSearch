@@ -47,7 +47,6 @@
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|لفظ}})",
 	"mediasearch-did-you-mean": "بھلا تہاݙا مطلب ہائی: $1",
 	"mediasearch-error-message": "غلط ڳول",
-	"mediasearch-preference-specialsearch-label": "خاص:ڳولو",
 	"mediasearch-filter-assessment-featured-image": "خاص تصویر",
 	"mediasearch-filter-assessment-unset": "یکے",
 	"mediasearch-filter-file-type": "فائل قسم",

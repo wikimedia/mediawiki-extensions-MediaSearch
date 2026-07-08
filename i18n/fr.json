@@ -84,8 +84,6 @@
 	"mediasearch-error-message": "Recherche incorrecte",
 	"mediasearch-error-text": "Entrez une nouvelle recherche ci-dessus et essayez à nouveau",
 	"mediasearch-preference": "Choisissez votre interface de recherche",
-	"mediasearch-preference-mediasearch-label": "Special:MediaSearch",
-	"mediasearch-preference-specialsearch-label": "Special:Search",
 	"mediasearch-preference-help": "Il y a plusieurs interfaces disponibles pour afficher les résultats de recherche. Sélectionnez celle à utiliser comme votre favorie.",
 	"mediasearch-filter-assessment-any-assessment": "Toute évaluation",
 	"mediasearch-filter-assessment-picture-of-the-day": "Image du jour",

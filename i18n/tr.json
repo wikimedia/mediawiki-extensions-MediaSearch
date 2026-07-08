@@ -78,8 +78,6 @@
 	"mediasearch-error-message": "Geçersiz arama",
 	"mediasearch-error-text": "Yukarıya yeni bir arama girin ve tekrar deneyin",
 	"mediasearch-preference": "Arama arayüzünüzü seçiniz",
-	"mediasearch-preference-mediasearch-label": "Özel:OrtamArama",
-	"mediasearch-preference-specialsearch-label": "Özel:Arama",
 	"mediasearch-preference-help": "Arama sonuçlarını görüntülemek için birden fazla arayüz mevcuttur. Yeğlediğiniz bir tanesi için seçin.",
 	"mediasearch-filter-assessment-any-assessment": "Herhangi Bir Değerlendirme",
 	"mediasearch-filter-assessment-picture-of-the-day": "Günün resmi",
