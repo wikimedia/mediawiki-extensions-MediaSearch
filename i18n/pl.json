@@ -58,7 +58,7 @@
 	"mediasearch-quickview-close-button-text": "Zamknij szczegóły pliku",
 	"mediasearch-quickview-previous-button-text": "Zobacz poprzedni wynik",
 	"mediasearch-quickview-next-button-text": "Zobacz następny wynik",
-	"mediasearch-user-notice-title": "Szukasz [[Special:Search|Specjalna:Szukaj]]?",
+	"mediasearch-user-notice-title": "Szukasz [$1 $2]?",
 	"mediasearch-user-notice-body": "Możesz dostosować swoje [[Special:Preferences#mw-prefsection-searchoptions|preferencje]], aby wybrać preferowaną metodę wyszukiwania.",
 	"mediasearch-user-notice-dismiss": "Odrzuć powiadomienie",
 	"mediasearch-switch-special-search": "Przełącz na {{#special:Search}}",
