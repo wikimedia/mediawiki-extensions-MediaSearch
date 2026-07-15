@@ -9,7 +9,8 @@
 			"NickK",
 			"Piramidion",
 			"Vlad5250",
-			"Ата"
+			"Ата",
+			"Matěj Suchánek"
 		]
 	},
 	"mediasearch-desc": "Спосіб відображення результатів пошуку за допомогою медіа-сторінки через сторінку [[Special:MediaSearch|пошуку медіа]].",
@@ -49,7 +50,7 @@
 	"mediasearch-no-results": "Ми не знайшли жодних результатів",
 	"mediasearch-no-results-tips": "Спробуйте більш загальні терміни або перевірте правильність написання",
 	"mediasearch-end-of-results": "Не знайдено більше результатів",
-	"mediasearch-empty-state": "Пошук по понад $1 {{PLURAL:вільному для використання файлу|вільних для використання файлах}}",
+	"mediasearch-empty-state": "Пошук по понад $1 {{PLURAL:$1|вільному для використання файлу|вільних для використання файлах}}",
 	"mediasearch-clear-title": "Вилучити",
 	"mediasearch-input-label": "Пошук медіа",
 	"mediasearch-input-placeholder": "Шукати зображення, аудіо, відео та інше",
