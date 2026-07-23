@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Csega",
+			"Dj",
 			"Einstein2",
 			"Hanna Tardos",
 			"Krisztina",
@@ -75,7 +76,7 @@
 	"mediasearch-filter-assessment-unset": "Mind",
 	"mediasearch-filter-file-type": "Fájltípus",
 	"mediasearch-filter-assessment": "Közösségi értékelések",
-	"mediasearch-filter-license": "Licensz",
+	"mediasearch-filter-license": "Licenc",
 	"mediasearch-filter-license-unset": "Mind",
 	"mediasearch-dialog-close-button-label": "Bezárás"
 }
