@@ -67,7 +67,6 @@ module.exports = {
 	 * Create an intersection observer when the Observer component mounts
 	 */
 	mounted: function () {
-		// eslint-disable-next-line compat/compat
 		this.observer = new IntersectionObserver(
 			this.intersectionCallback.bind( this ), // what to do when intersection occurs
 			this.observerOptions || {} // additional options can be provided as props to this component

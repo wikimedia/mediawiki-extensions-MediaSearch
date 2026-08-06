@@ -59,7 +59,7 @@ module.exports = exports = {
 			let words, inputRegex;
 			try {
 				// below could be a regex literal, but eslint fails to parse the `u` flag...
-				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
+				// eslint-disable-next-line prefer-regex-literals
 				words = trimmedInput.match( new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+', 'gu' ) ) || [];
 
 				inputRegex = new RegExp( '^' + new Array( words.length + 1 ).join( '[\\p{L}\\p{M}\\p{N}\\p{S}]+.*?' ), 'iu' );
@@ -102,7 +102,7 @@ module.exports = exports = {
 			let lastWordRegex, lastWord;
 
 			try {
-				// eslint-disable-next-line prefer-regex-literals, es-x/no-regexp-unicode-property-escapes
+				// eslint-disable-next-line prefer-regex-literals
 				lastWordRegex = new RegExp( '[\\p{L}\\p{M}\\p{N}\\p{S}]+$', 'u' );
 				lastWord = input.match( lastWordRegex );
 			} catch ( e ) {

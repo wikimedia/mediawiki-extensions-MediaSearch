@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 const VueTestUtils = require( '@vue/test-utils' );
 const Vue = require( 'vue' );
 const Observer = require( '../../../resources/components/base/mixins/observer.js' );
