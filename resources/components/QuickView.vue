@@ -482,10 +482,17 @@ module.exports = exports = {
 
 		licenseUrl: function () {
 			if ( this.metadata && this.metadata.LicenseUrl ) {
-				return this.metadata.LicenseUrl.value;
-			} else {
-				return null;
+				try {
+					const url = new URL( this.metadata.LicenseUrl.value );
+					// Filter out non-http(s) license urls
+					// https://phabricator.wikimedia.org/T435999
+					if ( [ 'http:', 'https:' ].includes( url.protocol ) ) {
+						return this.metadata.LicenseUrl.value;
+					}
+				} catch ( e ) {
+				}
 			}
+			return null;
 		},
 
 		/**
