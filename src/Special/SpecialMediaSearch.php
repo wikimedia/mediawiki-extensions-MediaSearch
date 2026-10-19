@@ -24,7 +24,6 @@ use MediaWiki\Search\SearchEngine;
 use MediaWiki\Search\SearchEngineFactory;
 use MediaWiki\SiteStats\SiteStats;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
 use OOUI\Tag;
@@ -68,7 +67,6 @@ class SpecialMediaSearch extends SpecialPage {
 	 */
 	public function __construct(
 		SearchEngineFactory $searchEngineFactory,
-		private readonly NamespaceInfo $namespaceInfo,
 		private readonly UserOptionsManager $userOptionsManager,
 		private readonly LinkRenderer $linkRenderer,
 		$name = 'MediaSearch',

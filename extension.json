@@ -252,7 +252,6 @@
 			"class": "MediaWiki\\Extension\\MediaSearch\\Special\\SpecialMediaSearch",
 			"services": [
 				"SearchEngineFactory",
-				"NamespaceInfo",
 				"UserOptionsManager",
 				"LinkRenderer"
 			]
