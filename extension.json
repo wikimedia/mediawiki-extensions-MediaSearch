@@ -238,7 +238,6 @@
 				"mediawiki.user",
 				"vue",
 				"vuex",
-				"web2017-polyfills",
 				"@wikimedia/codex"
 			]
 		}
