@@ -10,7 +10,8 @@
 			"Ladsgroup",
 			"Physicsch",
 			"Reza1615",
-			"درفش کاویانی"
+			"درفش کاویانی",
+			"LProfo"
 		]
 	},
 	"mediasearch-title": "جستجوی رسانه‌ها",
@@ -49,7 +50,7 @@
 	"mediasearch-no-results": "هیچ نتیجه‌ای پیدا نکردیم",
 	"mediasearch-no-results-tips": "استفاده از اصطلاحات کلی‌تر را بیازمایید یا املای خود را بررسی کنید",
 	"mediasearch-end-of-results": "نتیجهٔ بیشتری یافت نشد",
-	"mediasearch-empty-state": "جستجو در میان بیش از $1 {{PLURAL:$1|رسانهٔ}} قابل استفادهٔ مجدد",
+	"mediasearch-empty-state": "جستجوی بیش از $1 {{PLURAL:$1|پروندهٔ|پرونده‌های}} رسانه‌ای آزاد برای بازاستفاده",
 	"mediasearch-clear-title": "حذف",
 	"mediasearch-input-label": "جستجوی رسانه‌ها",
 	"mediasearch-input-placeholder": "جستجوی تصاویر، صوت، ویدئو و بسیاری موارد دیگر",
