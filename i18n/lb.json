@@ -47,7 +47,7 @@
 	"mediasearch-switch-special-search": "Wiesselen op Spezial:Sichen",
 	"mediasearch-copytextlayout-copy": "Kopéieren",
 	"mediasearch-copytextlayout-copy-success": "An den Tëschespäicher kopéiert.",
-	"mediasearch-clear-filters": "Filteren eidel maachen",
+	"mediasearch-clear-filters": "Filteren zerécksetzen",
 	"mediasearch-results-count": "$1 {{PLURAL:$1|Resultat|Resultater}}",
 	"mediasearch-wordcount": "($1 {{PLURAL:$1|Wuert|Wierder}})",
 	"mediasearch-did-you-mean": "Mengt Dir: $1",
